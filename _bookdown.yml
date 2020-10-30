@@ -1,8 +1,8 @@
-book_filename: "bookdownproj"
+book_filename: "cc for EDAV 2020"
 output_dir: docs
 delete_merged_file: true
-edit: https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/%s
-view: https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/%s
+edit: https://github.com/jtr13/cc20/edit/master/%s
+view: https://github.com/jtr13/cc20/blob/master/%s
 language:
   ui:
     chapter_name: "Chapter "
