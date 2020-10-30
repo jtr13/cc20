@@ -1,8 +1,11 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+title: "Fall 2020 EDAV Community Contributions"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+github-repo: jtr13/cc20
+description: "This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University"
 ---
 
 # Down the rabbit-hole
