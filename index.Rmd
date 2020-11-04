@@ -18,7 +18,7 @@ This chapter gives you all the information you need to upload your community con
 
 ## Background
 
-This web site makes use of the **bookdown** package to render a collection of `.Rmd` files into a nicely formatted online book with chapters and subchapters. Your job will be to submit a slightly modified version of your community contribution `.Rmd` file to the GitHub repository where the source files for this web site are stored. On the backend, the admins will divide the chapters into book sections and order them. 
+This web site makes use of the **bookdown** package to render a collection of `.Rmd` files into a nicely formatted online book with chapters and subchapters. Your job will be to submit a slightly modified version of your community contribution `.Rmd` file to the GitHub repository where the source files for this web site are stored. On the backend, the admins will divide the chapters into book sections and order them. We use[GitHub Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions){target="_blank"} to render the book and push the rendered `.html` files to our `gh-pages` branch
 
 If your community contribution is in a different format, then create a short `.Rmd` file that explains what you did, and includes links to any relevant files, such as slides, etc. which you can post on your GitHub repo (or another online site.)
 
@@ -28,11 +28,11 @@ You should only submit **ONE** `Rmd` file.
 
 After completing these modifications, your `.Rmd` should look like this [sample bookdown `.Rmd`.](sample_project.Rmd){target="_blank"}
 
-1. Create a concise, descriptive name for your project. For instance, name it `base_r_ggplot_graph` or something similar if your work is about contrasting/working with base R graphics and **ggplot2** graphics. Check the `.Rmd` filenames in [the project repo](https://github.com/jtr13/cc19){target="_blank"} to make sure your name isn't already taken. Your project name should be words only and joined with underscores, i.e. **Do not include whitespace in the name.** Create a copy of your `.Rmd` file with the new name. 
+1. Create a concise, descriptive name for your project. For instance, name it `base_r_ggplot_graph` or something similar if your work is about contrasting/working with base R graphics and **ggplot2** graphics. Check the `.Rmd` filenames in [the project repo](https://github.com/jtr13/cc20){target="_blank"} to make sure your name isn't already taken. Your project name should be words only and joined with underscores, i.e. **Do not include whitespace in the name.** Create a copy of your `.Rmd` file with the new name. 
 
 2.  Completely delete the YAML header (the section at the top of the `.Rmd` that includes name, title, date, output, etc.) including the `---` line.
     
-3. Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents -- look at examples in the [rendered book](https://jtr13.github.io/cc19/){target="_blank"}. Capitalize the first letter only ("sentence case"). On the first line of your document, enter a single hashtag, followed by a single whitespace, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single # headers anywhere else in the document.
+3. Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents -- look at examples in the [rendered book](https://jtr13.github.io/cc20/){target="_blank"}. Capitalize the first letter only ("sentence case"). On the first line of your document, enter a single hashtag, followed by a single whitespace, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single # headers anywhere else in the document.
     
 4. The second line should be blank, followed by your name(s):
     
@@ -65,7 +65,7 @@ Want to get fancy? See the [optional tweaks](#optional-tweaks) section below.
 
 To submit your work, we will be following the instructions in [this tutorial](https://edav.info/github.html#st-pr-on-another-repo-with-branching){target="_blank"}, which are provided in abbreviated form below, with specific instructions on naming conventions, content information, and other important details.
 
-1. Fork [cc19 repo (this repo)](https://github.com/jtr13/cc19){target="_blank"} to your GitHub account. 
+1. Fork [cc20 repo (this repo)](https://github.com/jtr13/cc20){target="_blank"} to your GitHub account. 
 
 2. Clone/download the forked repo to your local computer.
 
@@ -106,6 +106,6 @@ To submit your work, we will be following the instructions in [this tutorial](ht
 
 ### Other questions
 
-If you encounter other problems, please [submit an issue](https://github.com/jtr13/cc19/issues){target="_blank"} and we will look into it. 
+If you encounter other problems, please [submit an issue](https://github.com/jtr13/cc20/issues){target="_blank"} and we will look into it. 
 
 Thank you for your contributions!
