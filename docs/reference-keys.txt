@@ -1,3 +1,11 @@
-under-construction
+instructions
+background
+preparing-your-.rmd-file
+submission-steps
+optional-tweaks
+faq
+what-should-i-expect-after-creating-a-pull-request
+what-if-i-catch-mistakes-after-my-pull-request-is-merged
+other-questions
 the-pool-of-tears
 a-caucus-race-and-a-long-tale
