@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="the-pool-of-tears.html"/>
+<link rel="next" href="a-caucus-race-and-a-long-tale.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -82,8 +82,8 @@
 <li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.3</b> Other questions</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>2</b> The pool of tears</a></li>
-<li class="chapter" data-level="3" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>3</b> A caucus-race and a long tale</a></li>
+<li class="chapter" data-level="2" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>2</b> A caucus-race and a long tale</a></li>
+<li class="chapter" data-level="3" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>3</b> Sample project</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -112,7 +112,7 @@
 <p>This chapter gives you all the information you need to upload your community contribution. <strong>Please read this entire document carefully before making your submission.</strong> Of particular note is the fact that <strong>bookdown</strong> requires a different .Rmd format than you’re used to, so you must make changes to the beginning of the file as described below before submitting.</p>
 <div id="background" class="section level2">
 <h2><span class="header-section-number">1.1</span> Background</h2>
-<p>This web site makes use of the <strong>bookdown</strong> package to render a collection of <code>.Rmd</code> files into a nicely formatted online book with chapters and subchapters. Your job will be to submit a slightly modified version of your community contribution <code>.Rmd</code> file to the GitHub repository where the source files for this web site are stored. On the backend, the admins will divide the chapters into book sections and order them.</p>
+<p>This web site makes use of the <strong>bookdown</strong> package to render a collection of <code>.Rmd</code> files into a nicely formatted online book with chapters and subchapters. Your job will be to submit a slightly modified version of your community contribution <code>.Rmd</code> file to the GitHub repository where the source files for this web site are stored. On the backend, the admins will divide the chapters into book sections and order them. We use <a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions" target="_blank">GitHub Actions</a> to render the book and push the rendered <code>.html</code> files to our <code>gh-pages</code> branch.</p>
 <p>If your community contribution is in a different format, then create a short <code>.Rmd</code> file that explains what you did, and includes links to any relevant files, such as slides, etc. which you can post on your GitHub repo (or another online site.)</p>
 </div>
 <div id="preparing-your-.rmd-file" class="section level2">
@@ -120,9 +120,9 @@
 <p>You should only submit <strong>ONE</strong> <code>Rmd</code> file.</p>
 <p>After completing these modifications, your <code>.Rmd</code> should look like this <a href="sample_project.Rmd" target="_blank">sample bookdown <code>.Rmd</code>.</a></p>
 <ol style="list-style-type: decimal">
-<li><p>Create a concise, descriptive name for your project. For instance, name it <code>base_r_ggplot_graph</code> or something similar if your work is about contrasting/working with base R graphics and <strong>ggplot2</strong> graphics. Check the <code>.Rmd</code> filenames in <a href="https://github.com/jtr13/cc19" target="_blank">the project repo</a> to make sure your name isn’t already taken. Your project name should be words only and joined with underscores, i.e. <strong>Do not include whitespace in the name.</strong> Create a copy of your <code>.Rmd</code> file with the new name.</p></li>
+<li><p>Create a concise, descriptive name for your project. For instance, name it <code>base_r_ggplot_graph</code> or something similar if your work is about contrasting/working with base R graphics and <strong>ggplot2</strong> graphics. Check the <code>.Rmd</code> filenames in <a href="https://github.com/jtr13/cc20" target="_blank">the project repo</a> to make sure your name isn’t already taken. Your project name should be words only and joined with underscores, i.e. <strong>Do not include whitespace in the name.</strong> Create a copy of your <code>.Rmd</code> file with the new name.</p></li>
 <li><p>Completely delete the YAML header (the section at the top of the <code>.Rmd</code> that includes name, title, date, output, etc.) including the <code>---</code> line.</p></li>
-<li><p>Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents – look at examples in the <a href="https://jtr13.github.io/cc19/" target="_blank">rendered book</a>. Capitalize the first letter only (“sentence case”). On the first line of your document, enter a single hashtag, followed by a single whitespace, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single # headers anywhere else in the document.</p></li>
+<li><p>Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents – look at examples in the <a href="https://jtr13.github.io/cc20/" target="_blank">rendered book</a>. Capitalize the first letter only (“sentence case”). On the first line of your document, enter a single hashtag, followed by a single whitespace, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single # headers anywhere else in the document.</p></li>
 <li><p>The second line should be blank, followed by your name(s):</p>
 <pre><code> # Base R vs. ggplot2
 
@@ -141,7 +141,7 @@
 <h2><span class="header-section-number">1.3</span> Submission steps</h2>
 <p>To submit your work, we will be following the instructions in <a href="https://edav.info/github.html#st-pr-on-another-repo-with-branching" target="_blank">this tutorial</a>, which are provided in abbreviated form below, with specific instructions on naming conventions, content information, and other important details.</p>
 <ol style="list-style-type: decimal">
-<li><p>Fork <a href="https://github.com/jtr13/cc19" target="_blank">cc19 repo (this repo)</a> to your GitHub account.</p></li>
+<li><p>Fork <a href="https://github.com/jtr13/cc20" target="_blank">cc20 repo (this repo)</a> to your GitHub account.</p></li>
 <li><p>Clone/download the forked repo to your local computer.</p></li>
 <li><p>Create a new branch and name it with your project name, in our case <code>sample_project</code>. If you forget to do so, check <a href="https://edav.info/github.html#fixing-mistakes">this tutorial</a> to fix.</p></li>
 <li><p>Copy your modified <code>.Rmd</code> file with the same name into the root directory on the branch. In our example, it is <a href="sample_project.Rmd" target="_blank"><code>sample_project.Rmd</code></a>.</p></li>
@@ -177,7 +177,7 @@
 </div>
 <div id="other-questions" class="section level3">
 <h3><span class="header-section-number">1.5.3</span> Other questions</h3>
-<p>If you encounter other problems, please <a href="https://github.com/jtr13/cc19/issues" target="_blank">submit an issue</a> and we will look into it.</p>
+<p>If you encounter other problems, please <a href="https://github.com/jtr13/cc20/issues" target="_blank">submit an issue</a> and we will look into it.</p>
 <p>Thank you for your contributions!</p>
 
 </div>
@@ -189,7 +189,7 @@
         </div>
       </div>
 
-<a href="the-pool-of-tears.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="a-caucus-race-and-a-long-tale.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
