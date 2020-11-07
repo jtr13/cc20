@@ -2,10 +2,8 @@
 
 Yibai Liu
 
-```{r, include=FALSE}
-install.packages("GGally")
-install.packages("ggplot2")
-install.packages("vcd")
+This markdown uses packages `GGally`, `ggplot2`, and `vcd`
+
 ```
 ## 1. Overview: Things we can do with pairs() and ggpairs()
 
