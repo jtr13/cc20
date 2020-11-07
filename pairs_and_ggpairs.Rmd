@@ -45,7 +45,7 @@ pairs(mtcars[, c(1,3:7)],
       main = "Scatterplot Matrix of `mtcars`")
 ```
 
-#### Add a smoother
+#### Add a smoother to each scatterplot
 ```{r}
 pairs(mtcars[, c(1,3:7)],
       lower.panel = panel.smooth,           # Add a smoother for the lower panel
