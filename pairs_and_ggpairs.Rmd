@@ -2,7 +2,7 @@
 
 Yibai Liu
 
-```
+``` {r}
 library(GGally)
 library(ggplot2)
 library(vcd)
