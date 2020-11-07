@@ -2,7 +2,11 @@
 
 Yibai Liu
 
-This markdown uses packages `GGally`, `ggplot2`, and `vcd`
+```
+library(GGally)
+library(ggplot2)
+library(vcd)
+```
 
 ```
 ## 1. Overview: Things we can do with pairs() and ggpairs()
@@ -132,9 +136,8 @@ pairs(mtcars[, c(1,3:7)],
 ### 2.2 Plot with **ggpairs()** from `GGally` package 
 #### 2.2.1 Basic ggpairs() plot
 ```{r}
-# Load both ggplot2 and GGally to work with ggpairs()
-library(ggplot2)
-library(GGally)
+# You need both ggplot2 and GGally packages loaded to work with ggpairs()
+
 ggpairs(mtcars[, c(1,3:7)],
         columnLabels = c("Miles","Displacement","Horsepower",
                  "Rear axle ratio","Weight","1/4 mile time"),
@@ -167,10 +170,10 @@ mtcars$gear <- as.factor(mtcars$gear)
 Now we can create a mosaic pairs plot with pairs_diagonal_mosaic() in the `vcd` package
 
 ### 3.2 pairs() plot for categorical variables
+
 ```{r}
-library(vcd)
-```
-```{r}
+# The pairs_diagonal_mosaic() function is in the `vcd` package
+
 p <- mtcars[, c(2,8:10)]
 pairs(table(p),                                     # Here the data needs to be in a table format 
       diag_panel = pairs_diagonal_mosaic(offset_varnames=-2.5))    #move down variable labels
