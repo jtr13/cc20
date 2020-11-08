@@ -12,6 +12,8 @@ rmd_files: [
   'index.Rmd', # do not move
   'sample_project.Rmd',
   'pairs_and_ggpairs.Rmd'
+  # Appendix
+  'Appendix.Rmd'
 ]
 
 before_chapter_script: "_common.R"
