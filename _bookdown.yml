@@ -11,7 +11,7 @@ rmd_files: [
   # Part I: Introduction
   'index.Rmd', # do not move
   'sample_project.Rmd',
-  'pairs_and_ggpairs.Rmd'
+  'pairs_and_ggpairs.Rmd',
   # Appendix
   'Appendix.Rmd'
 ]

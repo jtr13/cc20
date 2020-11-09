@@ -8,12 +8,15 @@ what-should-i-expect-after-creating-a-pull-request
 what-if-i-catch-mistakes-after-my-pull-request-is-merged
 other-questions
 sample-project
-customized-plot-matrix-pairs-ggpairs
+customized-plot-matrix-pairs-and-ggpairs
+overview-things-we-can-do-with-pairs-and-ggpairs
+scatterplot-matrix-for-continuous-variables
+plot-with-pairs
+basic-scatterplot-matrix-of-the-mtcars-dataset-all-numeric-variables
 continuous-variables-only
 change-color-shape-size-of-points-as-well-as-labels-and-gaps-of-the-plot
-add-a-smoother
+add-a-smoother-to-each-scatterplot
 separate-groups-using-different-colors
-tip-you-can-also-highlight-a-certain-level-of-a-categorical-variable-by-simply-turn-other-levels-to-grey
 choose-panel-display
 customize-your-own-plot-matrix
 plot-with-ggpairs-from-ggally-package
@@ -23,4 +26,5 @@ categorical-variables
 pairs-plot-for-categorical-variables
 highlight-correlations-with-shade-colors
 outside-sources
-you-can-check-out-the-following-links-to-find-more-interesting-ways-to-customize-your-plot-matrix.
+appendix
+github-initial-setup
