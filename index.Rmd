@@ -30,51 +30,51 @@ After completing these modifications, your `.Rmd` should look like this [sample 
 
 1. Create a concise, descriptive name for your project. For instance, name it `base_r_ggplot_graph` or something similar if your work is about contrasting/working with base R graphics and **ggplot2** graphics. Check the `.Rmd` filenames in [the project repo](https://github.com/jtr13/cc20){target="_blank"} to make sure your name isn't already taken. Your project name should be words only and joined with underscores, i.e. **Do not include whitespace in the name.** Create a copy of your `.Rmd` file with the new name. 
 
-2.  Completely delete the YAML header (the section at the top of the `.Rmd` that includes name, title, date, output, etc.) including the `---` line.
+2. Completely delete the YAML header (the section at the top of the `.Rmd` that includes name, title, date, output, etc.) including the `---` line.
     
-3. Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents -- look at examples in the [rendered book](https://jtr13.github.io/cc20/){target="_blank"}. Capitalize the first letter only ("sentence case"). On the first line of your document, enter a single hashtag, followed by a single whitespace, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single `#` headers anywhere else in the document. Note: if your chapter is the first in a section, a second `#` header and section description will be requested during the pull-request and merge phase.
+3. Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents -- look at examples in the [rendered book](https://jtr13.github.io/cc19/){target="_blank"}. Capitalize the first letter only ("sentence case"). On the first line of your document, enter a single hashtag, followed by a single whitespace, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single `#` headers anywhere else in the document. Note: if your chapter is the first in a section, a second `#` header and section description will be requested during the pull-request and merge phase.
     
 4. The second line should be blank, followed by your name(s):
     
-  ```
-  # Base R vs. ggplot2
-    
-  Aaron Burr and Alexander Hamilton
-  Your content starts here. 
-  ```
+   ```
+   # Base R vs. ggplot2
+ 
+   Aaron Burr and Alexander Hamilton
+   Your content starts here. 
+   ```
 
 5. If your project requires data, please use a built-in dataset or read directly from a URL, such as:
 
-    `df <- readr::read_csv("https://people.sc.fsu.edu/~jburkardt/data/csv/addresses.csv")` <br> If you absolutely must include a data file, please use a small one, as for many reasons it is desirable to keep the repository size as small as possible.
+   `df <- readr::read_csv("https://people.sc.fsu.edu/~jburkardt/data/csv/addresses.csv")` <br> If you absolutely must include a data file, please use a small one, as for many reasons it is desirable to keep the repository size as small as possible.
     
 6. If you have included a `setup` chunk in your `Rmd` file, please remember to remove the label `setup` in the chunk, i.e., use:
 
-    ```
-    {r, include=FALSE}
-    ```
-  
-  instead of:
-  
-    ```
-    {r setup, include=FALSE}
-    ```
+   ```
+   {r, include=FALSE}
+   ```
+
+   instead of:
+
+   ```
+   {r setup, include=FALSE}
+   ```
 
 7. If your project requires libraries to be installed and included in the document, please adhere to the following conventions. Do not evaluate any `install.packages()` statements in your document. Consumers of an `Rmd` file won't want packages to get installed when they knit your document. Include any `library()` statements at the top of your `Rmd` file, below the title, name, and `setup`, but above any content. If your chapter requires the installation of a package from source (is a GitHub installation), please add a comment identifying it as such. Here is an example `library()` section with install statements that won't be evaluated:
 
-    ```{r, eval=FALSE}
-    install.packages("devtools") # used for installation from source
-    install.packages("dplyr")
-    install.packages("ggplot2")
+   ```{r, eval=FALSE}
+   install.packages("devtools") # used for installation from source
+   install.packages("dplyr")
+   install.packages("ggplot2")
 
-    library("devtools")
-    devtools::install_github("twitter/AnomalyDetection")
-    ```
+   library("devtools")
+   devtools::install_github("twitter/AnomalyDetection")
+   ```
 
-    ```{r}
-    library("AnomalyDetection") # must be installed from source
-    library("dplyr")
-    library("ggplot2")
-    ```
+   ```{r}
+   library("AnomalyDetection") # must be installed from source
+   library("dplyr")
+   library("ggplot2")
+   ```
 
   You could include both sections, or you could just include the second `library()` section and trust R users to install any packages themselves. If you developed your `Rmd` file before moving your `library()` statements above the rest of the file content, it is highly recommended to knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior. This common issue is mentioned in the EDAV R Basics ["Functions stop working"](https://edav.info/basics.html) section.
 
@@ -102,7 +102,7 @@ To submit your work, we will be following the instructions in [this tutorial](ht
 
 1. If you prefer for links from your chapter to open in new tabs, add `{target="_blank"}` after the link, such as:
 
-    `[edav.info](edav.info){target="_blank"}`
+   `[edav.info](edav.info){target="_blank"}`
 
 2. Note that your headers (`##`, `###`, etc.) will be converted to numbered headings as such: <br> `##`  --> 3.1 <br> `###` --> 3.1.1 <br> These headings will appear as chapter subheadings and sub-subheadings in the navigation panel on the left. Think about a logical structure for users to navigate your chapter. We recommend using only `##` and `###` headings since "sub-sub-subheadings" such as 4.1.3.4 are generally unnecessary and look messy.
 
