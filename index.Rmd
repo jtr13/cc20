@@ -1,9 +1,8 @@
---- 
+---
 title: "Fall 2020 EDAV Community Contributions"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-documentclass: book
 github-repo: jtr13/cc20
 description: "This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University"
 ---
@@ -76,7 +75,7 @@ After completing these modifications, your `.Rmd` should look like this [sample 
    library("ggplot2")
    ```
 
-  You could include both sections, or you could just include the second `library()` section and trust R users to install any packages themselves. If you developed your `Rmd` file before moving your `library()` statements above the rest of the file content, it is highly recommended to knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior. This common issue is mentioned in the EDAV R Basics ["Functions stop working"](https://edav.info/basics.html) section.
+ You could include both sections, or you could just include the second `library()` section and trust R users to install any packages themselves. If you developed your `Rmd` file before moving your `library()` statements above the rest of the file content, it is highly recommended to knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior. This common issue is mentioned in the EDAV R Basics ["Functions stop working"](https://edav.info/basics.html) section.
 
 Want to get fancy? See the [optional tweaks](#optional-tweaks) section below.
 
