@@ -70,7 +70,7 @@ After completing these modifications, your `.Rmd` should look like this [sample 
    devtools::install_github("twitter/AnomalyDetection")
    ```
 
-   ```{r}
+   ```{r, eval=FALSE}
    library("AnomalyDetection") # must be installed from source
    library("dplyr")
    library("ggplot2")
