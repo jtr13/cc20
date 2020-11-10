@@ -1,8 +1,8 @@
-# Appendices
+# (PART) Appendices {-}
 
 This chapter contains additional information regarding how to setup the Github to build the book. 
 
-## Github Initial Setup
+# Github Initial Setup
 
 1. Create a repo called "CC20" by following the instructions written in the [bookdown-template](https://github.com/jtr13/bookdown-template){target="blank"}.
 
