@@ -8,12 +8,12 @@ language:
     chapter_name: "Chapter "
 
 rmd_files: [
-  # Part I: Introduction
-  'index.Rmd', # do not move
+  # Part: Introduction
+  'index.Rmd', # must be first chapter
   'sample_project.Rmd',
   'pairs_and_ggpairs.Rmd',
-  # Appendix
-  'Appendix.Rmd'
+  # Part: Appendices
+  'appendix_initial_setup.Rmd' # contains PART header
 ]
 
 before_chapter_script: "_common.R"
