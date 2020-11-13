@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-11-10" />
+<meta name="date" content="2020-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,14 +187,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Fall 2020 EDAV Community Contributions</h1>
-<p class="date"><em>2020-11-10</em></p>
+<p class="date"><em>2020-11-13</em></p>
 </div>
 <div id="instructions" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Instructions</h1>
 <p>This chapter gives you all the information you need to upload your community contribution. <strong>Please read this entire document carefully before making your submission.</strong> Of particular note is the fact that <strong>bookdown</strong> requires a different .Rmd format than you’re used to, so you must make changes to the beginning of the file as described below before submitting.</p>
 <div id="background" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Background</h2>
-<p>This web site makes use of the <strong>bookdown</strong> package to render a collection of <code>.Rmd</code> files into a nicely formatted online book with chapters and subchapters. Your job will be to submit a slightly modified version of your community contribution <code>.Rmd</code> file to the GitHub repository where the source files for this web site are stored. On the backend, the admins will divide the chapters into book sections and order them. We use <a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions" target="_blank">GitHub Actions</a> to render the book and push the rendered <code>.html</code> files to our <code>gh-pages</code> branch.</p>
+<p>This web site makes use of the <strong>bookdown</strong> package to render a collection of <code>.Rmd</code> files into a nicely formatted online book with chapters and subchapters. Your job will be to submit a slightly modified version of your community contribution <code>.Rmd</code> file to the GitHub repository where the source files for this web site are stored. On the backend, the admins will divide the chapters into book sections and order them.</p>
 <p>If your community contribution is in a different format, then create a short <code>.Rmd</code> file that explains what you did, and includes links to any relevant files, such as slides, etc. which you can post on your GitHub repo (or another online site.)</p>
 </div>
 <div id="preparing-your-.rmd-file" class="section level2" number="1.2">
@@ -232,15 +232,17 @@ Your content starts here. </code></pre></li>
 </div>
 <div id="submission-steps" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Submission steps</h2>
-<p>To submit your work, we will be following the instructions in <a href="https://edav.info/github.html#st-pr-on-another-repo-with-branching" target="_blank">this tutorial</a>, which are provided in abbreviated form below, with specific instructions on naming conventions, content information, and other important details.</p>
+<p>To submit your work, we will be following “Workflow #4” – that is submitting a pull request to someone else’s repository to which you do not have write access. Instructions are available in <a href="https://edav.info/github.html#st-pr-on-another-repo-with-branching" target="_blank">this tutorial</a>. They are repeated below in abbreviated form, with specific instructions on naming conventions, content information, and other important details.</p>
 <ol style="list-style-type: decimal">
 <li><p>Fork <a href="https://github.com/jtr13/cc20" target="_blank">cc20 repo (this repo)</a> to your GitHub account.</p></li>
 <li><p>Clone/download the forked repo to your local computer.</p></li>
-<li><p>Create a new branch and name it with your project name, in our case <code>sample_project</code>. If you forget to do so, check <a href="https://edav.info/github.html#fixing-mistakes">this tutorial</a> to fix.</p></li>
+<li><p>Create a new branch and name it with your project name, in our case <code>sample_project</code>. <strong>Do not skip this step. We will not merge your PR if it doesn’t come from a branch.</strong> If you already forgot to do this, check <a href="https://edav.info/github.html#fixing-mistakes">this tutorial</a> for how to fix it.</p></li>
 <li><p>Copy your modified <code>.Rmd</code> file with the same name into the root directory on the branch. In our example, it is <a href="sample_project.Rmd" target="_blank"><code>sample_project.Rmd</code></a>.</p></li>
 <li><p>Do not include an <code>.html</code> file. (In order for the <strong>bookdown</strong> package to work, all <code>.Rmd</code> files will be rendered behind the scenes.)</p></li>
 <li><p>[OPTIONAL] If you have other resources (such as images) included in your project, create a folder under <code>resources/</code>. In our example, it is <a href="resources/sample_project" target="_blank"><code>resources/sample_project/</code></a>. Put the resources files there.</p></li>
 <li><p>When you are ready to submit your project, push your branch to your remote repo. Follow <a href="https://help.github.com/en/articles/creating-a-pull-request-from-a-fork">this tutorial</a> to create a pull request.</p></li>
+<li><p>At this point a back and forth will begin with the team managing the pull requests. If you are asked to make changes, simply make the changes on your local branch, save, commit, and push to GitHub. The new commits will be added to your pull request; <strong>you do not need to, and should not, create a new pull request.</strong> (If, based on the circumstances, it does make sense to close the pull request and start a new one, we will tell you.)</p></li>
+<li><p>Once your pull request is merged, it’s fine to delete your local clone (folder) as well as the forked repository in your GitHub account.</p></li>
 </ol>
 </div>
 <div id="optional-tweaks" class="section level2" number="1.4">

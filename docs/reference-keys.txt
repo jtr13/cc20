@@ -26,7 +26,6 @@ categorical-variables
 pairs-plot-for-categorical-variables
 highlight-correlations-with-shade-colors
 outside-sources
-appendix
 github-initial-setup
 basic-scatterplot-matrix-of-the-mtcars-dataset-all-numeric-variables-continuous-variables-only-change-color-shape-size-of-points-as-well-as-labels-and-gaps-of-the-plot-add-a-smoother-to-each-scatterplot-separate-groups-using-different-colors-choose-panel-display-customize-your-own-plot-matrix-plot-with-ggpairs-fromggally-package
 factorize-discretecategorical-variables

@@ -81,13 +81,13 @@ Want to get fancy? See the [optional tweaks](#optional-tweaks) section below.
 
 ## Submission steps
 
-To submit your work, we will be following the instructions in [this tutorial](https://edav.info/github.html#st-pr-on-another-repo-with-branching){target="_blank"}, which are provided in abbreviated form below, with specific instructions on naming conventions, content information, and other important details.
+To submit your work, we will be following "Workflow #4" -- that is submitting a pull request to someone else's repository to which you do not have write access. Instructions are available in [this tutorial](https://edav.info/github.html#st-pr-on-another-repo-with-branching){target="_blank"}. They are repeated below in abbreviated form, with specific instructions on naming conventions, content information, and other important details.
 
-1. Fork [cc20 repo (this repo)](https://github.com/jtr13/cc20){target="_blank"} to your GitHub account. 
+1. Fork [cc20 repo (this repo)](https://github.com/jtr13/cc20){target="_blank"} to your GitHub account.
 
 2. Clone/download the forked repo to your local computer.
 
-3. Create a new branch and name it with your project name, in our case `sample_project`. If you forget to do so, check [this tutorial](https://edav.info/github.html#fixing-mistakes) to fix.  
+3. Create a new branch and name it with your project name, in our case `sample_project`. **Do not skip this step. We will not merge your PR if it doesn't come from a branch.** If you already forgot to do this, check [this tutorial](https://edav.info/github.html#fixing-mistakes) for how to fix it.  
 
 4. Copy your modified `.Rmd` file with the same name into the root directory on the branch. In our example, it is [`sample_project.Rmd`](sample_project.Rmd){target="_blank"}. 
    
@@ -96,6 +96,10 @@ To submit your work, we will be following the instructions in [this tutorial](ht
 6. [OPTIONAL] If you have other resources (such as images) included in your project, create a folder under `resources/`. In our example, it is [`resources/sample_project/`](resources/sample_project){target="_blank"}. Put the resources files there. 
 
 7. When you are ready to submit your project, push your branch to your remote repo. Follow [this tutorial](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. 
+
+8. At this point a back and forth will begin with the team managing the pull requests. If you are asked to make changes, simply make the changes on your local branch, save, commit, and push to GitHub. The new commits will be added to your pull request; **you do not need to, and should not, create a new pull request.** (If, based on the circumstances, it does make sense to close the pull request and start a new one, we will tell you.)
+
+9. Once your pull request is merged, it's fine to delete your local clone (folder) as well as the forked repository in your GitHub account. 
 
 ## Optional tweaks
 
