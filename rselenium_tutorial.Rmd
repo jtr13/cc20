@@ -28,11 +28,11 @@ meta_score <- html_text(meta_html)
 crit_html <- html_nodes(metacritic,'.brief_critscore .indiv')
 crit_score <- html_text(crit_html)
 ```
-![](./resources/Pagebutton.png)
+![](./resources/rselenium_tutorial/Pagebutton.png)
 
 This webpage is not dynamic so we could scrape the content by identifying CSS component using SelectorGadget and extract the data from html with rvest. However, most of the modern website use dynamic content. An example of this is Linkedin or Twitter. When you scroll down the webpage, new content is loaded without changing the URL. What if say, we want to webscrape Donald Trump's Twitter information?
 
-![](./resources/Linkedin.png)
+![](./resources/rselenium_tutorial/Linkedin.png)
 
 
 **Preparations**
@@ -60,7 +60,7 @@ or use VPN in the internet connection.
 
 If everything is setup correctly, you should see a browser popping up.
 
-![](./resources/Initial.png)
+![](./resources/rselenium_tutorial/Initial.png)
 
 Now you are ready to navigate dynamic pages using RSelenium.
 
@@ -70,14 +70,14 @@ We will use "https://www.google.com" as a simple example to use some Rselenium f
 ```{r navigate, eval=FALSE}
   remDr$navigate("https://www.google.com")
 ```
-![](./resources/Google.png)
+![](./resources/rselenium_tutorial/Google.png)
 Rselenium use HTML, CSS or XPath to find which object to operate on. More information on the locator strategies for webdrivers can be found on https://stackoverflow.com/questions/48369043/official-locator-strategies-for-the-webdriver/48376890#48376890. However for the time being, we only need to understand some simple locator techniques. Some common locators include:
 
 **id, name, css selector, xpath**
 
 To find information about the target object (in our example the google search text input box), right click and select inspect:
 
-![](./resources/Inspect.png)
+![](./resources/rselenium_tutorial/Inspect.png)
 
 We spot name='q' to locate the target object. In this case use $findElement function to select the textbox and use sendKeysToElement to input the text you want
 ```{r select, eval=FALSE}
@@ -86,13 +86,13 @@ We spot name='q' to locate the target object. In this case use $findElement func
   selected$sendKeysToElement(list(input))
 ```
 
-![](./resources/Select.png)
+![](./resources/rselenium_tutorial/Select.png)
 
 Next we want to click the search button to search EDAV on google. Again use Inspect to locate the button object, and we found name='btnK' to locate our button
 ```{r search edav, eval=FALSE}
   remDr$findElements("name", "btnK")[[1]]$clickElement()
 ```
-![](./resources/EDAV.png)
+![](./resources/rselenium_tutorial/EDAV.png)
 
 Now we have the search result of EDAV. To scroll up or down the webpage, select the entire webpage using:
 
