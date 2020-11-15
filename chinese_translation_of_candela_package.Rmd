@@ -1,3 +1,5 @@
+# (PART) Translations {-}
+
 # Chinese Translation of Candela Package
 
 Wenjie Zhu and Jin Qian
