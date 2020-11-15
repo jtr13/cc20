@@ -14,6 +14,7 @@ rmd_files: [
   'pairs_and_ggpairs.Rmd',
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd',
+  'greek_edav_histogram.Rmd',
   # Part: Appendices
   'appendix_initial_setup.Rmd' # contains PART header
 ]
