@@ -2,4 +2,5 @@
 .RData
 .Rproj.user
 *.Rproj
+.DS_Store
 /_bookdown_files/cc20_cache/
