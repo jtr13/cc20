@@ -1,4 +1,4 @@
-Visualization of Covid-19 information in NYC using R shiny
+# Visualization of Covid-19 information in NYC using R shiny
 
 Junzhi Ge and Yifei Zhang
 
