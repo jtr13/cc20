@@ -26,6 +26,15 @@ categorical-variables
 pairs-plot-for-categorical-variables
 highlight-correlations-with-shade-colors
 outside-sources
+china-choropleth-map
+overview
+data-collection
+static-map-with-ggplot
+prepare-the-shape-data-of-china
+plot
+interactive-map-with-hchinamap
+interactive-map-with-leafletcn
+conclusion
 chinese-translation-of-candela-package
 candela
 开始
@@ -137,8 +146,3 @@ simple-examples
 εξωτερικές-πηγές
 tableau-intro-tutorial-explained-with-proset2
 github-initial-setup
-basic-scatterplot-matrix-of-the-mtcars-dataset-all-numeric-variables-continuous-variables-only-change-color-shape-size-of-points-as-well-as-labels-and-gaps-of-the-plot-add-a-smoother-to-each-scatterplot-separate-groups-using-different-colors-choose-panel-display-customize-your-own-plot-matrix-plot-with-ggpairs-fromggally-package
-factorize-discretecategorical-variables
-示例-11
-示例-12
-示例-13
