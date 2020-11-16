@@ -14,7 +14,7 @@ library(ggplot2)
 library(HH)
 ```
 
-## 1. What is Likert Scale?
+## What is Likert Scale?
 Likert scale is a psychometric scale that is mostly applied for scaling responses in surveys / questionnaires. One can apply Likert-type questions to measure people's feeling or perception on a variety of things like Satisfaction, Frequency, Agreement, likelihood, experience, and so on. Importantly, Likert scaling requires that **distances between each response option are equal**. This means, for instance, one cannot form a Likert-scale responses like the following: Strongly Disagree, Neutral, Somehow Agree, Strongly Agree.
 
 Another important property of Likert scale is its **bipolarity**, which means it measures either the positive or negative side of a particular statement. Another way to explain this: one should observe **symmetry** and **balance** in a well-designed Likert scaling. The number of positive and negative responses should be symmetric about the "neutral" option. 
@@ -40,7 +40,7 @@ Sometimes it's not necessary to have a "neutral" option while one can still desi
 3) Somehow Likely 
 4) Very Likely
 
-## 2. Test Your Understanding of Likert Scale
+## Test Your Understanding of Likert Scale
 
 Which of the following is a well-designed Likert scale? Why or why not?
 
@@ -58,7 +58,7 @@ C. No Impact, Moderate Impact, Huge Impact
 There are many ways to visualize Likert-scale data, and one of the most used would be bar charts. Among all kinds of bar charts, stacked bar charts, faceted bar charts, and diverging stacked bar charts are widely used based on one's unique visualization needs. In this section, we would introduce how to visualize the sample dataset using these three kinds of bar charts, by `ggplot2` and `HH` package, and what are some choices one would face when making visualization decisions.
 
 
-### 3.1 Overview of the Data
+### Overview of the Data
 
 ```{r import CCAM data}
 # import dataset
@@ -105,7 +105,7 @@ rownames(summary_q_prop) <- c("Regulate Carbon Dioxide as a pollutant",
 summary_q_prop
 ```
 
-### 3.2 Stacked Bar Chart
+### Stacked Bar Chart
 `ggplot2` has done a good job for basic visualization needs like stacked bar charts. In this subsection, we would visualize using `ggplot2` for stacked bar charts with 2 choices: with and without the "refused/neutral" option.
 
 
@@ -193,7 +193,7 @@ ggplot(data = CCAM_rmrf_summary, aes(Question, prop, fill = fct_rev(Response))) 
 
 From the above plots, one may observe that, though stacked bar charts are easily created, the major disadvantage is that the comparison of non-polar responses are not straightforward. The comparison of response "Strongly Disagree" and "Strongly Agree" are obvious between questions but not for "Somewhat Disagree" and "Somewhat Agree". Thus, it is usually practical to include percentage labels for each bar to overcome this problem, like what's done in both charts.
 
-### 3.3 Faceted Bar Charts
+### Faceted Bar Charts
 A faceted stacked bar chart would create a bar chart that facets on each response option. This makes it easier to compare each response option across different questions than a simple stacked bar chart. We will still use `ggplot2` to create a faceted bar chart.
 
 ```{r faceted with refused}
@@ -236,7 +236,7 @@ ggplot(data = CCAM_rmrf_summary) +
           subtitle = '% (Attitude) on "The government should __", with "Refused" removed')
 ```
 
-### 3.4 Diverging Stacked Bar Chart
+### Diverging Stacked Bar Chart
 Last but not least, one may visualize Likert scale by a diverged stacked bar chart, which has its positive and negative options heading on different directions with neutral option at the center. This type of charts make it more straightforward to compare the overall positive and negative opinions on a certain matter.
 
 An easy way to create a diverged stacked bar chart is the `likert` function of the `HH` package.
@@ -280,7 +280,7 @@ likert(Question ~., data = summary_freq_rmrf, as.percent = "noRightAxis",
 
 Again, the diverging stacked bar chart makes it really easy to compare the positive against the negative on each question and compare the positive and negative across different questions. The cons, however, is that it doesn't do a good job in showing the comparison of each individual response option. For instance, it is not straightforward to tell whether more people strongly support the government to regulate CO2 or to require producing at least 20% of electricity from clean energy. 
 
-## 4. Arguments on each type of charts
+## Arguments on each type of charts
 It's not surprised that people may find 100% stacked bar charts are inferior in visualizing Likert scale than the other two since it doesn't work quite well in either comparing the positive against the negative or examining each response option. Perhaps it is only good when one has only 2 groups of results to compare against each other, and this way 100% stacked bar chart would be nice comparing differences between the two.
 
 1) When one wants to look at the differences between overall positive and negative results, diverging stacked bar charts would stand out, and they usually work better when the neutral/refused category doesn't stand in the middle. Thus, it is also practical to either remove the neutral/refused category or put it aside.
