@@ -1,0 +1,11 @@
+# (PART) Video Tutorial {-}
+
+#Tableau intro tutorial explained with proset2
+
+Yue Wang
+
+For the community contribution project, I will briefly introduce Tableau, the major features of this product, and other relevant products that are used in a different setting. I will introduce structure of the interfaces, importation of data, the supported files of data, supported data types, how to build worksheets and an interactive dashboard. 
+
+I’ll use the Problem1 from Problem Set 2 to do the demo. This problem includes recoding of factor levels, vertical/horizontal bar chart, and horizontal bar chart of proportion. Although it only covers bar chart, I believe this will be a great first step to learn about how Tableau generally works. After doing the demo, I’ll draw a comparison with R and Excel and reemphasize the context of using Tableau.
+
+You can check the video through this link: https://www.bilibili.com/video/BV1py4y167YF/ 
