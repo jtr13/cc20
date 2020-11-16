@@ -135,4 +135,5 @@ simple-examples
 αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται
 διαδραστική-αλλαγή-ορίου
 εξωτερικές-πηγές
+tableau-intro-tutorial-explained-with-proset2
 github-initial-setup
