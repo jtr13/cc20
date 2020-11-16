@@ -86,10 +86,9 @@ Since ggplot does not have build-in China map, we download shape files from *the
 
 ### Prepare the shape data of China
 ```{r}
-
 dsn<-"resources/china_choropleth_map/china-province-border-data/bou2_4p.shp"
 layer<-"bou2_4p"
-china_map <-readOGR(dsn=dsn,layer=layer)
+china_map <- rgdal::readOGR(dsn=dsn, layer=layer)
 ###Note: we attached external spetial data of china, named "china-province-border-data" and it includes "bou2_4p.shp"
 ### dsn is the path of "bou2_4p.shp"
 ```
