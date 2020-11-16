@@ -1,4 +1,4 @@
-#China choropleth map 
+# China choropleth map 
 
 Jialu Xia and Danyang Han
 
@@ -87,7 +87,7 @@ Since ggplot does not have build-in China map, we download shape files from *the
 ### Prepare the shape data of China
 ```{r}
 
-dsn<-paste0(getwd(),"resources/china_choropleth_map/china-province-border-data/bou2_4p.shp") 
+dsn<-"resources/china_choropleth_map/china-province-border-data/bou2_4p.shp"
 layer<-"bou2_4p"
 china_map <-readOGR(dsn=dsn,layer=layer)
 ###Note: we attached external spetial data of china, named "china-province-border-data" and it includes "bou2_4p.shp"
