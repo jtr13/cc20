@@ -1,8 +1,162 @@
-# Sample project
+# Survival analysis examples
 
-Joe Biden and Donald Trump
+Haoxiong Su and Tianchun Huang
 
-This chapter gives a sample layout of your `Rmd` file. 
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-![Test Photo](resources/sample_project/election.jpg)
+```{r message=FALSE}
+library(survival)
+library(survminer)
+library(dplyr)
+```
 
+## Introduction
+
+Survival analysis is often used to analyze time-to-event data, such as the time that a patient may survive, or the time from HIV infection to development of AIDS. In other words, with survival analysis, we can predict the probability of certain events to happen at certain time, which can be useful in many fields. The objective of this chapter is to introduce some R packages for performing and visualizing survival analysis.
+
+## Basic Concepts
+
+Before introducing R packages, here are some basic concepts and definition about survival analysis.
+
+**event**: experience of interest, such as death, recovery, and other occurrence.
+
+
+**time $t$**: the time since the beginning of the observation.
+
+**censoring**: the subject has not experienced the event of interest by the end of data collection, including loss to follow-up, withdrawal from study, or no observation by end.
+
+**survival function $S(t)$**: the probability of still being alive at time $t$; this function is also what we want to estimate in many of the cases.
+
+**Kaplan-Meier estimator**: Kaplan-Meier survival estimator is an estimate of the survival function derived by Kaplan-Meier method. It is calculated as:
+$$\hat{S(t_i)} = \prod_{i:t_i\leq t}(1-\frac{d_i}{n_i}),$$
+where
+
+* $d_i$: the number of events at $t_i$
+* $n_i$: the number of subjects being alive just before $t_i$
+
+The R packages we introduce here actually use this method to estimate and plot survival curves.
+
+## Examples
+
+### Preparation
+
+#### Load example data
+We will use $cancer$ dataset in $survival$ package to demonstrate the survival analysis in R:
+```{r}
+data <- survival::cancer
+data <- na.omit(data) # Delete rows with NA
+head(data)
+```
+
+* inst: institution code
+* time: survival time
+* status: censoring status (1=censored, 2=dead)
+* age: age in years
+* sex: 1=male, 2=female
+* ph.ecog: ECOG performance score (0=good, 5=dead)
+* ph.karno: Karnofsky performance score rated by physician (0=bad, 100=good)
+* pat.karno: Karnofsky performance score rate by patient
+* meal.cal: calories consumed
+* wt.loss: weight loss in 6 months
+
+#### Transform the categorical variables
+```{r}
+data <- within(data, {
+  sex <- factor(sex, labels = c("Male", "Female"))
+  ph.ecog <- factor(ph.ecog, labels = c("asymptomatic", "symptomatic", "in bed<50%", "in bed>50%"))
+})
+
+head(data)
+```
+
+### Overall Survival analysis
+`survfit()` function fit the Kaplan-Meier curve for the survival data, and `ggsurvplot()` function visualizes the survival curve.
+
+```{r}
+surv_obj <- survfit(Surv(time, status) ~ 1, data = data)
+
+ggsurvplot(
+    fit = surv_obj,
+    data = data,
+    conf.int = TRUE, # plot the confidence interval of the survival probability
+    risk.table = TRUE, # draw the risk table below the graph
+    surv.median.line = "hv",# draw the survival median line horizontally & vertically
+    xlab = "Days", 
+    ylab = "Overall survival probability"
+    )
+```
+
+### Survival analysis between groups
+
+#### Between male and female ECOG performance score
+```{r warning=FALSE}
+
+surv_obj <- survfit(Surv(time, status) ~ sex, data = data)
+ggsurvplot(
+    fit = surv_obj,
+    data = data,
+    pval = TRUE,  # add the p-value of comparing the differences among groups
+    conf.int = TRUE, # plot the confidence interval of the survival probability
+    risk.table = TRUE, # draw the risk table below the graph
+    surv.median.line = "hv",# draw the survival median line horizontally & vertically
+    xlab = "Days", 
+    ylab = "Overall survival probability",
+    tables.height = 0.3
+    )
+```
+
+#### Facet by ECOG performance score
+```{r warning=FALSE}
+surv_obj <- survfit(Surv(time, status) ~ sex, data = data)
+ggsurvplot_facet(
+    fit = surv_obj,
+    data = data,
+    facet.by = "ph.ecog",
+    pval = TRUE,  # add the p-value of comparing the differences among groups
+    conf.int = TRUE, # plot the confidence interval of the survival probability
+    surv.median.line = "hv",# draw the survival median line horizontally & vertically
+    xlab = "Days", 
+    ylab = "Overall survival probability",
+    tables.height = 0.3
+    )
+```
+
+### Log-rank test
+
+Log-rank test is a hypothesis test which is often used to compare two survival curves. In the above example, we can use log-rank test to compare the KM curves for male and female. The results below show that p value is 0.001, which means we can reject the null hypothesis and conclude that the survival curves differ in male and female.
+
+```{r}
+surv_obj <- survdiff(Surv(time, status) ~ sex, data = lung)
+surv_obj
+```
+
+### Cox model
+
+Cox proportional hazards model is a common approach to analyzing the relationship between the survival of an object and several explanatory variables.
+
+In Cox model, the hazard function is defined as:
+$$\lambda(t|X_i)=\lambda_0(t)*exp(\beta_1X_{i1}+ \dots+ \beta_pX_{ip})= \lambda_0(t)*exp(X_i*\beta)$$
+
+In R, we could use function `coxph` to create a survival object. After fitting the model, we could use function `ggforest` to draw the forest plot for Cox model to visualize the effect of each variable.
+
+#### Fit Cox model on only one variable
+```{r}
+model.1 <-
+   coxph( Surv(time, status) ~ sex, data = data )
+
+summary(model.1)
+```
+
+#### Fit Cox model on multiple variables & Draw the forest plot
+```{r}
+model.2 <-
+   coxph( Surv(time, status) ~ age + sex + ph.ecog + meal.cal + wt.loss, data = data )
+
+ggforest(
+  model.2,
+  data,
+  fontsize = 0.8
+)
+```
