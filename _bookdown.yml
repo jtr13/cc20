@@ -17,6 +17,7 @@ rmd_files: [
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd',
   'greek_edav_histogram.Rmd',
+  'korean_translation_of_scatterplot.Rmd',
 
   # Part: Video Tutorial
   'tableau_intro_tutorial_demo_with_pset.Rmd',
