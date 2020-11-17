@@ -13,6 +13,7 @@ rmd_files: [
   'sample_project.Rmd',
   'pairs_and_ggpairs.Rmd',
   'china_choropleth_map.Rmd',
+  'R_data_transformation.Rmd',
 
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd',
