@@ -47,6 +47,7 @@ mutate
 group_by-and-summarize
 quick-eda-median-arrival-delays
 external-resource
+a-brief-introduction-to-seaborn
 chinese-translation-of-candela-package
 candela
 开始
