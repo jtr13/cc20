@@ -31,7 +31,7 @@ After completing these modifications, your `.Rmd` should look like this [sample 
 
 2. Completely delete the YAML header (the section at the top of the `.Rmd` that includes name, title, date, output, etc.) including the `---` line.
     
-3. Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents -- look at examples in the 2019 EDAV rendered book of community contributions [https://jtr13.github.io/cc19](https://jtr13.github.io/cc19/){target="_blank"}. Capitalize the first letter only ("sentence case"). On the first line of your document, enter a single hashtag, followed by a single whitespace, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single `#` headers anywhere else in the document. Note: if your chapter is the first in a section, a second `#` header and section description will be requested during the pull-request and merge phase.
+3. Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents -- look at examples in the 2019 EDAV rendered book of community contributions [https://jtr13.github.io/cc19](https://jtr13.github.io/cc19/){target="_blank"}. Capitalize the first letter only ("sentence case"). On the first line of your document, enter a single hashtag, **followed by a single whitespace**, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single `#` headers anywhere else in the document. Note: if your chapter is the first in a section, a second `#` header and section description will be requested during the pull-request and merge phase.
     
 4. The second line should be blank, followed by your name(s):
     
@@ -93,7 +93,9 @@ To submit your work, we will be following "Workflow #4" -- that is submitting a 
    
 5. Do not include an `.html` file. (In order for the **bookdown** package to work, all `.Rmd` files will be rendered behind the scenes.)
 
-6. [OPTIONAL] If you have other resources (such as images) included in your project, create a folder under `resources/`. In our example, it is [`resources/sample_project/`](resources/sample_project){target="_blank"}. Put the resources files there. 
+6. [OPTIONAL] If you have other resources (such as images) included in your project, create a folder under `resources/`. In our example, it is [`resources/sample_project/`](resources/sample_project){target="_blank"}. Put the resources files there. Be sure to change all the links in your `.Rmd` to include `resources/.../`, for example:
+
+    `![Test Photo](resources/sample_project/election.jpg)`
 
 7. When you are ready to submit your project, push your branch to your remote repo. Follow [this tutorial](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. 
 

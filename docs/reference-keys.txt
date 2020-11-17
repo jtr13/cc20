@@ -26,6 +26,15 @@ categorical-variables
 pairs-plot-for-categorical-variables
 highlight-correlations-with-shade-colors
 outside-sources
+china-choropleth-map
+overview
+data-collection
+static-map-with-ggplot
+prepare-the-shape-data-of-china
+plot
+interactive-map-with-hchinamap
+interactive-map-with-leafletcn
+conclusion
 chinese-translation-of-candela-package
 candela
 开始
@@ -135,4 +144,5 @@ simple-examples
 αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται
 διαδραστική-αλλαγή-ορίου
 εξωτερικές-πηγές
+tableau-intro-tutorial-explained-with-proset2
 github-initial-setup
