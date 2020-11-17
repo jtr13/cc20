@@ -15,6 +15,7 @@ rmd_files: [
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd',
   'greek_edav_histogram.Rmd',
+  'korean_translation_of_scatterplot.Rmd',
   # Part: Appendices
   'appendix_initial_setup.Rmd' # contains PART header
 ]
