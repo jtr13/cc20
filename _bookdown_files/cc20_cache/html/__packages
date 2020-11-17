@@ -5,3 +5,15 @@ vcd
 candela
 Sleuth3
 gridExtra
+tidyverse
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+nycflights13
+GDAdata
+ggplot2movies
+lattice
