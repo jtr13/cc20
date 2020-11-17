@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Customized Plot Matrix: pairs(), ggpairs() | Fall 2020 EDAV Community Contributions</title>
+  <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Customized Plot Matrix: pairs(), ggpairs() | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="github-repo" content="jtr13/cc20" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Customized Plot Matrix: pairs(), ggpairs() | Fall 2020 EDAV Community Contributions" />
+  
+  <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  
+
+
+
+<meta name="date" content="2020-11-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="sample-project.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">cc for EDAV 2020</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Instructions</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#background"><i class="fa fa-check"></i><b>1.1</b> Background</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#preparing-your-.rmd-file"><i class="fa fa-check"></i><b>1.2</b> Preparing your <code>.Rmd</code> file</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#submission-steps"><i class="fa fa-check"></i><b>1.3</b> Submission steps</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#optional-tweaks"><i class="fa fa-check"></i><b>1.4</b> Optional tweaks</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.5</b> FAQ</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#what-should-i-expect-after-creating-a-pull-request"><i class="fa fa-check"></i><b>1.5.1</b> What should I expect after creating a pull request?</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-after-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.2</b> What if I catch mistakes after my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.3</b> Other questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>2</b> Sample project</a></li>
+<li class="chapter" data-level="3" data-path="customized-plot-matrix-pairs-ggpairs.html"><a href="customized-plot-matrix-pairs-ggpairs.html"><i class="fa fa-check"></i><b>3</b> Customized Plot Matrix: pairs(), ggpairs()</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="customized-plot-matrix-pairs-ggpairs.html"><a href="customized-plot-matrix-pairs-ggpairs.html#plot-with-ggpairs-from-ggally-package"><i class="fa fa-check"></i><b>3.0.1</b> 2.2 Plot with <strong>ggpairs()</strong> from <code>GGally</code> package</a></li>
+<li class="chapter" data-level="3.1" data-path="customized-plot-matrix-pairs-ggpairs.html"><a href="customized-plot-matrix-pairs-ggpairs.html#categorical-variables"><i class="fa fa-check"></i><b>3.1</b> 3. Categorical variables</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="customized-plot-matrix-pairs-ggpairs.html"><a href="customized-plot-matrix-pairs-ggpairs.html#pairs-plot-for-categorical-variables"><i class="fa fa-check"></i><b>3.1.1</b> 3.2 pairs() plot for categorical variables</a></li>
+<li class="chapter" data-level="3.1.2" data-path="customized-plot-matrix-pairs-ggpairs.html"><a href="customized-plot-matrix-pairs-ggpairs.html#highlight-correlations-with-shade-colors"><i class="fa fa-check"></i><b>3.1.2</b> 3.3 Highlight correlations with shade colors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="customized-plot-matrix-pairs-ggpairs.html"><a href="customized-plot-matrix-pairs-ggpairs.html#outside-sources"><i class="fa fa-check"></i><b>3.2</b> 4. Outside sources</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Fall 2020 EDAV Community Contributions</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="customized-plot-matrix-pairs-ggpairs" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Customized Plot Matrix: pairs(), ggpairs()</h1>
+<p>Yibai Liu</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb4-1"></a><span class="kw">library</span>(GGally)</span>
+<span id="cb4-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb4-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb4-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb4-3"></a><span class="kw">library</span>(vcd)</span></code></pre></div>
+<pre><code>## 1. Overview: Things we can do with pairs() and ggpairs()
+
+When our data contains multivariate variables, it is important to evaluate associations between these variables before modeling. We can create scatterplot matrices, correlation matrix, as well as mosaic pairs plots to get an idea about if and how these variables are correlated with each other. In this tutorial, I would plot using a base r function **pairs()** and a function **ggpairs()** from the `GGally` package, which both functions provide methods to generate customized plot matrices.  
+
+Plots for different purposes:
+- Scatterplot matrix: correlations between continuous variables
+- Mosaic pairs plot: correlations between categorical variables
+
+## 2. Scatterplot matrix for continuous variables
+
+### 2.1 Plot with pairs()
+####  Basic scatterplot matrix of the `mtcars dataset (All numeric variables)
+
+```r
+data(mtcars)
+pairs(~., data = mtcars,
+      main = &quot;Scatterplot Matrix of `mtcars`&quot;)</code></pre>
+<p><img src="cc20_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We notice that there are some numeric variables actually discrete or representing categories, so we can trim all discrete and categorical variables, and only plot continuous variables in the matrix.</p>
+<div id="continuous-variables-only" class="section level4">
+<h4><span class="header-section-number">3.0.0.1</span> 2.1.1 Continuous variables only</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb6-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)], <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="change-color-shape-size-of-points-as-well-as-labels-and-gaps-of-the-plot" class="section level4">
+<h4><span class="header-section-number">3.0.0.2</span> 2.1.2 Change color, shape, size of points, as well as labels and gaps of the plot</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb7-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
+<span id="cb7-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb7-2"></a>      <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>,                                            <span class="co"># Change color</span></span>
+<span id="cb7-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb7-3"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                <span class="co"># Change shape of points</span></span>
+<span id="cb7-4"><a href="customized-plot-matrix-pairs-ggpairs.html#cb7-4"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               <span class="co"># Change size of points</span></span>
+<span id="cb7-5"><a href="customized-plot-matrix-pairs-ggpairs.html#cb7-5"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
+<span id="cb7-6"><a href="customized-plot-matrix-pairs-ggpairs.html#cb7-6"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  <span class="co"># Change labels  </span></span>
+<span id="cb7-7"><a href="customized-plot-matrix-pairs-ggpairs.html#cb7-7"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,                                               <span class="co"># Change gaps in between</span></span>
+<span id="cb7-8"><a href="customized-plot-matrix-pairs-ggpairs.html#cb7-8"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="add-a-smoother" class="section level4">
+<h4><span class="header-section-number">3.0.0.3</span> 2.1.3 Add a smoother</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb8-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
+<span id="cb8-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb8-2"></a>      <span class="dt">lower.panel =</span> panel.smooth,           <span class="co"># Add a smoother for the lower panel</span></span>
+<span id="cb8-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb8-3"></a>      <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb8-4"><a href="customized-plot-matrix-pairs-ggpairs.html#cb8-4"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                </span>
+<span id="cb8-5"><a href="customized-plot-matrix-pairs-ggpairs.html#cb8-5"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               </span>
+<span id="cb8-6"><a href="customized-plot-matrix-pairs-ggpairs.html#cb8-6"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
+<span id="cb8-7"><a href="customized-plot-matrix-pairs-ggpairs.html#cb8-7"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  </span>
+<span id="cb8-8"><a href="customized-plot-matrix-pairs-ggpairs.html#cb8-8"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,                                               </span>
+<span id="cb8-9"><a href="customized-plot-matrix-pairs-ggpairs.html#cb8-9"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="separate-groups-using-different-colors" class="section level4">
+<h4><span class="header-section-number">3.0.0.4</span> 2.1.4 Separate groups using different colors</h4>
+</div>
+<div id="tip-you-can-also-highlight-a-certain-level-of-a-categorical-variable-by-simply-turn-other-levels-to-grey" class="section level4">
+<h4><span class="header-section-number">3.0.0.5</span> Tip: You can also highlight a certain level of a categorical variable by simply turn other levels to grey</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb9-1"></a>mtcars<span class="op">$</span>vs &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>vs)</span>
+<span id="cb9-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb9-2"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
+<span id="cb9-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb9-3"></a>      <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>)[mtcars<span class="op">$</span>vs],                  <span class="co"># Group by variable `vs`</span></span>
+<span id="cb9-4"><a href="customized-plot-matrix-pairs-ggpairs.html#cb9-4"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                </span>
+<span id="cb9-5"><a href="customized-plot-matrix-pairs-ggpairs.html#cb9-5"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               </span>
+<span id="cb9-6"><a href="customized-plot-matrix-pairs-ggpairs.html#cb9-6"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
+<span id="cb9-7"><a href="customized-plot-matrix-pairs-ggpairs.html#cb9-7"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  </span>
+<span id="cb9-8"><a href="customized-plot-matrix-pairs-ggpairs.html#cb9-8"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,                                               </span>
+<span id="cb9-9"><a href="customized-plot-matrix-pairs-ggpairs.html#cb9-9"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars` Grouped by Engine&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>By separating data points by <code>vs</code> or the engine type, we can see that two groups form distinct clusters for many of the variables.</p>
+</div>
+<div id="choose-panel-display" class="section level4">
+<h4><span class="header-section-number">3.0.0.6</span> 2.1.5 Choose panel display</h4>
+<p>If the plot seems dominated by too many points, you can turn off one of the panels.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb10-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
+<span id="cb10-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb10-2"></a>      <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>)[mtcars<span class="op">$</span>vs],                  </span>
+<span id="cb10-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb10-3"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                </span>
+<span id="cb10-4"><a href="customized-plot-matrix-pairs-ggpairs.html#cb10-4"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               </span>
+<span id="cb10-5"><a href="customized-plot-matrix-pairs-ggpairs.html#cb10-5"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
+<span id="cb10-6"><a href="customized-plot-matrix-pairs-ggpairs.html#cb10-6"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  </span>
+<span id="cb10-7"><a href="customized-plot-matrix-pairs-ggpairs.html#cb10-7"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,</span>
+<span id="cb10-8"><a href="customized-plot-matrix-pairs-ggpairs.html#cb10-8"></a>      <span class="dt">upper.panel =</span> <span class="ot">NULL</span>,               <span class="co"># Turn off the upper panel above the diagonal</span></span>
+<span id="cb10-9"><a href="customized-plot-matrix-pairs-ggpairs.html#cb10-9"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="customize-your-own-plot-matrix" class="section level4">
+<h4><span class="header-section-number">3.0.0.7</span> 2.1.6 Customize your own plot matrix</h4>
+<p>The plot matrix is consisted of multiple panels, e.g. the upper panel, lower panel, diagonal panel, etc.
+You can customize each panel and make your own plot.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-1"></a><span class="co">#Panel of correlations</span></span>
+<span id="cb11-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-2"></a>panel.corr &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
+<span id="cb11-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-3"></a>    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</span>
+<span id="cb11-4"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-4"></a>    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb11-5"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-5"></a>    r &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">cor</span>(x, y), <span class="dt">digits=</span><span class="dv">3</span>)</span>
+<span id="cb11-6"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-6"></a>    txt &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Corr: &quot;</span>, r)</span>
+<span id="cb11-7"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-7"></a>    <span class="kw">text</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, txt, <span class="dt">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb11-8"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-8"></a>}</span>
+<span id="cb11-9"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-9"></a></span>
+<span id="cb11-10"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-10"></a><span class="co">#Panel of histograms</span></span>
+<span id="cb11-11"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-11"></a>panel.hist &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...){</span>
+<span id="cb11-12"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-12"></a>    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</span>
+<span id="cb11-13"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-13"></a>    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(usr[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">0</span>, <span class="fl">1.5</span>) )</span>
+<span id="cb11-14"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-14"></a>    h &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb11-15"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-15"></a>    breaks &lt;-<span class="st"> </span>h<span class="op">$</span>breaks</span>
+<span id="cb11-16"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-16"></a>    len &lt;-<span class="st"> </span><span class="kw">length</span>(breaks)</span>
+<span id="cb11-17"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-17"></a>    y &lt;-<span class="st"> </span>h<span class="op">$</span>counts<span class="op">/</span><span class="kw">max</span>(h<span class="op">$</span>counts)</span>
+<span id="cb11-18"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-18"></a>    <span class="kw">rect</span>(breaks[<span class="op">-</span>len], <span class="dv">0</span>, breaks[<span class="op">-</span><span class="dv">1</span>], y, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
+<span id="cb11-19"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-19"></a>}</span>
+<span id="cb11-20"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-20"></a></span>
+<span id="cb11-21"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-21"></a><span class="co">#Panel of scatterplots</span></span>
+<span id="cb11-22"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-22"></a>panel.scat &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
+<span id="cb11-23"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-23"></a>  <span class="kw">points</span>(x,y, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;coral&quot;</span>)</span>
+<span id="cb11-24"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-24"></a>}</span>
+<span id="cb11-25"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-25"></a></span>
+<span id="cb11-26"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-26"></a><span class="co">#Plot</span></span>
+<span id="cb11-27"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-27"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],  </span>
+<span id="cb11-28"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-28"></a>      <span class="dt">lower.panel =</span> panel.scat,</span>
+<span id="cb11-29"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-29"></a>      <span class="dt">upper.panel =</span> panel.corr,</span>
+<span id="cb11-30"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-30"></a>      <span class="dt">diag.panel =</span> panel.hist,</span>
+<span id="cb11-31"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-31"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
+<span id="cb11-32"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-32"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),</span>
+<span id="cb11-33"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-33"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>, </span>
+<span id="cb11-34"><a href="customized-plot-matrix-pairs-ggpairs.html#cb11-34"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot matrix of `mtcars`&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="plot-with-ggpairs-from-ggally-package" class="section level3">
+<h3><span class="header-section-number">3.0.1</span> 2.2 Plot with <strong>ggpairs()</strong> from <code>GGally</code> package</h3>
+<div id="basic-ggpairs-plot" class="section level4">
+<h4><span class="header-section-number">3.0.1.1</span> 2.2.1 Basic ggpairs() plot</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb12-1"></a><span class="co"># You need both ggplot2 and GGally packages loaded to work with ggpairs()</span></span>
+<span id="cb12-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb12-2"></a></span>
+<span id="cb12-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb12-3"></a><span class="kw">ggpairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
+<span id="cb12-4"><a href="customized-plot-matrix-pairs-ggpairs.html#cb12-4"></a>        <span class="dt">columnLabels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
+<span id="cb12-5"><a href="customized-plot-matrix-pairs-ggpairs.html#cb12-5"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),</span>
+<span id="cb12-6"><a href="customized-plot-matrix-pairs-ggpairs.html#cb12-6"></a>        <span class="dt">upper =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="kw">wrap</span>(<span class="st">&#39;cor&#39;</span>, <span class="dt">size =</span> <span class="dv">4</span>)),</span>
+<span id="cb12-7"><a href="customized-plot-matrix-pairs-ggpairs.html#cb12-7"></a>        <span class="dt">title =</span> <span class="st">&quot;Scatterplot matrix of `mtcars`&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="separate-groups-using-different-colors-1" class="section level4">
+<h4><span class="header-section-number">3.0.1.2</span> 2.2.2 Separate groups using different colors</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb13-1"></a><span class="kw">ggpairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
+<span id="cb13-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb13-2"></a>        <span class="dt">columnLabels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
+<span id="cb13-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb13-3"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),</span>
+<span id="cb13-4"><a href="customized-plot-matrix-pairs-ggpairs.html#cb13-4"></a>        <span class="kw">aes</span>(<span class="dt">color =</span> mtcars<span class="op">$</span>vs),                             <span class="co"># Separate data by levels of vs</span></span>
+<span id="cb13-5"><a href="customized-plot-matrix-pairs-ggpairs.html#cb13-5"></a>        <span class="dt">upper =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="kw">wrap</span>(<span class="st">&#39;cor&#39;</span>, <span class="dt">size =</span> <span class="dv">3</span>)),</span>
+<span id="cb13-6"><a href="customized-plot-matrix-pairs-ggpairs.html#cb13-6"></a>        <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">combo =</span> <span class="kw">wrap</span>(<span class="st">&quot;facethist&quot;</span>, <span class="dt">bins =</span> <span class="dv">30</span>)),</span>
+<span id="cb13-7"><a href="customized-plot-matrix-pairs-ggpairs.html#cb13-7"></a>        <span class="dt">diag =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="kw">wrap</span>(<span class="st">&quot;densityDiag&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)),</span>
+<span id="cb13-8"><a href="customized-plot-matrix-pairs-ggpairs.html#cb13-8"></a>        <span class="dt">title =</span> <span class="st">&quot;Scatterplot matrix of `mtcars` Grouped by Engine&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="categorical-variables" class="section level2">
+<h2><span class="header-section-number">3.1</span> 3. Categorical variables</h2>
+<p>There are some categorical variables in the dataset <code>mtcars</code>. We can turn these variables and also discrete variables into factors
+### 3.1 Factorize discrete/categorical variables</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb14-1"></a>mtcars<span class="op">$</span>cyl &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>cyl)</span>
+<span id="cb14-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb14-2"></a>mtcars<span class="op">$</span>am &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>am)</span>
+<span id="cb14-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb14-3"></a>mtcars<span class="op">$</span>gear &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>gear)</span></code></pre></div>
+<p>Now we can create a mosaic pairs plot with pairs_diagonal_mosaic() in the <code>vcd</code> package</p>
+<div id="pairs-plot-for-categorical-variables" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> 3.2 pairs() plot for categorical variables</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb15-1"></a><span class="co"># The pairs_diagonal_mosaic() function is in the `vcd` package</span></span>
+<span id="cb15-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb15-2"></a></span>
+<span id="cb15-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb15-3"></a>p &lt;-<span class="st"> </span>mtcars[, <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">8</span><span class="op">:</span><span class="dv">10</span>)]</span>
+<span id="cb15-4"><a href="customized-plot-matrix-pairs-ggpairs.html#cb15-4"></a><span class="kw">pairs</span>(<span class="kw">table</span>(p),                                     <span class="co"># Here the data needs to be in a table format </span></span>
+<span id="cb15-5"><a href="customized-plot-matrix-pairs-ggpairs.html#cb15-5"></a>      <span class="dt">diag_panel =</span> <span class="kw">pairs_diagonal_mosaic</span>(<span class="dt">offset_varnames=</span><span class="op">-</span><span class="fl">2.5</span>))    <span class="co">#move down variable labels</span></span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="highlight-correlations-with-shade-colors" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> 3.3 Highlight correlations with shade colors</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="customized-plot-matrix-pairs-ggpairs.html#cb16-1"></a><span class="kw">pairs</span>(<span class="kw">table</span>(p), </span>
+<span id="cb16-2"><a href="customized-plot-matrix-pairs-ggpairs.html#cb16-2"></a>      <span class="dt">diag_panel =</span> <span class="kw">pairs_diagonal_mosaic</span>(<span class="dt">offset_varnames=</span><span class="op">-</span><span class="fl">2.5</span>),    <span class="co">#move down variable names</span></span>
+<span id="cb16-3"><a href="customized-plot-matrix-pairs-ggpairs.html#cb16-3"></a>      <span class="dt">upper_panel_args =</span> <span class="kw">list</span>(<span class="dt">shade =</span> <span class="ot">TRUE</span>),                       <span class="co">#set shade colors</span></span>
+<span id="cb16-4"><a href="customized-plot-matrix-pairs-ggpairs.html#cb16-4"></a>      <span class="dt">lower_panel_args =</span> <span class="kw">list</span>(<span class="dt">shade =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="outside-sources" class="section level2">
+<h2><span class="header-section-number">3.2</span> 4. Outside sources</h2>
+<div id="you-can-check-out-the-following-links-to-find-more-interesting-ways-to-customize-your-plot-matrix." class="section level4">
+<h4><span class="header-section-number">3.2.0.1</span> You can check out the following links to find more interesting ways to customize your plot matrix.</h4>
+<p>[R pairs &amp; ggpairs Plot Functions] <a href="https://statisticsglobe.com/r-pairs-plot-example/#" class="uri">https://statisticsglobe.com/r-pairs-plot-example/#</a>:~:text=The%20pairs%20R%20function%20returns,pairs%20command%20is%20shown%20above.</p>
+<p>[ggpairs() r documentation] <a href="https://www.rdocumentation.org/packages/GGally/versions/1.5.0/topics/ggpairs" class="uri">https://www.rdocumentation.org/packages/GGally/versions/1.5.0/topics/ggpairs</a></p>
+<p>[Pairs plot for contingency tables] <a href="http://finzi.psych.upenn.edu/R/library/vcd/html/pairs.table.html" class="uri">http://finzi.psych.upenn.edu/R/library/vcd/html/pairs.table.html</a></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sample-project.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jtr13/cc20/edit/master/pairs_and_ggpairs.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/jtr13/cc20/blob/master/pairs_and_ggpairs.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
