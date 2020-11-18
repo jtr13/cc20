@@ -1,0 +1,154 @@
+---
+title: NLP Tutorial
+---
+Wenjie Xie
+
+# Natural Language Processing Tutorial on book "Alice in the Wonderland"
+
+In this file, I will briefly introduce some basic Natural Language Processing with Python. I am going to give an example of analyzing a book called carrol-alice. 
+
+```{python}
+import numpy as np
+import pandas as pd
+
+import nltk
+import nltk.corpus
+
+import nltk
+nltk.download('punkt')
+```
+
+First we load the book and check the first 100 words of this book. We notice that there are many informal expression, which prevent us from analyzing the text.
+
+```{python}
+alice = nltk.corpus.gutenberg.raw("carroll-alice.txt")
+alice[:100]
+```
+
+### Regular Expression
+
+Splitting on whitespace doesn't handle punctuation. Rather than splitting the text, you can also approach the problem from the perspective of extracting tokens. The `findall()` function returns all matches for a regular expression:
+
+```{python}
+import re
+txt = re.findall(r"(?:\w|')+",alice)
+txt[:20]
+```
+
+## Standardizing Text 
+
+Some common standardization techniques for text are:
+
+* Tokenization
+* Lowercasing
+* Replace escape sequence and raw strings (e.g /n)
+* Stopword Removal: Remove tokens that don't contribute meaning. For example, "the" is meaningless on its own.
+
+```{python}
+# words = nltk.word_tokenize(txt)
+lower = [w.lower() for w in txt]
+lower[:20]
+```
+
+### Lemmatization
+
+_Lemmatization_ looks up each token in a dictionary to find a root word, or _lemma_.
+
+Lemmatization serves the same purpose as stemming. Lemmatization is more accurate, but requires a dictionary and usually takes longer.
+
+```{python}
+#nltk.download('wordnet')
+lemmatizer = nltk.WordNetLemmatizer()
+lemmatizer.lemmatize("adventured","v")
+```
+
+```{python}
+#nltk.download('averaged_perceptron_tagger')
+nltk.pos_tag(["adventured"])
+```
+
+```{python}
+from nltk.corpus import wordnet
+
+def wordnet_pos(tag):
+    """Map a Brown POS tag to a WordNet POS tag."""
+    
+    table = {"N": wordnet.NOUN, "V": wordnet.VERB, "R": wordnet.ADV, "J": wordnet.ADJ}
+    
+    # Default to a noun.
+    return table.get(tag[0], wordnet.NOUN)
+```
+
+```{python}
+alice_tag = nltk.pos_tag(lower)
+tokenized_txt = [lemmatizer.lemmatize(w,wordnet_pos(t)) for (w,t) in alice_tag]
+tokenized_txt[:50]
+```
+
+### Stopword Removal
+
+Remove _stop words_ like "the","a","and","or","in","by", which has nothing to do with future languag analysis.
+
+```{python}
+sw = ["the","a","and","or","in","by","to","of","this","that","with","for","it","at","have","very","be","so","not","about"]
+```
+
+```{python}
+file = [item for item in tokenized_txt if item not in sw]
+file[:20]
+```
+
+After cleaning the data, we could count on the word frequence and even the sentiment score of the whole text.
+
+### Word Frequence
+
+```{python}
+fq = nltk.FreqDist(w for w in file if w.isalnum())
+fq.most_common(25)
+```
+
+```{python}
+%matplotlib inline
+fq.plot(20, cumulative = True)
+```
+
+### Sentiment Score Calculation
+
+Through this algorithm, words like "happy","hilarious" would be detected as positive word, which convey positive attitude. On the other hand, words like "bad","teat" would be detected as negative word. In this case, we could give a rough concept of the whole sentiment score of the text.
+
+```{python}
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from pandas import Series, DataFrame
+
+nltk_sentiment = SentimentIntensityAnalyzer()
+
+def nltk_sentiment(sentence):
+    """
+    This function is to process the sentiment on each tokenized sentences
+    and then generate a sentiment value for each sentence
+    """
+    score = nltk_sentiment.polarity_scores(sentence)
+    return score
+```
+
+```{python}
+def listToString(s):  
+    
+    # initialize an empty string 
+    str1 = " " 
+    
+    # return string   
+    return (str1.join(s)) 
+        
+# Driver code     
+print(listToString(s)) 
+
+new = listToString(file)
+```
+
+```{python}
+nltk_sentiment(new)
+```
+
+In this case, we could say that in this story, we do not have much words that convey either negative nor positive emotion.
+
