@@ -15,6 +15,7 @@ rmd_files: [
   'china_choropleth_map.Rmd',
   'R_data_transformation.Rmd',
   'a_brief_introduction_to_seaborn.Rmd',
+  'rselenium_tutorial.Rmd',
 
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd',
