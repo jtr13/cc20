@@ -5,6 +5,7 @@ submission-steps
 optional-tweaks
 faq
 what-should-i-expect-after-creating-a-pull-request
+what-if-i-catch-mistakes-before-my-pull-request-is-merged
 what-if-i-catch-mistakes-after-my-pull-request-is-merged
 other-questions
 sample-project
