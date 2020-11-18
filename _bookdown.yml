@@ -8,24 +8,31 @@ language:
     chapter_name: "Chapter "
 
 rmd_files: [
-  # Part: Introduction
+   # Part 1: Introduction
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
+  
+  # Part 2: Data Processing and Wrangling
+  'R_data_transformation.Rmd',
+  
+  # Part 3: Data Visualization
   'pairs_and_ggpairs.Rmd',
-  'china_choropleth_map.Rmd',
-  'r_data_transformation.Rmd',
   'a_brief_introduction_to_seaborn.Rmd',
   'rselenium_tutorial.Rmd',
+  'china_choropleth_map.Rmd',
+  
+  # Part 4: R Shiny
 
-  # Part: Translations
+
+  # Part 5: Translations
   'chinese_translation_of_candela_package.Rmd',
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
-
-  # Part: Video Tutorial
+  
+  # Part 6: Other Topics
   'tableau_intro_tutorial_demo_with_pset.Rmd',
 
-  # Part: Appendices
+  # Part 7: Appendices
   'appendix_initial_setup.Rmd' # contains PART header
 ]
 
