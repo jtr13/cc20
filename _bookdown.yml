@@ -13,7 +13,7 @@ rmd_files: [
   'sample_project.Rmd',
   'pairs_and_ggpairs.Rmd',
   'china_choropleth_map.Rmd',
-  'R_data_transformation.Rmd',
+  'r_data_transformation.Rmd',
   'a_brief_introduction_to_seaborn.Rmd',
   'rselenium_tutorial.Rmd',
 

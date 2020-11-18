@@ -17,3 +17,6 @@ nycflights13
 GDAdata
 ggplot2movies
 lattice
+xml2
+rvest
+RSelenium
