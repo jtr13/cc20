@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 Tableau intro tutorial explained with proset2 | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 13 Tutorial for Pull Request Mergers | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 Tableau intro tutorial explained with proset2 | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 13 Tutorial for Pull Request Mergers | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 Tableau intro tutorial explained with proset2 | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 13 Tutorial for Pull Request Mergers | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="korean-translation-of-scatterplot.html"/>
-<link rel="next" href="github-initial-setup.html"/>
+<link rel="prev" href="github-initial-setup.html"/>
+
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -388,25 +388,109 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tableau-intro-tutorial-explained-with-proset2" class="section level1" number="11">
-<h1><span class="header-section-number">Chapter 11</span> Tableau intro tutorial explained with proset2</h1>
-<p>Yue Wang</p>
-<p>For the community contribution project, I will briefly introduce Tableau, the major features of this product, and other relevant products that are used in a different setting. I will introduce structure of the interfaces, importation of data, the supported files of data, supported data types, how to build worksheets and an interactive dashboard.</p>
-<p>I’ll use the Problem1 from Problem Set 2 to do the demo. This problem includes recoding of factor levels, vertical/horizontal bar chart, and horizontal bar chart of proportion. Although it only covers bar chart, I believe this will be a great first step to learn about how Tableau generally works. After doing the demo, I’ll draw a comparison with R and Excel and reemphasize the context of using Tableau.</p>
-<p>You can check the video through this link: <a href="https://www.bilibili.com/video/BV1py4y167YF/" class="uri">https://www.bilibili.com/video/BV1py4y167YF/</a></p>
+<div id="tutorial-for-pull-request-mergers" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Tutorial for Pull Request Mergers</h1>
+<div id="check-branch" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Check branch</h2>
+<p>PR should be submitted from a <strong>non-master</strong> branch.</p>
+<p><img src="resources/tutorial_pull_request_mergers/1.png" width="800">
+<br/></p>
+<p>If PR was submitted from the <strong>master</strong> branch, you can link to this explanation of what to do to fix it:</p>
+<p><a href="https://edav.info/github#fixing-mistakes" class="uri">https://edav.info/github#fixing-mistakes</a>.</p>
+<p><br/>
+<img src="resources/tutorial_pull_request_mergers/2.png" width="800"></p>
+<p><br/></p>
+</div>
+<div id="check-.rmd-file" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> Check <code>.Rmd</code> file</h2>
+<div id="access-prs-branch" class="section level3" number="13.2.1">
+<h3><span class="header-section-number">13.2.1</span> Access PR’s branch</h3>
+<p><img src="resources/tutorial_pull_request_mergers/3.png" width="800">
+<br/><br/>
+<img src="resources/tutorial_pull_request_mergers/4.png" width="800">
+<br/><br/></p>
+</div>
+<div id="check-.rmd-file-format" class="section level3" number="13.2.2">
+<h3><span class="header-section-number">13.2.2</span> Check <code>.Rmd</code> file format</h3>
+<ul>
+<li><p>Each group can only submit ONE <code>Rmd</code> file.</p></li>
+<li><p>The <code>.rmd</code> file should be put into the root directory on the branch.
+<img src="resources/tutorial_pull_request_mergers/IntroRMD_1.png" width="800">
+<br/><br/></p></li>
+<li><p>Project name should be the same as the root directory name of the branch, and should be words only and joined with underscores, no white space. All letters must be lowercase.</p></li>
+<li><p>No YAML header including the — line.</p></li>
+<li><p>The second line should be blank, followed by your name(s).</p></li>
+<li><p>The first line starts with a <strong>single hashtag <code>#</code></strong>, followed by a <strong>single whitespace</strong>, and then the title.</p></li>
+<li><p>If contributors have included a setup chunk in <code>.Rmd</code> file, please notify them to remove the label setup in the chunk.
+<br/>i.e. use <code>{r, include=FALSE}</code> instead of <code>{r setup, include=FALSE}</code>.
+<br/><a href="https://github.com/jtr13/cc20/blob/master/sample_project.Rmd">See sample <code>.Rmd</code></a></p></li>
+</ul>
+</div>
+<div id="check-additional-resources" class="section level3" number="13.2.3">
+<h3><span class="header-section-number">13.2.3</span> Check additional resources</h3>
+<ul>
+<li>All the additional resources should be put in resources/<project_name>/ only.</li>
+<li>Remind contributors of a possibility of path change in their .rmd files when <code>resources/&lt;project_name&gt;/</code> is created.
+<br/>i.e. the reference path should be in this format: <code>![Test Photo](resources/sample_project/election.jpg)</code></li>
+</ul>
+</div>
+<div id="request-a-change-if-.rmd-file-is-invalid" class="section level3" number="13.2.4">
+<h3><span class="header-section-number">13.2.4</span> Request a change if <code>.Rmd</code> file is invalid</h3>
+<ul>
+<li>Instruction cited from <a href="https://github.com/jtr13/cc19/wiki/Tutorial-for-maintainers">cc19-Wiki</a> <strong>2.2.1 Request a change</strong></li>
+</ul>
+<p><br/></p>
+</div>
+</div>
+<div id="update-_bookdown.yml" class="section level2" number="13.3">
+<h2><span class="header-section-number">13.3</span> Update <code>_bookdown.yml</code></h2>
+<div id="add-files-names-to-_bookdown.yml-in-prs-branch" class="section level3" number="13.3.1">
+<h3><span class="header-section-number">13.3.1</span> Add files names to <code>_bookdown.yml</code> in PR’s <code>branch</code></h3>
+<ul>
+<li><p>Go back to Pull Requests page in <a href="https://github.com/jtr13/cc20">jtr13/cc20</a>.</p></li>
+<li><p>Open the <code>_bookdown.yml</code> file.</p></li>
+<li><p>Add the names of <code>.rmd</code> file after rmd_files.
+<br/>i.e. <code>rmd_files['file1.rmd','file2.rmd']</code>
+<img src="resources/tutorial_pull_request_mergers/yml_1.png" width="800">
+<br/><br/></p></li>
+<li><p>Save the edited version.</p></li>
+</ul>
+</div>
+<div id="add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization" class="section level3" number="13.3.2">
+<h3><span class="header-section-number">13.3.2</span> Add chapter names to <code>.rmd</code> for every first article in each chapter (Chapter Organization)</h3>
+<p>For every first article of each chapter, you need to add the chapter name on the top of the <code>.rmd</code> file, then propose changes. The example is like this.
+<img src="resources/tutorial_pull_request_mergers/chap_1.png" width="800">
+<br/><br/></p>
+</div>
+</div>
+<div id="merge-branch-into-jtr13master-and-resolve-conflicts" class="section level2" number="13.4">
+<h2><span class="header-section-number">13.4</span> Merge <code>branch</code> into <code>jtr13:master</code> and resolve conflicts</h2>
+<p>After you finish all the checks and get the qualified files, we can merge the <code>branch</code> to <code>jtr13:master</code>.</p>
+<p>There are two more things we need to do for merging the <code>branch</code>.</p>
+<div id="resolve-conflicts." class="section level3" number="13.4.1">
+<h3><span class="header-section-number">13.4.1</span> Resolve conflicts.</h3>
+<p><br/>When there are conflicts between files in <code>jtr13:master</code> and <code>branch</code>, conflicts will occur. The conflicts look like this.
+<img src="https://docs.github.com/assets/images/help/pull_requests/view-merge-conflict-with-markers.png" width="800">
+<br/><br/>
+<br/>Figure source: <a href="https://docs.github.com/assets/images/help/pull_requests/view-merge-conflict-with-markers.png" class="uri">https://docs.github.com/assets/images/help/pull_requests/view-merge-conflict-with-markers.png</a>
+<br/>To resolve the conflicts, you just need to <strong>delete</strong> the lines with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; xxxx</code>, <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</code>.</p>
+</div>
+<div id="merge-pr-and-leave-comments." class="section level3" number="13.4.2">
+<h3><span class="header-section-number">13.4.2</span> Merge PR and Leave comments.</h3>
+<p>Now comes the final step. We go back to Pull Requests page in <a href="https://github.com/jtr13/cc20">jtr13/cc20</a> again.
+<br/> Leave comments for congratulations 🎉 and then click on the green button for merge.
+<br/></p>
 
 </div>
-
-
-
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="korean-translation-of-scatterplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="github-initial-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="github-initial-setup.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -437,7 +521,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/cc20/edit/master/tableau_intro_tutorial_demo_with_pset.Rmd",
+"link": "https://github.com/jtr13/cc20/edit/master/appendix_pull_request_tutorial.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -445,7 +529,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/cc20/blob/master/tableau_intro_tutorial_demo_with_pset.Rmd",
+"link": "https://github.com/jtr13/cc20/blob/master/appendix_pull_request_tutorial.Rmd",
 "text": null
 },
 "download": null,
