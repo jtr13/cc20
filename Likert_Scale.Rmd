@@ -51,7 +51,7 @@ B. Do more harm than good, Make no difference, Do more good than harm
 C. No Impact, Moderate Impact, Huge Impact
 
 
-## 3. Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind
+## Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind
 
 (You can find the data, codebook, and other documentation related to the data at: `https://osf.io/jw79p/`)
 
@@ -174,7 +174,7 @@ CCAM_rmrf <- CCAM_tidy[CCAM_tidy$Response!="Refused",]
 CCAM_rmrf_summary <- CCAM_rmrf %>%
   group_by(Question, Response) %>%
   summarize(Freq = n()) %>%
-  mutate(prop = Freq/sum(Freq)) %>%
+  mutate(prop = Freq/sum(Freq))
 
 ggplot(data = CCAM_rmrf_summary, aes(Question, prop, fill = fct_rev(Response))) +
   likert_theme +
