@@ -48,6 +48,10 @@ group_by-and-summarize
 quick-eda-median-arrival-delays
 external-resource
 a-brief-introduction-to-seaborn
+webscraping-dynamic-content-rselenium-tutorial
+introduction-and-setup
+simple-illustrations-with-websites
+other-features
 chinese-translation-of-candela-package
 candela
 开始

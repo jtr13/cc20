@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Customized Plot Matrix: pairs and ggpairs | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 7 Webscraping Dynamic Content: Rselenium Tutorial | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Customized Plot Matrix: pairs and ggpairs | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 7 Webscraping Dynamic Content: Rselenium Tutorial | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Customized Plot Matrix: pairs and ggpairs | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 7 Webscraping Dynamic Content: Rselenium Tutorial | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="sample-project.html"/>
-<link rel="next" href="china-choropleth-map.html"/>
+<link rel="prev" href="a-brief-introduction-to-seaborn.html"/>
+<link rel="next" href="chinese-translation-of-candela-package.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -367,200 +367,88 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="customized-plot-matrix-pairs-and-ggpairs" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Customized Plot Matrix: pairs and ggpairs</h1>
-<p>Yibai Liu</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb6-1"></a><span class="kw">library</span>(GGally)</span>
-<span id="cb6-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb6-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb6-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb6-3"></a><span class="kw">library</span>(vcd)</span></code></pre></div>
-<div id="overview-things-we-can-do-with-pairs-and-ggpairs" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Overview: Things we can do with pairs() and ggpairs()</h2>
-<p>When our data contains multivariate variables, it is important to evaluate associations between these variables before modeling. We can create scatterplot matrices, correlation matrix, as well as mosaic pairs plots to get an idea about if and how these variables are correlated with each other. In this tutorial, I would plot using a base r function <strong>pairs()</strong> and a function <strong>ggpairs()</strong> from the <code>GGally</code> package, which both functions provide methods to generate customized plot matrices.</p>
-<p>Plots for different purposes:
-- Scatterplot matrix: correlations between continuous variables
-- Mosaic pairs plot: correlations between categorical variables</p>
+<div id="webscraping-dynamic-content-rselenium-tutorial" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Webscraping Dynamic Content: Rselenium Tutorial</h1>
+<p>Chenchao You</p>
+<div id="introduction-and-setup" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Introduction and Setup</h2>
+<p>This is a tutorial on webscrapping dynamic content with the help of RSelenium. In previous courses we have learned how to use rvest to webscrap html pages. Specifically, recall that in problem set 2 we are asked to webscrape “<a href="https://www.metacritic.com/publication/digital-trends" class="uri">https://www.metacritic.com/publication/digital-trends</a>” to gather information about metascores, using rvest package and SelectorGadget.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb112-1"></a>metacritic &lt;-<span class="st"> </span><span class="kw">read_html</span>(<span class="st">&quot;https://www.metacritic.com/publication/digital-trends&quot;</span>)</span>
+<span id="cb112-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb112-2"></a>title_html &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(metacritic,<span class="st">&#39;.review_product a&#39;</span>)</span>
+<span id="cb112-3"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb112-3"></a>title_data &lt;-<span class="st"> </span><span class="kw">html_text</span>(title_html)</span>
+<span id="cb112-4"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb112-4"></a></span>
+<span id="cb112-5"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb112-5"></a>meta_html &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(metacritic,<span class="st">&#39;.brief_metascore .game&#39;</span>)</span>
+<span id="cb112-6"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb112-6"></a>meta_score &lt;-<span class="st"> </span><span class="kw">html_text</span>(meta_html)</span>
+<span id="cb112-7"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb112-7"></a></span>
+<span id="cb112-8"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb112-8"></a>crit_html &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(metacritic,<span class="st">&#39;.brief_critscore .indiv&#39;</span>)</span>
+<span id="cb112-9"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb112-9"></a>crit_score &lt;-<span class="st"> </span><span class="kw">html_text</span>(crit_html)</span></code></pre></div>
+<p><img src="resources/rselenium_tutorial/Pagebutton.PNG" /></p>
+<p>This webpage is not dynamic so we could scrape the content by identifying CSS component using SelectorGadget and extract the data from html with rvest. However, most of the modern website use dynamic content. An example of this is Linkedin or Twitter. When you scroll down the webpage, new content is loaded without changing the URL. What if say, we want to webscrape Donald Trump’s Twitter information?</p>
+<p><img src="resources/rselenium_tutorial/Linkedin.PNG" /></p>
+<p><strong>Preparations</strong></p>
+<p>First you need to make sure you have a working environment. That includes the corresponding R packages, a working JAVA environment installed on your OS, and a installed browser. In this tutorial I’ll use chrome version “86.0.4240.22” as the browser.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb113-1"></a>  <span class="kw">install.packages</span>(<span class="st">&quot;RSelenium&quot;</span>)</span>
+<span id="cb113-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb113-2"></a>  <span class="kw">install.packages</span>(<span class="st">&quot;rvest&quot;</span>)</span>
+<span id="cb113-3"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb113-3"></a>  <span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>After the environment is properly set, we can proceed to initialize our browser.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb114-1"></a>  rD &lt;-<span class="st"> </span><span class="kw">rsDriver</span>(<span class="dt">browser=</span><span class="st">&quot;chrome&quot;</span>, <span class="dt">chromever=</span><span class="st">&quot;86.0.4240.22&quot;</span>, <span class="dt">verbose=</span>T)</span>
+<span id="cb114-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb114-2"></a>  remDr &lt;-<span class="st"> </span>rD[[<span class="st">&quot;client&quot;</span>]]</span></code></pre></div>
+<p>Some common error messages include port occupied or failed to receive handshake. Either try resetting connection with</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb115-1"></a>  <span class="kw">system</span>(<span class="st">&quot;taskkill /im java.exe /f&quot;</span>, <span class="dt">intern=</span><span class="ot">FALSE</span>, <span class="dt">ignore.stdout=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<p>or use VPN in the internet connection.</p>
+<p>If everything is setup correctly, you should see a browser popping up.</p>
+<p><img src="resources/rselenium_tutorial/Initial.PNG" /></p>
+<p>Now you are ready to navigate dynamic pages using RSelenium.</p>
 </div>
-<div id="scatterplot-matrix-for-continuous-variables" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Scatterplot matrix for continuous variables</h2>
-<div id="plot-with-pairs" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Plot with pairs()</h3>
-<div id="basic-scatterplot-matrix-of-the-mtcars-dataset-all-numeric-variables" class="section level4" number="3.2.1.1">
-<h4><span class="header-section-number">3.2.1.1</span> Basic scatterplot matrix of the `mtcars dataset (all numeric variables)</h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb7-1"></a><span class="kw">data</span>(mtcars)</span>
-<span id="cb7-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb7-2"></a><span class="kw">pairs</span>(<span class="op">~</span>., <span class="dt">data =</span> mtcars,</span>
-<span id="cb7-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb7-3"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>We notice that there are some numeric variables actually discrete or representing categories, so we can trim all discrete and categorical variables, and only plot continuous variables in the matrix.</p>
+<div id="simple-illustrations-with-websites" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Simple Illustrations with Websites</h2>
+<p>We will use “<a href="https://www.google.com" class="uri">https://www.google.com</a>” as a simple example to use some Rselenium functions. To navigate to google webpage:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb116-1"></a>  remDr<span class="op">$</span><span class="kw">navigate</span>(<span class="st">&quot;https://www.google.com&quot;</span>)</span></code></pre></div>
+<p><img src="resources/rselenium_tutorial/Google.PNG" />
+Rselenium use HTML, CSS or XPath to find which object to operate on. More information on the locator strategies for webdrivers can be found on <a href="https://stackoverflow.com/questions/48369043/official-locator-strategies-for-the-webdriver/48376890#48376890" class="uri">https://stackoverflow.com/questions/48369043/official-locator-strategies-for-the-webdriver/48376890#48376890</a>. However for the time being, we only need to understand some simple locator techniques. Some common locators include:</p>
+<p><strong>id, name, css selector, xpath</strong></p>
+<p>To find information about the target object (in our example the google search text input box), right click and select inspect:</p>
+<p><img src="resources/rselenium_tutorial/Inspect.PNG" /></p>
+<p>We spot name=‘q’ to locate the target object. In this case use $findElement function to select the textbox and use sendKeysToElement to input the text you want</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb117-1"></a>  input &lt;-<span class="st"> &quot;edav&quot;</span></span>
+<span id="cb117-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb117-2"></a>  selected &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&quot;name&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;q&quot;</span>)</span>
+<span id="cb117-3"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb117-3"></a>  selected<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(input))</span></code></pre></div>
+<p><img src="resources/rselenium_tutorial/Select.PNG" /></p>
+<p>Next we want to click the search button to search EDAV on google. Again use Inspect to locate the button object, and we found name=‘btnK’ to locate our button</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb118-1"></a>  remDr<span class="op">$</span><span class="kw">findElements</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;btnK&quot;</span>)[[<span class="dv">1</span>]]<span class="op">$</span><span class="kw">clickElement</span>()</span></code></pre></div>
+<p><img src="resources/rselenium_tutorial/EDAV.PNG" /></p>
+<p>Now we have the search result of EDAV. To scroll up or down the webpage, select the entire webpage using:</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb119-1"></a>  webpage &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="st">&quot;css&quot;</span>, <span class="st">&quot;body&quot;</span>)</span></code></pre></div>
 </div>
-<div id="continuous-variables-only" class="section level4" number="3.2.1.2">
-<h4><span class="header-section-number">3.2.1.2</span> Continuous variables only</h4>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb8-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)], <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="change-color-shape-size-of-points-as-well-as-labels-and-gaps-of-the-plot" class="section level4" number="3.2.1.3">
-<h4><span class="header-section-number">3.2.1.3</span> Change color, shape, size of points, as well as labels and gaps of the plot</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb9-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb9-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb9-2"></a>      <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>,                                            <span class="co"># Change color</span></span>
-<span id="cb9-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb9-3"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                <span class="co"># Change shape of points</span></span>
-<span id="cb9-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb9-4"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               <span class="co"># Change size of points</span></span>
-<span id="cb9-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb9-5"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb9-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb9-6"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  <span class="co"># Change labels  </span></span>
-<span id="cb9-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb9-7"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,                                               <span class="co"># Change gaps in between</span></span>
-<span id="cb9-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb9-8"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="add-a-smoother-to-each-scatterplot" class="section level4" number="3.2.1.4">
-<h4><span class="header-section-number">3.2.1.4</span> Add a smoother to each scatterplot</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb10-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb10-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb10-2"></a>      <span class="dt">lower.panel =</span> panel.smooth,           <span class="co"># Add a smoother for the lower panel</span></span>
-<span id="cb10-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb10-3"></a>      <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb10-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb10-4"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                </span>
-<span id="cb10-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb10-5"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               </span>
-<span id="cb10-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb10-6"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb10-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb10-7"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  </span>
-<span id="cb10-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb10-8"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,                                               </span>
-<span id="cb10-9"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb10-9"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="separate-groups-using-different-colors" class="section level4" number="3.2.1.5">
-<h4><span class="header-section-number">3.2.1.5</span> Separate groups using different colors</h4>
-<p><strong>Tip</strong>: You can also highlight a certain level of a categorical variable by simply turn other levels to grey.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb11-1"></a>mtcars<span class="op">$</span>vs &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>vs)</span>
-<span id="cb11-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb11-2"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb11-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb11-3"></a>      <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>)[mtcars<span class="op">$</span>vs],                  <span class="co"># Group by variable `vs`</span></span>
-<span id="cb11-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb11-4"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                </span>
-<span id="cb11-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb11-5"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               </span>
-<span id="cb11-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb11-6"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb11-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb11-7"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  </span>
-<span id="cb11-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb11-8"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,                                               </span>
-<span id="cb11-9"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb11-9"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars` Grouped by Engine&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>By separating data points by <code>vs</code> or the engine type, we can see that two groups form distinct clusters for many of the variables.</p>
-</div>
-<div id="choose-panel-display" class="section level4" number="3.2.1.6">
-<h4><span class="header-section-number">3.2.1.6</span> Choose panel display</h4>
-<p>If the plot seems dominated by too many points, you can turn off one of the panels.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb12-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb12-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb12-2"></a>      <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>)[mtcars<span class="op">$</span>vs],                  </span>
-<span id="cb12-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb12-3"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                </span>
-<span id="cb12-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb12-4"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               </span>
-<span id="cb12-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb12-5"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb12-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb12-6"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  </span>
-<span id="cb12-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb12-7"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,</span>
-<span id="cb12-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb12-8"></a>      <span class="dt">upper.panel =</span> <span class="ot">NULL</span>,               <span class="co"># Turn off the upper panel above the diagonal</span></span>
-<span id="cb12-9"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb12-9"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="customize-your-own-plot-matrix" class="section level4" number="3.2.1.7">
-<h4><span class="header-section-number">3.2.1.7</span> Customize your own plot matrix</h4>
-<p>The plot matrix is consisted of multiple panels, e.g. the upper panel, lower panel, diagonal panel, etc.
-You can customize each panel and make your own plot.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-1"></a><span class="co">#Panel of correlations</span></span>
-<span id="cb13-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-2"></a>panel.corr &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
-<span id="cb13-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-3"></a>    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</span>
-<span id="cb13-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-4"></a>    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb13-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-5"></a>    r &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">cor</span>(x, y), <span class="dt">digits=</span><span class="dv">3</span>)</span>
-<span id="cb13-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-6"></a>    txt &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Corr: &quot;</span>, r)</span>
-<span id="cb13-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-7"></a>    <span class="kw">text</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, txt, <span class="dt">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb13-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-8"></a>}</span>
-<span id="cb13-9"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-9"></a></span>
-<span id="cb13-10"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-10"></a><span class="co">#Panel of histograms</span></span>
-<span id="cb13-11"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-11"></a>panel.hist &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...){</span>
-<span id="cb13-12"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-12"></a>    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</span>
-<span id="cb13-13"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-13"></a>    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(usr[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">0</span>, <span class="fl">1.5</span>) )</span>
-<span id="cb13-14"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-14"></a>    h &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb13-15"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-15"></a>    breaks &lt;-<span class="st"> </span>h<span class="op">$</span>breaks</span>
-<span id="cb13-16"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-16"></a>    len &lt;-<span class="st"> </span><span class="kw">length</span>(breaks)</span>
-<span id="cb13-17"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-17"></a>    y &lt;-<span class="st"> </span>h<span class="op">$</span>counts<span class="op">/</span><span class="kw">max</span>(h<span class="op">$</span>counts)</span>
-<span id="cb13-18"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-18"></a>    <span class="kw">rect</span>(breaks[<span class="op">-</span>len], <span class="dv">0</span>, breaks[<span class="op">-</span><span class="dv">1</span>], y, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
-<span id="cb13-19"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-19"></a>}</span>
-<span id="cb13-20"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-20"></a></span>
-<span id="cb13-21"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-21"></a><span class="co">#Panel of scatterplots</span></span>
-<span id="cb13-22"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-22"></a>panel.scat &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
-<span id="cb13-23"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-23"></a>  <span class="kw">points</span>(x,y, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;coral&quot;</span>)</span>
-<span id="cb13-24"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-24"></a>}</span>
-<span id="cb13-25"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-25"></a></span>
-<span id="cb13-26"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-26"></a><span class="co">#Plot</span></span>
-<span id="cb13-27"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-27"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],  </span>
-<span id="cb13-28"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-28"></a>      <span class="dt">lower.panel =</span> panel.scat,</span>
-<span id="cb13-29"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-29"></a>      <span class="dt">upper.panel =</span> panel.corr,</span>
-<span id="cb13-30"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-30"></a>      <span class="dt">diag.panel =</span> panel.hist,</span>
-<span id="cb13-31"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-31"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb13-32"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-32"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),</span>
-<span id="cb13-33"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-33"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>, </span>
-<span id="cb13-34"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb13-34"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-</div>
-<div id="plot-with-ggpairs-from-ggally-package" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Plot with ggpairs() from <code>GGally</code> package</h3>
-<div id="basic-ggpairs-plot" class="section level4" number="3.2.2.1">
-<h4><span class="header-section-number">3.2.2.1</span> Basic ggpairs() plot</h4>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb14-1"></a><span class="co"># You need both ggplot2 and GGally packages loaded to use ggpairs()</span></span>
-<span id="cb14-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb14-2"></a></span>
-<span id="cb14-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb14-3"></a><span class="kw">ggpairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb14-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb14-4"></a>        <span class="dt">columnLabels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb14-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb14-5"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),</span>
-<span id="cb14-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb14-6"></a>        <span class="dt">upper =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="kw">wrap</span>(<span class="st">&#39;cor&#39;</span>, <span class="dt">size =</span> <span class="dv">4</span>)),</span>
-<span id="cb14-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb14-7"></a>        <span class="dt">title =</span> <span class="st">&quot;Scatterplot matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="separate-groups-using-different-colors-1" class="section level4" number="3.2.2.2">
-<h4><span class="header-section-number">3.2.2.2</span> Separate groups using different colors</h4>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb15-1"></a><span class="kw">ggpairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb15-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb15-2"></a>        <span class="dt">columnLabels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb15-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb15-3"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),</span>
-<span id="cb15-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb15-4"></a>        <span class="kw">aes</span>(<span class="dt">color =</span> mtcars<span class="op">$</span>vs),                             <span class="co"># Separate data by levels of vs</span></span>
-<span id="cb15-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb15-5"></a>        <span class="dt">upper =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="kw">wrap</span>(<span class="st">&#39;cor&#39;</span>, <span class="dt">size =</span> <span class="dv">3</span>)),</span>
-<span id="cb15-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb15-6"></a>        <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">combo =</span> <span class="kw">wrap</span>(<span class="st">&quot;facethist&quot;</span>, <span class="dt">bins =</span> <span class="dv">30</span>)),</span>
-<span id="cb15-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb15-7"></a>        <span class="dt">diag =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="kw">wrap</span>(<span class="st">&quot;densityDiag&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)),</span>
-<span id="cb15-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb15-8"></a>        <span class="dt">title =</span> <span class="st">&quot;Scatterplot matrix of `mtcars` Grouped by Engine&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-</div>
-</div>
-<div id="categorical-variables" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Categorical variables</h2>
-<p>There are some categorical variables in the dataset <code>mtcars</code>. We can turn these variables and also discrete variables into factors
-### Factorize discrete/categorical variables</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb16-1"></a>mtcars<span class="op">$</span>cyl &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>cyl)</span>
-<span id="cb16-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb16-2"></a>mtcars<span class="op">$</span>am &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>am)</span>
-<span id="cb16-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb16-3"></a>mtcars<span class="op">$</span>gear &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>gear)</span></code></pre></div>
-<p>Now we can create a mosaic pairs plot with pairs_diagonal_mosaic() in the <code>vcd</code> package</p>
-<div id="pairs-plot-for-categorical-variables" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> pairs() plot for categorical variables</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb17-1"></a><span class="co"># You need to load the `vcd` package</span></span>
-<span id="cb17-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb17-2"></a></span>
-<span id="cb17-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb17-3"></a>p &lt;-<span class="st"> </span>mtcars[, <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">8</span><span class="op">:</span><span class="dv">10</span>)]</span>
-<span id="cb17-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb17-4"></a><span class="kw">pairs</span>(<span class="kw">table</span>(p),                                     <span class="co"># Here the data needs to be in a table format </span></span>
-<span id="cb17-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb17-5"></a>      <span class="dt">diag_panel =</span> <span class="kw">pairs_diagonal_mosaic</span>(<span class="dt">offset_varnames=</span><span class="op">-</span><span class="fl">2.5</span>))    <span class="co">#move down variable labels</span></span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="highlight-correlations-with-shade-colors" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Highlight correlations with shade colors</h3>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb18-1"></a><span class="kw">pairs</span>(<span class="kw">table</span>(p), </span>
-<span id="cb18-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb18-2"></a>      <span class="dt">diag_panel =</span> <span class="kw">pairs_diagonal_mosaic</span>(<span class="dt">offset_varnames=</span><span class="op">-</span><span class="fl">2.5</span>),    <span class="co">#move down variable names</span></span>
-<span id="cb18-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb18-3"></a>      <span class="dt">upper_panel_args =</span> <span class="kw">list</span>(<span class="dt">shade =</span> <span class="ot">TRUE</span>),                       <span class="co">#set shade colors</span></span>
-<span id="cb18-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb18-4"></a>      <span class="dt">lower_panel_args =</span> <span class="kw">list</span>(<span class="dt">shade =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-</div>
-<div id="outside-sources" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Outside sources</h2>
-<p>You can check out the following links to find more interesting ways to customize your plot matrix.</p>
-<p>[R pairs &amp; ggpairs Plot Functions] <a href="https://statisticsglobe.com/r-pairs-plot-example/#" class="uri">https://statisticsglobe.com/r-pairs-plot-example/#</a>:~:text=The%20pairs%20R%20function%20returns,pairs%20command%20is%20shown%20above.</p>
-<p>[ggpairs() r documentation] <a href="https://www.rdocumentation.org/packages/GGally/versions/1.5.0/topics/ggpairs" class="uri">https://www.rdocumentation.org/packages/GGally/versions/1.5.0/topics/ggpairs</a></p>
-<p>[Pairs plot for contingency tables] <a href="http://finzi.psych.upenn.edu/R/library/vcd/html/pairs.table.html" class="uri">http://finzi.psych.upenn.edu/R/library/vcd/html/pairs.table.html</a></p>
+<div id="other-features" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Other Features</h2>
+<p>Rselenium can simulate shortcut keys of the browser. selKeys function gives the list of shortcut keys.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb120-1"></a>  selKeys</span></code></pre></div>
+<p>We can use: <strong>home, end, up_arrow, or down_arrow</strong> to navigate the webpage</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb121-1"></a>  webpage<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="dt">key =</span> <span class="st">&quot;home&quot;</span>))</span>
+<span id="cb121-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb121-2"></a>  webpage<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="dt">key =</span> <span class="st">&quot;end&quot;</span>))</span>
+<span id="cb121-3"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb121-3"></a>  webpage<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="dt">key =</span> <span class="st">&quot;up_arrow&quot;</span>))</span>
+<span id="cb121-4"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb121-4"></a>  webpage<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="dt">key =</span> <span class="st">&quot;down_arrow&quot;</span>))</span></code></pre></div>
+<p><strong>Read HTML</strong>
+After using RSelenium to get the webpage in the form we want, we can extract html using command $getPageSource(). Remember to give page time to fully load if your internet connection is poor.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb122-1"></a>  <span class="kw">Sys.sleep</span>(<span class="dv">3</span>)</span>
+<span id="cb122-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb122-2"></a>  html &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">getPageSource</span>()[[<span class="dv">1</span>]]</span></code></pre></div>
+<p>This html object can then be processed by all the rvest tools we have learned earlier. More information on rvest can be found on <a href="https://github.com/tidyverse/rvest" class="uri">https://github.com/tidyverse/rvest</a> if you are not familiar with this tool already.</p>
+<p><strong>Summary</strong>
+RSelenium provides R bindings for the Selenium Webdriver, which is a powerful tool for automated web browsers. We have only covered a few simple functions in this tutorial. To realize the full potential of this package, we encourage the reader to explore the documentation of RSelenium on <a href="https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html" class="uri">https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html</a>. Background knowledge of HTML and CSS are also super helpful in the webscraping process.</p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="sample-project.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="china-choropleth-map.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="a-brief-introduction-to-seaborn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chinese-translation-of-candela-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -591,7 +479,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/cc20/edit/master/pairs_and_ggpairs.Rmd",
+"link": "https://github.com/jtr13/cc20/edit/master/rselenium_tutorial.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -599,7 +487,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/cc20/blob/master/pairs_and_ggpairs.Rmd",
+"link": "https://github.com/jtr13/cc20/blob/master/rselenium_tutorial.Rmd",
 "text": null
 },
 "download": null,
