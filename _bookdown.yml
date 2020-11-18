@@ -12,6 +12,8 @@ rmd_files: [
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
   'pairs_and_ggpairs.Rmd',
+  'rselenium_tutorial.Rmd',
+  
   # Part: Appendices
   'appendix_initial_setup.Rmd' # contains PART header
 ]
