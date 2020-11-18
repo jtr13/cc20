@@ -4,7 +4,7 @@
 
 PR should be submitted from a **non-master** branch.
 
-<img src="resources/tutorial_pull_request_mergers/1.png" width="800">
+<img src="resources/tutorial_pull_request_mergers/1.png" width="700">
 <br/>
 
 If PR was submitted from the **master** branch, you can link to this explanation of what to do to fix it: 
@@ -12,7 +12,7 @@ If PR was submitted from the **master** branch, you can link to this explanation
 https://edav.info/github#fixing-mistakes.
 
 <br/>
-<img src="resources/tutorial_pull_request_mergers/2.png" width="800">
+<img src="resources/tutorial_pull_request_mergers/2.png" width="700">
 
 
 
@@ -20,53 +20,74 @@ https://edav.info/github#fixing-mistakes.
 
 ## Check `.Rmd` file
 
-
-
-###  Access PR's branch
-<img src="resources/tutorial_pull_request_mergers/3.png" width="800">
-<br/><br/>
-<img src="resources/tutorial_pull_request_mergers/4.png" width="800">
+###  Examine files that were added or modified
+<img src="resources/tutorial_pull_request_mergers/files_changed.png" width="700">
 <br/><br/>
 
-### Check `.Rmd` file format 
+### Check `.Rmd` filename format 
 - Each group can only submit ONE `Rmd` file.
-- The `.rmd` file should be put into the root directory on the branch. 
-<img src="resources/tutorial_pull_request_mergers/IntroRMD_1.png" width="800">
-<br/><br/>
-
-- Project name should be the same as the root directory name of the branch, and should be words only and joined with underscores, no white space. All letters must be lowercase.
+- The `.Rmd` file should be in the root directory on the branch. 
+- Project name should be the same as the root directory name of the branch, and should be words only and joined with underscores, no white space.
+- **All letters must be lowercase.**
 - No YAML header including the --- line.
 - The second line should be blank, followed by your name(s).
 - The first line starts with a **single hashtag `#`**, followed by a **single whitespace**, and then the title.
+- There should be no additional single hashtag headers in the chapter. (If there are, new chapters will be created.)
 - If contributors have included a setup chunk in `.Rmd` file, please notify them to remove the label setup in the chunk.
 <br/>i.e. use `{r, include=FALSE}` instead of `{r setup, include=FALSE}`.
 <br/>[See sample `.Rmd`](https://github.com/jtr13/cc20/blob/master/sample_project.Rmd)
 
+### Additional checks
+
+- The `.Rmd` file should not contain any `write` functions, `setwd()`, or `getwd()`. 
+
+- If there's anything else that looks odd but you're not sure, assign `jtr13` to review and explain the issue.
+
 
 ### Check additional resources
-- All the additional resources should be put in resources/<project_name>/ only.
-- Remind contributors of a possibility of path change in their .rmd files when `resources/<project_name>/` is created.
-<br/>i.e. the reference path should be in this format: `![Test Photo](resources/sample_project/election.jpg)`
+- All of the additional resources should be in the `resources/<project_name>/` folder.
+- References to those files must contain `resources/<project_name>/` in the path, such as: `![Test Photo](resources/sample_project/election.jpg)`
 
 ### Request a change if `.Rmd` file is invalid
-- Instruction cited from [cc19-Wiki](https://github.com/jtr13/cc19/wiki/Tutorial-for-maintainers) **2.2.1 Request a change**
+
+If there is any requirement that a request does not meet, request a change and add reasons why the pull request cannot be merged.
+
+<img src="resources/tutorial_pull_request_mergers/check_format.png" width="700">
+<img src="resources/tutorial_pull_request_mergers/request_change_lines.png" width="700">
+<img src="resources/tutorial_pull_request_mergers/request_change_files.png" width="700">
+<img src="resources/tutorial_pull_request_mergers/request_change_submit_review.png" width="700">
+
+Then, add a `changes requested` label to this pull request.
+
+Your job for this pull request is done for now. Once contributors fix their requests, review again and either move forward with the merge or explain what changes still need to be made.
 
 <br/> 
 
 ## Update `_bookdown.yml`
 
 ### Add files names to `_bookdown.yml` in PR's `branch`
-- Go back to Pull Requests page in [jtr13/cc20](https://github.com/jtr13/cc20).
+
+- Access the PR branch:
+
+<img src="resources/tutorial_pull_request_mergers/3.png" width="700">
+
+- Make sure you are on the PR branch by checking that the PR branch name is shown (not `master`):
+
+<img src="resources/tutorial_pull_request_mergers/4.png" width="700">
+
 - Open the `_bookdown.yml` file.
-- Add the names of `.rmd` file after rmd_files.
-<br/>i.e. `rmd_files['file1.rmd','file2.rmd']`
+- Add the names of `.Rmd` file after rmd_files.
+<br/>i.e. `rmd_files['file1.Rmd','file2.Rmd']`
 <img src="resources/tutorial_pull_request_mergers/yml_1.png" width="800">
 <br/><br/>
 
 - Save the edited version.
 
-### Add chapter names to `.rmd` for every first article in each chapter (Chapter Organization)
-For every first article of each chapter, you need to add the chapter name on the top of the `.rmd` file, then propose changes. The example is like this.
+### Add chapter names to `.Rmd` for every first article in each chapter (Chapter Organization)
+
+**If you are a PR pull request helper, you do not need to do this.**
+
+For every first article of each part, add the chapter name on the top of the `.Rmd` file, then propose changes. The example is like this.
 <img src="resources/tutorial_pull_request_mergers/chap_1.png" width="800">
 <br/><br/>
 
@@ -75,17 +96,20 @@ After you finish all the checks and get the qualified files, we can merge the `b
 
 There are two more things we need to do for merging the `branch`.
 
-### Resolve conflicts.
+### Resolve conflicts
 <br/>When there are conflicts between files in `jtr13:master` and `branch`, conflicts will occur. The conflicts look like this.
-<img src="https://docs.github.com/assets/images/help/pull_requests/view-merge-conflict-with-markers.png" width="800">
+<img src="https://docs.github.com/assets/images/help/pull_requests/view-merge-conflict-with-markers.png" width="700">
 <br/><br/>
 <br/>Figure source: https://docs.github.com/assets/images/help/pull_requests/view-merge-conflict-with-markers.png
 <br/>To resolve the conflicts, you just need to **delete** the lines with `<<<<<<< xxxx`, `=======` and `>>>>>>>> master`.
 
-### Merge PR and Leave comments.
+### Merge PR and leave a comment
 
-Now comes the final step. We go back to Pull Requests page in [jtr13/cc20](https://github.com/jtr13/cc20) again.
-<br/> Leave comments for congratulations 🎉 and then click on the green button for merge.
+Now comes the final step. We go back to the conversation tab of the pull requests page, for example: 
+
+https://github.com/jtr13/cc20/pull/23#issuecomment-728506101
+
+Leave comments for congratulations 🎉 (type `:tada:`) and then click on the green button for merge.
 <br/> 
 
 
