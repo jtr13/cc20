@@ -1,8 +1,8 @@
-# Scatterplot 
+# Korean translation of scatterplot
 
-Matthew Lim
+**산점도**
 
-# 산점도
+by Matthew Lim
 
 *Source: https://edav.info/scatter.html
 
