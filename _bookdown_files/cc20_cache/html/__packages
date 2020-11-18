@@ -20,3 +20,16 @@ lattice
 xml2
 rvest
 RSelenium
+jsonlite
+hash
+sp
+maptools
+rgdal
+here
+hchinamap
+magrittr
+data.table
+maps
+mapproj
+shadowtext
+leafletCN
