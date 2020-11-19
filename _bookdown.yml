@@ -21,24 +21,24 @@ rmd_files: [
   'a_brief_introduction_to_seaborn.Rmd',
   'likert_scale.Rmd',
 
-  # Part 4 Results Reporting
+  # Part 4: Results Reporting
   'visualization_tools_in_real_work.Rmd',
   
-  # Part 5 Complete Analyses
+  # Part 5: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
 
-  # Part 6 Other Topics
+  # Part 6: Other Topics
   'rselenium_tutorial.Rmd',
 
-  # Part 7 Live Tutorials
+  # Part 7: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
 
-  # Part 8 Translations
+  # Part 8: Translations
   'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
 
-  # Part 9 Appendices
+  # Part 9: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd',
   'appendix_chapter_organization.Rmd'
