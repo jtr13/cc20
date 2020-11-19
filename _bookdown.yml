@@ -8,7 +8,7 @@ language:
     chapter_name: "Chapter "
 
 rmd_files: [
-   # Part 1: Introduction
+  # Part 1: Introduction
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
 
