@@ -19,6 +19,7 @@ rmd_files: [
   'pairs_and_ggpairs.Rmd', # contains PART header
   'a_brief_introduction_to_seaborn.Rmd',
   'rselenium_tutorial.Rmd',
+  'likert_scale.Rmd',
 
   # Part 4: Results Reporting
   
