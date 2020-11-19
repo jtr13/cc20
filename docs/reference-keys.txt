@@ -53,6 +53,16 @@ plot
 interactive-map-with-hchinamap
 interactive-map-with-leafletcn
 conclusion
+likert-scale-definition-examples-and-visualization
+what-is-likert-scale
+test-your-understanding-of-likert-scale
+visualization-of-a-sample-likert-scale-data-explore-climate-change-in-the-american-mind
+overview-of-the-data
+stacked-bar-chart
+faceted-bar-charts
+diverging-stacked-bar-chart
+arguments-on-each-type-of-charts
+reference
 chinese-translation-of-candela-package
 candela
 开始

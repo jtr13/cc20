@@ -20,6 +20,7 @@ rmd_files: [
   'a_brief_introduction_to_seaborn.Rmd',
   'rselenium_tutorial.Rmd',
   'china_choropleth_map.Rmd',
+  'likert_scale.Rmd',
 
   # Part 4: R Shiny
 
