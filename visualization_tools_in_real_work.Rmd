@@ -1,6 +1,4 @@
-
 #Visualiztion tools in real work
-
 
 Gaoyi Shi and Xiaonan Guo
 
@@ -11,7 +9,7 @@ strongly suggest that our classmates take some time to make themselves familiar 
 data scientist related jobs.
 
 
-Content
+Contents
 Part1: R/Python Plotly
 Part2: R Shiny App
 Part3: AWS QuickSight
