@@ -1,6 +1,6 @@
 
 # Website Sharing Whole Class and 2nd-part of the Website -- Mosaic Plot Translation to Chinese
-
+ 
 Hanxiao Zhang & Lei Guo
 
 We're trying to create a web site for sharing class resources publicly. 
