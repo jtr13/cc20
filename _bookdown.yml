@@ -7,6 +7,7 @@ language:
   ui:
     chapter_name: "Chapter "
 
+# Chapter ordering
 rmd_files: [
   # Part 1: Introduction
   'index.Rmd', # must be first chapter
@@ -17,16 +18,16 @@ rmd_files: [
 
   # Part 3: Data Visualization
   'pairs_and_ggpairs.Rmd', # contains PART header
-  'a_brief_introduction_to_seaborn.Rmd',
-  'rselenium_tutorial.Rmd',
   'likert_scale.Rmd',
 
   # Part 4: Results Reporting
+  'visualization_tools_in_real_work.Rmd',
   
   # Part 5: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
 
-  # Part 6: Other Topics
+  # Part 6: Cheatsheets and Video Tutorials
+  'Mosaic_plot_cheatsheet.Rmd',
 
   # Part 7: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
@@ -35,10 +36,14 @@ rmd_files: [
   'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
+  
+  # Part 9: Other Topics
+  'rselenium_tutorial.Rmd',
+  'a_brief_introduction_to_seaborn.Rmd',
 
-  # Part 9: Appendices
+  # Part 10: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
-  'appendix_pull_request_tutorial.Rmd'
+  'appendix_pull_request_tutorial.Rmd',
   'appendix_chapter_organization.Rmd'
 ]
 
