@@ -1,12 +1,5 @@
----
-title: "website_sharing_whole_class_mosaic_plot_translation"
-author: "Hanxiao Zhang & Lei Guo"
-date: "18/11/2020"
-output: html_document
----
- 
- 
-# Mosaic Plot
+
+# Website Sharing Whole Class and 2nd-part of the Website -- Mosaic Plot Translation to Chinese
 
 Hanxiao Zhang & Lei Guo
 
