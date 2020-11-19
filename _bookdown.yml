@@ -25,15 +25,15 @@ rmd_files: [
   # Part 5: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
 
-  # Part 5: Translations
+  # Part 5: Other Topics
+
+  # Part 6: Live Tutorials
+  'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
+
+  # Part 7: Translations
   'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
-
-  # Part 6: Other Topics
-
-  # Part 7: Live Tutorials
-  'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
 
   # Part 8: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
