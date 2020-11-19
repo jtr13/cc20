@@ -4,4 +4,4 @@ Akanxa Padhi
   
 As a part of my community contribution, I present a lightning talk on some of the key considerations to keep in mind while designing a data pipeline for an organization. I use a scenario from my workplace to share my experience.  
 
-Please refer to my slides here - https://github.com/akp21/EDAV_CC20/blob/main/Datapipeline_solution.pptx  
+Please refer to my slides here - https://github.com/akp21/EDAV_CC20/blob/main/Datapipeline_solution.pdf  
