@@ -27,8 +27,8 @@ rmd_files: [
   # Part 5: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
 
-  # Part 6: Other Topics
-  'rselenium_tutorial.Rmd',
+  # Part 6: Cheatsheets and Video Tutorials
+  'Mosaic_plot_cheatsheet.Rmd',
 
   # Part 7: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
@@ -37,6 +37,9 @@ rmd_files: [
   'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
+  
+  # Part 9: Other Topics
+  'rselenium_tutorial.Rmd',
 
   # Part 9: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
