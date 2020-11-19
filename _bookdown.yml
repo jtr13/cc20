@@ -13,28 +13,30 @@ rmd_files: [
   'sample_project.Rmd',
 
   # Part 2: Data Processing and Wrangling
-  'R_data_transformation.Rmd',
+  'R_data_transformation.Rmd', # contains PART header
 
   # Part 3: Data Visualization
-  'pairs_and_ggpairs.Rmd',
+  'pairs_and_ggpairs.Rmd', # contains PART header
   'a_brief_introduction_to_seaborn.Rmd',
   'rselenium_tutorial.Rmd',
-  'china_choropleth_map.Rmd',
 
-  # Part 4: R Shiny
-
+  # Part 4: Results Reporting
+  
+  # Part 5: Complete Analyses
+  'china_choropleth_map.Rmd', # contains PART header
 
   # Part 5: Translations
-  'chinese_translation_of_candela_package.Rmd',
+  'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
 
   # Part 6: Other Topics
-  'tableau_intro_tutorial_demo_with_pset.Rmd',
+  'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
 
   # Part 7: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd'
+  'appendix_chapter_organization.Rmd'
 ]
 
 before_chapter_script: "_common.R"
