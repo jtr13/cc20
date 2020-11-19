@@ -36,4 +36,4 @@ Thanks again for taking a look and following up!
 
 
 ***The raw code and output can be found in the following html file:
-https://github.com/mcryan6/benfords_law_2020_election/blob/main/benfords_law_2020election.html
+https://github.com/mcryan6/benfords_law_2020_election/blob/main/benfords_law_2020election.ipynb
