@@ -22,7 +22,8 @@ In order to give the audiences an overall knowledge of EDA, our website includes
   * Link to our website: https://leiguolg.wixsite.com/5702 
     ** The .Rmd and .html files for the 2nd part of our website rpub are also available on the button called ".Rmd and .html files" on the 2nd page of our website named "Specific Topic -- Mosaic plot". These two files can be downloaded through google drive.
   * Link to translated tutorial: https://rpubs.com/hz2660/Mosaic-plot 
-
+  * Link to Excel file: resources/website_sharing_whole_class_mosaic_plot_translation/MusicIcecream.csv
+  
 # Codes of 2nd-part of Website 
   * The .Rmd is available on this Github branch named "Translation-Rcode" 
 
