@@ -21,7 +21,8 @@ These are subject to change based on the content of the classes contributions. T
 3. Reporting Results
 4. Complete Analyses
 5. Translations
-6. Other Topics
+6. Live Tutorials
+7. Other Topics
 
 ### Motivation
 
@@ -35,4 +36,4 @@ At this point, readers of our "book" may be ready to appreciate the hard work th
 
 ### Additional Categories
 
-A careful reader will notice that sections `5` and `6` are missing from the chapter organization motivation. That's because these categories, "Translations" and "Other Topics," don't fit neatly into the data pipeline heuristic. Chapters that are labeled and initially organized into those sections may find that that's where they belong, or they may have a new home when future pull requests update the chapter organization based on the community contributions we've received.
+A careful reader will notice that sections `5` and `6` are missing from the chapter organization motivation. That's because these categories, "Translations," "Live Tutorials," and "Other Topics," don't fit neatly into the data pipeline heuristic. Chapters that are labeled and initially organized into those sections may find that that's where they belong, or they may have a new home when future pull requests update the chapter organization based on the community contributions we've received.
