@@ -1,4 +1,4 @@
-# (PART) Other Topics {-}
+# (PART) Live Tutorials {-}
 
 # Tableau intro tutorial explained with proset2
 

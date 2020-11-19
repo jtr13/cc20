@@ -31,9 +31,11 @@ rmd_files: [
   'korean_translation_of_scatterplot.Rmd',
 
   # Part 6: Other Topics
+
+  # Part 7: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
 
-  # Part 7: Appendices
+  # Part 8: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd'
   'appendix_chapter_organization.Rmd'
