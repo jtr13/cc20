@@ -1,4 +1,6 @@
-# China choropleth map 
+# (PART) Complete Analyses {-}
+
+# China choropleth map
 
 Jialu Xia and Danyang Han
 
