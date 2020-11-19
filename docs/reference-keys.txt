@@ -49,6 +49,7 @@ faceted-bar-charts
 diverging-stacked-bar-chart
 arguments-on-each-type-of-charts
 reference
+visualiztion-tools-in-real-work
 china-choropleth-map
 overview
 data-collection
