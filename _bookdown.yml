@@ -18,7 +18,6 @@ rmd_files: [
 
   # Part 3: Data Visualization
   'pairs_and_ggpairs.Rmd', # contains PART header
-  'a_brief_introduction_to_seaborn.Rmd',
   'likert_scale.Rmd',
 
   # Part 4: Results Reporting
@@ -40,6 +39,7 @@ rmd_files: [
   
   # Part 9: Other Topics
   'rselenium_tutorial.Rmd',
+  'a_brief_introduction_to_seaborn.Rmd',
 
   # Part 10: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
