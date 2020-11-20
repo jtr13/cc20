@@ -1,4 +1,4 @@
-# Automate EDA with DataExplorer
+# automate eda with dataexplorer
 
 Jing You
 
@@ -151,7 +151,7 @@ plot_str(
 #create_report(final_sleep)
 ````
 
-![Data report sample](resources/Automate_EDA_with_DataExplorer/unknown.png)
+![Data report sample](resources/automate_eda_with_dataexplorer/Unknown.png)
 
 
 * This function is very powerful that it provides user the ability to configure based on the needs. Each section and the arguments can be rendered, reponse variable can also be added. For example, we can add boxplot and scatterplot to the report, set number of sampled row in the qq-plot, and set response variable to Life.
