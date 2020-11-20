@@ -15,7 +15,7 @@ require(scales)
 
 This R code runs player level and community level statistics on Among Us Player data (which can be found on the home page of the app). To use this script, add your name and a userid to the among_us_player_stats.csv along with your player stats. Then enter your username and userID into the code, run the script and take a look! This code will use my username as an example.
 ```{r}
-plyr_stats <- read_csv("../resource/among_us_player_stats.csv")
+plyr_stats <- read_csv("../resources/among_us_player_stats.csv")
 Username = "Big Cheese"
 UserID = "1"
 ```
