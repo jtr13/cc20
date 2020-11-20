@@ -59,6 +59,7 @@ plot
 interactive-map-with-hchinamap
 interactive-map-with-leafletcn
 conclusion
+benfords-law-analysis-of-2020-election
 mosaic-plot-cheatsheet
 tableau-intro-tutorial-explained-with-proset2
 chinese-translation-of-candela-package
