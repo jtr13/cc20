@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 15 A brief introduction to seaborn | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 8 Benford’s Law Analysis of 2020 Election | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 15 A brief introduction to seaborn | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 8 Benford’s Law Analysis of 2020 Election | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 15 A brief introduction to seaborn | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 8 Benford’s Law Analysis of 2020 Election | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="webscraping-dynamic-content-rselenium-tutorial.html"/>
-<link rel="next" href="github-initial-setup.html"/>
+<link rel="prev" href="china-choropleth-map.html"/>
+<link rel="next" href="mosaic-plot-cheatsheet.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -419,17 +419,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="a-brief-introduction-to-seaborn" class="section level1" number="15">
-<h1><span class="header-section-number">Chapter 15</span> A brief introduction to seaborn</h1>
-<p>Rui Qin</p>
-<p>In the class, we learned how to create graphs of data by ggplot2, a data visualization package in R. Likewise, there are some libraries in Python able to do the same job as ggplot2. Seaborn is a data visualization tool based on Python library, matplotlib. Like ggplot2 in R, seaborn can create multiple kinds of statistical graphs for exploratory and explanatory purpose. In this file I will show some examples of graphs that we have learned in class and I will use three languages, English, Chinese, and Japanese, to briefly explain them.</p>
-<p>课上，我们学习并掌握了R语言中通过ggplot2绘制统计图表。Python中也有同样的数据可视化库包括matplotlib和seaborn。他们均可以将数据框中的数据以图标的形式表现出来，以此达到数据分析的目的。这里我将用seaborn展示几组课上学过的常用图表绘制方法。</p>
-<p>クラスでggplot2とRを利用し、統計グラフを作るのが勉強しました。同様に、Pythonのデータ可視化ライブラリもあります。よく使われるのはmatplotlibとseabornです。ggplot2のように、seabornは色々な統計グラフを作れます。これから、私はseabornの使い方を説明したいと思います。</p>
-<p><a href="https://r3qin.github.io/Community_Contribution/A-brief-introduction-to-seaborn.html">Here is the link!</a></p>
-
-</div>
-
-
+<div id="benfords-law-analysis-of-2020-election" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Benford’s Law Analysis of 2020 Election</h1>
+<p>Ryan McNally</p>
+<p>For my community contribution I thought I might consider my civic community in addition to my academic EDAV community :)</p>
+<p>I have seen some claims of election fraud online in recent days following the election, so thought I might take a look for myself and publish the findings. I have gathered vote count data from a few sources to assess whether fraud is statistically likely to have taken place, through use of Benford’s Law, which claims that sufficiently random counts spanning orders of magnitude will have FIRST DIGITS that occur with decreasing frequency from 1-9.</p>
+<p>My initial findings are that for the 3 major candidates, Trump , Biden, and Jorgensen - that at the national level there is no evidence of fraud.</p>
+<p>I also ran the analysis on county (or electoral district) level vote counts by state. This works well for states with a high number of counties, but is noisy and unreliable for those with only a few counties.</p>
+<p>So the last stage I am working on is to gather precinct level data for specific states that were closely contested, as they’d have had the highest incentive for fraud, and since there is always a large number of reporting precincts. However, this data is much more difficult to find and scrape effectively, so at this point I only have a study of Michigan complete. There are a few counties in Michigan that have a high number of reporting precincts, and don’t conform to the law as closely as one might expect… take a look!</p>
+<p>In the resources folder is a picture of the national level aggregation, showing very smooth functions and conformance with Benford’s law. Contrast this with Kent County Michigan file (this is not meant to be partisan, there were plenty of counties which Trump appeared to have failed the chi-square test as well).</p>
+<p>In the Piazza post about this project, a peer posted the following comment/question:
+“This is neat! Do you have data for other states? Or for past elections? My understanding is that Benford’s Law only applies to data that meet certain criteria. For instance, the pattern emerges more often in data that spans multiple orders of magnitude. That would explain why the national data fits the law almost perfectly. The pattern is also conditional on the mean of the data and the outcome of the election (in each sample). In a county that Biden won, the pattern is more likely to emerge in Trump’s data, and the expected most frequent digit for Biden depends more on the mean than Trump’s (you can see this in how the distribution skews for Biden in Kent County).”</p>
+<p>My further analysis to address this is as follows:
+Thanks for taking a look! Yes as I read more about Benford’s Law I am learning about that constraint. I need to delve a little deeper to see that vote counts in each county’s precincts span a few orders of magnitude to be robust.
+Here are order of magnitude frequencies for all Michigan precincts, and then for Kent County respectively.</p>
+<p>Michigan total (in resources/benfords_law/michigan_orders_of_magnitude_distribution.png)
+Kent County total (in resources/benfords_law/kent_county_orders_of_magnitude_distribution.png)</p>
+<p>In Michigan as a whole, Trump appears evenly/randomly distributed across several orders of magnitude, while Biden looks clustered in the hundreds, and Jorgensen only spans 2 orders of magnitude for the whole state. This might disqualify them, I am not sure.</p>
+<p>In Kent county, we are likely constrained by the precinct sizes, and see clustering at 3 OOM for Trump and Biden and 2 for Jorgensen.</p>
+<p>Further reading has indicated that using a combination of the first 2 digits together might be more illuminative, as well as using the last 2 digits (which ought to be totally randomly distributed).</p>
+<p>I don’t currently have any more precinct level data for any more states, but would be interested in checking out other tight contests, perhaps Wisconsin, Pennsylvania, and Georgia.</p>
+<p>Thanks again for taking a look and following up!</p>
+<p>***The raw code and output can be found in the following html file:
+<a href="https://github.com/mcryan6/benfords_law_2020_election/blob/main/benfords_law_2020election.ipynb" class="uri">https://github.com/mcryan6/benfords_law_2020_election/blob/main/benfords_law_2020election.ipynb</a></p>
 
 </div>
             </section>
@@ -437,8 +449,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="webscraping-dynamic-content-rselenium-tutorial.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="github-initial-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="china-choropleth-map.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mosaic-plot-cheatsheet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -469,7 +481,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/cc20/edit/master/a_brief_introduction_to_seaborn.Rmd",
+"link": "https://github.com/jtr13/cc20/edit/master/benfords_law.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -477,7 +489,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/cc20/blob/master/a_brief_introduction_to_seaborn.Rmd",
+"link": "https://github.com/jtr13/cc20/blob/master/benfords_law.Rmd",
 "text": null
 },
 "download": null,

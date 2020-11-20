@@ -1,0 +1,14 @@
+# Mosaic plot cheatsheet
+
+Tianqi Lou and Liyuan Tang
+
+Group number: 15
+
+The community contribution for our team is to create a cheatsheet of mosaic plot with `vcd` package in r.
+
+Our work is divided into two parts. The first part is the basic introduction for `mosaic` function in `vcd` package and we show some example outputs which is in the first and second columns. The second part is some further applications including the association plot and the independence model which is in the third column.
+
+Our cheatsheet and coding are uploaded on the Github as the follow link:
+https://github.com/Terrrry98/Community-Contribution
+
+The cheatsheet is in the `pdf` file and the corresponding coding is in the `rmd` file. 
