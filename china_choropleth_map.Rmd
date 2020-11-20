@@ -68,7 +68,7 @@ data<-data %>%
 
 data$province_CH=as.factor(data$province_CH)
 data$province_EN=as.factor(data$province_EN)
-write.csv(file='Heatmap_data.csv',data, fileEncoding =  'UTF-8')
+#write.csv(file='Heatmap_data.csv',data, fileEncoding =  'UTF-8')
 ```
 ```{r}
 head(data)
@@ -236,7 +236,7 @@ An advantage is that we can also plot maps for provinces using this package. Tak
 idx = match("湖北", h$name)
 hubei = h$children
 hubeidata<-hubei[[idx]]
-write.csv(file='Hubei_data.csv',hubeidata, fileEncoding =  'UTF-8')
+#write.csv(file='Hubei_data.csv',hubeidata, fileEncoding =  'UTF-8')
 hchinamap(name = hubeidata$name, 
           value = hubeidata$total$confirm,
           width = "100%", 
