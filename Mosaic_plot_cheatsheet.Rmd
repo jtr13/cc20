@@ -1,3 +1,5 @@
+# (PART) Cheatsheets and Video Tutorials {-}
+
 # Mosaic plot cheatsheet
 
 Tianqi Lou and Liyuan Tang
