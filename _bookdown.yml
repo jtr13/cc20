@@ -32,6 +32,7 @@ rmd_files: [
 
   # Part 7: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
+  'datapipeline_design.Rmd',
 
   # Part 8: Translations
   'chinese_translation_of_candela_package.Rmd', # contains PART header
@@ -44,6 +45,9 @@ rmd_files: [
   'rselenium_tutorial.Rmd',  # contains PART header
   'a_brief_introduction_to_seaborn.Rmd',
 
+  # Part: Video Tutorial
+  'tableau_intro_tutorial_demo_with_pset.Rmd',
+  'datapipeline_design.Rmd',
 
   # Part 10: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
