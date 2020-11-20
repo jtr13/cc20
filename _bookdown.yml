@@ -7,26 +7,52 @@ language:
   ui:
     chapter_name: "Chapter "
 
+# Chapter ordering
 rmd_files: [
-  # Part: Introduction
+  # Part 1: Introduction
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
-  'pairs_and_ggpairs.Rmd',
-  'china_choropleth_map.Rmd',
-  'R_data_transformation.Rmd',
-  'a_brief_introduction_to_seaborn.Rmd',
 
-  # Part: Translations
-  'chinese_translation_of_candela_package.Rmd',
+  # Part 2: Data Processing and Wrangling
+  'r_data_transformation.Rmd', # contains PART header
+
+  # Part 3: Data Visualization
+  'pairs_and_ggpairs.Rmd', # contains PART header
+  'likert_scale.Rmd',
+
+  # Part 4: Results Reporting
+  'visualization_tools_in_real_work.Rmd',  # contains PART header
+  
+  # Part 5: Complete Analyses
+  'china_choropleth_map.Rmd', # contains PART header
+  'benfords_law.Rmd',
+
+  # Part 6: Cheatsheets and Video Tutorials
+  'mosaic_plot_cheatsheet.Rmd',  # contains PART header
+
+  # Part 7: Live Tutorials
+  'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
+  'datapipeline_design.Rmd',
+
+  # Part 8: Translations
+  'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
+  'rmarkdown_tutorial_chinese_translation.rmd',
+
+  
+  # Part 9: Other Topics
+  'rselenium_tutorial.Rmd',  # contains PART header
+  'a_brief_introduction_to_seaborn.Rmd',
 
   # Part: Video Tutorial
   'tableau_intro_tutorial_demo_with_pset.Rmd',
   'datapipeline_design.Rmd',
 
-  # Part: Appendices
-  'appendix_initial_setup.Rmd' # contains PART header
+  # Part 10: Appendices
+  'appendix_initial_setup.Rmd', # contains PART header
+  'appendix_pull_request_tutorial.Rmd',
+  'appendix_chapter_organization.Rmd'
 ]
 
 before_chapter_script: "_common.R"
