@@ -21,14 +21,14 @@ rmd_files: [
   'likert_scale.Rmd',
 
   # Part 4: Results Reporting
-  'visualization_tools_in_real_work.Rmd',
+  'visualization_tools_in_real_work.Rmd',  # contains PART header
   
   # Part 5: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
   'benfords_law.Rmd',
 
   # Part 6: Cheatsheets and Video Tutorials
-  'Mosaic_plot_cheatsheet.Rmd',
+  'Mosaic_plot_cheatsheet.Rmd',  # contains PART header
 
   # Part 7: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
@@ -40,7 +40,7 @@ rmd_files: [
 
   
   # Part 9: Other Topics
-  'rselenium_tutorial.Rmd',
+  'rselenium_tutorial.Rmd',  # contains PART header
   'a_brief_introduction_to_seaborn.Rmd',
 
 
