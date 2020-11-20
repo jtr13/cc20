@@ -14,7 +14,7 @@ rmd_files: [
   'sample_project.Rmd',
 
   # Part 2: Data Processing and Wrangling
-  'R_data_transformation.Rmd', # contains PART header
+  'r_data_transformation.Rmd', # contains PART header
 
   # Part 3: Data Visualization
   'pairs_and_ggpairs.Rmd', # contains PART header
@@ -28,7 +28,7 @@ rmd_files: [
   'benfords_law.Rmd',
 
   # Part 6: Cheatsheets and Video Tutorials
-  'Mosaic_plot_cheatsheet.Rmd',  # contains PART header
+  'mosaic_plot_cheatsheet.Rmd',  # contains PART header
 
   # Part 7: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
