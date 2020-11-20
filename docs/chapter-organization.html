@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 13 Webscraping Dynamic Content: Rselenium Tutorial | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 17 Chapter Organization | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 13 Webscraping Dynamic Content: Rselenium Tutorial | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 17 Chapter Organization | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 Webscraping Dynamic Content: Rselenium Tutorial | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 17 Chapter Organization | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="korean-translation-of-scatterplot.html"/>
-<link rel="next" href="a-brief-introduction-to-seaborn.html"/>
+<link rel="prev" href="tutorial-for-pull-request-mergers.html"/>
+
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -418,76 +418,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="webscraping-dynamic-content-rselenium-tutorial" class="section level1" number="13">
-<h1><span class="header-section-number">Chapter 13</span> Webscraping Dynamic Content: Rselenium Tutorial</h1>
-<p>Chenchao You</p>
-<div id="introduction-and-setup" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> Introduction and Setup</h2>
-<p>This is a tutorial on webscrapping dynamic content with the help of RSelenium. In previous courses we have learned how to use rvest to webscrap html pages. Specifically, recall that in problem set 2 we are asked to webscrape “<a href="https://www.metacritic.com/publication/digital-trends" class="uri">https://www.metacritic.com/publication/digital-trends</a>” to gather information about metascores, using rvest package and SelectorGadget.</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb246-1"></a>metacritic &lt;-<span class="st"> </span><span class="kw">read_html</span>(<span class="st">&quot;https://www.metacritic.com/publication/digital-trends&quot;</span>)</span>
-<span id="cb246-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb246-2"></a>title_html &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(metacritic,<span class="st">&#39;.review_product a&#39;</span>)</span>
-<span id="cb246-3"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb246-3"></a>title_data &lt;-<span class="st"> </span><span class="kw">html_text</span>(title_html)</span>
-<span id="cb246-4"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb246-4"></a></span>
-<span id="cb246-5"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb246-5"></a>meta_html &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(metacritic,<span class="st">&#39;.brief_metascore .game&#39;</span>)</span>
-<span id="cb246-6"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb246-6"></a>meta_score &lt;-<span class="st"> </span><span class="kw">html_text</span>(meta_html)</span>
-<span id="cb246-7"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb246-7"></a></span>
-<span id="cb246-8"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb246-8"></a>crit_html &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(metacritic,<span class="st">&#39;.brief_critscore .indiv&#39;</span>)</span>
-<span id="cb246-9"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb246-9"></a>crit_score &lt;-<span class="st"> </span><span class="kw">html_text</span>(crit_html)</span></code></pre></div>
-<p><img src="resources/rselenium_tutorial/Pagebutton.PNG" /></p>
-<p>This webpage is not dynamic so we could scrape the content by identifying CSS component using SelectorGadget and extract the data from html with rvest. However, most of the modern website use dynamic content. An example of this is Linkedin or Twitter. When you scroll down the webpage, new content is loaded without changing the URL. What if say, we want to webscrape Donald Trump’s Twitter information?</p>
-<p><img src="resources/rselenium_tutorial/Linkedin.PNG" /></p>
-<p><strong>Preparations</strong></p>
-<p>First you need to make sure you have a working environment. That includes the corresponding R packages, a working JAVA environment installed on your OS, and a installed browser. In this tutorial I’ll use chrome version “86.0.4240.22” as the browser.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb247-1"></a>  <span class="kw">install.packages</span>(<span class="st">&quot;RSelenium&quot;</span>)</span>
-<span id="cb247-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb247-2"></a>  <span class="kw">install.packages</span>(<span class="st">&quot;rvest&quot;</span>)</span>
-<span id="cb247-3"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb247-3"></a>  <span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
-<p>After the environment is properly set, we can proceed to initialize our browser.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb248-1"></a>  rD &lt;-<span class="st"> </span><span class="kw">rsDriver</span>(<span class="dt">browser=</span><span class="st">&quot;chrome&quot;</span>, <span class="dt">chromever=</span><span class="st">&quot;86.0.4240.22&quot;</span>, <span class="dt">verbose=</span>T)</span>
-<span id="cb248-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb248-2"></a>  remDr &lt;-<span class="st"> </span>rD[[<span class="st">&quot;client&quot;</span>]]</span></code></pre></div>
-<p>Some common error messages include port occupied or failed to receive handshake. Either try resetting connection with</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb249-1"></a>  <span class="kw">system</span>(<span class="st">&quot;taskkill /im java.exe /f&quot;</span>, <span class="dt">intern=</span><span class="ot">FALSE</span>, <span class="dt">ignore.stdout=</span><span class="ot">FALSE</span>)</span></code></pre></div>
-<p>or use VPN in the internet connection.</p>
-<p>If everything is setup correctly, you should see a browser popping up.</p>
-<p><img src="resources/rselenium_tutorial/Initial.PNG" /></p>
-<p>Now you are ready to navigate dynamic pages using RSelenium.</p>
+<div id="chapter-organization" class="section level1" number="17">
+<h1><span class="header-section-number">Chapter 17</span> Chapter Organization</h1>
+<p>Yibai Liu and Colin Payne-Rogers</p>
+<p>This appendix contains information on how chapters in the <code>cc20</code> book are organized.</p>
+<div id="process-for-organizing-chapters" class="section level2" number="17.1">
+<h2><span class="header-section-number">17.1</span> Process for Organizing Chapters</h2>
+<ol style="list-style-type: decimal">
+<li><p>Each pull request that contains a chapter will be marked with at least one label prefixed with <code>chap: #</code>. This identifies which part of the book it should be added to.</p></li>
+<li><p>Additional labels may be added by chapter organizers or pull request reviewers. The goal for these is to add additional context to each chapter pull request. For instance, a “Python vs. R” cheat sheet and a “Mosaic Plot” cheat sheet will have different <code>chap:</code> labels, but the same <code>cheatsheet</code> label. These labels may help the chapter organizers re-organize chapters at a later date, if any initial chapters become bloated with contributions :)</p></li>
+<li><p>The chapter organizers will request that pull requests are updated so that the <code>_bookdown.yml</code> chapter list is in accordance with the chapter organization.</p></li>
+</ol>
 </div>
-<div id="simple-illustrations-with-websites" class="section level2" number="13.2">
-<h2><span class="header-section-number">13.2</span> Simple Illustrations with Websites</h2>
-<p>We will use “<a href="https://www.google.com" class="uri">https://www.google.com</a>” as a simple example to use some Rselenium functions. To navigate to google webpage:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb250-1"></a>  remDr<span class="op">$</span><span class="kw">navigate</span>(<span class="st">&quot;https://www.google.com&quot;</span>)</span></code></pre></div>
-<p><img src="resources/rselenium_tutorial/Google.PNG" />
-Rselenium use HTML, CSS or XPath to find which object to operate on. More information on the locator strategies for webdrivers can be found on <a href="https://stackoverflow.com/questions/48369043/official-locator-strategies-for-the-webdriver/48376890#48376890" class="uri">https://stackoverflow.com/questions/48369043/official-locator-strategies-for-the-webdriver/48376890#48376890</a>. However for the time being, we only need to understand some simple locator techniques. Some common locators include:</p>
-<p><strong>id, name, css selector, xpath</strong></p>
-<p>To find information about the target object (in our example the google search text input box), right click and select inspect:</p>
-<p><img src="resources/rselenium_tutorial/Inspect.PNG" /></p>
-<p>We spot name=‘q’ to locate the target object. In this case use $findElement function to select the textbox and use sendKeysToElement to input the text you want</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb251-1"></a>  input &lt;-<span class="st"> &quot;edav&quot;</span></span>
-<span id="cb251-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb251-2"></a>  selected &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&quot;name&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;q&quot;</span>)</span>
-<span id="cb251-3"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb251-3"></a>  selected<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(input))</span></code></pre></div>
-<p><img src="resources/rselenium_tutorial/Select.PNG" /></p>
-<p>Next we want to click the search button to search EDAV on google. Again use Inspect to locate the button object, and we found name=‘btnK’ to locate our button</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb252-1"></a>  remDr<span class="op">$</span><span class="kw">findElements</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;btnK&quot;</span>)[[<span class="dv">1</span>]]<span class="op">$</span><span class="kw">clickElement</span>()</span></code></pre></div>
-<p><img src="resources/rselenium_tutorial/EDAV.PNG" /></p>
-<p>Now we have the search result of EDAV. To scroll up or down the webpage, select the entire webpage using:</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb253-1"></a>  webpage &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="st">&quot;css&quot;</span>, <span class="st">&quot;body&quot;</span>)</span></code></pre></div>
+<div id="initial-book-parts" class="section level2" number="17.2">
+<h2><span class="header-section-number">17.2</span> Initial Book Parts</h2>
+<p>These are subject to change based on the content of the classes contributions. They are:</p>
+<ol style="list-style-type: decimal">
+<li>Data Processing and Wrangling</li>
+<li>Data Visualization</li>
+<li>Reporting Results</li>
+<li>Complete Analyses</li>
+<li>Translations</li>
+<li>Live Tutorials</li>
+<li>Other Topics</li>
+</ol>
+<div id="motivation" class="section level3" number="17.2.1">
+<h3><span class="header-section-number">17.2.1</span> Motivation</h3>
+<p>The chapters are organized with a real-world data pipeline in mind. First, an analyst needs to obtain and organize the data they hope to explore and visualize (“data processing and wrangling”). This may include contributions related to tidying data, handling missing data, web scraping, and more.</p>
+<p>Data in hand, our analyst will want to lean on data visualization tools, like those from this class, first for the exploratory data analysis and later for visualization aimed at their audience, customer, etc. These contributions are captured in “data visualization” but may become two sections if enough pull requests fall into each category.</p>
+<p>The “final” step in a data analysis pipeline is to share the results of an analysis with interested third parties. This might be through a website build in R with Shiny, or using D3, or with a platform like Tableau. Community contributions that focus on how to format charts for an audience, rather than how to create them in R, may belong here in “Reporting Results.”</p>
+<p>At this point, readers of our “book” may be ready to appreciate the hard work that goes into “Complete Analyses” - those community contributions that find or import data, tidy and format it, explore and analyze it, and present conclusions to readers belong in the fourth section.</p>
 </div>
-<div id="other-features" class="section level2" number="13.3">
-<h2><span class="header-section-number">13.3</span> Other Features</h2>
-<p>Rselenium can simulate shortcut keys of the browser. selKeys function gives the list of shortcut keys.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb254-1"></a>  selKeys</span></code></pre></div>
-<p>We can use: <strong>home, end, up_arrow, or down_arrow</strong> to navigate the webpage</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb255-1"></a>  webpage<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="dt">key =</span> <span class="st">&quot;home&quot;</span>))</span>
-<span id="cb255-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb255-2"></a>  webpage<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="dt">key =</span> <span class="st">&quot;end&quot;</span>))</span>
-<span id="cb255-3"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb255-3"></a>  webpage<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="dt">key =</span> <span class="st">&quot;up_arrow&quot;</span>))</span>
-<span id="cb255-4"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb255-4"></a>  webpage<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="dt">key =</span> <span class="st">&quot;down_arrow&quot;</span>))</span></code></pre></div>
-<p><strong>Read HTML</strong>
-After using RSelenium to get the webpage in the form we want, we can extract html using command $getPageSource(). Remember to give page time to fully load if your internet connection is poor.</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb256-1"></a>  <span class="kw">Sys.sleep</span>(<span class="dv">3</span>)</span>
-<span id="cb256-2"><a href="webscraping-dynamic-content-rselenium-tutorial.html#cb256-2"></a>  html &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">getPageSource</span>()[[<span class="dv">1</span>]]</span></code></pre></div>
-<p>This html object can then be processed by all the rvest tools we have learned earlier. More information on rvest can be found on <a href="https://github.com/tidyverse/rvest" class="uri">https://github.com/tidyverse/rvest</a> if you are not familiar with this tool already.</p>
-<p><strong>Summary</strong>
-RSelenium provides R bindings for the Selenium Webdriver, which is a powerful tool for automated web browsers. We have only covered a few simple functions in this tutorial. To realize the full potential of this package, we encourage the reader to explore the documentation of RSelenium on <a href="https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html" class="uri">https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html</a>. Background knowledge of HTML and CSS are also super helpful in the webscraping process.</p>
+<div id="additional-categories" class="section level3" number="17.2.2">
+<h3><span class="header-section-number">17.2.2</span> Additional Categories</h3>
+<p>A careful reader will notice that sections <code>5</code> and <code>6</code> are missing from the chapter organization motivation. That’s because these categories, “Translations,” “Live Tutorials,” and “Other Topics,” don’t fit neatly into the data pipeline heuristic. Chapters that are labeled and initially organized into those sections may find that that’s where they belong, or they may have a new home when future pull requests update the chapter organization based on the community contributions we’ve received.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -495,8 +461,8 @@ RSelenium provides R bindings for the Selenium Webdriver, which is a powerful to
           </div>
         </div>
       </div>
-<a href="korean-translation-of-scatterplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="a-brief-introduction-to-seaborn.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tutorial-for-pull-request-mergers.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -527,7 +493,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/cc20/edit/master/rselenium_tutorial.Rmd",
+"link": "https://github.com/jtr13/cc20/edit/master/appendix_chapter_organization.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -535,7 +501,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/cc20/blob/master/rselenium_tutorial.Rmd",
+"link": "https://github.com/jtr13/cc20/blob/master/appendix_chapter_organization.Rmd",
 "text": null
 },
 "download": null,
