@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 20 Speed up in r programming | Fall 2020 EDAV Community Contributions</title>
+  <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 20 Speed up in r programming | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="github-repo" content="jtr13/cc20" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 20 Speed up in r programming | Fall 2020 EDAV Community Contributions" />
+  
+  <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  
+
+
+
+<meta name="date" content="2020-11-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="automate-eda-with-dataexplorer.html"/>
+<link rel="next" href="github-initial-setup.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/hchinamap-7.0.3/highmaps.js"></script>
+<script src="libs/hchinamap-7.0.3/hebei.js"></script>
+<script src="libs/hchinamap-7.0.3/anhui.js"></script>
+<script src="libs/hchinamap-7.0.3/aomen.js"></script>
+<script src="libs/hchinamap-7.0.3/beijing.js"></script>
+<script src="libs/hchinamap-7.0.3/china.js"></script>
+<script src="libs/hchinamap-7.0.3/chongqing.js"></script>
+<script src="libs/hchinamap-7.0.3/fujian.js"></script>
+<script src="libs/hchinamap-7.0.3/gansu.js"></script>
+<script src="libs/hchinamap-7.0.3/guangdong.js"></script>
+<script src="libs/hchinamap-7.0.3/guangxi.js"></script>
+<script src="libs/hchinamap-7.0.3/guizhou.js"></script>
+<script src="libs/hchinamap-7.0.3/hainan.js"></script>
+<script src="libs/hchinamap-7.0.3/heilongjiang.js"></script>
+<script src="libs/hchinamap-7.0.3/henan.js"></script>
+<script src="libs/hchinamap-7.0.3/hubei.js"></script>
+<script src="libs/hchinamap-7.0.3/hunan.js"></script>
+<script src="libs/hchinamap-7.0.3/jiangsu.js"></script>
+<script src="libs/hchinamap-7.0.3/jiangxi.js"></script>
+<script src="libs/hchinamap-7.0.3/jilin.js"></script>
+<script src="libs/hchinamap-7.0.3/liaoning.js"></script>
+<script src="libs/hchinamap-7.0.3/neimenggu.js"></script>
+<script src="libs/hchinamap-7.0.3/ningxia.js"></script>
+<script src="libs/hchinamap-7.0.3/qinghai.js"></script>
+<script src="libs/hchinamap-7.0.3/shandong.js"></script>
+<script src="libs/hchinamap-7.0.3/shanghai.js"></script>
+<script src="libs/hchinamap-7.0.3/shanxi.js"></script>
+<script src="libs/hchinamap-7.0.3/shanxi2.js"></script>
+<script src="libs/hchinamap-7.0.3/sichuan.js"></script>
+<script src="libs/hchinamap-7.0.3/tianjin.js"></script>
+<script src="libs/hchinamap-7.0.3/xianggang.js"></script>
+<script src="libs/hchinamap-7.0.3/xinjiang.js"></script>
+<script src="libs/hchinamap-7.0.3/xizang.js"></script>
+<script src="libs/hchinamap-7.0.3/yunnan.js"></script>
+<script src="libs/hchinamap-7.0.3/zhejiang.js"></script>
+<script src="libs/hchinamap-binding-0.1.0/hchinamap.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">cc for EDAV 2020</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#background"><i class="fa fa-check"></i><b>1.1</b> Background</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#preparing-your-.rmd-file"><i class="fa fa-check"></i><b>1.2</b> Preparing your <code>.Rmd</code> file</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#submission-steps"><i class="fa fa-check"></i><b>1.3</b> Submission steps</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#optional-tweaks"><i class="fa fa-check"></i><b>1.4</b> Optional tweaks</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.5</b> FAQ</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#what-should-i-expect-after-creating-a-pull-request"><i class="fa fa-check"></i><b>1.5.1</b> What should I expect after creating a pull request?</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-before-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.2</b> What if I catch mistakes before my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-after-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.3</b> What if I catch mistakes after my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.4" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.4</b> Other questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>2</b> Sample project</a></li>
+<li class="part"><span><b>I Data Processing and Wrangling</b></span></li>
+<li class="chapter" data-level="3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data transformation in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#basics"><i class="fa fa-check"></i><b>3.2</b> Basics</a></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#function-usage"><i class="fa fa-check"></i><b>3.3</b> Function Usage</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#filter"><i class="fa fa-check"></i><b>3.3.1</b> 1. Filter( )</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#arrange"><i class="fa fa-check"></i><b>3.3.2</b> 2. Arrange( )</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#select"><i class="fa fa-check"></i><b>3.3.3</b> 3. Select( )</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#mutate"><i class="fa fa-check"></i><b>3.3.4</b> 4. Mutate( )</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#group_by-and-summarize"><i class="fa fa-check"></i><b>3.3.5</b> 5. Group_by( ) and Summarize( )</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#quick-eda-median-arrival-delays"><i class="fa fa-check"></i><b>3.4</b> Quick EDA: median arrival delays</a></li>
+<li class="chapter" data-level="3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#external-resource"><i class="fa fa-check"></i><b>3.5</b> External Resource</a></li>
+</ul></li>
+<li class="part"><span><b>II Data Visualization</b></span></li>
+<li class="chapter" data-level="4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html"><i class="fa fa-check"></i><b>4</b> Customized Plot Matrix: pairs and ggpairs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#overview-things-we-can-do-with-pairs-and-ggpairs"><i class="fa fa-check"></i><b>4.1</b> Overview: Things we can do with pairs() and ggpairs()</a></li>
+<li class="chapter" data-level="4.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#scatterplot-matrix-for-continuous-variables"><i class="fa fa-check"></i><b>4.2</b> Scatterplot matrix for continuous variables</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-pairs"><i class="fa fa-check"></i><b>4.2.1</b> Plot with pairs()</a></li>
+<li class="chapter" data-level="4.2.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-ggpairs-from-ggally-package"><i class="fa fa-check"></i><b>4.2.2</b> Plot with ggpairs() from <code>GGally</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#categorical-variables"><i class="fa fa-check"></i><b>4.3</b> Categorical variables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#pairs-plot-for-categorical-variables"><i class="fa fa-check"></i><b>4.3.1</b> pairs() plot for categorical variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#highlight-correlations-with-shade-colors"><i class="fa fa-check"></i><b>4.3.2</b> Highlight correlations with shade colors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#outside-sources"><i class="fa fa-check"></i><b>4.4</b> Outside sources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html"><i class="fa fa-check"></i><b>5</b> Likert Scale: Definition, Examples, and Visualization</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#what-is-likert-scale"><i class="fa fa-check"></i><b>5.1</b> What is Likert Scale?</a></li>
+<li class="chapter" data-level="5.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#test-your-understanding-of-likert-scale"><i class="fa fa-check"></i><b>5.2</b> Test Your Understanding of Likert Scale</a></li>
+<li class="chapter" data-level="5.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#visualization-of-a-sample-likert-scale-data-explore-climate-change-in-the-american-mind"><i class="fa fa-check"></i><b>5.3</b> Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#overview-of-the-data"><i class="fa fa-check"></i><b>5.3.1</b> Overview of the Data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#stacked-bar-chart"><i class="fa fa-check"></i><b>5.3.2</b> Stacked Bar Chart</a></li>
+<li class="chapter" data-level="5.3.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#faceted-bar-charts"><i class="fa fa-check"></i><b>5.3.3</b> Faceted Bar Charts</a></li>
+<li class="chapter" data-level="5.3.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#diverging-stacked-bar-chart"><i class="fa fa-check"></i><b>5.3.4</b> Diverging Stacked Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#arguments-on-each-type-of-charts"><i class="fa fa-check"></i><b>5.4</b> Arguments on each type of charts</a></li>
+<li class="chapter" data-level="5.5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#reference"><i class="fa fa-check"></i><b>5.5</b> Reference</a></li>
+</ul></li>
+<li class="part"><span><b>III Results Reporting</b></span></li>
+<li class="chapter" data-level="6" data-path="visualiztion-tools-in-real-work.html"><a href="visualiztion-tools-in-real-work.html"><i class="fa fa-check"></i><b>6</b> Visualiztion tools in real work</a></li>
+<li class="part"><span><b>IV Complete Analyses</b></span></li>
+<li class="chapter" data-level="7" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html"><i class="fa fa-check"></i><b>7</b> China choropleth map</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#overview"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#data-collection"><i class="fa fa-check"></i><b>7.2</b> Data Collection</a></li>
+<li class="chapter" data-level="7.3" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#static-map-with-ggplot"><i class="fa fa-check"></i><b>7.3</b> Static Map with ggplot</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#prepare-the-shape-data-of-china"><i class="fa fa-check"></i><b>7.3.1</b> Prepare the shape data of China</a></li>
+<li class="chapter" data-level="7.3.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#plot"><i class="fa fa-check"></i><b>7.3.2</b> Plot:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-hchinamap"><i class="fa fa-check"></i><b>7.4</b> Interactive Map with hchinamap</a></li>
+<li class="chapter" data-level="7.5" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-leafletcn"><i class="fa fa-check"></i><b>7.5</b> Interactive Map with leafletCN</a></li>
+<li class="chapter" data-level="7.6" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#conclusion"><i class="fa fa-check"></i><b>7.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="benfords-law-analysis-of-2020-election.html"><a href="benfords-law-analysis-of-2020-election.html"><i class="fa fa-check"></i><b>8</b> Benford’s Law Analysis of 2020 Election</a></li>
+<li class="part"><span><b>V Cheatsheets and Video Tutorials</b></span></li>
+<li class="chapter" data-level="9" data-path="mosaic-plot-cheatsheet.html"><a href="mosaic-plot-cheatsheet.html"><i class="fa fa-check"></i><b>9</b> Mosaic plot cheatsheet</a></li>
+<li class="part"><span><b>VI Live Tutorials</b></span></li>
+<li class="chapter" data-level="10" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>10</b> Tableau intro tutorial explained with proset2</a></li>
+<li class="chapter" data-level="11" data-path="solutioning-a-data-pipeline-for-visualization.html"><a href="solutioning-a-data-pipeline-for-visualization.html"><i class="fa fa-check"></i><b>11</b> Solutioning a Data pipeline for visualization</a></li>
+<li class="part"><span><b>VII Translations</b></span></li>
+<li class="chapter" data-level="12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>12</b> Chinese Translation of Candela Package</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>12.1</b> Candela</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>12.1.1</b> 开始</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>12.2</b> Candela 包使用</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>12.2.1</b> 安装</a></li>
+<li class="chapter" data-level="12.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>12.2.2</b> 版本控制</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>12.3</b> 组件</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>12.3.1</b> 条形图 (BarChart)</a></li>
+<li class="chapter" data-level="12.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>12.3.2</b> 箱线图 (BoxPlot)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>12.3.3</b> 甘特图 (GanttChart)</a></li>
+<li class="chapter" data-level="12.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>12.3.4</b> 地理空间图 (Geo)</a></li>
+<li class="chapter" data-level="12.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>12.3.5</b> 地理点图(GeoDots)</a></li>
+<li class="chapter" data-level="12.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>12.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
+<li class="chapter" data-level="12.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>12.3.7</b> 直方图 (Histogram)</a></li>
+<li class="chapter" data-level="12.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>12.3.8</b> 折线图 (LineChart)</a></li>
+<li class="chapter" data-level="12.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>12.3.9</b> 排序图(Lineup)</a></li>
+<li class="chapter" data-level="12.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>12.3.10</b> OnSet组件 (OnSet)</a></li>
+<li class="chapter" data-level="12.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>12.3.11</b> 散点图 (ScatterPlot)</a></li>
+<li class="chapter" data-level="12.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>12.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
+<li class="chapter" data-level="12.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>12.3.13</b> 词树 (SentenTree)</a></li>
+<li class="chapter" data-level="12.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>12.3.14</b> 相似图 (SimilarityGraph)</a></li>
+<li class="chapter" data-level="12.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>12.3.15</b> 树状图(Tree Heatmap)</a></li>
+<li class="chapter" data-level="12.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>12.3.16</b> 集合可视化 (UpSet)</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>12.4</b> API文件</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>12.4.1</b> Candela JavaScript API</a></li>
+<li class="chapter" data-level="12.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>12.4.2</b> Candela Python API</a></li>
+<li class="chapter" data-level="12.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>12.4.3</b> Candela R API</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>12.5</b> 开发人员文件</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>12.5.1</b> 编码规范指南</a></li>
+<li class="chapter" data-level="12.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>12.5.2</b> 创建Candela代码发布</a></li>
+<li class="chapter" data-level="12.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>12.5.3</b> 测试</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>13</b> Greek translation of edav.info/histo</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>13.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
+<li class="chapter" data-level="13.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>13.2</b> Επισκόπηση</a></li>
+<li class="chapter" data-level="13.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>13.3</b> Σύνοψη</a></li>
+<li class="chapter" data-level="13.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>13.4</b> Simple examples</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>13.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
+<li class="chapter" data-level="13.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>13.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>13.5</b> Θεωρία</a></li>
+<li class="chapter" data-level="13.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>13.6</b> Τύποι ιστογραμμάτων</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>13.6.1</b> Συχνότητα ή μέτρηση</a></li>
+<li class="chapter" data-level="13.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>13.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
+<li class="chapter" data-level="13.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>13.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
+<li class="chapter" data-level="13.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>13.6.4</b> Πυκνότητα</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>13.7</b> Παράμετροι</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>13.7.1</b> Όρια ζωνών</a></li>
+<li class="chapter" data-level="13.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>13.7.2</b> Αριθμός ζωνών</a></li>
+<li class="chapter" data-level="13.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>13.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>13.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>13.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
+<li class="chapter" data-level="13.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>13.8.2</b> Παράδειγμα ΑΕΠ</a></li>
+<li class="chapter" data-level="13.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>13.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
+<li class="chapter" data-level="13.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>13.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
+<li class="chapter" data-level="13.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>13.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>13.9</b> Εξωτερικές πηγές</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html"><i class="fa fa-check"></i><b>14</b> Korean translation of scatterplot</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#개요"><i class="fa fa-check"></i><b>14.1</b> 개요</a></li>
+<li class="chapter" data-level="14.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#요약"><i class="fa fa-check"></i><b>14.2</b> 요약</a></li>
+<li class="chapter" data-level="14.3" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#간단한-예시"><i class="fa fa-check"></i><b>14.3</b> 간단한 예시</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#base-r을-이용한-산점도"><i class="fa fa-check"></i><b>14.3.1</b> base R을 이용한 산점도</a></li>
+<li class="chapter" data-level="14.3.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#ggplot2를-이용한-산점도"><i class="fa fa-check"></i><b>14.3.2</b> ggplot2를 이용한 산점도</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#이론"><i class="fa fa-check"></i><b>14.4</b> 이론</a></li>
+<li class="chapter" data-level="14.5" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#사용-시기"><i class="fa fa-check"></i><b>14.5</b> 사용 시기</a></li>
+<li class="chapter" data-level="14.6" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#고려-사항"><i class="fa fa-check"></i><b>14.6</b> 고려 사항</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#겹치는-데이터"><i class="fa fa-check"></i><b>14.6.1</b> 겹치는 데이터</a></li>
+<li class="chapter" data-level="14.6.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#스케일링"><i class="fa fa-check"></i><b>14.6.2</b> 스케일링</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#변경"><i class="fa fa-check"></i><b>14.7</b> 변경</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#등고선"><i class="fa fa-check"></i><b>14.7.1</b> 등고선</a></li>
+<li class="chapter" data-level="14.7.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#산점도-행렬"><i class="fa fa-check"></i><b>14.7.2</b> 산점도 행렬</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#추가-자료"><i class="fa fa-check"></i><b>14.8</b> 추가 자료</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><i class="fa fa-check"></i><b>15</b> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#概述"><i class="fa fa-check"></i><b>15.1</b> 1. 概述</a>
+<ul>
+<li><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#什么是r-markdown"><span class="toc-section-number">15.1.1</span> 1.1 什么是R Markdown？<br />
+</a></li>
+<li class="chapter" data-level="15.1.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#工作流程"><i class="fa fa-check"></i><b>15.1.2</b> 1.2 工作流程</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#入门"><i class="fa fa-check"></i><b>15.2</b> 2. 入门</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#安装套件"><i class="fa fa-check"></i><b>15.2.1</b> 2.1. 安装套件</a></li>
+<li class="chapter" data-level="15.2.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#打开文件"><i class="fa fa-check"></i><b>15.2.2</b> 2.2.打开文件</a></li>
+<li class="chapter" data-level="15.2.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#输出格式"><i class="fa fa-check"></i><b>15.2.3</b> 2.3. 输出格式</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#markdown语法"><i class="fa fa-check"></i><b>15.3</b> 3. Markdown语法</a></li>
+<li class="chapter" data-level="15.4" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#嵌入代码"><i class="fa fa-check"></i><b>15.4</b> 4. 嵌入代码</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#内联代码"><i class="fa fa-check"></i><b>15.4.1</b> 4.1. 内联代码</a></li>
+<li class="chapter" data-level="15.4.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#代码块"><i class="fa fa-check"></i><b>15.4.2</b> 4.2. 代码块</a></li>
+<li class="chapter" data-level="15.4.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#显示选项"><i class="fa fa-check"></i><b>15.4.3</b> 4.3. 显示选项</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#渲染"><i class="fa fa-check"></i><b>15.5</b> 5. 渲染</a></li>
+</ul></li>
+<li class="part"><span><b>VIII Other Topics</b></span></li>
+<li class="chapter" data-level="16" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html"><i class="fa fa-check"></i><b>16</b> Webscraping Dynamic Content: Rselenium Tutorial</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#introduction-and-setup"><i class="fa fa-check"></i><b>16.1</b> Introduction and Setup</a></li>
+<li class="chapter" data-level="16.2" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#simple-illustrations-with-websites"><i class="fa fa-check"></i><b>16.2</b> Simple Illustrations with Websites</a></li>
+<li class="chapter" data-level="16.3" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#other-features"><i class="fa fa-check"></i><b>16.3</b> Other Features</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="a-brief-introduction-to-seaborn.html"><a href="a-brief-introduction-to-seaborn.html"><i class="fa fa-check"></i><b>17</b> A brief introduction to seaborn</a></li>
+<li class="chapter" data-level="18" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><i class="fa fa-check"></i><b>18</b> A basic Introduction to Markov Chain Monte Carlo Method in R</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#introduction-1"><i class="fa fa-check"></i><b>18.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="18.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#markov-chain-simulation-method"><i class="fa fa-check"></i><b>18.2</b> 2. Markov Chain Simulation Method</a></li>
+<li class="chapter" data-level="18.3" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#acceptance-rejection-sampling"><i class="fa fa-check"></i><b>18.3</b> 3. Acceptance-Rejection Sampling</a></li>
+<li class="chapter" data-level="18.4" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-markov-chain"><i class="fa fa-check"></i><b>18.4</b> 4. Sampling from Markov Chain</a></li>
+<li class="chapter" data-level="18.5" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#mcmc-sampling-method"><i class="fa fa-check"></i><b>18.5</b> 5. MCMC Sampling Method</a></li>
+<li class="chapter" data-level="18.6" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#metropolis-hastings-sampling"><i class="fa fa-check"></i><b>18.6</b> 6. Metropolis-Hastings Sampling</a></li>
+<li class="chapter" data-level="18.7" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#implementation-in-r"><i class="fa fa-check"></i><b>18.7</b> 7. Implementation in R</a>
+<ul>
+<li class="chapter" data-level="18.7.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-an-exponential-distribution"><i class="fa fa-check"></i><b>18.7.1</b> 1. Sampling from an exponential distribution</a></li>
+<li class="chapter" data-level="18.7.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-a-normal-distribution"><i class="fa fa-check"></i><b>18.7.2</b> 2. Sampling from a normal distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#refenence"><i class="fa fa-check"></i><b>18.8</b> 8 Refenence</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html"><i class="fa fa-check"></i><b>19</b> automate eda with dataexplorer</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overview-1"><i class="fa fa-check"></i><b>19.1</b> Overview</a></li>
+<li class="chapter" data-level="19.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dataexplorer"><i class="fa fa-check"></i><b>19.2</b> DataExplorer</a></li>
+<li class="chapter" data-level="19.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#installation"><i class="fa fa-check"></i><b>19.3</b> Installation</a></li>
+<li class="chapter" data-level="19.4" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>19.4</b> Exploratory data analysis (EDA)</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overall-information"><i class="fa fa-check"></i><b>19.4.1</b> Overall Information</a></li>
+<li class="chapter" data-level="19.4.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#distribution"><i class="fa fa-check"></i><b>19.4.2</b> Distribution</a></li>
+<li class="chapter" data-level="19.4.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#correlation-analysis"><i class="fa fa-check"></i><b>19.4.3</b> Correlation Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#feature-engineering"><i class="fa fa-check"></i><b>19.5</b> Feature Engineering</a>
+<ul>
+<li class="chapter" data-level="19.5.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#missing-value"><i class="fa fa-check"></i><b>19.5.1</b> Missing value</a></li>
+<li class="chapter" data-level="19.5.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dummy-variable"><i class="fa fa-check"></i><b>19.5.2</b> Dummy variable</a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#data-report"><i class="fa fa-check"></i><b>19.6</b> Data Report</a></li>
+<li class="chapter" data-level="19.7" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#external-resources"><i class="fa fa-check"></i><b>19.7</b> External Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html"><i class="fa fa-check"></i><b>20</b> Speed up in r programming</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#typical-development-cycle-for-computational-statistics"><i class="fa fa-check"></i><b>20.1</b> Typical development cycle for computational statistics</a></li>
+<li class="chapter" data-level="20.2" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#bytecode-compilation"><i class="fa fa-check"></i><b>20.2</b> Bytecode compilation</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#example-summing-a-vector"><i class="fa fa-check"></i><b>20.2.1</b> Example: summing a vector</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#rcpp"><i class="fa fa-check"></i><b>20.3</b> Rcpp</a>
+<ul>
+<li class="chapter" data-level="20.3.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#use-cppfunction"><i class="fa fa-check"></i><b>20.3.1</b> Use <code>cppFunction</code></a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#parallel-computing"><i class="fa fa-check"></i><b>20.4</b> Parallel computing</a>
+<ul>
+<li class="chapter" data-level="20.4.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#simulation-example"><i class="fa fa-check"></i><b>20.4.1</b> Simulation example</a></li>
+</ul></li>
+<li class="chapter" data-level="20.5" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#package-development"><i class="fa fa-check"></i><b>20.5</b> Package development</a></li>
+</ul></li>
+<li class="part"><span><b>IX Appendices</b></span></li>
+<li class="chapter" data-level="21" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>21</b> Github Initial Setup</a></li>
+<li class="chapter" data-level="22" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html"><i class="fa fa-check"></i><b>22</b> Tutorial for Pull Request Mergers</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-branch"><i class="fa fa-check"></i><b>22.1</b> Check branch</a></li>
+<li class="chapter" data-level="22.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file"><i class="fa fa-check"></i><b>22.2</b> Check <code>.Rmd</code> file</a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#examine-files-that-were-added-or-modified"><i class="fa fa-check"></i><b>22.2.1</b> Examine files that were added or modified</a></li>
+<li class="chapter" data-level="22.2.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-filename-format"><i class="fa fa-check"></i><b>22.2.2</b> Check <code>.Rmd</code> filename format</a></li>
+<li class="chapter" data-level="22.2.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#additional-checks"><i class="fa fa-check"></i><b>22.2.3</b> Additional checks</a></li>
+<li class="chapter" data-level="22.2.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-additional-resources"><i class="fa fa-check"></i><b>22.2.4</b> Check additional resources</a></li>
+<li class="chapter" data-level="22.2.5" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#request-a-change-if-.rmd-file-is-invalid"><i class="fa fa-check"></i><b>22.2.5</b> Request a change if <code>.Rmd</code> file is invalid</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#update-_bookdown.yml"><i class="fa fa-check"></i><b>22.3</b> Update <code>_bookdown.yml</code></a>
+<ul>
+<li class="chapter" data-level="22.3.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-files-names-to-_bookdown.yml-in-prs-branch"><i class="fa fa-check"></i><b>22.3.1</b> Add files names to <code>_bookdown.yml</code> in PR’s <code>branch</code></a></li>
+<li class="chapter" data-level="22.3.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization"><i class="fa fa-check"></i><b>22.3.2</b> Add chapter names to <code>.Rmd</code> for every first article in each chapter (Chapter Organization)</a></li>
+</ul></li>
+<li class="chapter" data-level="22.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-branch-into-jtr13master-and-resolve-conflicts"><i class="fa fa-check"></i><b>22.4</b> Merge <code>branch</code> into <code>jtr13:master</code> and resolve conflicts</a>
+<ul>
+<li class="chapter" data-level="22.4.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#resolve-conflicts"><i class="fa fa-check"></i><b>22.4.1</b> Resolve conflicts</a></li>
+<li class="chapter" data-level="22.4.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-pr-and-leave-a-comment"><i class="fa fa-check"></i><b>22.4.2</b> Merge PR and leave a comment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="chapter-organization.html"><a href="chapter-organization.html"><i class="fa fa-check"></i><b>23</b> Chapter Organization</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="chapter-organization.html"><a href="chapter-organization.html#process-for-organizing-chapters"><i class="fa fa-check"></i><b>23.1</b> Process for Organizing Chapters</a></li>
+<li class="chapter" data-level="23.2" data-path="chapter-organization.html"><a href="chapter-organization.html#initial-book-parts"><i class="fa fa-check"></i><b>23.2</b> Initial Book Parts</a>
+<ul>
+<li class="chapter" data-level="23.2.1" data-path="chapter-organization.html"><a href="chapter-organization.html#motivation"><i class="fa fa-check"></i><b>23.2.1</b> Motivation</a></li>
+<li class="chapter" data-level="23.2.2" data-path="chapter-organization.html"><a href="chapter-organization.html#additional-categories"><i class="fa fa-check"></i><b>23.2.2</b> Additional Categories</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Fall 2020 EDAV Community Contributions</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="speed-up-in-r-programming" class="section level1" number="20">
+<h1><span class="header-section-number">Chapter 20</span> Speed up in r programming</h1>
+<p>Hongling Liu and Xinrui Zhang</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="speed-up-in-r-programming.html#cb295-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb295-2"><a href="speed-up-in-r-programming.html#cb295-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb295-3"><a href="speed-up-in-r-programming.html#cb295-3"></a><span class="kw">library</span>(microbenchmark)</span>
+<span id="cb295-4"><a href="speed-up-in-r-programming.html#cb295-4"></a><span class="kw">library</span>(compiler)</span>
+<span id="cb295-5"><a href="speed-up-in-r-programming.html#cb295-5"></a><span class="kw">library</span>(Rcpp)</span>
+<span id="cb295-6"><a href="speed-up-in-r-programming.html#cb295-6"></a><span class="kw">library</span>(parallel)</span></code></pre></div>
+<p>It is well known that R is not a fast language, since R was deliberately designed to simplify our process of performing data analysis and statistics, rather than making life easier for our computers to process. While R is slow compared to some other programming languages, it’s fast enough for most of our purposes.</p>
+<p>The goal of our community contribution is to give you a deeper understanding of how we could yield the maximum efficiency when running R. We will first introduce the typical development cycle computational statistics with R and what is some of R’s performance characteristics, to help you understand how R codes are being executed. We will also show you two relatively easy ways to speed up code using the Rcpp package and parallel processing.</p>
+<div id="typical-development-cycle-for-computational-statistics" class="section level2" number="20.1">
+<h2><span class="header-section-number">20.1</span> Typical development cycle for computational statistics</h2>
+<p>First, let’s take a look at the usual steps of computational statistics with R, and what questions we need to ask ourselves for each step:</p>
+<ol style="list-style-type: decimal">
+<li><p>Scientific planning: What experiments would verify/invalidate our hypotheses? What parameter settings should we consider?</p></li>
+<li><p>Code planning: What does the code need to do? How will the code fit together? What functions will be used? What are their inputs/outputs etc.</p></li>
+<li><p>Implementation:</p>
+<ol style="list-style-type: decimal">
+<li><p>Prototype functions, classes, etc., partial documentation</p></li>
+<li><p>Write unit tests</p></li>
+<li><p>Implement code, run unit tests, debug</p></li>
+<li><p>Broader testing, more debugging</p></li>
+<li><p>Profile code, identify bottlenecks</p></li>
+<li><p>Optimize code</p></li>
+</ol></li>
+<li><p>Conduct experiments.</p></li>
+<li><p>Full documentation.</p></li>
+</ol>
+</div>
+<div id="bytecode-compilation" class="section level2" number="20.2">
+<h2><span class="header-section-number">20.2</span> Bytecode compilation</h2>
+<ul>
+<li><p>After profiling, what can we do to improve performance?</p>
+<ol style="list-style-type: decimal">
+<li><p>Questions to ask ourselves: Are there obvious speedups? Are things being computed unnecessarily? Are you using a <code>data.frame</code> where you should be using a matrix etc.</p></li>
+<li><p>Look up your problem on internet (e.g., search for “lapply slow” or “speeding up <code>lapply</code>” etc.)</p></li>
+<li><p>Try the just-in-time (JIT) compiler.</p></li>
+<li><p>Consider re-writing some or all of the code in a compiled language (e.g., C/C++).</p></li>
+<li><p>Try parallelization.</p></li>
+</ol></li>
+<li><p>R typical execution:</p></li>
+</ul>
+<p align="center">
+<p><img src="resources/speed_up_in_r_programming/rpic.png" width="400" /></p>
+<ul>
+<li>Since R 2.1.4, the <code>compiler</code> package by Luke Tierney is distributed with base R. <code>compiler</code> package compiles an R function into bytecode.</li>
+</ul>
+<div id="example-summing-a-vector" class="section level3" number="20.2.1">
+<h3><span class="header-section-number">20.2.1</span> Example: summing a vector</h3>
+<p>Brute-force <code>for</code> loop for summing a vector:</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="speed-up-in-r-programming.html#cb296-1"></a>sum_r &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb296-2"><a href="speed-up-in-r-programming.html#cb296-2"></a>  sumx &lt;-<span class="st"> </span><span class="fl">0.0</span></span>
+<span id="cb296-3"><a href="speed-up-in-r-programming.html#cb296-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
+<span id="cb296-4"><a href="speed-up-in-r-programming.html#cb296-4"></a>    sumx &lt;-<span class="st"> </span>sumx <span class="op">+</span><span class="st"> </span>x[i]</span>
+<span id="cb296-5"><a href="speed-up-in-r-programming.html#cb296-5"></a>  }</span>
+<span id="cb296-6"><a href="speed-up-in-r-programming.html#cb296-6"></a>  <span class="kw">return</span>(sumx)</span>
+<span id="cb296-7"><a href="speed-up-in-r-programming.html#cb296-7"></a>}</span>
+<span id="cb296-8"><a href="speed-up-in-r-programming.html#cb296-8"></a>sum_r</span></code></pre></div>
+<pre><code>## function(x) {
+##   sumx &lt;- 0.0
+##   for (i in 1:length(x)) {
+##     sumx &lt;- sumx + x[i]
+##   }
+##   return(sumx)
+## }</code></pre>
+<p>Run the code on 1e6 elements:</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="speed-up-in-r-programming.html#cb298-1"></a><span class="kw">library</span>(microbenchmark)</span>
+<span id="cb298-2"><a href="speed-up-in-r-programming.html#cb298-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb298-3"><a href="speed-up-in-r-programming.html#cb298-3"></a></span>
+<span id="cb298-4"><a href="speed-up-in-r-programming.html#cb298-4"></a>x =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">100</span>, <span class="dt">by =</span> <span class="fl">0.0001</span>)</span>
+<span id="cb298-5"><a href="speed-up-in-r-programming.html#cb298-5"></a><span class="kw">microbenchmark</span>(<span class="kw">sum_r</span>(x))</span></code></pre></div>
+<pre><code>## Unit: milliseconds
+##      expr      min       lq     mean   median       uq      max neval
+##  sum_r(x) 17.83914 18.57998 19.08695 18.80585 19.56879 22.07305   100</code></pre>
+<p>Let’s compile the function into bytecode <code>sum_rc</code> and benchmark again:</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="speed-up-in-r-programming.html#cb300-1"></a><span class="kw">library</span>(compiler)</span>
+<span id="cb300-2"><a href="speed-up-in-r-programming.html#cb300-2"></a>sum_rc &lt;-<span class="st"> </span><span class="kw">cmpfun</span>(sum_r)</span>
+<span id="cb300-3"><a href="speed-up-in-r-programming.html#cb300-3"></a>sum_rc</span></code></pre></div>
+<pre><code>## function(x) {
+##   sumx &lt;- 0.0
+##   for (i in 1:length(x)) {
+##     sumx &lt;- sumx + x[i]
+##   }
+##   return(sumx)
+## }
+## &lt;bytecode: 0x7fcbcfabced8&gt;</code></pre>
+<p>Benchmark again:</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="speed-up-in-r-programming.html#cb302-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sum_r</span>(x), <span class="kw">sum_rc</span>(x))</span></code></pre></div>
+<pre><code>## Unit: milliseconds
+##       expr      min       lq     mean   median       uq      max neval cld
+##   sum_r(x) 17.35242 18.24620 18.64644 18.62339 18.97095 20.12768   100   a
+##  sum_rc(x) 16.91461 18.25949 18.68652 18.69192 18.98402 20.23757   100   a</code></pre>
+<p>Before we look into the results, let’s look at the <code>microbenchmark</code> function. Here we use it as a more accurate replacement of the often seen <code>system.time( )</code> expression to accurately measure the time it takes to evaluate <code>expr</code>. Since we are only measuring the performance of a very small piece of code, we could get the accurate running time in milliseconds(ms), microseconds (µs) or even nanoseconds (ns) by using <code>microbenchmark</code>.</p>
+<p><code>microbenchmark( )</code> runs each expression 100 times by default (it can be controlled by the times parameter). In the process, it also randomises the order of the expressions. It summarises the results with a minimum (min), lower quartile (lq), median, upper quartile (uq), and maximum (max). By default, microbenchmark( ) runs each expression 100 times (controlled by the times parameter). In the process, it also randomises the order of the expressions. It summarises the results with a minimum (min), lower quartile (lq), median, upper quartile (uq), and maximum (max). We could focus on the median and mean, and use the upper and lower quartiles (lq and uq) to get a feel for the variability.</p>
+<p>In our example, we can see that compiling into bytecode does not make a big difference, since according to <code>microbenchmark()</code>, the running time of our <code>sum_r</code> function is mostly (more than half) in the interquartile range(18.4803818,18.9780952), and after compiling, the interquartile range for <code>sum_rc(x)</code> is (18.5968362,19.018898), so we could say that compiling into bytecode <em>does not help much</em>.</p>
+<p>The reason behind this may be seen at the following code where we found out that the function <code>sum_r</code> is already compiled into bytecode before execution.</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="speed-up-in-r-programming.html#cb304-1"></a>sum_r</span></code></pre></div>
+<pre><code>## function(x) {
+##   sumx &lt;- 0.0
+##   for (i in 1:length(x)) {
+##     sumx &lt;- sumx + x[i]
+##   }
+##   return(sumx)
+## }
+## &lt;bytecode: 0x7fcbee172d90&gt;</code></pre>
+<p>Let’s turn off JIT (just-in-time compilation), re-define the (same) <code>sum_r</code> function, and benchmark again:</p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="speed-up-in-r-programming.html#cb306-1"></a><span class="kw">enableJIT</span>(<span class="dv">0</span>) <span class="co"># set JIT leval to 0</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="speed-up-in-r-programming.html#cb308-1"></a>sum_r &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb308-2"><a href="speed-up-in-r-programming.html#cb308-2"></a>  sumx &lt;-<span class="st"> </span><span class="fl">0.0</span></span>
+<span id="cb308-3"><a href="speed-up-in-r-programming.html#cb308-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
+<span id="cb308-4"><a href="speed-up-in-r-programming.html#cb308-4"></a>    sumx &lt;-<span class="st"> </span>sumx <span class="op">+</span><span class="st"> </span>x[i]</span>
+<span id="cb308-5"><a href="speed-up-in-r-programming.html#cb308-5"></a>  }</span>
+<span id="cb308-6"><a href="speed-up-in-r-programming.html#cb308-6"></a>  <span class="kw">return</span>(sumx)</span>
+<span id="cb308-7"><a href="speed-up-in-r-programming.html#cb308-7"></a>}</span>
+<span id="cb308-8"><a href="speed-up-in-r-programming.html#cb308-8"></a><span class="kw">microbenchmark</span>(<span class="kw">sum_r</span>(x))</span></code></pre></div>
+<pre><code>## Unit: milliseconds
+##      expr      min       lq     mean   median       uq      max neval
+##  sum_r(x) 228.8994 240.2035 247.7525 243.8911 251.4079 424.9585   100</code></pre>
+<p>Now we witness the slowness of the un-compiled <code>sum_r</code>.</p>
+<p>Documentation of <code>enableJIT</code>:</p>
+<blockquote>
+<p>enableJIT enables or disables just-in-time (JIT) compilation. JIT is disabled if the argument is 0. If level is 1 then larger closures are compiled before their first use. If level is 2, then some small closures are also compiled before their second use. If level is 3 then in addition all top level loops are compiled before they are executed. JIT level 3 requires the compiler option optimize to be 2 or 3. The JIT level can also be selected by starting R with the environment variable R_ENABLE_JIT set to one of these values. Calling enableJIT with a negative argument returns the current JIT level. The default JIT level is 3.</p>
+</blockquote>
+<p>Since R 3.4.0 (Apr 2017), the JIT (‘Just In Time’) bytecode compiler is enabled by default at its level 3.</p>
+<p>If you create a package, then you automatically compile the package on installation by adding</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="speed-up-in-r-programming.html#cb310-1"></a>ByteCompile<span class="op">:</span><span class="st"> </span>true</span></code></pre></div>
+<p>to the <code>DESCRIPTION</code> file.</p>
+</div>
+</div>
+<div id="rcpp" class="section level2" number="20.3">
+<h2><span class="header-section-number">20.3</span> Rcpp</h2>
+<p>Now, we are going to introduce the package <code>Rcpp</code> which helps yield the maximum efficiency for R. And there is a learning source for whoever interested:</p>
+<ul>
+<li><em>Advanced R</em>: <a href="https://adv-r.hadley.nz/rcpp.html" class="uri">https://adv-r.hadley.nz/rcpp.html</a></li>
+</ul>
+<p>We previously used <code>compiler</code> package to compile R code into bytecode, which is translated to machine code by interpreter during execution. However, A low-level language such as C, C++, and Fortran is compiled into machine code directly, making it easy for our computer to process the code, and <code>Rcpp</code> makes it very simple to connect C++ to R, where it allows us to write C++ functions in R, therefore yielding the maximum efficiency.</p>
+<div id="use-cppfunction" class="section level3" number="20.3.1">
+<h3><span class="header-section-number">20.3.1</span> Use <code>cppFunction</code></h3>
+<p><code>Rcpp</code> package provides a convenient way to embed C++ code in R code.</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="speed-up-in-r-programming.html#cb311-1"></a><span class="kw">library</span>(Rcpp)</span>
+<span id="cb311-2"><a href="speed-up-in-r-programming.html#cb311-2"></a></span>
+<span id="cb311-3"><a href="speed-up-in-r-programming.html#cb311-3"></a><span class="kw">cppFunction</span>(<span class="st">&#39;double sum_c(NumericVector x) {</span></span>
+<span id="cb311-4"><a href="speed-up-in-r-programming.html#cb311-4"></a><span class="st">  int n = x.size();</span></span>
+<span id="cb311-5"><a href="speed-up-in-r-programming.html#cb311-5"></a><span class="st">  double total = 0;</span></span>
+<span id="cb311-6"><a href="speed-up-in-r-programming.html#cb311-6"></a><span class="st">  for(int i = 0; i &lt; n; ++i) {</span></span>
+<span id="cb311-7"><a href="speed-up-in-r-programming.html#cb311-7"></a><span class="st">    total += x[i];</span></span>
+<span id="cb311-8"><a href="speed-up-in-r-programming.html#cb311-8"></a><span class="st">  }</span></span>
+<span id="cb311-9"><a href="speed-up-in-r-programming.html#cb311-9"></a><span class="st">  return total;</span></span>
+<span id="cb311-10"><a href="speed-up-in-r-programming.html#cb311-10"></a><span class="st">}&#39;</span>)</span>
+<span id="cb311-11"><a href="speed-up-in-r-programming.html#cb311-11"></a>sum_c</span></code></pre></div>
+<pre><code>## function (x) 
+## .Call(&lt;pointer: 0x10b2d1d20&gt;, x)</code></pre>
+<p>Benchmark (1) compiled C++ function <code>sum_c</code> together with (2) R function <code>sum_r</code>, (3) compiled R function <code>sum_rc</code>, and (4) the <code>sum</code> function in base R:</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="speed-up-in-r-programming.html#cb313-1"></a>mbm &lt;-<span class="st"> </span><span class="kw">microbenchmark</span>(<span class="kw">sum_r</span>(x), <span class="kw">sum_rc</span>(x), <span class="kw">sum_c</span>(x), <span class="kw">sum</span>(x))</span>
+<span id="cb313-2"><a href="speed-up-in-r-programming.html#cb313-2"></a>mbm</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##       expr        min         lq        mean     median         uq        max neval cld
+##   sum_r(x) 233946.988 241295.747 250426.1924 243142.703 248343.861 432903.086   100   c
+##  sum_rc(x)  17670.975  18668.576  19207.9737  18902.376  19256.431  29113.457   100  b 
+##   sum_c(x)   1076.461   1163.352   1200.9674   1178.002   1207.242   1531.544   100 a  
+##     sum(x)    851.263    931.246    979.1724    978.967    996.077   1265.514   100 a</code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="speed-up-in-r-programming.html#cb315-1"></a><span class="kw">autoplot</span>(mbm)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-235-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>Remember we turned off JIT by <code>enableGIT(0)</code> earlier.</strong></p>
+<p>This is a good example of where C++ is much more efficient than R. As shown by the above microbenchmark, <code>sum_c()</code> is competitive with the built-in (and highly optimised) <code>sum()</code>, while <code>sum_r()</code> is several orders of magnitude slower.</p>
+<p>Therefore,<code>Rcpp</code> package is definitely a great tool for us to improve the efficiency for our R code.</p>
+</div>
+</div>
+<div id="parallel-computing" class="section level2" number="20.4">
+<h2><span class="header-section-number">20.4</span> Parallel computing</h2>
+<p>Now, we are going to discuss another way to get efficient with R – parallel computing:</p>
+<ul>
+<li><p>Fact: base R was designed to be single-threaded. Even you request a fancy instance with 96 vCPUs, running R code is just using 1/96th of its power.</p></li>
+<li><p>To perform multi-core computation in R:</p>
+<ol style="list-style-type: decimal">
+<li><p>Option 1: Manually run multiple R sessions.</p></li>
+<li><p>Option 2: Make multiple <code>system("Rscript")</code> calls. Typically automated by a scripting language (Python, Perl, shell script) or within R</p></li>
+<li><p>Option 3: Use package <code>parallel</code>.</p></li>
+</ol></li>
+<li><p><code>parallel</code> package in R.</p>
+<ul>
+<li><p>Authors: Brian Ripley, Luke Tieney, Simon Urbanek.</p></li>
+<li><p>Included in base R since 2.14.0 (2011).</p></li>
+<li><p>Based on the <code>snow</code> (Luke Tierney) and <code>multicore</code> (Simon Urbanek) packages.</p></li>
+<li><p>To find the number of cores:</p></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="speed-up-in-r-programming.html#cb316-1"></a>    <span class="kw">library</span>(parallel)</span>
+<span id="cb316-2"><a href="speed-up-in-r-programming.html#cb316-2"></a>    <span class="kw">detectCores</span>()</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div id="simulation-example" class="section level3" number="20.4.1">
+<h3><span class="header-section-number">20.4.1</span> Simulation example</h3>
+<p>Senario: Suppose we have a new method to calculate average, that is, to only choose primed-indexed number to calculate the average, and we would like to compute the average mean squared error (MSE) from both this new method and the classic method. Differently distributed random variables with different sample sizes will be tested. There are going to be many combinations of distribution and sample size.</p>
+<p><span class="math display">\[ 
+  MSE = \frac{\sum_{r=1}^{\text{rep}} (\widehat \mu_r - \mu_{\text{true}})^2}{\text{rep}}
+\]</span></p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="speed-up-in-r-programming.html#cb318-1"></a><span class="co">## check if a given integer is prime</span></span>
+<span id="cb318-2"><a href="speed-up-in-r-programming.html#cb318-2"></a>isPrime =<span class="st"> </span><span class="cf">function</span>(n) {</span>
+<span id="cb318-3"><a href="speed-up-in-r-programming.html#cb318-3"></a>  <span class="cf">if</span> (n <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3</span>) {</span>
+<span id="cb318-4"><a href="speed-up-in-r-programming.html#cb318-4"></a>    <span class="kw">return</span> (<span class="ot">TRUE</span>)</span>
+<span id="cb318-5"><a href="speed-up-in-r-programming.html#cb318-5"></a>  }</span>
+<span id="cb318-6"><a href="speed-up-in-r-programming.html#cb318-6"></a>  <span class="cf">if</span> (<span class="kw">any</span>((n <span class="op">%%</span><span class="st"> </span><span class="dv">2</span><span class="op">:</span><span class="kw">floor</span>(<span class="kw">sqrt</span>(n))) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)) {</span>
+<span id="cb318-7"><a href="speed-up-in-r-programming.html#cb318-7"></a>    <span class="kw">return</span> (<span class="ot">FALSE</span>)</span>
+<span id="cb318-8"><a href="speed-up-in-r-programming.html#cb318-8"></a>  }</span>
+<span id="cb318-9"><a href="speed-up-in-r-programming.html#cb318-9"></a>  <span class="kw">return</span> (<span class="ot">TRUE</span>)</span>
+<span id="cb318-10"><a href="speed-up-in-r-programming.html#cb318-10"></a>}</span>
+<span id="cb318-11"><a href="speed-up-in-r-programming.html#cb318-11"></a></span>
+<span id="cb318-12"><a href="speed-up-in-r-programming.html#cb318-12"></a><span class="co">## estimate mean only using observation with prime indices</span></span>
+<span id="cb318-13"><a href="speed-up-in-r-programming.html#cb318-13"></a>estMeanPrimes =<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb318-14"><a href="speed-up-in-r-programming.html#cb318-14"></a>  n &lt;-<span class="st"> </span><span class="kw">length</span>(x)</span>
+<span id="cb318-15"><a href="speed-up-in-r-programming.html#cb318-15"></a>  ind &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span>n, isPrime)</span>
+<span id="cb318-16"><a href="speed-up-in-r-programming.html#cb318-16"></a>  <span class="kw">return</span> (<span class="kw">mean</span>(x[ind]))</span>
+<span id="cb318-17"><a href="speed-up-in-r-programming.html#cb318-17"></a>}</span>
+<span id="cb318-18"><a href="speed-up-in-r-programming.html#cb318-18"></a></span>
+<span id="cb318-19"><a href="speed-up-in-r-programming.html#cb318-19"></a><span class="co">## compare methods: sample avg and prime-indexed avg</span></span>
+<span id="cb318-20"><a href="speed-up-in-r-programming.html#cb318-20"></a>compare_methods &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">dist =</span> <span class="st">&quot;gaussian&quot;</span>, <span class="dt">n =</span> <span class="dv">100</span>, <span class="dt">reps =</span> <span class="dv">100</span>, <span class="dt">seed =</span> <span class="dv">123</span>) {</span>
+<span id="cb318-21"><a href="speed-up-in-r-programming.html#cb318-21"></a>  <span class="co"># set seed according to command argument `seed`</span></span>
+<span id="cb318-22"><a href="speed-up-in-r-programming.html#cb318-22"></a>  <span class="kw">set.seed</span>(seed)</span>
+<span id="cb318-23"><a href="speed-up-in-r-programming.html#cb318-23"></a>  </span>
+<span id="cb318-24"><a href="speed-up-in-r-programming.html#cb318-24"></a>  <span class="co"># preallocate space to store estimators</span></span>
+<span id="cb318-25"><a href="speed-up-in-r-programming.html#cb318-25"></a>  msePrimeAvg &lt;-<span class="st"> </span><span class="fl">0.0</span></span>
+<span id="cb318-26"><a href="speed-up-in-r-programming.html#cb318-26"></a>  mseSamplAvg &lt;-<span class="st"> </span><span class="fl">0.0</span></span>
+<span id="cb318-27"><a href="speed-up-in-r-programming.html#cb318-27"></a>  <span class="co"># loop over simulation replicates</span></span>
+<span id="cb318-28"><a href="speed-up-in-r-programming.html#cb318-28"></a>  <span class="cf">for</span> (r <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>reps) {</span>
+<span id="cb318-29"><a href="speed-up-in-r-programming.html#cb318-29"></a>    <span class="co"># simulate data according to command arguments `n` and `distr`</span></span>
+<span id="cb318-30"><a href="speed-up-in-r-programming.html#cb318-30"></a>    <span class="cf">if</span> (dist <span class="op">==</span><span class="st"> &quot;gaussian&quot;</span>) {</span>
+<span id="cb318-31"><a href="speed-up-in-r-programming.html#cb318-31"></a>      x =<span class="st"> </span><span class="kw">rnorm</span>(n)</span>
+<span id="cb318-32"><a href="speed-up-in-r-programming.html#cb318-32"></a>    } <span class="cf">else</span> <span class="cf">if</span> (dist <span class="op">==</span><span class="st"> &quot;t1&quot;</span>) {</span>
+<span id="cb318-33"><a href="speed-up-in-r-programming.html#cb318-33"></a>      x =<span class="st"> </span><span class="kw">rcauchy</span>(n)</span>
+<span id="cb318-34"><a href="speed-up-in-r-programming.html#cb318-34"></a>    } <span class="cf">else</span> <span class="cf">if</span> (dist <span class="op">==</span><span class="st"> &quot;t5&quot;</span>) {</span>
+<span id="cb318-35"><a href="speed-up-in-r-programming.html#cb318-35"></a>      x =<span class="st"> </span><span class="kw">rt</span>(n, <span class="dv">5</span>)</span>
+<span id="cb318-36"><a href="speed-up-in-r-programming.html#cb318-36"></a>    } <span class="cf">else</span> {</span>
+<span id="cb318-37"><a href="speed-up-in-r-programming.html#cb318-37"></a>      <span class="kw">stop</span>(<span class="kw">paste</span>(<span class="st">&quot;unrecognized dist: &quot;</span>, dist))</span>
+<span id="cb318-38"><a href="speed-up-in-r-programming.html#cb318-38"></a>    }</span>
+<span id="cb318-39"><a href="speed-up-in-r-programming.html#cb318-39"></a>    <span class="co"># prime indexed mean estimator and classical sample average estimator</span></span>
+<span id="cb318-40"><a href="speed-up-in-r-programming.html#cb318-40"></a>    msePrimeAvg &lt;-<span class="st"> </span>msePrimeAvg <span class="op">+</span><span class="st"> </span><span class="kw">estMeanPrimes</span>(x)<span class="op">^</span><span class="dv">2</span> </span>
+<span id="cb318-41"><a href="speed-up-in-r-programming.html#cb318-41"></a>    mseSamplAvg &lt;-<span class="st"> </span>mseSamplAvg <span class="op">+</span><span class="st"> </span><span class="kw">mean</span>(x)<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb318-42"><a href="speed-up-in-r-programming.html#cb318-42"></a>  }</span>
+<span id="cb318-43"><a href="speed-up-in-r-programming.html#cb318-43"></a>  mseSamplAvg &lt;-<span class="st"> </span>mseSamplAvg <span class="op">/</span><span class="st"> </span>reps</span>
+<span id="cb318-44"><a href="speed-up-in-r-programming.html#cb318-44"></a>  msePrimeAvg &lt;-<span class="st"> </span>msePrimeAvg <span class="op">/</span><span class="st"> </span>reps</span>
+<span id="cb318-45"><a href="speed-up-in-r-programming.html#cb318-45"></a>  <span class="kw">return</span>(<span class="kw">c</span>(mseSamplAvg, msePrimeAvg))</span>
+<span id="cb318-46"><a href="speed-up-in-r-programming.html#cb318-46"></a>}</span></code></pre></div>
+<p>In order to indicate the <em>option 2</em>, we save the above codes in script [<code>runSim.R</code>].</p>
+<div id="option-2" class="section level4" number="20.4.1.1">
+<h4><span class="header-section-number">20.4.1.1</span> Option 2</h4>
+<p><em>this example is only good for linux system</em></p>
+<ol style="list-style-type: decimal">
+<li><p>The [<code>runSim.R</code>] script to include arguments <code>seed</code> (random seed), <code>n</code> (sample size), <code>dist</code> (distribution) and <code>rep</code> (number of simulation replicates). When <code>dist="gaussian"</code>, generate data from standard normal; when <code>dist="t1"</code>, generate data from t-distribution with degree of freedom 1 (same as Cauchy distribution); when <code>dist="t5"</code>, generate data from t-distribution with degree of freedom 5. Calling <code>runSim.R</code> will (1) set random seed according to argument <code>seed</code>, (2) generate data according to argument <code>dist</code>, (3) compute the primed-indexed average estimator and the classical sample average estimator for each simulation replicate, (4) report the average mean squared error (MSE)</p></li>
+<li><p>The [<code>autoSim.R</code>] script to run simulations with combinations of sample sizes <code>nVals = seq(100, 500, by=100)</code> and distributions <code>distTypes = c("gaussian", "t1", "t5")</code>. <code>rep = 50</code> is used for MSE.</p></li>
+</ol>
+<div class="sourceCode" id="cb319"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb319-1"><a href="speed-up-in-r-programming.html#cb319-1"></a><span class="fu">cat</span> resources/speed_up_in_r_programming/autoSim.R</span></code></pre></div>
+<pre><code>## # autoSim.R
+## 
+## ## parsing command arguments
+## for (arg in commandArgs(TRUE)) {
+##   eval(parse(text=arg))
+## }
+## 
+## ## using R to call R
+## nVals &lt;- seq(100, 500, by=100)
+## distTypes = c(&quot;gaussian&quot;, &quot;t1&quot;, &quot;t5&quot;)
+## for (dist in distTypes) {
+##   for (n in nVals){
+##     oFile &lt;- paste(&quot;n&quot;, n,&quot;dist&quot;,dist, &quot;.txt&quot;, sep=&quot;&quot;)
+##     sysCall &lt;- paste(&quot;nohup Rscript runSim.R n=&quot;, n, &quot; dist=&quot;,shQuote(shQuote(dist)),
+##                      &quot; seed=&quot;,seed,&quot; rep=&quot;,rep,&quot; &gt; &quot;, oFile, sep=&quot;&quot;)
+##     system(sysCall)
+##     print(paste(&quot;sysCall=&quot;, sysCall, sep=&quot;&quot;))
+##   }
+## }</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Download the [<code>runSim.R</code>] and [<code>autoSim.R</code>] scripts, and run the following codes, this will parallelly compute results from all combinations, and write output to appropriately named files.</li>
+</ol>
+<div class="sourceCode" id="cb321"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb321-1"><a href="speed-up-in-r-programming.html#cb321-1"></a>    <span class="ex">Rscript</span> resources/speed_up_in_r_programming/autoSim.R seed=280 rep=50</span></code></pre></div>
+<pre><code>## [1] &quot;sysCall=nohup Rscript runSim.R n=100 dist=\&quot;&#39;gaussian&#39;\&quot; seed=280 rep=50 &gt; n100distgaussian.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=200 dist=\&quot;&#39;gaussian&#39;\&quot; seed=280 rep=50 &gt; n200distgaussian.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=300 dist=\&quot;&#39;gaussian&#39;\&quot; seed=280 rep=50 &gt; n300distgaussian.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=400 dist=\&quot;&#39;gaussian&#39;\&quot; seed=280 rep=50 &gt; n400distgaussian.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=500 dist=\&quot;&#39;gaussian&#39;\&quot; seed=280 rep=50 &gt; n500distgaussian.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=100 dist=\&quot;&#39;t1&#39;\&quot; seed=280 rep=50 &gt; n100distt1.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=200 dist=\&quot;&#39;t1&#39;\&quot; seed=280 rep=50 &gt; n200distt1.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=300 dist=\&quot;&#39;t1&#39;\&quot; seed=280 rep=50 &gt; n300distt1.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=400 dist=\&quot;&#39;t1&#39;\&quot; seed=280 rep=50 &gt; n400distt1.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=500 dist=\&quot;&#39;t1&#39;\&quot; seed=280 rep=50 &gt; n500distt1.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=100 dist=\&quot;&#39;t5&#39;\&quot; seed=280 rep=50 &gt; n100distt5.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=200 dist=\&quot;&#39;t5&#39;\&quot; seed=280 rep=50 &gt; n200distt5.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=300 dist=\&quot;&#39;t5&#39;\&quot; seed=280 rep=50 &gt; n300distt5.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=400 dist=\&quot;&#39;t5&#39;\&quot; seed=280 rep=50 &gt; n400distt5.txt&quot;
+## [1] &quot;sysCall=nohup Rscript runSim.R n=500 dist=\&quot;&#39;t5&#39;\&quot; seed=280 rep=50 &gt; n500distt5.txt&quot;</code></pre>
+</div>
+<div id="option-3" class="section level4" number="20.4.1.2">
+<h4><span class="header-section-number">20.4.1.2</span> Option 3</h4>
+</div>
+<div id="serial-code" class="section level4" number="20.4.1.3">
+<h4><span class="header-section-number">20.4.1.3</span> Serial code</h4>
+<p>We need to loop over 3 generative models (<code>distTypes</code>) and 20 samples sizes (<code>nVals</code>). That are 60 embarssingly parallel tasks.</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="speed-up-in-r-programming.html#cb323-1"></a>seed =<span class="st"> </span><span class="dv">280</span></span>
+<span id="cb323-2"><a href="speed-up-in-r-programming.html#cb323-2"></a>reps =<span class="st"> </span><span class="dv">500</span></span>
+<span id="cb323-3"><a href="speed-up-in-r-programming.html#cb323-3"></a>nVals =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">100</span>, <span class="dv">1000</span>, <span class="dt">by =</span> <span class="dv">50</span>)</span>
+<span id="cb323-4"><a href="speed-up-in-r-programming.html#cb323-4"></a>distTypes =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;gaussian&quot;</span>, <span class="st">&quot;t5&quot;</span>, <span class="st">&quot;t1&quot;</span>)</span></code></pre></div>
+<p>This is the serial code that double-loop over combinations of <code>distTypes</code> and <code>nVals</code>:</p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="speed-up-in-r-programming.html#cb324-1"></a><span class="co">## simulation study with combination of generative model `dist` and</span></span>
+<span id="cb324-2"><a href="speed-up-in-r-programming.html#cb324-2"></a><span class="co">## sample size `n` (serial code)</span></span>
+<span id="cb324-3"><a href="speed-up-in-r-programming.html#cb324-3"></a>simres1 =<span class="st"> </span><span class="kw">matrix</span>(<span class="fl">0.0</span>, <span class="dt">nrow =</span> <span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">length</span>(nVals), <span class="dt">ncol =</span> <span class="kw">length</span>(distTypes))</span>
+<span id="cb324-4"><a href="speed-up-in-r-programming.html#cb324-4"></a>i =<span class="st"> </span><span class="dv">1</span> <span class="co"># entry index</span></span>
+<span id="cb324-5"><a href="speed-up-in-r-programming.html#cb324-5"></a><span class="kw">system.time</span>(</span>
+<span id="cb324-6"><a href="speed-up-in-r-programming.html#cb324-6"></a>  <span class="cf">for</span> (dist <span class="cf">in</span> distTypes) {</span>
+<span id="cb324-7"><a href="speed-up-in-r-programming.html#cb324-7"></a>    <span class="cf">for</span> (n <span class="cf">in</span> nVals) {</span>
+<span id="cb324-8"><a href="speed-up-in-r-programming.html#cb324-8"></a>      <span class="co">#print(paste(&quot;n=&quot;, n, &quot; dist=&quot;, dist, &quot; seed=&quot;, seed, &quot; reps=&quot;, reps, sep=&quot;&quot;))</span></span>
+<span id="cb324-9"><a href="speed-up-in-r-programming.html#cb324-9"></a>      simres1[i<span class="op">:</span>(i <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)] =<span class="st"> </span><span class="kw">compare_methods</span>(dist, n, reps, seed)</span>
+<span id="cb324-10"><a href="speed-up-in-r-programming.html#cb324-10"></a>      i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb324-11"><a href="speed-up-in-r-programming.html#cb324-11"></a>    }</span>
+<span id="cb324-12"><a href="speed-up-in-r-programming.html#cb324-12"></a>  }</span>
+<span id="cb324-13"><a href="speed-up-in-r-programming.html#cb324-13"></a>)</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##  28.184   0.121  28.408</code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="speed-up-in-r-programming.html#cb326-1"></a>simres1</span></code></pre></div>
+<pre><code>##               [,1]        [,2]         [,3]
+##  [1,] 0.0103989436 0.017070603     312.4001
+##  [2,] 0.0410217819 0.066503177     200.3237
+##  [3,] 0.0065484669 0.011260420     173.9631
+##  [4,] 0.0297390639 0.047465397     199.5330
+##  [5,] 0.0056445593 0.007754855   68026.7023
+##  [6,] 0.0215380206 0.040039145 1230343.1341
+##  [7,] 0.0040803523 0.006871930   43609.7815
+##  [8,] 0.0165144049 0.032353077  931755.3182
+##  [9,] 0.0032566766 0.005417194   30283.1286
+## [10,] 0.0161191554 0.026330133  684726.8788
+## [11,] 0.0027565672 0.004444172   22306.1369
+## [12,] 0.0145039253 0.022820075  539105.3392
+## [13,] 0.0024915830 0.003798500   17119.0807
+## [14,] 0.0122801335 0.022788299  435528.4778
+## [15,] 0.0023706676 0.003360507   13531.4104
+## [16,] 0.0112703627 0.016674640     111.4673
+## [17,] 0.0020190283 0.003147367   10973.3489
+## [18,] 0.0106157492 0.016027485     278.9663
+## [19,] 0.0017567901 0.002863640    9069.6647
+## [20,] 0.0096185720 0.016444671  261373.7646
+## [21,] 0.0016441481 0.002637964    7629.9867
+## [22,] 0.0081784426 0.013710539     296.6235
+## [23,] 0.0015075246 0.002498450    6498.2362
+## [24,] 0.0088018140 0.012909942  191986.6388
+## [25,] 0.0014372130 0.002308089    5603.9395
+## [26,] 0.0077292632 0.012789483  171280.5448
+## [27,] 0.0012924543 0.002216936    4889.8739
+## [28,] 0.0069012154 0.011052562     170.3975
+## [29,] 0.0011994654 0.001987311    4299.6838
+## [30,] 0.0067559611 0.011291788     178.7454
+## [31,] 0.0011642413 0.001888637    3806.8472
+## [32,] 0.0070131993 0.010048327     140.2389
+## [33,] 0.0011566121 0.001873365    3401.9766
+## [34,] 0.0065066558 0.009020973      34.1644
+## [35,] 0.0010506067 0.001595430    3049.0432
+## [36,] 0.0060026682 0.010338424  103578.0598
+## [37,] 0.0009770234 0.001618095    2768.4517
+## [38,] 0.0054705674 0.009229294     143.5544</code></pre>
+</div>
+<div id="using-mcmapply" class="section level4" number="20.4.1.4">
+<h4><span class="header-section-number">20.4.1.4</span> Using <code>mcmapply</code></h4>
+<p>Run the same task using <code>mcmapply</code> function (parallel analog of <code>mapply</code>) in the <code>parallel</code> package:</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="speed-up-in-r-programming.html#cb328-1"></a><span class="co">## simulation study with combination of generative model `dist` and</span></span>
+<span id="cb328-2"><a href="speed-up-in-r-programming.html#cb328-2"></a><span class="co">## sample size `n` (parallel code using mcmapply)</span></span>
+<span id="cb328-3"><a href="speed-up-in-r-programming.html#cb328-3"></a><span class="kw">library</span>(parallel)</span>
+<span id="cb328-4"><a href="speed-up-in-r-programming.html#cb328-4"></a><span class="kw">system.time</span>({</span>
+<span id="cb328-5"><a href="speed-up-in-r-programming.html#cb328-5"></a>  simres2 &lt;-<span class="st"> </span><span class="kw">mcmapply</span>(compare_methods, </span>
+<span id="cb328-6"><a href="speed-up-in-r-programming.html#cb328-6"></a>                      <span class="kw">rep</span>(distTypes, <span class="dt">each =</span> <span class="kw">length</span>(nVals), <span class="dt">times =</span> <span class="dv">1</span>),</span>
+<span id="cb328-7"><a href="speed-up-in-r-programming.html#cb328-7"></a>                      <span class="kw">rep</span>(nVals, <span class="dt">each =</span> <span class="dv">1</span>, <span class="dt">times =</span> <span class="kw">length</span>(distTypes)),</span>
+<span id="cb328-8"><a href="speed-up-in-r-programming.html#cb328-8"></a>                      reps, </span>
+<span id="cb328-9"><a href="speed-up-in-r-programming.html#cb328-9"></a>                      seed,</span>
+<span id="cb328-10"><a href="speed-up-in-r-programming.html#cb328-10"></a>                      <span class="dt">mc.cores =</span> <span class="dv">4</span>)</span>
+<span id="cb328-11"><a href="speed-up-in-r-programming.html#cb328-11"></a>})</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##  23.755   0.821   8.746</code></pre>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="speed-up-in-r-programming.html#cb330-1"></a>simres2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">unlist</span>(simres2), <span class="dt">ncol =</span> <span class="kw">length</span>(distTypes))</span>
+<span id="cb330-2"><a href="speed-up-in-r-programming.html#cb330-2"></a>simres2</span></code></pre></div>
+<pre><code>##               [,1]        [,2]         [,3]
+##  [1,] 0.0103989436 0.017070603     312.4001
+##  [2,] 0.0410217819 0.066503177     200.3237
+##  [3,] 0.0065484669 0.011260420     173.9631
+##  [4,] 0.0297390639 0.047465397     199.5330
+##  [5,] 0.0056445593 0.007754855   68026.7023
+##  [6,] 0.0215380206 0.040039145 1230343.1341
+##  [7,] 0.0040803523 0.006871930   43609.7815
+##  [8,] 0.0165144049 0.032353077  931755.3182
+##  [9,] 0.0032566766 0.005417194   30283.1286
+## [10,] 0.0161191554 0.026330133  684726.8788
+## [11,] 0.0027565672 0.004444172   22306.1369
+## [12,] 0.0145039253 0.022820075  539105.3392
+## [13,] 0.0024915830 0.003798500   17119.0807
+## [14,] 0.0122801335 0.022788299  435528.4778
+## [15,] 0.0023706676 0.003360507   13531.4104
+## [16,] 0.0112703627 0.016674640     111.4673
+## [17,] 0.0020190283 0.003147367   10973.3489
+## [18,] 0.0106157492 0.016027485     278.9663
+## [19,] 0.0017567901 0.002863640    9069.6647
+## [20,] 0.0096185720 0.016444671  261373.7646
+## [21,] 0.0016441481 0.002637964    7629.9867
+## [22,] 0.0081784426 0.013710539     296.6235
+## [23,] 0.0015075246 0.002498450    6498.2362
+## [24,] 0.0088018140 0.012909942  191986.6388
+## [25,] 0.0014372130 0.002308089    5603.9395
+## [26,] 0.0077292632 0.012789483  171280.5448
+## [27,] 0.0012924543 0.002216936    4889.8739
+## [28,] 0.0069012154 0.011052562     170.3975
+## [29,] 0.0011994654 0.001987311    4299.6838
+## [30,] 0.0067559611 0.011291788     178.7454
+## [31,] 0.0011642413 0.001888637    3806.8472
+## [32,] 0.0070131993 0.010048327     140.2389
+## [33,] 0.0011566121 0.001873365    3401.9766
+## [34,] 0.0065066558 0.009020973      34.1644
+## [35,] 0.0010506067 0.001595430    3049.0432
+## [36,] 0.0060026682 0.010338424  103578.0598
+## [37,] 0.0009770234 0.001618095    2768.4517
+## [38,] 0.0054705674 0.009229294     143.5544</code></pre>
+<ul>
+<li><p>We see roughly 3x-4x speedup with <code>mc.cores=4</code>.</p></li>
+<li><p><code>mcmapply</code>, <code>mclapply</code> and related functions rely on the forking capability of POSIX operating systems (e.g. Linux, MacOS) and is <strong>not</strong> available in Windows.</p></li>
+<li><p><code>parLapply</code>, <code>parApply</code>, <code>parCapply</code>, <code>parRapply</code>, <code>clusterApply</code>, <code>clusterMap</code>, and related
+functions create a cluster of workers based on either socket (default) or forking. Socket is available on all platforms: Linux, MacOS, and Windows.</p></li>
+</ul>
+</div>
+<div id="using-clustermap" class="section level4" number="20.4.1.5">
+<h4><span class="header-section-number">20.4.1.5</span> Using <code>clusterMap</code></h4>
+<p>The same simulation example using <code>clusterMap</code> function:</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="speed-up-in-r-programming.html#cb332-1"></a>cl &lt;-<span class="st"> </span><span class="kw">makeCluster</span>(<span class="kw">getOption</span>(<span class="st">&quot;cl.cores&quot;</span>, <span class="dv">4</span>))</span>
+<span id="cb332-2"><a href="speed-up-in-r-programming.html#cb332-2"></a><span class="kw">clusterExport</span>(cl, <span class="kw">c</span>(<span class="st">&quot;isPrime&quot;</span>, <span class="st">&quot;estMeanPrimes&quot;</span>, <span class="st">&quot;compare_methods&quot;</span>))</span>
+<span id="cb332-3"><a href="speed-up-in-r-programming.html#cb332-3"></a><span class="kw">system.time</span>({</span>
+<span id="cb332-4"><a href="speed-up-in-r-programming.html#cb332-4"></a>  simres3 &lt;-<span class="st"> </span><span class="kw">clusterMap</span>(cl, compare_methods,</span>
+<span id="cb332-5"><a href="speed-up-in-r-programming.html#cb332-5"></a>                        <span class="kw">rep</span>(distTypes, <span class="dt">each =</span> <span class="kw">length</span>(nVals), <span class="dt">times =</span> <span class="dv">1</span>),</span>
+<span id="cb332-6"><a href="speed-up-in-r-programming.html#cb332-6"></a>                        <span class="kw">rep</span>(nVals, <span class="dt">each =</span> <span class="dv">1</span>, <span class="dt">times =</span> <span class="kw">length</span>(distTypes)),</span>
+<span id="cb332-7"><a href="speed-up-in-r-programming.html#cb332-7"></a>                        reps,</span>
+<span id="cb332-8"><a href="speed-up-in-r-programming.html#cb332-8"></a>                        seed,</span>
+<span id="cb332-9"><a href="speed-up-in-r-programming.html#cb332-9"></a>                        <span class="dt">.scheduling =</span> <span class="st">&quot;dynamic&quot;</span>)</span>
+<span id="cb332-10"><a href="speed-up-in-r-programming.html#cb332-10"></a>})</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##   0.022   0.005   6.600</code></pre>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="speed-up-in-r-programming.html#cb334-1"></a>simres3 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">unlist</span>(simres3), <span class="dt">ncol =</span> <span class="kw">length</span>(distTypes))</span>
+<span id="cb334-2"><a href="speed-up-in-r-programming.html#cb334-2"></a><span class="kw">stopCluster</span>(cl)</span>
+<span id="cb334-3"><a href="speed-up-in-r-programming.html#cb334-3"></a>simres3</span></code></pre></div>
+<pre><code>##               [,1]        [,2]         [,3]
+##  [1,] 0.0103989436 0.017070603     312.4001
+##  [2,] 0.0410217819 0.066503177     200.3237
+##  [3,] 0.0065484669 0.011260420     173.9631
+##  [4,] 0.0297390639 0.047465397     199.5330
+##  [5,] 0.0056445593 0.007754855   68026.7023
+##  [6,] 0.0215380206 0.040039145 1230343.1341
+##  [7,] 0.0040803523 0.006871930   43609.7815
+##  [8,] 0.0165144049 0.032353077  931755.3182
+##  [9,] 0.0032566766 0.005417194   30283.1286
+## [10,] 0.0161191554 0.026330133  684726.8788
+## [11,] 0.0027565672 0.004444172   22306.1369
+## [12,] 0.0145039253 0.022820075  539105.3392
+## [13,] 0.0024915830 0.003798500   17119.0807
+## [14,] 0.0122801335 0.022788299  435528.4778
+## [15,] 0.0023706676 0.003360507   13531.4104
+## [16,] 0.0112703627 0.016674640     111.4673
+## [17,] 0.0020190283 0.003147367   10973.3489
+## [18,] 0.0106157492 0.016027485     278.9663
+## [19,] 0.0017567901 0.002863640    9069.6647
+## [20,] 0.0096185720 0.016444671  261373.7646
+## [21,] 0.0016441481 0.002637964    7629.9867
+## [22,] 0.0081784426 0.013710539     296.6235
+## [23,] 0.0015075246 0.002498450    6498.2362
+## [24,] 0.0088018140 0.012909942  191986.6388
+## [25,] 0.0014372130 0.002308089    5603.9395
+## [26,] 0.0077292632 0.012789483  171280.5448
+## [27,] 0.0012924543 0.002216936    4889.8739
+## [28,] 0.0069012154 0.011052562     170.3975
+## [29,] 0.0011994654 0.001987311    4299.6838
+## [30,] 0.0067559611 0.011291788     178.7454
+## [31,] 0.0011642413 0.001888637    3806.8472
+## [32,] 0.0070131993 0.010048327     140.2389
+## [33,] 0.0011566121 0.001873365    3401.9766
+## [34,] 0.0065066558 0.009020973      34.1644
+## [35,] 0.0010506067 0.001595430    3049.0432
+## [36,] 0.0060026682 0.010338424  103578.0598
+## [37,] 0.0009770234 0.001618095    2768.4517
+## [38,] 0.0054705674 0.009229294     143.5544</code></pre>
+<ul>
+<li><p>Again we see roughly 3x-4x speedup by using 4 cores.</p></li>
+<li><p><code>clusterExport</code> copies environment of master to slaves.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="package-development" class="section level2" number="20.5">
+<h2><span class="header-section-number">20.5</span> Package development</h2>
+<p>Learning resources:</p>
+<ul>
+<li><p>Book _<a href="http://r-pkgs.had.co.nz">R Packages_</a> by Hadley Wickham</p></li>
+<li><p>RStudio tutorial: <a href="https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio" class="uri">https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio</a></p></li>
+</ul>
+
+</div>
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="automate-eda-with-dataexplorer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="github-initial-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jtr13/cc20/edit/master/speed_up_in_r_programming.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/jtr13/cc20/blob/master/speed_up_in_r_programming.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
