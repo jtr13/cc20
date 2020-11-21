@@ -61,6 +61,7 @@ interactive-map-with-leafletcn
 conclusion
 benfords-law-analysis-of-2020-election
 mosaic-plot-cheatsheet
+time-series-cheatsheet
 tableau-intro-tutorial-explained-with-proset2
 solutioning-a-data-pipeline-for-visualization
 chinese-translation-of-candela-package
