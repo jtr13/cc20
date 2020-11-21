@@ -11,11 +11,11 @@ library(GGally)
 library(grid)
 ```
 
-## **Overview**
+## Overview
 
 In the process of data analysis, single plot showing is likely to be a weak visual shock. Instead, sometimes several plots should be output which are used for comparison or more strong evidence to verify our ideas. How to lay out several plots seems to be a easy stuff, however, type of plotting, the scale of different plots and other details will make laying out multiple plots in one page difficult. In this tutorial, I will introduce some method from easy use to comprehensive use and pinpoint matters need attention to make the visualizaton logically and readable.
 
-## **Most easy and normal form `par()`**
+## Most easy and normal form `par()`
 
 Parameter     value     
 -------     ------ 
@@ -62,7 +62,7 @@ par(mfrow = c(2,2))
 ggplot(data = iris, aes(Sepal.Length))+ geom_histogram(bins = 20)
 ```
 
-## **Complex plot layouts with `layout()`**
+## Complex plot layouts with `layout()`
 
 Parameter     value     
 -------     ------ 
@@ -117,9 +117,9 @@ barplot(yhist$counts, axes = FALSE, xlim = c(0, top), space = 0, horiz = TRUE)
 
 In this case, it is obvious to see the density distribution from two variables and also scatter plot can be seen which gives our a direct and reliable visual shock. It is no doubt that `layout()` is able to let us better understand data.
 
-## **Layout for ggplot**
+## Layout for ggplot
 
-### **`grid.arrange()` in `gridExtra`**
+### `grid.arrange()` in `gridExtra`
 
 Parameter     value     
 --------     ------ 
@@ -151,7 +151,7 @@ grid.arrange(p1,p2,p3,p4,nrow = 2, widths = c(1,1.5))
 ```
 
 
-### **method in `grid`**
+### method in `grid`
 
 The functions in grid also can be used for arranging plots and it is easy for us to align postion for certain graph. One thing worth attention is that we have to write grid.newpage() first to record all the graphs below. I use the example which is one of first questions in homework 3 to display the layout work.
 
@@ -175,7 +175,7 @@ print(g4, vp = vplayout(3, 1))
 print(g5, vp = vplayout(3, 2))
 ```
 
-## **Reference**
+## Reference
 
 More about `par()` and `layout()`: https://bookdown.org/ndphillips/YaRrr/arranging-plots-with-parmfrow-and-layout.html
 

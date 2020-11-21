@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Customized Plot Matrix: pairs and ggpairs | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 20 Laying out multiple plots for Baseplot and ggplot | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Customized Plot Matrix: pairs and ggpairs | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 20 Laying out multiple plots for Baseplot and ggplot | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Customized Plot Matrix: pairs and ggpairs | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 20 Laying out multiple plots for Baseplot and ggplot | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-transformation-in-r.html"/>
-<link rel="next" href="likert-scale-definition-examples-and-visualization.html"/>
+<link rel="prev" href="health-datasets-for-the-final-project.html"/>
+<link rel="next" href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -517,190 +517,214 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="customized-plot-matrix-pairs-and-ggpairs" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Customized Plot Matrix: pairs and ggpairs</h1>
-<p>Yibai Liu</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb80-1"></a><span class="kw">library</span>(GGally)</span>
-<span id="cb80-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb80-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb80-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb80-3"></a><span class="kw">library</span>(vcd)</span></code></pre></div>
-<div id="overview-things-we-can-do-with-pairs-and-ggpairs" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Overview: Things we can do with pairs() and ggpairs()</h2>
-<p>When our data contains multivariate variables, it is important to evaluate associations between these variables before modeling. We can create scatterplot matrices, correlation matrix, as well as mosaic pairs plots to get an idea about if and how these variables are correlated with each other. In this tutorial, I would plot using a base r function <strong>pairs()</strong> and a function <strong>ggpairs()</strong> from the <code>GGally</code> package, which both functions provide methods to generate customized plot matrices.</p>
-<p>Plots for different purposes:
-- Scatterplot matrix: correlations between continuous variables
-- Mosaic pairs plot: correlations between categorical variables</p>
+<div id="laying-out-multiple-plots-for-baseplot-and-ggplot" class="section level1" number="20">
+<h1><span class="header-section-number">Chapter 20</span> Laying out multiple plots for Baseplot and ggplot</h1>
+<p>Zhiyi Chen (zc2489)</p>
+<div id="overview-1" class="section level2" number="20.1">
+<h2><span class="header-section-number">20.1</span> Overview</h2>
+<p>In the process of data analysis, single plot showing is likely to be a weak visual shock. Instead, sometimes several plots should be output which are used for comparison or more strong evidence to verify our ideas. How to lay out several plots seems to be a easy stuff, however, type of plotting, the scale of different plots and other details will make laying out multiple plots in one page difficult. In this tutorial, I will introduce some method from easy use to comprehensive use and pinpoint matters need attention to make the visualizaton logically and readable.</p>
 </div>
-<div id="scatterplot-matrix-for-continuous-variables" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Scatterplot matrix for continuous variables</h2>
-<div id="plot-with-pairs" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Plot with pairs()</h3>
-<div id="basic-scatterplot-matrix-of-the-mtcars-dataset-all-numeric-variables" class="section level4" number="4.2.1.1">
-<h4><span class="header-section-number">4.2.1.1</span> Basic scatterplot matrix of the `mtcars dataset (all numeric variables)</h4>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb81-1"></a><span class="kw">data</span>(mtcars)</span>
-<span id="cb81-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb81-2"></a><span class="kw">pairs</span>(<span class="op">~</span>., <span class="dt">data =</span> mtcars,</span>
-<span id="cb81-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb81-3"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-46-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>We notice that there are some numeric variables actually discrete or representing categories, so we can trim all discrete and categorical variables, and only plot continuous variables in the matrix.</p>
+<div id="most-easy-and-normal-form-par" class="section level2" number="20.2">
+<h2><span class="header-section-number">20.2</span> Most easy and normal form <code>par()</code></h2>
+<table>
+<caption><code>par()</code> from package{graphics}</caption>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>…</td>
+<td align="right">In the form: Tag = value</td>
+</tr>
+<tr class="even">
+<td>no.readonly</td>
+<td align="right">TRUE/FALSE</td>
+</tr>
+</tbody>
+</table>
+<p>More <code>Tag = value</code> can be seen from this link: <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/par" class="uri">https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/par</a></p>
+<p><code>par()</code> is a function to create a whole setting for plots. <code>...</code> shows we can set parameters in form Tag = value, we take <code>no.readonly</code> is equal to TRUE when there is no input in <code>...</code>, which means it will shows the previous <code>par()</code> settings. Of course, layout of multiple plots can be constructed within <code>par()</code>. The <code>mfrow</code> and <code>mfcol</code> parameters allow us to create a matrix of plots in one plotting space. Both parameters take a vector of length two as an argument, corresponding to the number of rows and columns in the resulting plotting matrix. For example, the following code sets up a 2 x 2 plotting matrix. The difference between <code>mfrow</code> and <code>mfcol</code> is that the former one is by row and the latter one is by column.</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-1"></a><span class="co"># store the previous plot settings</span></span>
+<span id="cb273-2"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-2"></a>opar &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="dt">no.readonly =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb273-3"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-3"></a></span>
+<span id="cb273-4"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-4"></a><span class="co"># set 2 x 2 layout</span></span>
+<span id="cb273-5"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-5"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb273-6"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-6"></a></span>
+<span id="cb273-7"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-7"></a><span class="co"># First plot: line chart</span></span>
+<span id="cb273-8"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-8"></a><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">12</span>,<span class="dv">28</span>,<span class="dv">3</span>,<span class="dv">41</span>), <span class="dt">type =</span> <span class="st">&#39;o&#39;</span>)</span>
+<span id="cb273-9"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-9"></a></span>
+<span id="cb273-10"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-10"></a><span class="co">#  Second plot: scatter plot </span></span>
+<span id="cb273-11"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-11"></a><span class="kw">plot</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Sepal.Width, <span class="dt">main =</span> <span class="st">&#39;scatter plot&#39;</span>, <span class="dt">xlab =</span> <span class="st">&#39;Sepal length&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Sepal width&#39;</span>)</span>
+<span id="cb273-12"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-12"></a></span>
+<span id="cb273-13"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-13"></a><span class="co"># Third plot: histgram chart</span></span>
+<span id="cb273-14"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-14"></a><span class="kw">hist</span>(iris<span class="op">$</span>Sepal.Length, <span class="dt">main =</span> <span class="st">&#39;Histgram chart&#39;</span>, <span class="dt">xlab =</span> <span class="st">&#39;Sepal length&#39;</span>)</span>
+<span id="cb273-15"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-15"></a></span>
+<span id="cb273-16"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-16"></a><span class="co"># Fourth plot: boxplot</span></span>
+<span id="cb273-17"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb273-17"></a><span class="kw">boxplot</span>(Petal.Length <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-202-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>There is one thing need attention that from then on, all the layout will be <code>2x2</code> since <code>par()</code> is set for all plots. Otherwise we reset <code>par()</code> or recall the setting before <code>par()</code></p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb274-1"></a><span class="kw">par</span>(opar)</span>
+<span id="cb274-2"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb274-2"></a><span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>))</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-203-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>One disadvantage for <code>par()</code> is that it cannot work for ggplot, we can see below that the plot should appear on the upper left of the page, but it just happen as if <code>par()</code> isn’t written here. However, don’t worry about it since ggplot has another function to lay out which is very similar to <code>par()</code> and we will discuss about it later.</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb275-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb275-2"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb275-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(Sepal.Length))<span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-204-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="continuous-variables-only" class="section level4" number="4.2.1.2">
-<h4><span class="header-section-number">4.2.1.2</span> Continuous variables only</h4>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb82-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)], <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-47-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="complex-plot-layouts-with-layout" class="section level2" number="20.3">
+<h2><span class="header-section-number">20.3</span> Complex plot layouts with <code>layout()</code></h2>
+<table>
+<caption><code>layout()</code> from package{graphics}</caption>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mat</td>
+<td align="right">a matrix object specifying the location of the next figures on the output device.</td>
+</tr>
+<tr class="even">
+<td>widths</td>
+<td align="right">a vector of values for the widths of columns on the device.</td>
+</tr>
+<tr class="odd">
+<td>heights</td>
+<td align="right">a vector of values for the heights of rows on the device.</td>
+</tr>
+<tr class="even">
+<td>respect</td>
+<td align="right">controls whether a unit column-width is the same physical measurement on the device as a unit row-height.</td>
+</tr>
+</tbody>
+</table>
+<p><code>layout</code> is not a plotting parameter, rather it is a function all on its own. Different from <code>par()</code>, <code>layout()</code> can align position number to certain plot and define the width and height of plot area respectively. We can first have a look to understand how it works.</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb276-1"></a>layout.matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb276-2"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb276-2"></a></span>
+<span id="cb276-3"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb276-3"></a><span class="kw">layout</span>(<span class="dt">mat =</span> layout.matrix,</span>
+<span id="cb276-4"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb276-4"></a>       <span class="dt">heights =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="co"># Heights of the two rows</span></span>
+<span id="cb276-5"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb276-5"></a>       <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># Widths of the two columns</span></span>
+<span id="cb276-6"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb276-6"></a></span>
+<span id="cb276-7"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb276-7"></a><span class="kw">layout.show</span>(<span class="dv">3</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-205-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>From above chart, 0 means there will be an empty area, 1-3 means the order of plot query, heights here means the length of second row will be 2 times the first row, widths means the length of first column and second column is the same. Moreover, heights and widths will use the same scale. Let use an example to show how <code>layout()</code> performs.</p>
+<p>The example is from : <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/layout" class="uri">https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/layout</a></p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-1"></a><span class="co"># Get the data manually</span></span>
+<span id="cb277-2"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-2"></a>x &lt;-<span class="st"> </span><span class="kw">pmin</span>(<span class="dv">3</span>, <span class="kw">pmax</span>(<span class="op">-</span><span class="dv">3</span>, stats<span class="op">::</span><span class="kw">rnorm</span>(<span class="dv">50</span>)))</span>
+<span id="cb277-3"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-3"></a>y &lt;-<span class="st"> </span><span class="kw">pmin</span>(<span class="dv">3</span>, <span class="kw">pmax</span>(<span class="op">-</span><span class="dv">3</span>, stats<span class="op">::</span><span class="kw">rnorm</span>(<span class="dv">50</span>)))</span>
+<span id="cb277-4"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-4"></a>xhist &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="fl">0.5</span>), <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb277-5"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-5"></a>yhist &lt;-<span class="st"> </span><span class="kw">hist</span>(y, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="fl">0.5</span>), <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb277-6"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-6"></a>top &lt;-<span class="st"> </span><span class="kw">max</span>(<span class="kw">c</span>(xhist<span class="op">$</span>counts, yhist<span class="op">$</span>counts))</span>
+<span id="cb277-7"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-7"></a>xrange &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb277-8"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-8"></a>yrange &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb277-9"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-9"></a></span>
+<span id="cb277-10"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-10"></a><span class="co"># Create a multiple plot layout interface</span></span>
+<span id="cb277-11"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-11"></a>nf &lt;-<span class="st"> </span><span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>),<span class="dv">2</span>,<span class="dv">2</span>,<span class="dt">byrow =</span> <span class="ot">TRUE</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="ot">TRUE</span>)</span>
+<span id="cb277-12"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-12"></a></span>
+<span id="cb277-13"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-13"></a><span class="co"># plot 1</span></span>
+<span id="cb277-14"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-14"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>))           <span class="co"># mar = c(down, left, up, right)</span></span>
+<span id="cb277-15"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-15"></a><span class="kw">plot</span>(x, y, <span class="dt">xlim =</span> xrange, <span class="dt">ylim =</span> yrange, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb277-16"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-16"></a></span>
+<span id="cb277-17"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-17"></a><span class="co"># plot 2</span></span>
+<span id="cb277-18"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-18"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb277-19"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-19"></a><span class="kw">barplot</span>(xhist<span class="op">$</span>counts, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, top), <span class="dt">space =</span> <span class="dv">0</span>)</span>
+<span id="cb277-20"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-20"></a></span>
+<span id="cb277-21"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-21"></a><span class="co"># plot 3</span></span>
+<span id="cb277-22"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-22"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb277-23"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb277-23"></a><span class="kw">barplot</span>(yhist<span class="op">$</span>counts, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, top), <span class="dt">space =</span> <span class="dv">0</span>, <span class="dt">horiz =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-206-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>In this case, it is obvious to see the density distribution from two variables and also scatter plot can be seen which gives our a direct and reliable visual shock. It is no doubt that <code>layout()</code> is able to let us better understand data.</p>
 </div>
-<div id="change-color-shape-size-of-points-as-well-as-labels-and-gaps-of-the-plot" class="section level4" number="4.2.1.3">
-<h4><span class="header-section-number">4.2.1.3</span> Change color, shape, size of points, as well as labels and gaps of the plot</h4>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb83-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb83-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb83-2"></a>      <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>,                                            <span class="co"># Change color</span></span>
-<span id="cb83-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb83-3"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                <span class="co"># Change shape of points</span></span>
-<span id="cb83-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb83-4"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               <span class="co"># Change size of points</span></span>
-<span id="cb83-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb83-5"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb83-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb83-6"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  <span class="co"># Change labels  </span></span>
-<span id="cb83-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb83-7"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,                                               <span class="co"># Change gaps in between</span></span>
-<span id="cb83-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb83-8"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-48-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="layout-for-ggplot" class="section level2" number="20.4">
+<h2><span class="header-section-number">20.4</span> Layout for ggplot</h2>
+<div id="grid.arrange-in-gridextra" class="section level3" number="20.4.1">
+<h3><span class="header-section-number">20.4.1</span> <code>grid.arrange()</code> in <code>gridExtra</code></h3>
+<table>
+<caption><code>grid.arrange()</code> from package{griddExtra}</caption>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>…</td>
+<td align="right">grobs, gtables, ggplot or trellis objects</td>
+</tr>
+<tr class="even">
+<td>grobs</td>
+<td align="right">list of grobs(graphical object)</td>
+</tr>
+<tr class="odd">
+<td>layout_matrix</td>
+<td align="right">structure of layout</td>
+</tr>
+<tr class="even">
+<td>widths</td>
+<td align="right">c()</td>
+</tr>
+<tr class="odd">
+<td>heights</td>
+<td align="right">c()</td>
+</tr>
+<tr class="even">
+<td>ncol</td>
+<td align="right">the number of columns</td>
+</tr>
+<tr class="odd">
+<td>nrow</td>
+<td align="right">the number of rows</td>
+</tr>
+</tbody>
+</table>
+<p>More parameter description can be found: <a href="https://www.rdocumentation.org/packages/gridExtra/versions/2.3/topics/arrangeGrob" class="uri">https://www.rdocumentation.org/packages/gridExtra/versions/2.3/topics/arrangeGrob</a></p>
+<p><code>grid.arrange</code> is able to work for grobs, gtables, ggplots, the function and strategy is very similar to <code>par()</code>. <code>...</code> means the plots we need to combine on a single page. <code>widths</code>,<code>heights</code>,<code>ncol</code> and <code>nrow</code> are the parameters we are very familiar with. Here we still use an example to show how it works.</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-1"></a><span class="co"># prepare all ggplots</span></span>
+<span id="cb278-2"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-2"></a>p1 &lt;-<span class="st"> </span><span class="kw">qplot</span>(Sepal.Length,Sepal.Width,<span class="dt">data =</span> iris,<span class="dt">col=</span>Species)</span>
+<span id="cb278-3"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-3"></a>p2 &lt;-<span class="st"> </span><span class="kw">qplot</span>(Petal.Length, <span class="dt">data =</span> iris, <span class="dt">binwidth =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram&quot;</span>)</span>
+<span id="cb278-4"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-4"></a>p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Petal.Length)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</span>
+<span id="cb278-5"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-5"></a>p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Sepal.Width)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">col =</span> Species)) <span class="op">+</span></span>
+<span id="cb278-6"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-6"></a><span class="st">      </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>Species, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb278-7"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-7"></a><span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;facetted plot&quot;</span>)</span>
+<span id="cb278-8"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-8"></a>      </span>
+<span id="cb278-9"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-9"></a><span class="co"># use grid.arrange()</span></span>
+<span id="cb278-10"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb278-10"></a><span class="kw">grid.arrange</span>(p1,p2,p3,p4,<span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">widths =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="fl">1.5</span>))</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-207-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="add-a-smoother-to-each-scatterplot" class="section level4" number="4.2.1.4">
-<h4><span class="header-section-number">4.2.1.4</span> Add a smoother to each scatterplot</h4>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb84-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb84-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb84-2"></a>      <span class="dt">lower.panel =</span> panel.smooth,           <span class="co"># Add a smoother for the lower panel</span></span>
-<span id="cb84-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb84-3"></a>      <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb84-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb84-4"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                </span>
-<span id="cb84-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb84-5"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               </span>
-<span id="cb84-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb84-6"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb84-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb84-7"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  </span>
-<span id="cb84-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb84-8"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,                                               </span>
-<span id="cb84-9"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb84-9"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-49-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="separate-groups-using-different-colors" class="section level4" number="4.2.1.5">
-<h4><span class="header-section-number">4.2.1.5</span> Separate groups using different colors</h4>
-<p><strong>Tip</strong>: You can also highlight a certain level of a categorical variable by simply turn other levels to grey.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb85-1"></a>mtcars<span class="op">$</span>vs &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>vs)</span>
-<span id="cb85-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb85-2"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb85-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb85-3"></a>      <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>)[mtcars<span class="op">$</span>vs],                  <span class="co"># Group by variable `vs`</span></span>
-<span id="cb85-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb85-4"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                </span>
-<span id="cb85-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb85-5"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               </span>
-<span id="cb85-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb85-6"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb85-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb85-7"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  </span>
-<span id="cb85-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb85-8"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,                                               </span>
-<span id="cb85-9"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb85-9"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars` Grouped by Engine&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-50-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>By separating data points by <code>vs</code> or the engine type, we can see that two groups form distinct clusters for many of the variables.</p>
-</div>
-<div id="choose-panel-display" class="section level4" number="4.2.1.6">
-<h4><span class="header-section-number">4.2.1.6</span> Choose panel display</h4>
-<p>If the plot seems dominated by too many points, you can turn off one of the panels.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb86-1"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb86-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb86-2"></a>      <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>)[mtcars<span class="op">$</span>vs],                  </span>
-<span id="cb86-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb86-3"></a>      <span class="dt">pch =</span> <span class="dv">19</span>,                                                </span>
-<span id="cb86-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb86-4"></a>      <span class="dt">cex =</span> <span class="fl">0.8</span>,                                               </span>
-<span id="cb86-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb86-5"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb86-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb86-6"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),  </span>
-<span id="cb86-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb86-7"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>,</span>
-<span id="cb86-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb86-8"></a>      <span class="dt">upper.panel =</span> <span class="ot">NULL</span>,               <span class="co"># Turn off the upper panel above the diagonal</span></span>
-<span id="cb86-9"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb86-9"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot Matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-51-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="customize-your-own-plot-matrix" class="section level4" number="4.2.1.7">
-<h4><span class="header-section-number">4.2.1.7</span> Customize your own plot matrix</h4>
-<p>The plot matrix is consisted of multiple panels, e.g. the upper panel, lower panel, diagonal panel, etc.
-You can customize each panel and make your own plot.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-1"></a><span class="co">#Panel of correlations</span></span>
-<span id="cb87-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-2"></a>panel.corr &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
-<span id="cb87-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-3"></a>    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</span>
-<span id="cb87-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-4"></a>    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb87-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-5"></a>    r &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">cor</span>(x, y), <span class="dt">digits=</span><span class="dv">3</span>)</span>
-<span id="cb87-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-6"></a>    txt &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Corr: &quot;</span>, r)</span>
-<span id="cb87-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-7"></a>    <span class="kw">text</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, txt, <span class="dt">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb87-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-8"></a>}</span>
-<span id="cb87-9"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-9"></a></span>
-<span id="cb87-10"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-10"></a><span class="co">#Panel of histograms</span></span>
-<span id="cb87-11"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-11"></a>panel.hist &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...){</span>
-<span id="cb87-12"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-12"></a>    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</span>
-<span id="cb87-13"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-13"></a>    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(usr[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">0</span>, <span class="fl">1.5</span>) )</span>
-<span id="cb87-14"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-14"></a>    h &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb87-15"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-15"></a>    breaks &lt;-<span class="st"> </span>h<span class="op">$</span>breaks</span>
-<span id="cb87-16"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-16"></a>    len &lt;-<span class="st"> </span><span class="kw">length</span>(breaks)</span>
-<span id="cb87-17"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-17"></a>    y &lt;-<span class="st"> </span>h<span class="op">$</span>counts<span class="op">/</span><span class="kw">max</span>(h<span class="op">$</span>counts)</span>
-<span id="cb87-18"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-18"></a>    <span class="kw">rect</span>(breaks[<span class="op">-</span>len], <span class="dv">0</span>, breaks[<span class="op">-</span><span class="dv">1</span>], y, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
-<span id="cb87-19"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-19"></a>}</span>
-<span id="cb87-20"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-20"></a></span>
-<span id="cb87-21"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-21"></a><span class="co">#Panel of scatterplots</span></span>
-<span id="cb87-22"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-22"></a>panel.scat &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
-<span id="cb87-23"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-23"></a>  <span class="kw">points</span>(x,y, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;coral&quot;</span>)</span>
-<span id="cb87-24"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-24"></a>}</span>
-<span id="cb87-25"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-25"></a></span>
-<span id="cb87-26"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-26"></a><span class="co">#Plot</span></span>
-<span id="cb87-27"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-27"></a><span class="kw">pairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],  </span>
-<span id="cb87-28"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-28"></a>      <span class="dt">lower.panel =</span> panel.scat,</span>
-<span id="cb87-29"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-29"></a>      <span class="dt">upper.panel =</span> panel.corr,</span>
-<span id="cb87-30"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-30"></a>      <span class="dt">diag.panel =</span> panel.hist,</span>
-<span id="cb87-31"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-31"></a>      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb87-32"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-32"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),</span>
-<span id="cb87-33"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-33"></a>      <span class="dt">gap =</span> <span class="fl">0.3</span>, </span>
-<span id="cb87-34"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb87-34"></a>      <span class="dt">main =</span> <span class="st">&quot;Scatterplot matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-52-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-</div>
-<div id="plot-with-ggpairs-from-ggally-package" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Plot with ggpairs() from <code>GGally</code> package</h3>
-<div id="basic-ggpairs-plot" class="section level4" number="4.2.2.1">
-<h4><span class="header-section-number">4.2.2.1</span> Basic ggpairs() plot</h4>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb88-1"></a><span class="co"># You need both ggplot2 and GGally packages loaded to use ggpairs()</span></span>
-<span id="cb88-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb88-2"></a></span>
-<span id="cb88-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb88-3"></a><span class="kw">ggpairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb88-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb88-4"></a>        <span class="dt">columnLabels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb88-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb88-5"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),</span>
-<span id="cb88-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb88-6"></a>        <span class="dt">upper =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="kw">wrap</span>(<span class="st">&#39;cor&#39;</span>, <span class="dt">size =</span> <span class="dv">4</span>)),</span>
-<span id="cb88-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb88-7"></a>        <span class="dt">title =</span> <span class="st">&quot;Scatterplot matrix of `mtcars`&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-53-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="separate-groups-using-different-colors-1" class="section level4" number="4.2.2.2">
-<h4><span class="header-section-number">4.2.2.2</span> Separate groups using different colors</h4>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb89-1"></a><span class="kw">ggpairs</span>(mtcars[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)],</span>
-<span id="cb89-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb89-2"></a>        <span class="dt">columnLabels =</span> <span class="kw">c</span>(<span class="st">&quot;Miles&quot;</span>,<span class="st">&quot;Displacement&quot;</span>,<span class="st">&quot;Horsepower&quot;</span>,</span>
-<span id="cb89-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb89-3"></a>                 <span class="st">&quot;Rear axle ratio&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;1/4 mile time&quot;</span>),</span>
-<span id="cb89-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb89-4"></a>        <span class="kw">aes</span>(<span class="dt">color =</span> mtcars<span class="op">$</span>vs),                             <span class="co"># Separate data by levels of vs</span></span>
-<span id="cb89-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb89-5"></a>        <span class="dt">upper =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="kw">wrap</span>(<span class="st">&#39;cor&#39;</span>, <span class="dt">size =</span> <span class="dv">3</span>)),</span>
-<span id="cb89-6"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb89-6"></a>        <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">combo =</span> <span class="kw">wrap</span>(<span class="st">&quot;facethist&quot;</span>, <span class="dt">bins =</span> <span class="dv">30</span>)),</span>
-<span id="cb89-7"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb89-7"></a>        <span class="dt">diag =</span> <span class="kw">list</span>(<span class="dt">continuous =</span> <span class="kw">wrap</span>(<span class="st">&quot;densityDiag&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)),</span>
-<span id="cb89-8"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb89-8"></a>        <span class="dt">title =</span> <span class="st">&quot;Scatterplot matrix of `mtcars` Grouped by Engine&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-54-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-</div>
-</div>
-<div id="categorical-variables" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Categorical variables</h2>
-<p>There are some categorical variables in the dataset <code>mtcars</code>. We can turn these variables and also discrete variables into factors
-### Factorize discrete/categorical variables</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb90-1"></a>mtcars<span class="op">$</span>cyl &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>cyl)</span>
-<span id="cb90-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb90-2"></a>mtcars<span class="op">$</span>am &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>am)</span>
-<span id="cb90-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb90-3"></a>mtcars<span class="op">$</span>gear &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mtcars<span class="op">$</span>gear)</span></code></pre></div>
-<p>Now we can create a mosaic pairs plot with pairs_diagonal_mosaic() in the <code>vcd</code> package</p>
-<div id="pairs-plot-for-categorical-variables" class="section level3" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> pairs() plot for categorical variables</h3>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb91-1"></a><span class="co"># You need to load the `vcd` package</span></span>
-<span id="cb91-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb91-2"></a></span>
-<span id="cb91-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb91-3"></a>p &lt;-<span class="st"> </span>mtcars[, <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">8</span><span class="op">:</span><span class="dv">10</span>)]</span>
-<span id="cb91-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb91-4"></a><span class="kw">pairs</span>(<span class="kw">table</span>(p),                                     <span class="co"># Here the data needs to be in a table format </span></span>
-<span id="cb91-5"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb91-5"></a>      <span class="dt">diag_panel =</span> <span class="kw">pairs_diagonal_mosaic</span>(<span class="dt">offset_varnames=</span><span class="op">-</span><span class="fl">2.5</span>))    <span class="co">#move down variable labels</span></span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-56-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="highlight-correlations-with-shade-colors" class="section level3" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Highlight correlations with shade colors</h3>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb92-1"></a><span class="kw">pairs</span>(<span class="kw">table</span>(p), </span>
-<span id="cb92-2"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb92-2"></a>      <span class="dt">diag_panel =</span> <span class="kw">pairs_diagonal_mosaic</span>(<span class="dt">offset_varnames=</span><span class="op">-</span><span class="fl">2.5</span>),    <span class="co">#move down variable names</span></span>
-<span id="cb92-3"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb92-3"></a>      <span class="dt">upper_panel_args =</span> <span class="kw">list</span>(<span class="dt">shade =</span> <span class="ot">TRUE</span>),                       <span class="co">#set shade colors</span></span>
-<span id="cb92-4"><a href="customized-plot-matrix-pairs-and-ggpairs.html#cb92-4"></a>      <span class="dt">lower_panel_args =</span> <span class="kw">list</span>(<span class="dt">shade =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-57-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="method-in-grid" class="section level3" number="20.4.2">
+<h3><span class="header-section-number">20.4.2</span> method in <code>grid</code></h3>
+<p>The functions in grid also can be used for arranging plots and it is easy for us to align postion for certain graph. One thing worth attention is that we have to write grid.newpage() first to record all the graphs below. I use the example which is one of first questions in homework 3 to display the layout work.</p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-1"></a><span class="co"># plots</span></span>
+<span id="cb279-2"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-2"></a>pr &lt;-<span class="st"> </span><span class="kw">data.frame</span>(penguins_raw)</span>
+<span id="cb279-3"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-3"></a>g1 &lt;-<span class="st"> </span><span class="kw">ggparcoord</span>(pr, <span class="dt">columns =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">16</span>),<span class="dt">alphaLines =</span> <span class="fl">0.3</span>, <span class="dt">groupColumn =</span> <span class="st">&quot;Species&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Clusters in Species&quot;</span>)</span>
+<span id="cb279-4"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-4"></a>g2 &lt;-<span class="st"> </span><span class="kw">ggparcoord</span>(pr, <span class="dt">columns =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">16</span>),<span class="dt">alphaLines =</span> <span class="fl">0.3</span>, <span class="dt">groupColumn =</span> <span class="st">&quot;Island&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Clusters in Island&quot;</span>)</span>
+<span id="cb279-5"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-5"></a>g3 &lt;-<span class="st"> </span><span class="kw">ggparcoord</span>(pr, <span class="dt">columns =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">16</span>),<span class="dt">alphaLines =</span> <span class="fl">0.3</span>, <span class="dt">groupColumn =</span> <span class="st">&quot;Clutch.Completion&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;clusters in Clutch.Completion&quot;</span>)</span>
+<span id="cb279-6"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-6"></a>g4 &lt;-<span class="st"> </span><span class="kw">ggparcoord</span>(pr, <span class="dt">columns =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">16</span>),<span class="dt">alphaLines =</span> <span class="fl">0.3</span>, <span class="dt">groupColumn =</span> <span class="st">&quot;Date.Egg&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Clusters in Date.Egg&quot;</span>)</span>
+<span id="cb279-7"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-7"></a>g5 &lt;-<span class="st"> </span><span class="kw">ggparcoord</span>(pr, <span class="dt">columns =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">16</span>),<span class="dt">alphaLines =</span> <span class="fl">0.3</span>, <span class="dt">groupColumn =</span> <span class="st">&quot;Sex&quot;</span>)</span>
+<span id="cb279-8"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-8"></a></span>
+<span id="cb279-9"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-9"></a><span class="co"># the function in grid to arrange the plots</span></span>
+<span id="cb279-10"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-10"></a><span class="kw">grid.newpage</span>()</span>
+<span id="cb279-11"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-11"></a><span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="dv">3</span>, <span class="dv">2</span>)))</span>
+<span id="cb279-12"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-12"></a>vplayout &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> x, <span class="dt">layout.pos.col =</span> y)</span>
+<span id="cb279-13"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-13"></a><span class="kw">print</span>(g1, <span class="dt">vp =</span> <span class="kw">vplayout</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb279-14"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-14"></a><span class="kw">print</span>(g2, <span class="dt">vp =</span> <span class="kw">vplayout</span>(<span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb279-15"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-15"></a><span class="kw">print</span>(g3, <span class="dt">vp =</span> <span class="kw">vplayout</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb279-16"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-16"></a><span class="kw">print</span>(g4, <span class="dt">vp =</span> <span class="kw">vplayout</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb279-17"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#cb279-17"></a><span class="kw">print</span>(g5, <span class="dt">vp =</span> <span class="kw">vplayout</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-208-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="outside-sources" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Outside sources</h2>
-<p>You can check out the following links to find more interesting ways to customize your plot matrix.</p>
-<p>[R pairs &amp; ggpairs Plot Functions] <a href="https://statisticsglobe.com/r-pairs-plot-example/#" class="uri">https://statisticsglobe.com/r-pairs-plot-example/#</a>:~:text=The%20pairs%20R%20function%20returns,pairs%20command%20is%20shown%20above.</p>
-<p>[ggpairs() r documentation] <a href="https://www.rdocumentation.org/packages/GGally/versions/1.5.0/topics/ggpairs" class="uri">https://www.rdocumentation.org/packages/GGally/versions/1.5.0/topics/ggpairs</a></p>
-<p>[Pairs plot for contingency tables] <a href="http://finzi.psych.upenn.edu/R/library/vcd/html/pairs.table.html" class="uri">http://finzi.psych.upenn.edu/R/library/vcd/html/pairs.table.html</a></p>
+<div id="reference-1" class="section level2" number="20.5">
+<h2><span class="header-section-number">20.5</span> Reference</h2>
+<p>More about <code>par()</code> and <code>layout()</code>: <a href="https://bookdown.org/ndphillips/YaRrr/arranging-plots-with-parmfrow-and-layout.html" class="uri">https://bookdown.org/ndphillips/YaRrr/arranging-plots-with-parmfrow-and-layout.html</a></p>
+<p>More about layout for ggplot: <a href="https://cran.r-project.org/web/packages/egg/vignettes/Ecosystem.html" class="uri">https://cran.r-project.org/web/packages/egg/vignettes/Ecosystem.html</a></p>
+<p>More about custom layout: <a href="https://blog.csdn.net/kMD8d5R/article/details/85182184" class="uri">https://blog.csdn.net/kMD8d5R/article/details/85182184</a> (Chinese version)</p>
 
 </div>
 </div>
@@ -709,8 +733,8 @@ You can customize each panel and make your own plot.</p>
           </div>
         </div>
       </div>
-<a href="data-transformation-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="likert-scale-definition-examples-and-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="health-datasets-for-the-final-project.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -741,7 +765,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/cc20/edit/master/pairs_and_ggpairs.Rmd",
+"link": "https://github.com/jtr13/cc20/edit/master/layout_for_baseplot_and_ggpplot.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -749,7 +773,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/cc20/blob/master/pairs_and_ggpairs.Rmd",
+"link": "https://github.com/jtr13/cc20/blob/master/layout_for_baseplot_and_ggpplot.Rmd",
 "text": null
 },
 "download": null,
