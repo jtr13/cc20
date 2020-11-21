@@ -14,6 +14,7 @@ rmd_files: [
   
   # Part 2: Data Processing and Wrangling
   'R_data_transformation.Rmd',
+  'apply_family.Rmd',
   
   # Part 3: Data Visualization
   'pairs_and_ggpairs.Rmd',
