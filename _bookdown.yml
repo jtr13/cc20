@@ -22,6 +22,7 @@ rmd_files: [
 
   # Part: Results Reporting
   'visualization_tools_in_real_work.Rmd',  # contains PART header
+  'color_in_r.Rmd',
 
   # Part: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
@@ -55,8 +56,6 @@ rmd_files: [
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd',
   'appendix_chapter_organization.Rmd'
-
-
 ]
 
 before_chapter_script: "_common.R"
