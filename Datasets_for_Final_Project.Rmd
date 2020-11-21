@@ -1,9 +1,4 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
-# Summary of health datasets to use for the final project
+# summary of health datasets to use for the final project
 
 Natasha McLeod
 
