@@ -29,6 +29,7 @@ rmd_files: [
 
   # Part: Cheatsheets and Video Tutorials
   'mosaic_plot_cheatsheet.Rmd',  # contains PART header
+  'add_ts_cheatsheet.Rmd',
 
   # Part: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
@@ -62,6 +63,7 @@ rmd_files: [
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd',
   'appendix_chapter_organization.Rmd'
+
 
 ]
 
