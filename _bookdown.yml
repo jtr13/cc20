@@ -7,8 +7,63 @@ language:
   ui:
     chapter_name: "Chapter "
 
-rmd_files: [data_preprocessing_tutorial.Rmd
+# Chapter ordering
+rmd_files: [
+  # Part: Introduction
+  'index.Rmd', # must be first chapter
+  'sample_project.Rmd',
+  'pairs_and_ggpairs.Rmd',
+  'china_choropleth_map.Rmd',
+  'R_data_transformation.Rmd',
+  'a_brief_introduction_to_seaborn.Rmd',
+  'rselenium_tutorial.Rmd',
 
+  # Part: Data Processing and Wrangling
+  'r_data_transformation.Rmd', # contains PART header
+  'data_preprocessing_tutorial.Rmd',
+
+  # Part: Data Visualization
+  'pairs_and_ggpairs.Rmd', # contains PART header
+  'likert_scale.Rmd',
+  'a_simple_way_to_visualize_geographic_data.Rmd'
+
+  # Part: Results Reporting
+  'visualization_tools_in_real_work.Rmd',  # contains PART header
+  'color_in_r.Rmd',
+
+  # Part: Complete Analyses
+  'china_choropleth_map.Rmd', # contains PART header
+  'benfords_law.Rmd',
+
+  # Part: Cheatsheets and Video Tutorials
+  'mosaic_plot_cheatsheet.Rmd',  # contains PART header
+  'add_ts_cheatsheet.Rmd',
+
+  # Part: Live Tutorials
+  'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
+  'datapipeline_design.Rmd',
+
+
+  # Part: Translations
+  'chinese_translation_of_candela_package.Rmd', # contains PART header
+  'greek_edav_histogram.Rmd',
+  'korean_translation_of_scatterplot.Rmd',
+  'rmarkdown_tutorial_chinese_translation.rmd',
+
+  # Part: Other Topics
+  'rselenium_tutorial.Rmd',  # contains PART header
+  'a_brief_introduction_to_seaborn.Rmd',
+  'tableau_intro_tutorial_demo_with_pset.Rmd',
+  'health_datasets_for_the_final_project.Rmd',
+  'layout_for_baseplot_and_ggpplot.Rmd',
+  'a_basic_introduction_to_mcmc_in_r.Rmd',
+  'automate_eda_with_dataexplorer.Rmd',
+  'speed_up_in_r_programming.Rmd',
+
+  # Part: Appendices
+  'appendix_initial_setup.Rmd', # contains PART header
+  'appendix_pull_request_tutorial.Rmd',
+  'appendix_chapter_organization.Rmd'
 ]
 
 before_chapter_script: "_common.R"
