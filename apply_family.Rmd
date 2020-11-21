@@ -1,0 +1,309 @@
+# Apply family
+
+Jie Mei and Ningxin Li
+
+```{r, include=FALSE}
+ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r}
+library(ggplot2)
+```
+
+##Introduction
+
+The apply family consists of functions which **minimize our need** to create loops.
+It will apply an **R function or some R functions** to an **R data object**.
+The biggest **difference** between using a function alone and using through apply family is the **object class** on which the function is applied and which will be returned.
+We will explain the most common forms of apply functions **(apply, sapply, lapply, tapply)**, and there are also some other apply functions **(mapply, rapply, and vapply)** which will not be included here.
+
+### apply
+
+The apply() function is most often used to apply a function to the rows or columns of matrices, arrays and data frames. Apply can be used on lists too.
+
+**Fisrt, let's see the usage of apply:**
+>apply(X, MARGIN, FUN...)
+
+**X**: an array, a matrix or a dataframe.
+**MARGIN**: dimcode. 1 means apply to rows, 2 means apply to columns, and if they have names, we can use a character vector to select.
+**FUN**: function
+**...**: fargs(the optional parameter set of the function)
+
+**Then, let's see the examples:**
+For example:
+```{r}
+print("This is the matrix:")
+z <- matrix(1:6, nrow = 3)
+z
+f <- function(x) {
+         x/2
+}
+print("This is what we got after applying the function:")
+apply(z,1,f)
+```
+
+Basicly, we set a simple 3x2 matrix, and a simple function :deviding by 2.
+And we got a 2x3 matrix, whose three columns means three results after applying the function to each row, and since each row has two values, there are also two values in a result, so the number of rows is two.
+
+And, what if we make it more complex:
+```{r}
+print("This is the matrix:")
+z <- matrix(1:6, nrow = 3)
+z
+f <- function(x) {
+         x/c(2,4)
+}
+print("This is what we got after applying the function:")
+apply(z,1,f)
+```
+
+Now, we changed the function to deviding by c(2,4).
+And we still got a 2x3 matrix, but with different values in the second row. This is because we changed the function to two values, and when it applied, the first value was applied to the first row, and the second value was applied to the second row.
+
+What if we have three values in the function:
+```{r}
+print("This is the matrix:")
+z <- matrix(1:6, nrow = 3)
+z
+f <- function(x) {
+         x/c(2,4,8)
+}
+print("This is what we got after applying the function:")
+apply(z,1,f)
+```
+
+Now, we got a 3x3 matrix, with exactly the same answer we saw in b) and an additional row with some new values. It is easy to find that the third row is the result applying the third function value to the first column, which means when the amount of function value is larger than the amount of objects we want to apply, the objects will be applied cyclically.(like here, we actually applied the function /c(2,4,8) to 1,4,1 in the first row, where 1 is used twice, and we got 0.5,1,0.125)
+
+
+If we try applying to the column:
+```{r}
+print("This is the matrix:")
+z <- matrix(1:6, nrow = 3)
+z
+f <- function(x) {
+         x/c(2,4,8)
+}
+print("This is what we got after applying the function:")
+apply(z,2,f)
+```
+
+Since there are exactly three values in the function, and three values in each column, we got the same size of applied matrix, which is 3*2. The columns in the result matrix just means the results.
+
+What if the amount of function values is less than object values:
+```{r}
+print("This is the matrix:")
+z <- matrix(1:6, nrow = 3)
+z
+f <- function(x) {
+         x/c(2,4)
+}
+print("This is what we got after applying the function:")
+apply(z,2,f)
+```
+
+The function values will be used cyclically.
+
+Let's try applying to c(1,2):
+```{r}
+print("This is the matrix:")
+z <- matrix(1:6, nrow = 3)
+z
+f <- function(x) {
+         x/c(2,4)
+}
+print("This is what we got after applying the function:")
+apply(z,c(1,2),f)
+```
+
+We will get two tables, one is applying to rows, and another is applying to columns.
+
+What about dataframe:
+```{r}
+data.matrix<-matrix(1:12,c(3,4))
+d <- data.frame(data.matrix)
+d
+```
+```{r}
+f <- function(x) {
+         x*c(1,2,3)
+}
+print("This is what we got after applying the function:")
+apply(d,2,f)
+```
+
+Here we can see that the application on dataframe is quite like matrix.
+
+Let's try some other functions:
+By columns:
+```{r}
+print("This is what we got after applying the function:")
+apply(d,2,quantile)
+```
+By rows:
+```{r}
+print("This is what we got after applying the function:")
+apply(d,1,quantile)
+```
+
+By using some built-in functions, we can easily do data summary.
+
+We can also select which column or row we want to apply on:
+Select columns, apply column:
+```{r}
+print("This is what we got after applying the function:")
+apply(d[,3:4],2,quantile)
+```
+Select rows, apply column:
+```{r}
+print("This is what we got after applying the function:")
+apply(d[1:2,],2,quantile)
+```
+Select both, apply row:
+```{r}
+print("This is what we got after applying the function:")
+apply(d[1:2,3:4],1,quantile)
+```
+
+What about array, we use a built-in dataset 'Titanic' as an example.
+```{r}
+Titanic
+```
+
+Since this array has more than 2 dimensions, we can use bigger number for MARGIN now.
+
+Let's try apply to different dimensions:
+```{r}
+apply(Titanic, 1, sum)
+```
+```{r}
+apply(Titanic, 2, mean)
+```
+```{r}
+apply(Titanic, 3, quantile)
+```
+```{r}
+apply(Titanic, 4, max)
+```
+
+As we can see, there are four dimensions, and we can apply functions to each dimension.
+
+Can we apply to more than 1 dimension:
+```{r}
+apply(Titanic, c(1,2), mean)
+```
+```{r}
+apply(Titanic, c(3,4), sum)
+```
+```{r}
+apply(Titanic, c(1,2,3), mean)
+```
+```{r}
+f <- function(x) {
+         x/2
+}
+apply(Titanic, c(1,2,3,4), f)
+```
+
+Of course, we can apply functions to more than one dimensions.
+
+### Lapply
+
+The lapply function works on a list. It applies the chosen function on a list interating through each elements and returns a list in the end.
+
+**Fisrt, let's see the usage of lapply:**
+>lapply(X, FUN, â€?)
+
+**X**: the targeted list.
+**FUN**: the function we want to perform on X.
+
+**Then, let's see a sample code:**
+
+In this example, the data_frame is a data frame and we want to get the total number of rows in lists 2 to 5.
+Notice here that data frames are consisted of lists.
+
+lapply(data_frame[, 2:5], function(x) nrow(x)) %>%
+  unlist() %>%
+  sum()
+
+
+### Sapply
+
+The sapply() function is quite like lapply(). The only **difference** is in the **return value**. 
+Sapply() will try to simplify the result of lapply() if possible(that is why it called 's'apply). Actually, sapply() functions like lapply() and then does the following algorithm:
+â€? If the result is a list with each element's length equals 1, then it will return a vector.
+â€? If the result is a list with vectors of the same length, then it will return a matrix.
+â€? Otherwise, it will return a list.
+
+**Fisrt, let's see the usage of sapply:**
+>sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)
+
+If we set simplify = FALSE, and USE.NAMES = FALSE, then it will be the same as lapply(x,FUN)
+**simplify**(cannot be abbreviated): logical/character; a vector, matrix or higher dimensional array. TRUE: returns a vector or matrix, whereas "array": returns an array of â€œrankâ€? (=length(dim(.))) one higher than the result of FUN(X[[i]]).
+**USE.NAMES**(cannot be abbreviated): logical; TRUE and X is character: use X as names for the result unless it had names already.
+
+**Then, let's see the examples:**
+We just use the same dataset, and same function to see the different.
+```{r}
+print("This is what we got after applying the function:")
+apply(Titanic, c(1,2,3,4), mean)
+print("This is what we got after sapplying the function:")
+sapply(Titanic, mean)
+```
+
+We can see very clearly that the 'apply' function returns a array, while the 'sapply' function returns a vector.
+
+If we do not simplify:
+```{r}
+print("This is what we got after applying the function:")
+apply(Titanic, c(1,2,3,4), mean)
+print("This is what we got after sapplying the function:")
+c<-sapply(Titanic, mean, simplify = FALSE, USE.NAMES = FALSE)
+```
+
+```{r}
+is.list(c)
+```
+
+Then, we will get a list.
+
+Let's go back to the matrix:
+```{r}
+print("This is the matrix:")
+z <- matrix(1:6, nrow = 3)
+z
+f <- function(x) {
+         x/c(2,4,8)
+}
+print("This is what we got after applying the function:")
+a <-apply(z,c(1,2),f)
+a
+print("This is what we got after sapplying the function:")
+b <-sapply(z,f)
+b
+```
+```{r}
+is.array(a)
+is.matrix(b)
+```
+
+Since the sapply function do not have a MARGIN parameter, we can only apply this to all the dimensions. Here the apply result becomes an array, because we applied the function to both row and column, and the sapply result remains a matrix, which simplified the format.
+
+### tapply
+
+tapply() is used to apply a function over subsets of a vector: in cases we can group the datasets based on some variables.
+
+**Fisrt, let's see the usage of tapply:**
+> tapply(x, INDEX, FUN, ..., simplify = TRUE)
+
+**x**: the target numerical or logical vector.
+**INDEX**: a factor or a list of factors that divides the dataset into groups
+**FUN**: the function we want to apply to each group
+
+**Then, let's see an example:**
+
+In this example, we wanted to examine the average price of diamonds based on cut.
+The target dataset/vector x is diamonds\$price and the groupping is identified by diamonds\$cut.
+```{r}
+head(diamonds)
+tapply(diamonds$price, diamonds$cut, mean, na.rm = TRUE)
+```
