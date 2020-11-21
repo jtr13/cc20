@@ -24,23 +24,24 @@ https://edav.info/github#fixing-mistakes.
 <img src="resources/tutorial_pull_request_mergers/files_changed.png" width="700">
 <br/><br/>
 
-### Check `.Rmd` filename format 
+### Check `.Rmd` file
 - Each group can only submit ONE `Rmd` file.
+
+**filename**
 - The `.Rmd` file should be in the root directory on the branch. 
-- Project name should be the same as the root directory name of the branch, and should be words only and joined with underscores, no white space.
-- **All letters must be lowercase.**
-- No YAML header including the --- line.
-- The second line should be blank, followed by your name(s).
-- The first line starts with a **single hashtag `#`**, followed by a **single whitespace**, and then the title.
+- The `.Rmd` filename should be words only and joined with underscores, no white space. (Update: It does not need to be the same as the branch name.)
+- The `.Rmd` filename can only contain **lowercase letters**. (Otherwise the filenames do not sort nicely on the repo home page.)
+
+**file contents**
+- The file should **not** contain a YAML header nor a `---` line.
+- The second line should be blank, followed by the author name(s).
+- The first line should start with a **single hashtag `#`**, followed by a **single whitespace**, and then the title.
 - There should be no additional single hashtag headers in the chapter. (If there are, new chapters will be created.)
-- If contributors have included a setup chunk in `.Rmd` file, please notify them to remove the label setup in the chunk.
+- If the file contains a setup chunk in `.Rmd` file, it should **not** contain a `setup` label. (The bookdown render will fail if there are duplicate chunk labels.)
 <br/>i.e. use `{r, include=FALSE}` instead of `{r setup, include=FALSE}`.
 <br/>[See sample `.Rmd`](https://github.com/jtr13/cc20/blob/master/sample_project.Rmd)
-
-### Additional checks
-
-- The `.Rmd` file should not contain any `write` functions, `setwd()`, or `getwd()`. 
-
+- Subheadings should **not** be followed by numbers since the hashtags will create numbered subheadings. Correct: `## Subheading`. Incorrect: `## 3. Subheading`. *This is a common problem... please check!*
+- The file should not contain any `install.packages()`, `write` functions, `setwd()`, or `getwd()`. 
 - If there's anything else that looks odd but you're not sure, assign `jtr13` to review and explain the issue.
 
 
