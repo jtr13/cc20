@@ -1,0 +1,381 @@
+# Speed up in r programming
+
+Hongling Liu and Xinrui Zhang
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 120)
+```
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(microbenchmark)
+library(compiler)
+library(Rcpp)
+library(parallel)
+```
+
+It is well known that R is not a fast language, since R was deliberately designed to simplify our process of performing data analysis and statistics, rather than making life easier for our computers to process. While R is slow compared to some other programming languages, it’s fast enough for most of our purposes.
+
+The goal of our community contribution is to give you a deeper understanding of how we could yield the maximum efficiency when running R. We will first introduce the typical development cycle computational statistics with R and what is some of R’s performance characteristics, to help you understand how R codes are being executed. We will also show you two relatively easy ways to speed up code using the Rcpp package and parallel processing.
+
+## Typical development cycle for computational statistics
+
+First, let's take a look at the usual steps of computational statistics with R, and what questions we need to ask ourselves for each step:
+
+1. Scientific planning: What experiments would verify/invalidate our hypotheses? What parameter settings should we consider?
+
+0. Code planning: What does the code need to do? How will the code fit together? What functions will be used? What are their inputs/outputs etc.
+
+0. Implementation:
+
+    1. Prototype functions, classes, etc., partial documentation
+    
+    2. Write unit tests
+    
+    3. Implement code, run unit tests, debug
+    
+    4. Broader testing, more debugging
+    
+    5. Profile code, identify bottlenecks
+    
+    6. Optimize code
+    
+0. Conduct experiments.
+
+0. Full documentation.
+
+## Bytecode compilation
+
+- After profiling, what can we do to improve performance?
+
+    1. Questions to ask ourselves: Are there obvious speedups? Are things being computed unnecessarily? Are you using a `data.frame` where you should be using a matrix etc.  
+    
+    2. Look up your problem on internet (e.g., search for "lapply slow" or "speeding up `lapply`" etc.)
+    
+    3. Try the just-in-time (JIT) compiler.
+    
+    4. Consider re-writing some or all of the code in a compiled language (e.g., C/C++).
+    
+    5. Try parallelization.
+
+- R typical execution:
+
+<p align="center">
+![](resources/speed_up_in_r_programming/rpic.png){width=400px}
+
+- Since R 2.1.4, the `compiler` package by Luke Tierney is distributed with base R. `compiler` package compiles an R function into bytecode.
+
+### Example: summing a vector
+
+Brute-force `for` loop for summing a vector:
+```{r}
+sum_r <- function(x) {
+  sumx <- 0.0
+  for (i in 1:length(x)) {
+    sumx <- sumx + x[i]
+  }
+  return(sumx)
+}
+sum_r
+```
+
+Run the code on 1e6 elements:
+```{r}
+library(microbenchmark)
+library(ggplot2)
+
+x = seq(from = 0, to = 100, by = 0.0001)
+microbenchmark(sum_r(x))
+```
+
+Let's compile the function into bytecode `sum_rc` and benchmark again:
+```{r}
+library(compiler)
+sum_rc <- cmpfun(sum_r)
+sum_rc
+```
+
+Benchmark again:
+```{r}
+microbenchmark(sum_r(x), sum_rc(x))
+```
+
+```{r include=FALSE}
+library(tidyverse)
+t <- microbenchmark(sum_r(x), sum_rc(x))
+t %>% group_by(expr) %>% mutate(q1 = quantile(time, 0.25)/(10^6), q3 = quantile(time, 0.75)/(10^6)) %>% select(expr,q1,q3) %>% unique() -> t
+t1 <- as.double(t[2,2])
+t2 <- as.double(t[2,3])
+t3 <- as.double(t[1,2])
+t4 <- as.double(t[1,3])
+```
+
+Before we look into the results, let's look at the `microbenchmark` function. Here we use it as a more accurate replacement of the often seen `system.time( )` expression to accurately measure the time it takes to evaluate `expr`. Since we are only measuring the performance of a very small piece of code, we could get the accurate running time in milliseconds(ms), microseconds (µs) or even nanoseconds (ns) by using `microbenchmark`. 
+
+`microbenchmark( )` runs each expression 100 times by default (it can be controlled by the times parameter). In the process, it also randomises the order of the expressions. It summarises the results with a minimum (min), lower quartile (lq), median, upper quartile (uq), and maximum (max). By default, microbenchmark( ) runs each expression 100 times (controlled by the times parameter). In the process, it also randomises the order of the expressions. It summarises the results with a minimum (min), lower quartile (lq), median, upper quartile (uq), and maximum (max). We could focus on the median and mean, and use the upper and lower quartiles (lq and uq) to get a feel for the variability. 
+
+In our example, we can see that compiling into bytecode does not make a big difference, since according to `microbenchmark()`, the running time of our `sum_r` function is mostly (more than half) in the interquartile range(`r t1`,`r t2`), and after compiling, the interquartile range for `sum_rc(x)` is (`r t3`,`r t4`), so we could say that compiling into bytecode *does not help much*.
+
+The reason behind this may be seen at the following code where we found out that the function `sum_r` is already compiled into bytecode before execution.
+
+```{r}
+sum_r
+```
+
+Let's turn off JIT (just-in-time compilation), re-define the (same) `sum_r` function, and benchmark again:
+```{r}
+enableJIT(0) # set JIT leval to 0
+sum_r <- function(x) {
+  sumx <- 0.0
+  for (i in 1:length(x)) {
+    sumx <- sumx + x[i]
+  }
+  return(sumx)
+}
+microbenchmark(sum_r(x))
+```
+Now we witness the slowness of the un-compiled `sum_r`.
+
+Documentation of `enableJIT`:  
+
+> enableJIT enables or disables just-in-time (JIT) compilation. JIT is disabled if the argument is 0. If level is 1 then larger closures are compiled before their first use. If level is 2, then some small closures are also compiled before their second use. If level is 3 then in addition all top level loops are compiled before they are executed. JIT level 3 requires the compiler option optimize to be 2 or 3. The JIT level can also be selected by starting R with the environment variable R_ENABLE_JIT set to one of these values. Calling enableJIT with a negative argument returns the current JIT level. The default JIT level is 3.
+
+Since R 3.4.0 (Apr 2017), the JIT (‘Just In Time’) bytecode compiler is enabled by default at its level 3. 
+
+If you create a package, then you automatically compile the package on installation by adding
+```{r, eval = FALSE}
+ByteCompile: true
+```
+to the `DESCRIPTION` file.
+
+
+## Rcpp
+
+Now, we are going to introduce the package `Rcpp` which helps yield the maximum efficiency for R. And there is a learning source for whoever interested:
+
+- _Advanced R_: <https://adv-r.hadley.nz/rcpp.html>
+
+We previously used `compiler` package to compile R code into bytecode, which is translated to machine code by interpreter during execution. However, A low-level language such as C, C++, and Fortran is compiled into machine code directly, making it easy for our computer to process the code, and `Rcpp` makes it very simple to connect C++ to R, where it allows us to write C++ functions in R, therefore yielding the maximum efficiency.
+
+### Use `cppFunction`
+
+`Rcpp` package provides a convenient way to embed C++ code in R code.
+
+```{r}
+library(Rcpp)
+
+cppFunction('double sum_c(NumericVector x) {
+  int n = x.size();
+  double total = 0;
+  for(int i = 0; i < n; ++i) {
+    total += x[i];
+  }
+  return total;
+}')
+sum_c
+```
+Benchmark (1) compiled C++ function `sum_c` together with (2) R function `sum_r`, (3) compiled R function `sum_rc`, and (4) the `sum` function in base R: 
+
+```{r}
+mbm <- microbenchmark(sum_r(x), sum_rc(x), sum_c(x), sum(x))
+mbm
+autoplot(mbm)
+```
+
+**Remember we turned off JIT by `enableGIT(0)` earlier.**
+
+This is a good example of where C++ is much more efficient than R. As shown by the above microbenchmark, `sum_c()` is competitive with the built-in (and highly optimised) `sum()`, while `sum_r()` is several orders of magnitude slower.
+
+Therefore,`Rcpp` package is definitely a great tool for us to improve the efficiency for our R code. 
+
+## Parallel computing
+
+Now, we are going to discuss another way to get efficient with R -- parallel computing:
+
+- Fact: base R was designed to be single-threaded. Even you request a fancy instance with 96 vCPUs, running R code is just using 1/96th of its power.
+
+- To perform multi-core computation in R:
+
+    1. Option 1: Manually run multiple R sessions.
+
+    2. Option 2: Make multiple `system("Rscript")` calls. Typically automated by a scripting language (Python, Perl, shell script) or within R 
+
+    3. Option 3: Use package `parallel`. 
+
+- `parallel` package in R.
+
+    - Authors: Brian Ripley, Luke Tieney, Simon Urbanek.
+    
+    - Included in base R since 2.14.0 (2011).
+    
+    - Based on the `snow` (Luke Tierney) and `multicore` (Simon Urbanek) packages.  
+    
+    - To find the number of cores:
+```{r}
+    library(parallel)
+    detectCores()
+```
+
+### Simulation example
+
+Senario: Suppose we have a new method to calculate average, that is, to only choose primed-indexed number to calculate the average, and we would like to compute the average mean squared error (MSE) from both this new method and the classic method. Differently distributed random variables with different sample sizes will be tested. There are going to be many combinations of distribution and sample size. 
+
+$$ 
+  MSE = \frac{\sum_{r=1}^{\text{rep}} (\widehat \mu_r - \mu_{\text{true}})^2}{\text{rep}}
+$$
+
+```{r}
+## check if a given integer is prime
+isPrime = function(n) {
+  if (n <= 3) {
+    return (TRUE)
+  }
+  if (any((n %% 2:floor(sqrt(n))) == 0)) {
+    return (FALSE)
+  }
+  return (TRUE)
+}
+
+## estimate mean only using observation with prime indices
+estMeanPrimes = function(x) {
+  n <- length(x)
+  ind <- sapply(1:n, isPrime)
+  return (mean(x[ind]))
+}
+
+## compare methods: sample avg and prime-indexed avg
+compare_methods <- function(dist = "gaussian", n = 100, reps = 100, seed = 123) {
+  # set seed according to command argument `seed`
+  set.seed(seed)
+  
+  # preallocate space to store estimators
+  msePrimeAvg <- 0.0
+  mseSamplAvg <- 0.0
+  # loop over simulation replicates
+  for (r in 1:reps) {
+    # simulate data according to command arguments `n` and `distr`
+    if (dist == "gaussian") {
+      x = rnorm(n)
+    } else if (dist == "t1") {
+      x = rcauchy(n)
+    } else if (dist == "t5") {
+      x = rt(n, 5)
+    } else {
+      stop(paste("unrecognized dist: ", dist))
+    }
+    # prime indexed mean estimator and classical sample average estimator
+    msePrimeAvg <- msePrimeAvg + estMeanPrimes(x)^2 
+    mseSamplAvg <- mseSamplAvg + mean(x)^2
+  }
+  mseSamplAvg <- mseSamplAvg / reps
+  msePrimeAvg <- msePrimeAvg / reps
+  return(c(mseSamplAvg, msePrimeAvg))
+}
+```
+
+In order to indicate the *option 2*, we save the above codes in script [`runSim.R`]. 
+    
+#### Option 2
+*this example is only good for linux system*
+
+1. The [`runSim.R`] script to include arguments `seed` (random seed), `n` (sample size), `dist` (distribution) and `rep` (number of simulation replicates). When `dist="gaussian"`, generate data from standard normal; when `dist="t1"`, generate data from t-distribution with degree of freedom 1 (same as Cauchy distribution); when `dist="t5"`, generate data from t-distribution with degree of freedom 5. Calling `runSim.R` will (1) set random seed according to argument `seed`, (2) generate data according to argument `dist`, (3) compute the primed-indexed average estimator and the classical sample average estimator for each simulation replicate, (4) report the average mean squared error (MSE)
+
+2. The [`autoSim.R`] script to run simulations with combinations of sample sizes `nVals = seq(100, 500, by=100)` and distributions `distTypes = c("gaussian", "t1", "t5")`.  `rep = 50` is used for MSE. 
+
+```{bash}
+cat resources/speed_up_in_r_programming/autoSim.R
+```
+
+
+3. Download the [`runSim.R`] and [`autoSim.R`] scripts, and run the following codes, this will parallelly compute results from all combinations, and write output to appropriately named files.
+ 
+```{bash}
+    Rscript resources/speed_up_in_r_programming/autoSim.R seed=280 rep=50
+```
+
+#### Option 3
+
+#### Serial code
+We need to loop over 3 generative models (`distTypes`) and 20 samples sizes (`nVals`). That are 60 embarssingly parallel tasks.
+```{r}
+seed = 280
+reps = 500
+nVals = seq(100, 1000, by = 50)
+distTypes = c("gaussian", "t5", "t1")
+```
+This is the serial code that double-loop over combinations of `distTypes` and `nVals`:
+```{r}
+## simulation study with combination of generative model `dist` and
+## sample size `n` (serial code)
+simres1 = matrix(0.0, nrow = 2 * length(nVals), ncol = length(distTypes))
+i = 1 # entry index
+system.time(
+  for (dist in distTypes) {
+    for (n in nVals) {
+      #print(paste("n=", n, " dist=", dist, " seed=", seed, " reps=", reps, sep=""))
+      simres1[i:(i + 1)] = compare_methods(dist, n, reps, seed)
+      i <- i + 2
+    }
+  }
+)
+simres1
+```
+
+#### Using `mcmapply`
+
+Run the same task using `mcmapply` function (parallel analog of `mapply`) in the `parallel` package:
+```{r}
+## simulation study with combination of generative model `dist` and
+## sample size `n` (parallel code using mcmapply)
+library(parallel)
+system.time({
+  simres2 <- mcmapply(compare_methods, 
+                      rep(distTypes, each = length(nVals), times = 1),
+                      rep(nVals, each = 1, times = length(distTypes)),
+                      reps, 
+                      seed,
+                      mc.cores = 4)
+})
+simres2 <- matrix(unlist(simres2), ncol = length(distTypes))
+simres2
+```
+
+- We see roughly 3x-4x speedup with `mc.cores=4`.
+
+- `mcmapply`, `mclapply` and related functions rely on the forking capability of POSIX operating systems (e.g. Linux, MacOS) and is **not** available in Windows.
+
+- `parLapply`, `parApply`, `parCapply`, `parRapply`, `clusterApply`, `clusterMap`, and related
+functions create a cluster of workers based on either socket (default) or forking. Socket is available on all platforms: Linux, MacOS, and Windows.
+
+#### Using `clusterMap`
+
+The same simulation example using `clusterMap` function:  
+
+```{r, eval = TRUE}
+cl <- makeCluster(getOption("cl.cores", 4))
+clusterExport(cl, c("isPrime", "estMeanPrimes", "compare_methods"))
+system.time({
+  simres3 <- clusterMap(cl, compare_methods,
+                        rep(distTypes, each = length(nVals), times = 1),
+                        rep(nVals, each = 1, times = length(distTypes)),
+                        reps,
+                        seed,
+                        .scheduling = "dynamic")
+})
+simres3 <- matrix(unlist(simres3), ncol = length(distTypes))
+stopCluster(cl)
+simres3
+```
+
+- Again we see roughly 3x-4x speedup by using 4 cores.
+
+- `clusterExport` copies environment of master to slaves.
+
+## Package development
+
+Learning resources:  
+
+- Book _[R Packages_ ](http://r-pkgs.had.co.nz) by Hadley Wickham  
+
+- RStudio tutorial: <https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio>
