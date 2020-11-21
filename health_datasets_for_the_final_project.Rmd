@@ -1,4 +1,4 @@
-# summary of health datasets to use for the final project
+# health datasets for the final project
 
 Natasha McLeod
 
