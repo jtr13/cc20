@@ -16,18 +16,18 @@ library(alr4)
 library(DataExplorer) 
 ```
 
-## 1. Overview
+## Overview
 
 * This section shows how to use package DataExplorer to automate Exploratory Data Analysis (EDA) and create Data Report.
 
 
-## 2. DataExplorer
+## DataExplorer
 
 
 * DataExplorer attempts to automate exploratory data analysis (EDA) process and offer one-click report generation to show and visualize basics about a data set. It is a user-friendly and efficient tool for first-step analysis with visualization that can avoid time consuming manual coding. 
 
 
-## 3. Installation 
+## Installation 
 ```{r}
 #devtools::install_github("boxuancui/DataExplorer")
 #library(DataExplorer) 
@@ -42,12 +42,12 @@ data(sleep1)
 ```
 
 
-## 4. Exploratory data analysis (EDA)
+## Exploratory data analysis (EDA)
 
 
 * DataExplorer is a great tool for exploratory data analysis that it can handle most visualization plots without the need to manipulate data formats and data types. Every visualization plots can be done in one line function call instead of using different packages and functions.
 
-### 1 Overall Information
+### Overall Information
 
 * There are many plots available in DataExplorer for preliminary data analysis to help us better understand the data set. For example,
 
@@ -72,7 +72,7 @@ plot_intro(sleep1,title="Introduction of the sleep data")
 plot_missing(sleep1, title="Missing Data Profile")
 ```
 
-### 2 Distribution
+### Distribution
 
 * DataExplorer provides bar chart, histogram, density plot, scatterplot and boxplot, etc for the exploration of the data distribution. Those function call on the whole dataset would only plot on the according discrete/continuous variables. Thus we do not need to specify the columns for plotting. Other than that, the arguments for the plot functions are mostly consistent with those in the ggplot functions that makes it easy to use. 
 
@@ -99,7 +99,7 @@ plot_histogram(sleep1,title= "Histogram Distribution of sleep data")
 plot_qq(sleep1,by='Life',title="QQ-plot in response to Life span")
 ```
 
-### 3 Correlation Analysis
+### Correlation Analysis
 
 * DataExplorer provides correlation heatmap plot for all non-missing features. The heatmap can also be set to plot for continuous or discrete variables only.
 
@@ -116,13 +116,13 @@ plot_correlation(na.omit(sleep1),type = "c",,title="Correlation heatmap of the s
 plot_correlation(na.omit(sleep1),type = "d",,title="Correlation heatmap of the sleep data,discrete only")
 ```
 
-## 5. Feature Engineering
+## Feature Engineering
 
 * Feature engineering is often needed in the data analysis process to transform data into better representative features. DataExplorer provides mutiple functions for feature engineering including missing value filling, sparse categories grouping, one hot encoding and feature transformation.
 
 * The set_missing function can fill both the discrete and continuous variable with designated values in one line of code.
 
-### 1 Missing value
+### Missing value
 ````{r}
 final_sleep <- set_missing(sleep1, list(0L, "unknown"))
 plot_missing(final_sleep)
@@ -130,7 +130,7 @@ plot_missing(final_sleep)
 
 * One hot encoding allows the categorical data to be more expressive. It can be done by the dummify function.
 
-### 2 Dummy variable
+### Dummy variable
 ````{r}
 plot_str(
   list(
@@ -140,7 +140,7 @@ plot_str(
 )
 ```
 
-## 5. Data Report
+## Data Report
 
 * All the summary statistic and visualization plots of the data set can be organized into a data report in 1 step. The report automatically generates most visualization plots above. It is indeed a rough data profile but very useful for initial analysis and user-friendly for beginners 
 
@@ -164,7 +164,7 @@ config <-configure_report(
 #create_report(final_sleep,y ="Life",config=config)
 ````
 
-## 6. External Resources
+## External Resources
 
 https://boxuancui.github.io/DataExplorer/index.html : DataExplorer Github Page
 
