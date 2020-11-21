@@ -1,0 +1,215 @@
+# Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南
+
+Author: Yuzheng Jia
+
+#### 源文件链接
+https://jtr13.github.io/cc19/rmarkdown-tutorial.html
+
+## 1. 概述
+
+R Markdown为数据科学提供了一个整洁的框架。Markdown文件通常可以帮助我们： \
+- **保存并执行您编写的代码**\
+- **生成可以与受众共享的高质量报告**\
+R Markdown文件是可完全重新实现的，并支持数十种静态和动态输出格式。\
+该链接提供了R Markdown功能的快速介绍。-[链接](https://vimeo.com/178485416)
+
+
+### 1.1 什么是R Markdown？\
+- **Rmd文件**\
+· R Markdown（.Rmd）文件是您的项目的记录。它包含他人重现您的作品所需的代码以及帮助他人可以理解您所做工作的所有脚本。\
+- **可重实现的研究**\
+· 您可以使用 `Knit`来重新运行R Markdown文件中的代码以重实现您的作品并将结果导出为格式正确的报告。\
+- **动态文档**\
+· 有很多方法可以导出报告。格式包括html、pdf、MS Word或RTF文档、基于html或pdf的幻灯片、Notebooks等。\
+
+
+### 1.2 工作流程
+(1) **打开一个新的.Rmd文件** ：文件 ▶ 新文件 ▶ R Markdown。\
+(2) 通过编辑模板**编写文档**\
+(3) **编织文件**以创建报告；使用编织按钮或
+**render()**进行编织\
+(4) 在IDE窗口中**预览输出**\
+(5) **发布**（可选）到Web服务器\
+(6) 在R Markdown控制台中**检查构建日志**\
+(7) **使用输出文件**：与.Rmd一起保存的
+
+## 2. 入门
+
+### 2.1. 安装套件
+您可以使用以下命令来安装所需的库。
+```{r, eval=FALSE}
+install.packages('rmarkdown')
+```
+
+
+### 2.2.打开文件
+您可以创建一个新文件或从您选择的目录中打开现有文件。
+
+### 2.3. 输出格式
+R markdown可以将任何Rmd文件呈现为R  markdown支持的格式。例如，下面的代码将OutputExample.Rmd呈现为Microsoft Word文档。 
+```{r results='hide'}
+library(rmarkdown)
+# render("resources/rmarkdown_tutorial/OutputExample.Rmd", output_format = "word_document")
+```
+
+以下是可以选择的所有格式的表：
+**输出值表**
+
+| 输出值 | 输出 |
+|--------------|---------|
+| html_document| html|
+| pdf_document |pdf (需要Tex )|
+| word_document| Microsof Word (.docx)|
+| odt_document |OpenDocument Text|
+| rtf_document |Rich Text Format|
+| md_document  |Markdown|
+| github_document| Github兼容的markdown|
+| ioslides_presentation| ioslides HTML slides|
+| slidy_presentation| slidy HTML slides|
+| beamer_presentation| Beamer pdf slides (需要Tex) |
+
+您可以通过单击编织按钮旁边的下拉菜单来选择呈现所需的格式：
+
+## 3. Markdown语法
+
+Rmarkdown有许多精美的语法，因此您可以生成有序且美观的文档。\
+我们将在此处提供我们经常使用的语法。
+
+* **纯文本**    
+纯文本
+
+* **斜体和粗体**  
+```{}
+*斜体* and **粗体**
+```
+
+
+* **列表**  
+```{}
+* 无序列表  
+   + 分项1  
+   + 分项2  
+   - 次分项1 
+```
+  
+* 无序列表  
+   + 分项1  
+   + 分项2  
+   - 次分项1 
+  
+```{}
+1. 有序列表
+2. 项2  
+ i) 分项1 
+    A. 次分项1  
+```
+1. 有序列表
+2. 项2  
+ i) 分项1 
+    A. 次分项1  
+  
+  
+* **标头**
+```{}
+# 标头1 {#anchor}
+## 标头2 {#css_id}
+### 标头3 {.css_class}
+#### 标头4
+##### 标头5
+###### 标头6 
+```
+
+
+* **超连接**
+```{}
+<http://www.rstudio.com>
+[link](www.rstudio.com)
+Jump to [Header 1](#anchor) 
+```
+<http://www.rstudio.com>
+[link](www.rstudio.com)
+Jump to [Header 1](#anchor) 
+
+* **表**
+```{}
+| 右 | 左 | 默认 | 中央 |
+|------:|:-----|---------|:------:|
+| 12    | 12   | 12      | 12     |
+| 123   | 123  | 123     | 123    |
+| 1     | 1    | 1       | 1      | 
+```
+
+| 右 | 左 | 默认 | 中央 |
+|------:|:-----|---------|:------:|
+| 12 | 12 | 12 | 12 |
+| 123 | 123 | 123 | 123 |
+| 1 | 1 | 1 | 1 | 
+
+* **方程**
+```{}
+$$E = mc^{2}$$ 
+```
+$$E = mc^{2}$$ 
+
+## 4. 嵌入代码
+
+### 4.1. 内联代码
+您可以在代码前后加上勾号和r。R将用其结果替换内联代码。
+
+例如：
+```{r, eval=FALSE}
+  一加一等于 `r 1+1`
+```
+
+输出为:
+
+一加一等于`r 1+1`
+
+### 4.2. 代码块
+您需要以 \`\`\` {r}开始一个块并以\`\`\`结尾。
+
+例如：
+```{r}
+print("Hello, world!")
+```
+
+### 4.3. 显示选项
+还有很多选项可以显示您的代码和结果。
+
+例如，您可以使用`eval`在输出中选择TRUE或FALSE来决定是否评估代码并包括其结果。
+
+这是两个选项之间的区别：
+
+`eval = TRUE`: 
+```{r eval=TRUE}
+print("Hi there!")
+```
+
+`eval = FALSE`: 
+```{r eval=FALSE}
+print("Hi there!")
+```
+
+下表包含我们通常使用的选项
+
+
+| 选项 | 默认 | 效果 |
+|--------------|---------|---------|
+| eval | TRUE | Whether to evaluate the code and include its results |
+|echo|TRUE|Whether to display code along with its results|
+|warning|TRUE| Whether to display warnings|
+|error |FALSE |Whether to display errors|
+|message| TRUE |Whether to display messages|
+|tidy| FALSE |Whether to reformat code in a tidy way when displaying it|
+|cache| FALSE| Whether to cache results for future renders|
+|comment| "##" |Comment character to preface results with|
+
+## 5. 渲染
+
+* **第一种方式**
+
+    您可以在控制台中运行`rmarkdown::render("<file path>")`。
+
+* **第二种方式**
+
+    您可以单击`Knit`顶部窗格中的按钮，然后选择所需的输出格式。
