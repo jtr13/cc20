@@ -7,36 +7,64 @@ language:
   ui:
     chapter_name: "Chapter "
 
+# Chapter ordering
 rmd_files: [
-   # Part 1: Introduction
+  # Part: Introduction
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
 
-  # Part 2: Data Processing and Wrangling
-  'R_data_transformation.Rmd',
+  # Part: Data Processing and Wrangling
+  'r_data_transformation.Rmd', # contains PART header
 
-  # Part 3: Data Visualization
-  'pairs_and_ggpairs.Rmd',
-  'a_brief_introduction_to_seaborn.Rmd',
-  'rselenium_tutorial.Rmd',
-  'china_choropleth_map.Rmd',
+  # Part: Data Visualization
+  'pairs_and_ggpairs.Rmd', # contains PART header
+  'likert_scale.Rmd',
 
-  # Part 4: R Shiny
+  # Part: Results Reporting
+  'visualization_tools_in_real_work.Rmd',  # contains PART header
 
+  # Part: Complete Analyses
+  'china_choropleth_map.Rmd', # contains PART header
+  'benfords_law.Rmd',
 
-  # Part 5: Translations
-  'chinese_translation_of_candela_package.Rmd',
+  # Part: Cheatsheets and Video Tutorials
+  'mosaic_plot_cheatsheet.Rmd',  # contains PART header
+  'add_ts_cheatsheet.Rmd',
+
+  # Part: Live Tutorials
+  'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
+  'datapipeline_design.Rmd',
+
+  # Part: Translations
+  'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
+  'rmarkdown_tutorial_chinese_translation.rmd',
 
-  # Part 6: Other Topics
+
+  # Part: Other Topics
+  'rselenium_tutorial.Rmd',  # contains PART header
+  'a_brief_introduction_to_seaborn.Rmd',
+
+  # Part: Video Tutorial
   'tableau_intro_tutorial_demo_with_pset.Rmd',
 
-  # Part 7: Appendices
+  # Part: Other Topics
+  'a_basic_introduction_to_mcmc_in_r.Rmd',
+
+
+  # Part: Other Topics
+  'automate_eda_with_dataexplorer.Rmd',
+  'speed_up_in_r_programming.Rmd',
+
+
+
+  # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd',
-  
-  'add_ts_cheatsheet.Rmd'
+  'appendix_chapter_organization.Rmd'
+
+
 ]
 
 before_chapter_script: "_common.R"
