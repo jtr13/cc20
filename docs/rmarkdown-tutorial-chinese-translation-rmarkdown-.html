@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 17 Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南 | Fall 2020 EDAV Community Contributions</title>
+  <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 17 Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南 | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="github-repo" content="jtr13/cc20" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 17 Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南 | Fall 2020 EDAV Community Contributions" />
+  
+  <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  
+
+
+
+<meta name="date" content="2020-11-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="korean-translation-of-scatterplot.html"/>
+<link rel="next" href="webscraping-dynamic-content-rselenium-tutorial.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/hchinamap-7.0.3/highmaps.js"></script>
+<script src="libs/hchinamap-7.0.3/hebei.js"></script>
+<script src="libs/hchinamap-7.0.3/anhui.js"></script>
+<script src="libs/hchinamap-7.0.3/aomen.js"></script>
+<script src="libs/hchinamap-7.0.3/beijing.js"></script>
+<script src="libs/hchinamap-7.0.3/china.js"></script>
+<script src="libs/hchinamap-7.0.3/chongqing.js"></script>
+<script src="libs/hchinamap-7.0.3/fujian.js"></script>
+<script src="libs/hchinamap-7.0.3/gansu.js"></script>
+<script src="libs/hchinamap-7.0.3/guangdong.js"></script>
+<script src="libs/hchinamap-7.0.3/guangxi.js"></script>
+<script src="libs/hchinamap-7.0.3/guizhou.js"></script>
+<script src="libs/hchinamap-7.0.3/hainan.js"></script>
+<script src="libs/hchinamap-7.0.3/heilongjiang.js"></script>
+<script src="libs/hchinamap-7.0.3/henan.js"></script>
+<script src="libs/hchinamap-7.0.3/hubei.js"></script>
+<script src="libs/hchinamap-7.0.3/hunan.js"></script>
+<script src="libs/hchinamap-7.0.3/jiangsu.js"></script>
+<script src="libs/hchinamap-7.0.3/jiangxi.js"></script>
+<script src="libs/hchinamap-7.0.3/jilin.js"></script>
+<script src="libs/hchinamap-7.0.3/liaoning.js"></script>
+<script src="libs/hchinamap-7.0.3/neimenggu.js"></script>
+<script src="libs/hchinamap-7.0.3/ningxia.js"></script>
+<script src="libs/hchinamap-7.0.3/qinghai.js"></script>
+<script src="libs/hchinamap-7.0.3/shandong.js"></script>
+<script src="libs/hchinamap-7.0.3/shanghai.js"></script>
+<script src="libs/hchinamap-7.0.3/shanxi.js"></script>
+<script src="libs/hchinamap-7.0.3/shanxi2.js"></script>
+<script src="libs/hchinamap-7.0.3/sichuan.js"></script>
+<script src="libs/hchinamap-7.0.3/tianjin.js"></script>
+<script src="libs/hchinamap-7.0.3/xianggang.js"></script>
+<script src="libs/hchinamap-7.0.3/xinjiang.js"></script>
+<script src="libs/hchinamap-7.0.3/xizang.js"></script>
+<script src="libs/hchinamap-7.0.3/yunnan.js"></script>
+<script src="libs/hchinamap-7.0.3/zhejiang.js"></script>
+<script src="libs/hchinamap-binding-0.1.0/hchinamap.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">cc for EDAV 2020</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#background"><i class="fa fa-check"></i><b>1.1</b> Background</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#preparing-your-.rmd-file"><i class="fa fa-check"></i><b>1.2</b> Preparing your <code>.Rmd</code> file</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#submission-steps"><i class="fa fa-check"></i><b>1.3</b> Submission steps</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#optional-tweaks"><i class="fa fa-check"></i><b>1.4</b> Optional tweaks</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.5</b> FAQ</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#what-should-i-expect-after-creating-a-pull-request"><i class="fa fa-check"></i><b>1.5.1</b> What should I expect after creating a pull request?</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-before-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.2</b> What if I catch mistakes before my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-after-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.3</b> What if I catch mistakes after my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.4" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.4</b> Other questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>2</b> Sample project</a></li>
+<li class="part"><span><b>I Data Processing and Wrangling</b></span></li>
+<li class="chapter" data-level="3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data transformation in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#basics"><i class="fa fa-check"></i><b>3.2</b> Basics</a></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#function-usage"><i class="fa fa-check"></i><b>3.3</b> Function Usage</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#filter"><i class="fa fa-check"></i><b>3.3.1</b> 1. Filter( )</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#arrange"><i class="fa fa-check"></i><b>3.3.2</b> 2. Arrange( )</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#select"><i class="fa fa-check"></i><b>3.3.3</b> 3. Select( )</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#mutate"><i class="fa fa-check"></i><b>3.3.4</b> 4. Mutate( )</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#group_by-and-summarize"><i class="fa fa-check"></i><b>3.3.5</b> 5. Group_by( ) and Summarize( )</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#quick-eda-median-arrival-delays"><i class="fa fa-check"></i><b>3.4</b> Quick EDA: median arrival delays</a></li>
+<li class="chapter" data-level="3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#external-resource"><i class="fa fa-check"></i><b>3.5</b> External Resource</a></li>
+</ul></li>
+<li class="part"><span><b>II Data Visualization</b></span></li>
+<li class="chapter" data-level="4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html"><i class="fa fa-check"></i><b>4</b> Customized Plot Matrix: pairs and ggpairs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#overview-things-we-can-do-with-pairs-and-ggpairs"><i class="fa fa-check"></i><b>4.1</b> Overview: Things we can do with pairs() and ggpairs()</a></li>
+<li class="chapter" data-level="4.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#scatterplot-matrix-for-continuous-variables"><i class="fa fa-check"></i><b>4.2</b> Scatterplot matrix for continuous variables</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-pairs"><i class="fa fa-check"></i><b>4.2.1</b> Plot with pairs()</a></li>
+<li class="chapter" data-level="4.2.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-ggpairs-from-ggally-package"><i class="fa fa-check"></i><b>4.2.2</b> Plot with ggpairs() from <code>GGally</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#categorical-variables"><i class="fa fa-check"></i><b>4.3</b> Categorical variables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#pairs-plot-for-categorical-variables"><i class="fa fa-check"></i><b>4.3.1</b> pairs() plot for categorical variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#highlight-correlations-with-shade-colors"><i class="fa fa-check"></i><b>4.3.2</b> Highlight correlations with shade colors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#outside-sources"><i class="fa fa-check"></i><b>4.4</b> Outside sources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html"><i class="fa fa-check"></i><b>5</b> Likert Scale: Definition, Examples, and Visualization</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#what-is-likert-scale"><i class="fa fa-check"></i><b>5.1</b> What is Likert Scale?</a></li>
+<li class="chapter" data-level="5.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#test-your-understanding-of-likert-scale"><i class="fa fa-check"></i><b>5.2</b> Test Your Understanding of Likert Scale</a></li>
+<li class="chapter" data-level="5.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#visualization-of-a-sample-likert-scale-data-explore-climate-change-in-the-american-mind"><i class="fa fa-check"></i><b>5.3</b> Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#overview-of-the-data"><i class="fa fa-check"></i><b>5.3.1</b> Overview of the Data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#stacked-bar-chart"><i class="fa fa-check"></i><b>5.3.2</b> Stacked Bar Chart</a></li>
+<li class="chapter" data-level="5.3.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#faceted-bar-charts"><i class="fa fa-check"></i><b>5.3.3</b> Faceted Bar Charts</a></li>
+<li class="chapter" data-level="5.3.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#diverging-stacked-bar-chart"><i class="fa fa-check"></i><b>5.3.4</b> Diverging Stacked Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#arguments-on-each-type-of-charts"><i class="fa fa-check"></i><b>5.4</b> Arguments on each type of charts</a></li>
+<li class="chapter" data-level="5.5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#reference"><i class="fa fa-check"></i><b>5.5</b> Reference</a></li>
+</ul></li>
+<li class="part"><span><b>III Results Reporting</b></span></li>
+<li class="chapter" data-level="6" data-path="visualiztion-tools-in-real-work.html"><a href="visualiztion-tools-in-real-work.html"><i class="fa fa-check"></i><b>6</b> Visualiztion tools in real work</a></li>
+<li class="chapter" data-level="7" data-path="color-in-r.html"><a href="color-in-r.html"><i class="fa fa-check"></i><b>7</b> Color in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="color-in-r.html"><a href="color-in-r.html#overview"><i class="fa fa-check"></i><b>7.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="color-in-r.html"><a href="color-in-r.html#sections"><i class="fa fa-check"></i><b>7.1.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="color-in-r.html"><a href="color-in-r.html#discrete-colors"><i class="fa fa-check"></i><b>7.2</b> Discrete Colors</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="color-in-r.html"><a href="color-in-r.html#basics-1"><i class="fa fa-check"></i><b>7.2.1</b> Basics</a></li>
+<li class="chapter" data-level="7.2.2" data-path="color-in-r.html"><a href="color-in-r.html#rcolorbrewer"><i class="fa fa-check"></i><b>7.2.2</b> RColorBrewer</a></li>
+<li class="chapter" data-level="7.2.3" data-path="color-in-r.html"><a href="color-in-r.html#viridis"><i class="fa fa-check"></i><b>7.2.3</b> Viridis</a></li>
+<li class="chapter" data-level="7.2.4" data-path="color-in-r.html"><a href="color-in-r.html#color-picker"><i class="fa fa-check"></i><b>7.2.4</b> Color Picker</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="color-in-r.html"><a href="color-in-r.html#continuous-colors"><i class="fa fa-check"></i><b>7.3</b> Continuous Colors</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="color-in-r.html"><a href="color-in-r.html#barplot"><i class="fa fa-check"></i><b>7.3.1</b> Barplot</a></li>
+<li class="chapter" data-level="7.3.2" data-path="color-in-r.html"><a href="color-in-r.html#heatmap"><i class="fa fa-check"></i><b>7.3.2</b> Heatmap</a></li>
+<li class="chapter" data-level="7.3.3" data-path="color-in-r.html"><a href="color-in-r.html#diverging-scales"><i class="fa fa-check"></i><b>7.3.3</b> Diverging Scales</a></li>
+<li class="chapter" data-level="7.3.4" data-path="color-in-r.html"><a href="color-in-r.html#colorblind"><i class="fa fa-check"></i><b>7.3.4</b> ColorBlind</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="color-in-r.html"><a href="color-in-r.html#resources"><i class="fa fa-check"></i><b>7.4</b> Resources</a></li>
+</ul></li>
+<li class="part"><span><b>IV Complete Analyses</b></span></li>
+<li class="chapter" data-level="8" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html"><i class="fa fa-check"></i><b>8</b> China choropleth map</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#overview-1"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#data-collection"><i class="fa fa-check"></i><b>8.2</b> Data Collection</a></li>
+<li class="chapter" data-level="8.3" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#static-map-with-ggplot"><i class="fa fa-check"></i><b>8.3</b> Static Map with ggplot</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#prepare-the-shape-data-of-china"><i class="fa fa-check"></i><b>8.3.1</b> Prepare the shape data of China</a></li>
+<li class="chapter" data-level="8.3.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#plot"><i class="fa fa-check"></i><b>8.3.2</b> Plot:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-hchinamap"><i class="fa fa-check"></i><b>8.4</b> Interactive Map with hchinamap</a></li>
+<li class="chapter" data-level="8.5" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-leafletcn"><i class="fa fa-check"></i><b>8.5</b> Interactive Map with leafletCN</a></li>
+<li class="chapter" data-level="8.6" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#conclusion"><i class="fa fa-check"></i><b>8.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="benfords-law-analysis-of-2020-election.html"><a href="benfords-law-analysis-of-2020-election.html"><i class="fa fa-check"></i><b>9</b> Benford’s Law Analysis of 2020 Election</a></li>
+<li class="part"><span><b>V Cheatsheets and Video Tutorials</b></span></li>
+<li class="chapter" data-level="10" data-path="mosaic-plot-cheatsheet.html"><a href="mosaic-plot-cheatsheet.html"><i class="fa fa-check"></i><b>10</b> Mosaic plot cheatsheet</a></li>
+<li class="chapter" data-level="11" data-path="time-series-cheatsheet.html"><a href="time-series-cheatsheet.html"><i class="fa fa-check"></i><b>11</b> Time Series Cheatsheet</a></li>
+<li class="part"><span><b>VI Live Tutorials</b></span></li>
+<li class="chapter" data-level="12" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>12</b> Tableau intro tutorial explained with proset2</a></li>
+<li class="chapter" data-level="13" data-path="solutioning-a-data-pipeline-for-visualization.html"><a href="solutioning-a-data-pipeline-for-visualization.html"><i class="fa fa-check"></i><b>13</b> Solutioning a Data pipeline for visualization</a></li>
+<li class="part"><span><b>VII Translations</b></span></li>
+<li class="chapter" data-level="14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>14</b> Chinese Translation of Candela Package</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>14.1</b> Candela</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>14.1.1</b> 开始</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>14.2</b> Candela 包使用</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>14.2.1</b> 安装</a></li>
+<li class="chapter" data-level="14.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>14.2.2</b> 版本控制</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>14.3</b> 组件</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>14.3.1</b> 条形图 (BarChart)</a></li>
+<li class="chapter" data-level="14.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>14.3.2</b> 箱线图 (BoxPlot)</a></li>
+<li class="chapter" data-level="14.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>14.3.3</b> 甘特图 (GanttChart)</a></li>
+<li class="chapter" data-level="14.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>14.3.4</b> 地理空间图 (Geo)</a></li>
+<li class="chapter" data-level="14.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>14.3.5</b> 地理点图(GeoDots)</a></li>
+<li class="chapter" data-level="14.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>14.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
+<li class="chapter" data-level="14.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>14.3.7</b> 直方图 (Histogram)</a></li>
+<li class="chapter" data-level="14.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>14.3.8</b> 折线图 (LineChart)</a></li>
+<li class="chapter" data-level="14.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>14.3.9</b> 排序图(Lineup)</a></li>
+<li class="chapter" data-level="14.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>14.3.10</b> OnSet组件 (OnSet)</a></li>
+<li class="chapter" data-level="14.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>14.3.11</b> 散点图 (ScatterPlot)</a></li>
+<li class="chapter" data-level="14.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>14.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
+<li class="chapter" data-level="14.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>14.3.13</b> 词树 (SentenTree)</a></li>
+<li class="chapter" data-level="14.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>14.3.14</b> 相似图 (SimilarityGraph)</a></li>
+<li class="chapter" data-level="14.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>14.3.15</b> 树状图(Tree Heatmap)</a></li>
+<li class="chapter" data-level="14.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>14.3.16</b> 集合可视化 (UpSet)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>14.4</b> API文件</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>14.4.1</b> Candela JavaScript API</a></li>
+<li class="chapter" data-level="14.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>14.4.2</b> Candela Python API</a></li>
+<li class="chapter" data-level="14.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>14.4.3</b> Candela R API</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>14.5</b> 开发人员文件</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>14.5.1</b> 编码规范指南</a></li>
+<li class="chapter" data-level="14.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>14.5.2</b> 创建Candela代码发布</a></li>
+<li class="chapter" data-level="14.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>14.5.3</b> 测试</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>15</b> Greek translation of edav.info/histo</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>15.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
+<li class="chapter" data-level="15.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>15.2</b> Επισκόπηση</a></li>
+<li class="chapter" data-level="15.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>15.3</b> Σύνοψη</a></li>
+<li class="chapter" data-level="15.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>15.4</b> Simple examples</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>15.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
+<li class="chapter" data-level="15.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>15.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>15.5</b> Θεωρία</a></li>
+<li class="chapter" data-level="15.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>15.6</b> Τύποι ιστογραμμάτων</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>15.6.1</b> Συχνότητα ή μέτρηση</a></li>
+<li class="chapter" data-level="15.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>15.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
+<li class="chapter" data-level="15.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>15.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
+<li class="chapter" data-level="15.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>15.6.4</b> Πυκνότητα</a></li>
+</ul></li>
+<li class="chapter" data-level="15.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>15.7</b> Παράμετροι</a>
+<ul>
+<li class="chapter" data-level="15.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>15.7.1</b> Όρια ζωνών</a></li>
+<li class="chapter" data-level="15.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>15.7.2</b> Αριθμός ζωνών</a></li>
+<li class="chapter" data-level="15.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>15.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+</ul></li>
+<li class="chapter" data-level="15.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>15.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<ul>
+<li class="chapter" data-level="15.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>15.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
+<li class="chapter" data-level="15.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>15.8.2</b> Παράδειγμα ΑΕΠ</a></li>
+<li class="chapter" data-level="15.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>15.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
+<li class="chapter" data-level="15.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>15.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
+<li class="chapter" data-level="15.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>15.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+</ul></li>
+<li class="chapter" data-level="15.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>15.9</b> Εξωτερικές πηγές</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html"><i class="fa fa-check"></i><b>16</b> Korean translation of scatterplot</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#개요"><i class="fa fa-check"></i><b>16.1</b> 개요</a></li>
+<li class="chapter" data-level="16.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#요약"><i class="fa fa-check"></i><b>16.2</b> 요약</a></li>
+<li class="chapter" data-level="16.3" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#간단한-예시"><i class="fa fa-check"></i><b>16.3</b> 간단한 예시</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#base-r을-이용한-산점도"><i class="fa fa-check"></i><b>16.3.1</b> base R을 이용한 산점도</a></li>
+<li class="chapter" data-level="16.3.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#ggplot2를-이용한-산점도"><i class="fa fa-check"></i><b>16.3.2</b> ggplot2를 이용한 산점도</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#이론"><i class="fa fa-check"></i><b>16.4</b> 이론</a></li>
+<li class="chapter" data-level="16.5" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#사용-시기"><i class="fa fa-check"></i><b>16.5</b> 사용 시기</a></li>
+<li class="chapter" data-level="16.6" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#고려-사항"><i class="fa fa-check"></i><b>16.6</b> 고려 사항</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#겹치는-데이터"><i class="fa fa-check"></i><b>16.6.1</b> 겹치는 데이터</a></li>
+<li class="chapter" data-level="16.6.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#스케일링"><i class="fa fa-check"></i><b>16.6.2</b> 스케일링</a></li>
+</ul></li>
+<li class="chapter" data-level="16.7" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#변경"><i class="fa fa-check"></i><b>16.7</b> 변경</a>
+<ul>
+<li class="chapter" data-level="16.7.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#등고선"><i class="fa fa-check"></i><b>16.7.1</b> 등고선</a></li>
+<li class="chapter" data-level="16.7.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#산점도-행렬"><i class="fa fa-check"></i><b>16.7.2</b> 산점도 행렬</a></li>
+</ul></li>
+<li class="chapter" data-level="16.8" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#추가-자료"><i class="fa fa-check"></i><b>16.8</b> 추가 자료</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><i class="fa fa-check"></i><b>17</b> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#概述"><i class="fa fa-check"></i><b>17.1</b> 1. 概述</a>
+<ul>
+<li><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#什么是r-markdown"><span class="toc-section-number">17.1.1</span> 1.1 什么是R Markdown？<br />
+</a></li>
+<li class="chapter" data-level="17.1.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#工作流程"><i class="fa fa-check"></i><b>17.1.2</b> 1.2 工作流程</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#入门"><i class="fa fa-check"></i><b>17.2</b> 2. 入门</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#安装套件"><i class="fa fa-check"></i><b>17.2.1</b> 2.1. 安装套件</a></li>
+<li class="chapter" data-level="17.2.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#打开文件"><i class="fa fa-check"></i><b>17.2.2</b> 2.2.打开文件</a></li>
+<li class="chapter" data-level="17.2.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#输出格式"><i class="fa fa-check"></i><b>17.2.3</b> 2.3. 输出格式</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#markdown语法"><i class="fa fa-check"></i><b>17.3</b> 3. Markdown语法</a></li>
+<li class="chapter" data-level="17.4" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#嵌入代码"><i class="fa fa-check"></i><b>17.4</b> 4. 嵌入代码</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#内联代码"><i class="fa fa-check"></i><b>17.4.1</b> 4.1. 内联代码</a></li>
+<li class="chapter" data-level="17.4.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#代码块"><i class="fa fa-check"></i><b>17.4.2</b> 4.2. 代码块</a></li>
+<li class="chapter" data-level="17.4.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#显示选项"><i class="fa fa-check"></i><b>17.4.3</b> 4.3. 显示选项</a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#渲染"><i class="fa fa-check"></i><b>17.5</b> 5. 渲染</a></li>
+</ul></li>
+<li class="part"><span><b>VIII Other Topics</b></span></li>
+<li class="chapter" data-level="18" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html"><i class="fa fa-check"></i><b>18</b> Webscraping Dynamic Content: Rselenium Tutorial</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#introduction-and-setup"><i class="fa fa-check"></i><b>18.1</b> Introduction and Setup</a></li>
+<li class="chapter" data-level="18.2" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#simple-illustrations-with-websites"><i class="fa fa-check"></i><b>18.2</b> Simple Illustrations with Websites</a></li>
+<li class="chapter" data-level="18.3" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#other-features"><i class="fa fa-check"></i><b>18.3</b> Other Features</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="a-brief-introduction-to-seaborn.html"><a href="a-brief-introduction-to-seaborn.html"><i class="fa fa-check"></i><b>19</b> A brief introduction to seaborn</a></li>
+<li class="chapter" data-level="20" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html"><i class="fa fa-check"></i><b>20</b> Health datasets for the final project</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#big-cities-health-inventory-data"><i class="fa fa-check"></i><b>20.1</b> Big Cities Health Inventory Data</a></li>
+<li class="chapter" data-level="20.2" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#mhealth-dataset"><i class="fa fa-check"></i><b>20.2</b> MHealth Dataset</a></li>
+<li class="chapter" data-level="20.3" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#human-mortality-database-hmd"><i class="fa fa-check"></i><b>20.3</b> Human Mortality Database (HMD)</a></li>
+<li class="chapter" data-level="20.4" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#seer-cancer-incidence"><i class="fa fa-check"></i><b>20.4</b> SEER Cancer Incidence</a></li>
+<li class="chapter" data-level="20.5" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#unicef-data-warehouse"><i class="fa fa-check"></i><b>20.5</b> UNICEF Data Warehouse</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><i class="fa fa-check"></i><b>21</b> Laying out multiple plots for Baseplot and ggplot</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#overview-2"><i class="fa fa-check"></i><b>21.1</b> Overview</a></li>
+<li class="chapter" data-level="21.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#most-easy-and-normal-form-par"><i class="fa fa-check"></i><b>21.2</b> Most easy and normal form <code>par()</code></a></li>
+<li class="chapter" data-level="21.3" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#complex-plot-layouts-with-layout"><i class="fa fa-check"></i><b>21.3</b> Complex plot layouts with <code>layout()</code></a></li>
+<li class="chapter" data-level="21.4" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#layout-for-ggplot"><i class="fa fa-check"></i><b>21.4</b> Layout for ggplot</a>
+<ul>
+<li class="chapter" data-level="21.4.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#grid.arrange-in-gridextra"><i class="fa fa-check"></i><b>21.4.1</b> <code>grid.arrange()</code> in <code>gridExtra</code></a></li>
+<li class="chapter" data-level="21.4.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#method-in-grid"><i class="fa fa-check"></i><b>21.4.2</b> method in <code>grid</code></a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#reference-1"><i class="fa fa-check"></i><b>21.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><i class="fa fa-check"></i><b>22</b> A basic Introduction to Markov Chain Monte Carlo Method in R</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#introduction-1"><i class="fa fa-check"></i><b>22.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="22.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#markov-chain-simulation-method"><i class="fa fa-check"></i><b>22.2</b> 2. Markov Chain Simulation Method</a></li>
+<li class="chapter" data-level="22.3" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#acceptance-rejection-sampling"><i class="fa fa-check"></i><b>22.3</b> 3. Acceptance-Rejection Sampling</a></li>
+<li class="chapter" data-level="22.4" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-markov-chain"><i class="fa fa-check"></i><b>22.4</b> 4. Sampling from Markov Chain</a></li>
+<li class="chapter" data-level="22.5" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#mcmc-sampling-method"><i class="fa fa-check"></i><b>22.5</b> 5. MCMC Sampling Method</a></li>
+<li class="chapter" data-level="22.6" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#metropolis-hastings-sampling"><i class="fa fa-check"></i><b>22.6</b> 6. Metropolis-Hastings Sampling</a></li>
+<li class="chapter" data-level="22.7" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#implementation-in-r"><i class="fa fa-check"></i><b>22.7</b> 7. Implementation in R</a>
+<ul>
+<li class="chapter" data-level="22.7.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-an-exponential-distribution"><i class="fa fa-check"></i><b>22.7.1</b> 1. Sampling from an exponential distribution</a></li>
+<li class="chapter" data-level="22.7.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-a-normal-distribution"><i class="fa fa-check"></i><b>22.7.2</b> 2. Sampling from a normal distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="22.8" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#refenence"><i class="fa fa-check"></i><b>22.8</b> 8 Refenence</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html"><i class="fa fa-check"></i><b>23</b> automate eda with dataexplorer</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overview-3"><i class="fa fa-check"></i><b>23.1</b> Overview</a></li>
+<li class="chapter" data-level="23.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dataexplorer"><i class="fa fa-check"></i><b>23.2</b> DataExplorer</a></li>
+<li class="chapter" data-level="23.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#installation"><i class="fa fa-check"></i><b>23.3</b> Installation</a></li>
+<li class="chapter" data-level="23.4" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>23.4</b> Exploratory data analysis (EDA)</a>
+<ul>
+<li class="chapter" data-level="23.4.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overall-information"><i class="fa fa-check"></i><b>23.4.1</b> Overall Information</a></li>
+<li class="chapter" data-level="23.4.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#distribution"><i class="fa fa-check"></i><b>23.4.2</b> Distribution</a></li>
+<li class="chapter" data-level="23.4.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#correlation-analysis"><i class="fa fa-check"></i><b>23.4.3</b> Correlation Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="23.5" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#feature-engineering"><i class="fa fa-check"></i><b>23.5</b> Feature Engineering</a>
+<ul>
+<li class="chapter" data-level="23.5.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#missing-value"><i class="fa fa-check"></i><b>23.5.1</b> Missing value</a></li>
+<li class="chapter" data-level="23.5.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dummy-variable"><i class="fa fa-check"></i><b>23.5.2</b> Dummy variable</a></li>
+</ul></li>
+<li class="chapter" data-level="23.6" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#data-report"><i class="fa fa-check"></i><b>23.6</b> Data Report</a></li>
+<li class="chapter" data-level="23.7" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#external-resources"><i class="fa fa-check"></i><b>23.7</b> External Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html"><i class="fa fa-check"></i><b>24</b> Speed up in r programming</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#typical-development-cycle-for-computational-statistics"><i class="fa fa-check"></i><b>24.1</b> Typical development cycle for computational statistics</a></li>
+<li class="chapter" data-level="24.2" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#bytecode-compilation"><i class="fa fa-check"></i><b>24.2</b> Bytecode compilation</a>
+<ul>
+<li class="chapter" data-level="24.2.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#example-summing-a-vector"><i class="fa fa-check"></i><b>24.2.1</b> Example: summing a vector</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#rcpp"><i class="fa fa-check"></i><b>24.3</b> Rcpp</a>
+<ul>
+<li class="chapter" data-level="24.3.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#use-cppfunction"><i class="fa fa-check"></i><b>24.3.1</b> Use <code>cppFunction</code></a></li>
+</ul></li>
+<li class="chapter" data-level="24.4" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#parallel-computing"><i class="fa fa-check"></i><b>24.4</b> Parallel computing</a>
+<ul>
+<li class="chapter" data-level="24.4.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#simulation-example"><i class="fa fa-check"></i><b>24.4.1</b> Simulation example</a></li>
+</ul></li>
+<li class="chapter" data-level="24.5" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#package-development"><i class="fa fa-check"></i><b>24.5</b> Package development</a></li>
+</ul></li>
+<li class="part"><span><b>IX Appendices</b></span></li>
+<li class="chapter" data-level="25" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>25</b> Github Initial Setup</a></li>
+<li class="chapter" data-level="26" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html"><i class="fa fa-check"></i><b>26</b> Tutorial for Pull Request Mergers</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-branch"><i class="fa fa-check"></i><b>26.1</b> Check branch</a></li>
+<li class="chapter" data-level="26.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file"><i class="fa fa-check"></i><b>26.2</b> Check <code>.Rmd</code> file</a>
+<ul>
+<li class="chapter" data-level="26.2.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#examine-files-that-were-added-or-modified"><i class="fa fa-check"></i><b>26.2.1</b> Examine files that were added or modified</a></li>
+<li class="chapter" data-level="26.2.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file-1"><i class="fa fa-check"></i><b>26.2.2</b> Check <code>.Rmd</code> file</a></li>
+<li class="chapter" data-level="26.2.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-additional-resources"><i class="fa fa-check"></i><b>26.2.3</b> Check additional resources</a></li>
+<li class="chapter" data-level="26.2.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#request-a-change-if-.rmd-file-is-invalid"><i class="fa fa-check"></i><b>26.2.4</b> Request a change if <code>.Rmd</code> file is invalid</a></li>
+</ul></li>
+<li class="chapter" data-level="26.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#update-_bookdown.yml"><i class="fa fa-check"></i><b>26.3</b> Update <code>_bookdown.yml</code></a>
+<ul>
+<li class="chapter" data-level="26.3.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-files-names-to-_bookdown.yml-in-prs-branch"><i class="fa fa-check"></i><b>26.3.1</b> Add files names to <code>_bookdown.yml</code> in PR’s <code>branch</code></a></li>
+<li class="chapter" data-level="26.3.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization"><i class="fa fa-check"></i><b>26.3.2</b> Add chapter names to <code>.Rmd</code> for every first article in each chapter (Chapter Organization)</a></li>
+</ul></li>
+<li class="chapter" data-level="26.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-branch-into-jtr13master-and-resolve-conflicts"><i class="fa fa-check"></i><b>26.4</b> Merge <code>branch</code> into <code>jtr13:master</code> and resolve conflicts</a>
+<ul>
+<li class="chapter" data-level="26.4.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#resolve-conflicts"><i class="fa fa-check"></i><b>26.4.1</b> Resolve conflicts</a></li>
+<li class="chapter" data-level="26.4.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-pr-and-leave-a-comment"><i class="fa fa-check"></i><b>26.4.2</b> Merge PR and leave a comment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="chapter-organization.html"><a href="chapter-organization.html"><i class="fa fa-check"></i><b>27</b> Chapter Organization</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="chapter-organization.html"><a href="chapter-organization.html#process-for-organizing-chapters"><i class="fa fa-check"></i><b>27.1</b> Process for Organizing Chapters</a></li>
+<li class="chapter" data-level="27.2" data-path="chapter-organization.html"><a href="chapter-organization.html#initial-book-parts"><i class="fa fa-check"></i><b>27.2</b> Initial Book Parts</a>
+<ul>
+<li class="chapter" data-level="27.2.1" data-path="chapter-organization.html"><a href="chapter-organization.html#motivation"><i class="fa fa-check"></i><b>27.2.1</b> Motivation</a></li>
+<li class="chapter" data-level="27.2.2" data-path="chapter-organization.html"><a href="chapter-organization.html#additional-categories"><i class="fa fa-check"></i><b>27.2.2</b> Additional Categories</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Fall 2020 EDAV Community Contributions</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南" class="section level1" number="17">
+<h1><span class="header-section-number">Chapter 17</span> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</h1>
+<p>Author: Yuzheng Jia</p>
+<div id="源文件链接" class="section level4" number="17.0.0.1">
+<h4><span class="header-section-number">17.0.0.1</span> 源文件链接</h4>
+<p><a href="https://jtr13.github.io/cc19/rmarkdown-tutorial.html" class="uri">https://jtr13.github.io/cc19/rmarkdown-tutorial.html</a></p>
+</div>
+<div id="概述" class="section level2" number="17.1">
+<h2><span class="header-section-number">17.1</span> 1. 概述</h2>
+<p>R Markdown为数据科学提供了一个整洁的框架。Markdown文件通常可以帮助我们：<br />
+- <strong>保存并执行您编写的代码</strong><br />
+- <strong>生成可以与受众共享的高质量报告</strong><br />
+R Markdown文件是可完全重新实现的，并支持数十种静态和动态输出格式。<br />
+该链接提供了R Markdown功能的快速介绍。-<a href="https://vimeo.com/178485416">链接</a></p>
+<div id="什么是r-markdown" class="section level3" number="17.1.1">
+<h3 number="17.1.1"><span class="header-section-number">17.1.1</span> 1.1 什么是R Markdown？<br />
+</h3>
+<ul>
+<li><strong>Rmd文件</strong><br />
+· R Markdown（.Rmd）文件是您的项目的记录。它包含他人重现您的作品所需的代码以及帮助他人可以理解您所做工作的所有脚本。<br />
+</li>
+<li><strong>可重实现的研究</strong><br />
+· 您可以使用 <code>Knit</code>来重新运行R Markdown文件中的代码以重实现您的作品并将结果导出为格式正确的报告。<br />
+</li>
+<li><strong>动态文档</strong><br />
+· 有很多方法可以导出报告。格式包括html、pdf、MS Word或RTF文档、基于html或pdf的幻灯片、Notebooks等。<br />
+</li>
+</ul>
+</div>
+<div id="工作流程" class="section level3" number="17.1.2">
+<h3><span class="header-section-number">17.1.2</span> 1.2 工作流程</h3>
+<ol style="list-style-type: decimal">
+<li><strong>打开一个新的.Rmd文件</strong> ：文件 ▶ 新文件 ▶ R Markdown。<br />
+</li>
+<li>通过编辑模板<strong>编写文档</strong><br />
+</li>
+<li><strong>编织文件</strong>以创建报告；使用编织按钮或
+<strong>render()</strong>进行编织<br />
+</li>
+<li>在IDE窗口中<strong>预览输出</strong><br />
+</li>
+<li><strong>发布</strong>（可选）到Web服务器<br />
+</li>
+<li>在R Markdown控制台中<strong>检查构建日志</strong><br />
+</li>
+<li><strong>使用输出文件</strong>：与.Rmd一起保存的</li>
+</ol>
+</div>
+</div>
+<div id="入门" class="section level2" number="17.2">
+<h2><span class="header-section-number">17.2</span> 2. 入门</h2>
+<div id="安装套件" class="section level3" number="17.2.1">
+<h3><span class="header-section-number">17.2.1</span> 2.1. 安装套件</h3>
+<p>您可以使用以下命令来安装所需的库。</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb264-1"></a><span class="kw">install.packages</span>(<span class="st">&#39;rmarkdown&#39;</span>)</span></code></pre></div>
+</div>
+<div id="打开文件" class="section level3" number="17.2.2">
+<h3><span class="header-section-number">17.2.2</span> 2.2.打开文件</h3>
+<p>您可以创建一个新文件或从您选择的目录中打开现有文件。</p>
+</div>
+<div id="输出格式" class="section level3" number="17.2.3">
+<h3><span class="header-section-number">17.2.3</span> 2.3. 输出格式</h3>
+<p>R markdown可以将任何Rmd文件呈现为R markdown支持的格式。例如，下面的代码将OutputExample.Rmd呈现为Microsoft Word文档。</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb265-1"></a><span class="kw">library</span>(rmarkdown)</span>
+<span id="cb265-2"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb265-2"></a><span class="co"># render(&quot;resources/rmarkdown_tutorial/OutputExample.Rmd&quot;, output_format = &quot;word_document&quot;)</span></span></code></pre></div>
+<p>以下是可以选择的所有格式的表：
+<strong>输出值表</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>输出值</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>html_document</td>
+<td>html</td>
+</tr>
+<tr class="even">
+<td>pdf_document</td>
+<td>pdf (需要Tex )</td>
+</tr>
+<tr class="odd">
+<td>word_document</td>
+<td>Microsof Word (.docx)</td>
+</tr>
+<tr class="even">
+<td>odt_document</td>
+<td>OpenDocument Text</td>
+</tr>
+<tr class="odd">
+<td>rtf_document</td>
+<td>Rich Text Format</td>
+</tr>
+<tr class="even">
+<td>md_document</td>
+<td>Markdown</td>
+</tr>
+<tr class="odd">
+<td>github_document</td>
+<td>Github兼容的markdown</td>
+</tr>
+<tr class="even">
+<td>ioslides_presentation</td>
+<td>ioslides HTML slides</td>
+</tr>
+<tr class="odd">
+<td>slidy_presentation</td>
+<td>slidy HTML slides</td>
+</tr>
+<tr class="even">
+<td>beamer_presentation</td>
+<td>Beamer pdf slides (需要Tex)</td>
+</tr>
+</tbody>
+</table>
+<p>您可以通过单击编织按钮旁边的下拉菜单来选择呈现所需的格式：</p>
+</div>
+</div>
+<div id="markdown语法" class="section level2" number="17.3">
+<h2><span class="header-section-number">17.3</span> 3. Markdown语法</h2>
+<p>Rmarkdown有许多精美的语法，因此您可以生成有序且美观的文档。<br />
+我们将在此处提供我们经常使用的语法。</p>
+<ul>
+<li><p><strong>纯文本</strong><br />
+纯文本</p></li>
+<li><p><strong>斜体和粗体</strong><br />
+</p></li>
+</ul>
+<pre><code>*斜体* and **粗体**</code></pre>
+<ul>
+<li><strong>列表</strong><br />
+</li>
+</ul>
+<pre><code>* 无序列表  
+   + 分项1  
+   + 分项2  
+   - 次分项1 </code></pre>
+<ul>
+<li>无序列表
+<ul>
+<li>分项1<br />
+</li>
+<li>分项2<br />
+</li>
+<li>次分项1</li>
+</ul></li>
+</ul>
+<pre><code>1. 有序列表
+2. 项2  
+ i) 分项1 
+    A. 次分项1  </code></pre>
+<ol style="list-style-type: decimal">
+<li>有序列表</li>
+<li>项2<br />
+</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>分项1
+A. 次分项1</li>
+</ol>
+<ul>
+<li><strong>标头</strong></li>
+</ul>
+<pre><code># 标头1 {#anchor}
+## 标头2 {#css_id}
+### 标头3 {.css_class}
+#### 标头4
+##### 标头5
+###### 标头6 </code></pre>
+<ul>
+<li><strong>超连接</strong></li>
+</ul>
+<pre><code>&lt;http://www.rstudio.com&gt;
+[link](www.rstudio.com)
+Jump to [Header 1](#anchor) </code></pre>
+<p><a href="http://www.rstudio.com" class="uri">http://www.rstudio.com</a>
+<a href="www.rstudio.com">link</a>
+Jump to <a href="#anchor">Header 1</a></p>
+<ul>
+<li><strong>表</strong></li>
+</ul>
+<pre><code>| 右 | 左 | 默认 | 中央 |
+|------:|:-----|---------|:------:|
+| 12    | 12   | 12      | 12     |
+| 123   | 123  | 123     | 123    |
+| 1     | 1    | 1       | 1      | </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">右</th>
+<th align="left">左</th>
+<th>默认</th>
+<th align="center">中央</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">12</td>
+<td align="left">12</td>
+<td>12</td>
+<td align="center">12</td>
+</tr>
+<tr class="even">
+<td align="right">123</td>
+<td align="left">123</td>
+<td>123</td>
+<td align="center">123</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">1</td>
+<td>1</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>方程</strong></li>
+</ul>
+<pre><code>$$E = mc^{2}$$ </code></pre>
+<p><span class="math display">\[E = mc^{2}\]</span></p>
+</div>
+<div id="嵌入代码" class="section level2" number="17.4">
+<h2><span class="header-section-number">17.4</span> 4. 嵌入代码</h2>
+<div id="内联代码" class="section level3" number="17.4.1">
+<h3><span class="header-section-number">17.4.1</span> 4.1. 内联代码</h3>
+<p>您可以在代码前后加上勾号和r。R将用其结果替换内联代码。</p>
+<p>例如：</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb273-1"></a>  一加一等于 <span class="st">`</span><span class="dt">r 1+1</span><span class="st">`</span></span></code></pre></div>
+<p>输出为:</p>
+<p>一加一等于2</p>
+</div>
+<div id="代码块" class="section level3" number="17.4.2">
+<h3><span class="header-section-number">17.4.2</span> 4.2. 代码块</h3>
+<p>您需要以 ``` {r}开始一个块并以```结尾。</p>
+<p>例如：</p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb274-1"></a><span class="kw">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Hello, world!&quot;</code></pre>
+</div>
+<div id="显示选项" class="section level3" number="17.4.3">
+<h3><span class="header-section-number">17.4.3</span> 4.3. 显示选项</h3>
+<p>还有很多选项可以显示您的代码和结果。</p>
+<p>例如，您可以使用<code>eval</code>在输出中选择TRUE或FALSE来决定是否评估代码并包括其结果。</p>
+<p>这是两个选项之间的区别：</p>
+<p><code>eval = TRUE</code>:</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb276-1"></a><span class="kw">print</span>(<span class="st">&quot;Hi there!&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Hi there!&quot;</code></pre>
+<p><code>eval = FALSE</code>:</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb278-1"></a><span class="kw">print</span>(<span class="st">&quot;Hi there!&quot;</span>)</span></code></pre></div>
+<p>下表包含我们通常使用的选项</p>
+<table>
+<thead>
+<tr class="header">
+<th>选项</th>
+<th>默认</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>eval</td>
+<td>TRUE</td>
+<td>Whether to evaluate the code and include its results</td>
+</tr>
+<tr class="even">
+<td>echo</td>
+<td>TRUE</td>
+<td>Whether to display code along with its results</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>TRUE</td>
+<td>Whether to display warnings</td>
+</tr>
+<tr class="even">
+<td>error</td>
+<td>FALSE</td>
+<td>Whether to display errors</td>
+</tr>
+<tr class="odd">
+<td>message</td>
+<td>TRUE</td>
+<td>Whether to display messages</td>
+</tr>
+<tr class="even">
+<td>tidy</td>
+<td>FALSE</td>
+<td>Whether to reformat code in a tidy way when displaying it</td>
+</tr>
+<tr class="odd">
+<td>cache</td>
+<td>FALSE</td>
+<td>Whether to cache results for future renders</td>
+</tr>
+<tr class="even">
+<td>comment</td>
+<td>“##”</td>
+<td>Comment character to preface results with</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="渲染" class="section level2" number="17.5">
+<h2><span class="header-section-number">17.5</span> 5. 渲染</h2>
+<ul>
+<li><p><strong>第一种方式</strong></p>
+<p>您可以在控制台中运行<code>rmarkdown::render("&lt;file path&gt;")</code>。</p></li>
+<li><p><strong>第二种方式</strong></p>
+<p>您可以单击<code>Knit</code>顶部窗格中的按钮，然后选择所需的输出格式。</p></li>
+</ul>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="korean-translation-of-scatterplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="webscraping-dynamic-content-rselenium-tutorial.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jtr13/cc20/edit/master/rmarkdown_tutorial_chinese_translation.rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/jtr13/cc20/blob/master/rmarkdown_tutorial_chinese_translation.rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
