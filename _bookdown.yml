@@ -16,6 +16,7 @@ rmd_files: [
   'R_data_transformation.Rmd',
   'a_brief_introduction_to_seaborn.Rmd',
   'rselenium_tutorial.Rmd',
+  'a_simple_way_to_visualize_geographic_data.Rmd'
 
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd',
