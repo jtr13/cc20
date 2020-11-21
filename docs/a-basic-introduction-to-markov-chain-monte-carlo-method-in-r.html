@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 Solutioning a Data pipeline for visualization | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 18 A basic Introduction to Markov Chain Monte Carlo Method in R | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 Solutioning a Data pipeline for visualization | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 18 A basic Introduction to Markov Chain Monte Carlo Method in R | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 Solutioning a Data pipeline for visualization | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 18 A basic Introduction to Markov Chain Monte Carlo Method in R | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tableau-intro-tutorial-explained-with-proset2.html"/>
-<link rel="next" href="chinese-translation-of-candela-package.html"/>
+<link rel="prev" href="a-brief-introduction-to-seaborn.html"/>
+<link rel="next" href="automate-eda-with-dataexplorer.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -497,23 +497,176 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="solutioning-a-data-pipeline-for-visualization" class="section level1" number="11">
-<h1><span class="header-section-number">Chapter 11</span> Solutioning a Data pipeline for visualization</h1>
-<p>Akanxa Padhi</p>
-<p>As a part of my community contribution, I present a lightning talk on some of the key considerations to keep in mind while designing a data pipeline for an organization. I use a scenario from my workplace to share my experience.</p>
-<p>Please refer to my slides here - <a href="https://github.com/akp21/EDAV_CC20/blob/main/Datapipeline_solution.pdf" class="uri">https://github.com/akp21/EDAV_CC20/blob/main/Datapipeline_solution.pdf</a></p>
+<div id="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r" class="section level1" number="18">
+<h1><span class="header-section-number">Chapter 18</span> A basic Introduction to Markov Chain Monte Carlo Method in R</h1>
+<p>Qiran Li</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb272-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
+<div id="introduction-1" class="section level2" number="18.1">
+<h2><span class="header-section-number">18.1</span> 1. Introduction</h2>
+<p>It is often not possible to understand (or learn) complicated probability distribution by theoretical analysis. In that scenario, one convenient way to learn about the probability distribution is to simulate from that particular distribution. Markov Chain Monte Carlo (MCMC) is probably the most popular way for the simulation purpose. It has wide application in statistics, data science, and machine learning. In this tutorial, I would first explain the theory of MCMC, and then provide my own implementation of this method in R as well as useful graphs for explanation. The purpose of this community contribution tutorial is to help people understand this tough but useful method.</p>
+<p>As we can see from the name of MCMC method, it contains two parts. One is related to Monte Carlo Simulation (MC) Method; the other is associated with Markov chain. Therefore, It would be nature to discuss MCMC by first introducing these two related methods.</p>
+</div>
+<div id="markov-chain-simulation-method" class="section level2" number="18.2">
+<h2><span class="header-section-number">18.2</span> 2. Markov Chain Simulation Method</h2>
+<p>The name of Monte Carlo was derived from a casino. The earliest applications of Monte Carlo Method were designed to solve some complex summation or integration problems. Suppose we want to solve the integration problem:
+<span class="math inline">\(\int_{a}^{b} f(x) dx\)</span>, but it’s hard to find the explicit form of <span class="math inline">\(f(x)\)</span>. One easy way of solving this problem is: find a <span class="math inline">\(x_0\)</span> between a and b and use <span class="math inline">\(f(x_0)\)</span> to represent all the values of <span class="math inline">\(f(x)\)</span> inside a and b. Then the answer would be <span class="math inline">\((b - a)f(x_0)\)</span>. However, using one value to represent all the values between a and b is a broad assumption. We could also use n values <span class="math inline">\((x_0,x_1,x_2,x_3,...,x_{n-1})\)</span> between a and b instead, thus the solution would be <span class="math inline">\(\frac{b-a}{n} \sum_{i=0}^{n - 1} f(x_i)\)</span>. Here we also made an assumption that x is uniformly distributed on [a,b]. If we know <span class="math inline">\(x\)</span>’s distribution <span class="math inline">\(p(x)\)</span> on [a,b], the answer would become <span class="math inline">\(\frac{1}{n} \sum_{i=0}^{n - 1} \frac {f(x_i)}{p(x_i)}\)</span>. Therefore, as long as we know the distribution of x on the interval, we could get an accurate estimate of the integral.</p>
+</div>
+<div id="acceptance-rejection-sampling" class="section level2" number="18.3">
+<h2><span class="header-section-number">18.3</span> 3. Acceptance-Rejection Sampling</h2>
+<p>If the probability distribution of {x} is found, we need to get n samples based on this probability distribution and bring them into the Monte Carlo Simulation Method formula to solve it. How do we get the n samples based on the probability distribution? For common distributions like Uniform, F, Beta, Gamma distributions, we could use random number generator to get samples. However, for complicated distribution <span class="math inline">\(p(x)\)</span> that we could not directly sample, we need to use Acceptance-Rejection Sampling method. The process contains:</p>
+<ol style="list-style-type: decimal">
+<li><p>Set a common probability distribution function <span class="math inline">\(q(x)\)</span> that is convenient for sampling, set a constant <span class="math inline">\(k\)</span> so that <span class="math inline">\(p(x)\)</span> is always below <span class="math inline">\(kq(x).\)</span></p></li>
+<li><p>Get a sample <span class="math inline">\(z_0\)</span> of <span class="math inline">\(q(x)\)</span>.</p></li>
+<li><p>Sample a value u from a uniform distribution <span class="math inline">\((0, kq(z_0))\)</span>.
+If u falls below <span class="math inline">\(kq(z)\)</span> and above <span class="math inline">\(p(z)\)</span>, then reject this sampling, otherwise accept this sample.</p></li>
+<li><p>Repeat the above process to get n accepted samples <span class="math inline">\(z_0\)</span>, <span class="math inline">\(z_1\)</span>, … <span class="math inline">\(z_{n-1}\)</span>.</p></li>
+<li><p>Get into the formula <span class="math inline">\(\frac{1}{n} \sum_{i=0}^{n - 1} \frac {f(x_i)}{p(x_i)}\)</span>.</p></li>
+</ol>
+</div>
+<div id="sampling-from-markov-chain" class="section level2" number="18.4">
+<h2><span class="header-section-number">18.4</span> 4. Sampling from Markov Chain</h2>
+<p>For a finite irreducible aperiodic Markov Chain, we have the following properties:
+<span class="math inline">\(\lim_{n\to\infty} P_{ij}^n = \pi(j)\)</span>, <span class="math inline">\(\pi(j) = \sum_{i=0}^{\infty} \pi(i) P_{ij}\)</span>, and <span class="math inline">\(\sum_{i=0}^{\infty} \pi(i) = 1\)</span>.
+From these properties, we can see if we get the transition matrix of a Markov chain, we
+can easily get the samples from the stationary distribution. The procedure is as follow:</p>
+<ol style="list-style-type: decimal">
+<li><p>Input the transition matrix P.</p></li>
+<li><p>Let <span class="math inline">\(n_1\)</span> be the number of the transition times</p></li>
+<li><p>Let <span class="math inline">\(n_2\)</span> be how many samples do we want</p></li>
+<li><p>Sampling from any simple probability distribution to get the initial state value</p></li>
+<li><p>for <span class="math inline">\(t = 0\)</span> to <span class="math inline">\(t = n_1 + n_2 - 1\)</span>:
+get sample <span class="math inline">\(x_{t+1}\)</span> from the conditional probability distribution <span class="math inline">\(P(x|x_t)\)</span></p></li>
+<li><p>output the sample <span class="math inline">\(x_{n_1}, x_{n_1 + 1}, ..., x_{n_1 + n_2 - 1}\)</span></p></li>
+</ol>
+</div>
+<div id="mcmc-sampling-method" class="section level2" number="18.5">
+<h2><span class="header-section-number">18.5</span> 5. MCMC Sampling Method</h2>
+<p>From Sampling from Markov Chain, we know if we get the transition matrix of the Markov Chain, we could easily get the samples from distribution and put it into use of the Monte Carlo Method. However, given a detailed balance probability distribution <span class="math inline">\(\pi\)</span>, it’s difficult to directly find associated Markov Chain probability transition matrix <span class="math inline">\(P\)</span>. So, here comes the MCMC Sampling Method.
+The definition of detailed balance condition:
+<span class="math display">\[ \pi(i)P(i,j) = \pi(j)P(j,i), \forall{i,j}\]</span>
+In most of the cases, the detailed balance conditions would not hold.
+<span class="math display">\[ \pi(i)Q(i,j) \neq \pi(j)Q(j,i)\]</span>
+So we need to construct a <span class="math inline">\(\alpha(i,j)\)</span> to fulfill the detailed balance condition, such that:
+<span class="math display">\[ \pi(i)Q(i,j)\alpha(i,j) = \pi(j)Q(j,i)\alpha(j,i)\]</span>
+Such <span class="math inline">\(\alpha(i,j)\)</span> and <span class="math inline">\(\alpha(j,i)\)</span> are easy to make by setting,
+<span class="math display">\[ \alpha(i,j) = \pi(j)Q(j,i)\]</span> and <span class="math display">\[ \alpha(j,i) = \pi(i)Q(i,j)\]</span>
+Here is the procedure of MCMC Sampling:
+1. Input the transition matrix <span class="math inline">\(Q\)</span> (randomly selected), stationary distribution <span class="math inline">\(\pi(x)\)</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(n_1\)</span> be the number of the transition times</p></li>
+<li><p>Let <span class="math inline">\(n_2\)</span> be sample size</p></li>
+<li><p>Sampling from any simple probability distribution to get the initial state value <span class="math inline">\(x_0\)</span></p></li>
+<li><p>for <span class="math inline">\(t = 0\)</span> to <span class="math inline">\(t = n_1 + n_2 - 1\)</span>:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>get sample <span class="math inline">\(x_{\ast}\)</span> from the conditional probability distribution <span class="math inline">\(Q(x|x_t)\)</span></p></li>
+<li><p>Sampling <span class="math inline">\(u\)</span> from <span class="math inline">\(Uniform[0,1]\)</span></p></li>
+<li><p>if <span class="math inline">\(u &lt; \alpha(x_t,x_{\ast}) = \pi(x_{\ast})Q(x_{\ast}, x_t)\)</span>, let <span class="math inline">\(x_{t+1} = x_{\ast}\)</span>; else <span class="math inline">\(x_{t+1} = x_{t}\)</span></p></li>
+</ol></li>
+<li><p>Output the sample <span class="math inline">\(x_{n_1}, x_{n_1 + 1}, ..., x_{n_1 + n_2 - 1}\)</span></p></li>
+</ol>
+</div>
+<div id="metropolis-hastings-sampling" class="section level2" number="18.6">
+<h2><span class="header-section-number">18.6</span> 6. Metropolis-Hastings Sampling</h2>
+<p>MCMC has a hidden problem when the <span class="math inline">\(\alpha(x_t,x_{\ast})\)</span> is too small. It could result in the fact that majority of our samplings are being rejected. This significantly reduces the efficiency of sampling. Metropolis-Hastings Sampling Method is designed to solve this problem. The major change is with related to the <span class="math inline">\(\alpha\)</span> value:
+<span class="math display">\[ \alpha(i,j)  = \min\{\frac{\pi(j)Q(j,i)}{\pi(i)Q(i,j)} ,1\} \]</span>
+The process is as follow:</p>
+<ol style="list-style-type: decimal">
+<li><p>Input the transition matrix <span class="math inline">\(Q\)</span> (randomly selected), stationary distribution <span class="math inline">\(\pi(x)\)</span></p></li>
+<li><p>Let <span class="math inline">\(n_1\)</span> be the number of the transition times</p></li>
+<li><p>Let <span class="math inline">\(n_2\)</span> be sample size</p></li>
+<li><p>Sampling from any simple probability distribution to get the initial state value <span class="math inline">\(x_0\)</span></p></li>
+<li><p>for <span class="math inline">\(t = 0\)</span> to <span class="math inline">\(t = n_1 + n_2 - 1\)</span>:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>get sample <span class="math inline">\(x_{\ast}\)</span> from the conditional probability distribution <span class="math inline">\(Q(x|x_t)\)</span></p></li>
+<li><p>Sampling <span class="math inline">\(u\)</span> from <span class="math inline">\(Uniform[0,1]\)</span></p></li>
+<li><p>if <span class="math inline">\(u &lt; \alpha(x_t,x_{\ast}) = \min\{\frac{\pi(j)Q(j,i)}{\pi(i)Q(i,j)} ,1\}\)</span>, then set <span class="math inline">\(x_{t+1} = x_{\ast}\)</span>; else <span class="math inline">\(x_{t+1} = x_{t}\)</span></p></li>
+</ol></li>
+<li><p>Output the sample <span class="math inline">\(x_{n_1}, x_{n_1 + 1}, ..., x_{n_1 + n_2 - 1}\)</span></p></li>
+</ol>
+</div>
+<div id="implementation-in-r" class="section level2" number="18.7">
+<h2><span class="header-section-number">18.7</span> 7. Implementation in R</h2>
+<div id="sampling-from-an-exponential-distribution" class="section level3" number="18.7.1">
+<h3><span class="header-section-number">18.7.1</span> 1. Sampling from an exponential distribution</h3>
+<div id="a-define-the-pdf-of-exponential-distribution" class="section level4" number="18.7.1.1">
+<h4><span class="header-section-number">18.7.1.1</span> a) Define the pdf of exponential distribution</h4>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb273-1"></a>exp_dist =<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb273-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb273-2"></a>  <span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb273-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb273-3"></a>    <span class="kw">return</span> (<span class="dv">0</span>)</span>
+<span id="cb273-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb273-4"></a>  } <span class="cf">else</span> {</span>
+<span id="cb273-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb273-5"></a>    <span class="kw">return</span> (<span class="kw">exp</span>(<span class="op">-</span>x))</span>
+<span id="cb273-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb273-6"></a>  }</span>
+<span id="cb273-7"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb273-7"></a>}</span></code></pre></div>
+</div>
+<div id="b-define-the-mcmc-function" class="section level4" number="18.7.1.2">
+<h4><span class="header-section-number">18.7.1.2</span> b) Define the MCMC function</h4>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-1"></a>MCMC =<span class="st"> </span><span class="cf">function</span>(T, startval, sd, target){</span>
+<span id="cb274-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-2"></a>  x =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,T)</span>
+<span id="cb274-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-3"></a>  x[<span class="dv">1</span>] =<span class="st"> </span>startval</span>
+<span id="cb274-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-4"></a>  <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>T) {</span>
+<span id="cb274-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-5"></a>    pi_star =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>,x[t<span class="dv">-1</span>],sd)</span>
+<span id="cb274-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-6"></a>    alpha =<span class="st"> </span><span class="kw">min</span>(<span class="kw">target</span>(pi_star)<span class="op">/</span><span class="kw">target</span>(x[t<span class="dv">-1</span>]), <span class="dv">1</span>)</span>
+<span id="cb274-7"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-7"></a>    u =<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb274-8"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-8"></a>    <span class="cf">if</span> (u <span class="op">&lt;</span><span class="st"> </span>alpha) {</span>
+<span id="cb274-9"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-9"></a>      x[t] =<span class="st"> </span>pi_star</span>
+<span id="cb274-10"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-10"></a>    } <span class="cf">else</span> {</span>
+<span id="cb274-11"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-11"></a>      x[t] =<span class="st"> </span>x[t <span class="dv">-1</span>]</span>
+<span id="cb274-12"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-12"></a>    }</span>
+<span id="cb274-13"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-13"></a>  }</span>
+<span id="cb274-14"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-14"></a>  <span class="kw">return</span>(x)</span>
+<span id="cb274-15"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb274-15"></a>}</span></code></pre></div>
+</div>
+<div id="c-ggplot-the-curve" class="section level4" number="18.7.1.3">
+<h4><span class="header-section-number">18.7.1.3</span> c) ggplot the curve</h4>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb275-1"></a>z =<span class="st"> </span><span class="kw">MCMC</span>(<span class="dv">5000</span>,<span class="dv">3</span>, <span class="dv">1</span>, exp_dist)</span>
+<span id="cb275-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb275-2"></a>z =<span class="st"> </span><span class="kw">data.frame</span>(z)</span>
+<span id="cb275-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb275-3"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>z,<span class="kw">aes</span>(<span class="dt">x=</span>z)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb275-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb275-4"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb275-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb275-5"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dexp, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb275-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb275-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-201-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We find the density function is similar to the true distribution.</p>
+</div>
+</div>
+<div id="sampling-from-a-normal-distribution" class="section level3" number="18.7.2">
+<h3><span class="header-section-number">18.7.2</span> 2. Sampling from a normal distribution</h3>
+<div id="a-define-the-pdf-of-normal-distribution" class="section level4" number="18.7.2.1">
+<h4><span class="header-section-number">18.7.2.1</span> a) Define the pdf of normal distribution</h4>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb276-1"></a>norm_dist =<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb276-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb276-2"></a>  <span class="kw">return</span> (<span class="kw">dnorm</span>(x))</span>
+<span id="cb276-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb276-3"></a>}</span></code></pre></div>
+</div>
+<div id="b-use-previous-function-and-validate-the-result" class="section level4" number="18.7.2.2">
+<h4><span class="header-section-number">18.7.2.2</span> b) use previous function and validate the result</h4>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb277-1"></a>z =<span class="st"> </span><span class="kw">MCMC</span>(<span class="dv">5000</span>,<span class="dv">3</span>, <span class="dv">1</span>, norm_dist)</span>
+<span id="cb277-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb277-2"></a>z =<span class="st"> </span><span class="kw">data.frame</span>(z)</span>
+<span id="cb277-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb277-3"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>z,<span class="kw">aes</span>(<span class="dt">x=</span>z)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb277-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb277-4"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb277-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb277-5"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb277-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb277-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="cc20_files/figure-html/unnamed-chunk-203-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Again, we find the density function is similar to the true distribution.</p>
+</div>
+</div>
+</div>
+<div id="refenence" class="section level2" number="18.8">
+<h2><span class="header-section-number">18.8</span> 8 Refenence</h2>
+<p><a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" class="uri">https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo</a></p>
+<p><a href="http://www.yaroslavvb.com/papers/peres-markov.pdf" class="uri">http://www.yaroslavvb.com/papers/peres-markov.pdf</a></p>
+<p><a href="https://www.cnblogs.com/pinard/p/6638955.html" class="uri">https://www.cnblogs.com/pinard/p/6638955.html</a></p>
+<p><a href="https://blog.csdn.net/weixin_30745553/article/details/98648799" class="uri">https://blog.csdn.net/weixin_30745553/article/details/98648799</a></p>
+<p><a href="https://github.com/ljpzzz/machinelearning/blob/master/mathematics" class="uri">https://github.com/ljpzzz/machinelearning/blob/master/mathematics</a></p>
+<p><a href="https://stephens999.github.io/fiveMinuteStats/MH-examples1.html" class="uri">https://stephens999.github.io/fiveMinuteStats/MH-examples1.html</a></p>
 
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="tableau-intro-tutorial-explained-with-proset2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chinese-translation-of-candela-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="a-brief-introduction-to-seaborn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="automate-eda-with-dataexplorer.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -544,7 +697,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/cc20/edit/master/datapipeline_design.Rmd",
+"link": "https://github.com/jtr13/cc20/edit/master/a_basic_introduction_to_mcmc_in_r.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -552,7 +705,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/cc20/blob/master/datapipeline_design.Rmd",
+"link": "https://github.com/jtr13/cc20/blob/master/a_basic_introduction_to_mcmc_in_r.Rmd",
 "text": null
 },
 "download": null,
