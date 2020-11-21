@@ -18,8 +18,7 @@ rmd_files: [
   'a_brief_introduction_to_seaborn.Rmd',
   'rselenium_tutorial.Rmd',
   'china_choropleth_map.Rmd',
- 
-  
+
   # Part 4: R Shiny
 
   # Part: Data Processing and Wrangling
@@ -31,6 +30,7 @@ rmd_files: [
   'likert_scale.Rmd',
   'a_simple_way_to_visualize_geographic_data.Rmd',
   'introduction_to_violin_plot.Rmd',
+  'base_r_ggplot_graph.Rmd',
 
   # Part: Results Reporting
   'visualization_tools_in_real_work.Rmd',  # contains PART header
