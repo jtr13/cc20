@@ -44,6 +44,9 @@ rmd_files: [
   'datapipeline_design.Rmd',
 
 
+  # Part: Data Visualization
+  'label_setting_techniques.Rmd',
+  
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
