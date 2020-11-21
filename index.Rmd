@@ -76,6 +76,8 @@ After completing these modifications, your `.Rmd` should look like this [sample 
    ```
 
  You could include both sections, or you could just include the second `library()` section and trust R users to install any packages themselves. If you developed your `Rmd` file before moving your `library()` statements above the rest of the file content, it is highly recommended to knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior. This common issue is mentioned in the EDAV R Basics ["Functions stop working"](https://edav.info/basics.html) section.
+ 
+8. Your file should not contain `getwd()` / `setwd()` calls (you should never use these in scripts anyway!) nor `write` statements.
 
 Want to get fancy? See the [optional tweaks](#optional-tweaks) section below.
 
@@ -123,6 +125,10 @@ To submit your work, we will be following "Workflow #4" -- that is submitting a 
 2. It will take some time before we can process all the pull requests, so as long as you see your pull request has been labeled and assigned to an admin, don't worry. 
 
 3. However, if the admin contacts you regarding the pull request, that usually means your files fail to meet some requirements. The admin will clearly state what is wrong, so please fix them as soon as possible. 
+
+### What if I catch mistakes before my pull request is merged?
+
+Just make the changes on your branch, commit and push them to GitHub. They will automatically be added to the pull request.
 
 ### What if I catch mistakes after my pull request is merged?
 
