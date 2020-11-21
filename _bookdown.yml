@@ -14,6 +14,9 @@ rmd_files: [
   'pairs_and_ggpairs.Rmd',
   'china_choropleth_map.Rmd',
 
+  # Part: Data Visualization
+  'label_setting_techniques.Rmd',
+  
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd',
   'greek_edav_histogram.Rmd',
