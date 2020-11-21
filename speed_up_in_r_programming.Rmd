@@ -19,7 +19,7 @@ It is well known that R is not a fast language, since R was deliberately designe
 
 The goal of our community contribution is to give you a deeper understanding of how we could yield the maximum efficiency when running R. We will first introduce the typical development cycle computational statistics with R and what is some of R’s performance characteristics, to help you understand how R codes are being executed. We will also show you two relatively easy ways to speed up code using the Rcpp package and parallel processing.
 
-## 1. Typical development cycle for computational statistics
+## Typical development cycle for computational statistics
 
 First, let's take a look at the usual steps of computational statistics with R, and what questions we need to ask ourselves for each step:
 
@@ -45,7 +45,7 @@ First, let's take a look at the usual steps of computational statistics with R, 
 
 0. Full documentation.
 
-## 2. Bytecode compilation
+## Bytecode compilation
 
 - After profiling, what can we do to improve performance?
 
@@ -150,7 +150,7 @@ ByteCompile: true
 to the `DESCRIPTION` file.
 
 
-## 3. Rcpp
+## Rcpp
 
 Now, we are going to introduce the package `Rcpp` which helps yield the maximum efficiency for R. And there is a learning source for whoever interested:
 
@@ -189,7 +189,7 @@ This is a good example of where C++ is much more efficient than R. As shown by t
 
 Therefore,`Rcpp` package is definitely a great tool for us to improve the efficiency for our R code. 
 
-## 4. Parallel computing
+## Parallel computing
 
 Now, we are going to discuss another way to get efficient with R -- parallel computing:
 
