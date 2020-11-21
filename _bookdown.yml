@@ -34,7 +34,9 @@ rmd_files: [
 
   # Part 7: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
-  'appendix_pull_request_tutorial.Rmd'
+  'appendix_pull_request_tutorial.Rmd',
+  
+  'add_ts_cheatsheet.Rmd'
 ]
 
 before_chapter_script: "_common.R"
