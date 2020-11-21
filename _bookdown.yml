@@ -47,12 +47,22 @@ rmd_files: [
 
   # Part: Video Tutorial
   'tableau_intro_tutorial_demo_with_pset.Rmd',
+
+  
+  # Part: Other Topics
+  'speed_up_in_r_programming.Rmd',
+  
+  # Part: Appendices
+  'appendix_initial_setup.Rmd' # contains PART header
+  
+
   'datapipeline_design.Rmd',
 
   # Part 10: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd',
   'appendix_chapter_organization.Rmd'
+
 ]
 
 before_chapter_script: "_common.R"
