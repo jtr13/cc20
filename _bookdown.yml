@@ -12,6 +12,11 @@ rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
+  'pairs_and_ggpairs.Rmd',
+  'china_choropleth_map.Rmd',
+  'R_data_transformation.Rmd',
+  'a_brief_introduction_to_seaborn.Rmd',
+  'rselenium_tutorial.Rmd',
 
   # Part: Data Processing and Wrangling
   'r_data_transformation.Rmd', # contains PART header
@@ -19,6 +24,7 @@ rmd_files: [
   # Part: Data Visualization
   'pairs_and_ggpairs.Rmd', # contains PART header
   'likert_scale.Rmd',
+  'a_simple_way_to_visualize_geographic_data.Rmd'
 
   # Part: Results Reporting
   'visualization_tools_in_real_work.Rmd',  # contains PART header
@@ -35,6 +41,7 @@ rmd_files: [
   # Part: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
   'datapipeline_design.Rmd',
+
 
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd', # contains PART header
