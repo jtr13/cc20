@@ -31,6 +31,7 @@ rmd_files: [
 
   # Part 6: Other Topics
   'tableau_intro_tutorial_demo_with_pset.Rmd',
+  'visualizing_electoral_margins.Rmd',
 
   # Part 7: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
