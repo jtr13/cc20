@@ -290,7 +290,7 @@ cat resources/speed_up_in_r_programming/autoSim.R
 
 3. Download the [`runSim.R`] and [`autoSim.R`] scripts, and run the following codes, this will parallelly compute results from all combinations, and write output to appropriately named files.
  
-```{bash}
+```
     Rscript resources/speed_up_in_r_programming/autoSim.R seed=280 rep=50
 ```
 
