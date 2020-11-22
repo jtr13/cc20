@@ -21,8 +21,9 @@ My further analysis to address this is as follows:
 Thanks for taking a look! Yes as I read more about Benford's Law I am learning about that constraint. I need to delve a little deeper to see that vote counts in each county's precincts span a few orders of magnitude to be robust.
 Here are order of magnitude frequencies for all Michigan precincts, and then for Kent County respectively. 
 
-Michigan total (in resources/benfords_law/michigan_orders_of_magnitude_distribution.png)
-Kent County total (in resources/benfords_law/kent_county_orders_of_magnitude_distribution.png)
+Michigan total: ![](resources/benfords_law/michigan_orders_of_magnitude_distribution.png)
+Kent County total:
+![](resources/benfords_law/kent_county_orders_of_magnitude_distribution.png)
 
 In Michigan as a whole, Trump appears evenly/randomly distributed across several orders of magnitude, while Biden looks clustered in the hundreds, and Jorgensen only spans 2 orders of magnitude for the whole state. This might disqualify them, I am not sure. 
 
