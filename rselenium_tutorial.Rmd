@@ -1,0 +1,132 @@
+# (PART) Other Topics {-}
+
+# Webscraping Dynamic Content: Rselenium Tutorial
+
+Chenchao You
+
+```{r install, eval=FALSE, include=FALSE}
+install.packages("rvest") 
+install.packages("tidyverse")
+install.packages("RSelenium")
+```
+
+```{r global_options, include=FALSE}
+library("rvest")
+library("tidyverse")
+library("RSelenium")
+```
+
+## Introduction and Setup
+This is a tutorial on webscrapping dynamic content with the help of RSelenium. In previous courses we have learned how to use rvest to webscrap html pages. Specifically, recall that in problem set 2 we are asked to webscrape "https://www.metacritic.com/publication/digital-trends" to gather information about metascores, using rvest package and SelectorGadget.
+
+```{r rvest scrape, eval=FALSE}
+metacritic <- read_html("https://www.metacritic.com/publication/digital-trends")
+title_html <- html_nodes(metacritic,'.review_product a')
+title_data <- html_text(title_html)
+
+meta_html <- html_nodes(metacritic,'.brief_metascore .game')
+meta_score <- html_text(meta_html)
+
+crit_html <- html_nodes(metacritic,'.brief_critscore .indiv')
+crit_score <- html_text(crit_html)
+```
+![](./resources/rselenium_tutorial/Pagebutton.png)
+
+This webpage is not dynamic so we could scrape the content by identifying CSS component using SelectorGadget and extract the data from html with rvest. However, most of the modern website use dynamic content. An example of this is Linkedin or Twitter. When you scroll down the webpage, new content is loaded without changing the URL. What if say, we want to webscrape Donald Trump's Twitter information?
+
+![](./resources/rselenium_tutorial/Linkedin.png)
+
+
+**Preparations**
+
+First you need to make sure you have a working environment. That includes the corresponding R packages, a working JAVA environment installed on your OS, and a installed browser. In this tutorial I'll use chrome version "86.0.4240.22" as the browser.
+
+```{r scrape, eval=FALSE}
+  install.packages("RSelenium")
+  install.packages("rvest")
+  install.packages("tidyverse")
+```
+
+After the environment is properly set, we can proceed to initialize our browser.
+```{r initialize, eval=FALSE}
+  rD <- rsDriver(browser="chrome", chromever="86.0.4240.22", verbose=T)
+  remDr <- rD[["client"]]
+```
+
+Some common error messages include port occupied or failed to receive handshake. Either try resetting connection with 
+```{r common error, eval=FALSE}
+  system("taskkill /im java.exe /f", intern=FALSE, ignore.stdout=FALSE)
+```
+
+or use VPN in the internet connection.
+
+If everything is setup correctly, you should see a browser popping up.
+
+![](./resources/rselenium_tutorial/Initial.png)
+
+Now you are ready to navigate dynamic pages using RSelenium.
+
+## Simple Illustrations with Websites
+
+We will use "https://www.google.com" as a simple example to use some Rselenium functions. To navigate to google webpage:
+```{r navigate, eval=FALSE}
+  remDr$navigate("https://www.google.com")
+```
+![](./resources/rselenium_tutorial/Google.png)
+Rselenium use HTML, CSS or XPath to find which object to operate on. More information on the locator strategies for webdrivers can be found on https://stackoverflow.com/questions/48369043/official-locator-strategies-for-the-webdriver/48376890#48376890. However for the time being, we only need to understand some simple locator techniques. Some common locators include:
+
+**id, name, css selector, xpath**
+
+To find information about the target object (in our example the google search text input box), right click and select inspect:
+
+![](./resources/rselenium_tutorial/Inspect.png)
+
+We spot name='q' to locate the target object. In this case use $findElement function to select the textbox and use sendKeysToElement to input the text you want
+```{r select, eval=FALSE}
+  input <- "edav"
+  selected <- remDr$findElement(using = "name", value = "q")
+  selected$sendKeysToElement(list(input))
+```
+
+![](./resources/rselenium_tutorial/Select.png)
+
+Next we want to click the search button to search EDAV on google. Again use Inspect to locate the button object, and we found name='btnK' to locate our button
+```{r search edav, eval=FALSE}
+  remDr$findElements("name", "btnK")[[1]]$clickElement()
+```
+![](./resources/rselenium_tutorial/EDAV.png)
+
+Now we have the search result of EDAV. To scroll up or down the webpage, select the entire webpage using:
+
+```{r select webpage, eval=FALSE}
+  webpage <- remDr$findElement("css", "body")
+```
+
+## Other Features
+Rselenium can simulate shortcut keys of the browser. selKeys function gives the list of shortcut keys.
+
+```{r selKeys, eval=FALSE}
+  selKeys
+```
+
+We can use: **home, end, up_arrow, or down_arrow** to navigate the webpage
+
+```{r scroll, eval=FALSE}
+  webpage$sendKeysToElement(list(key = "home"))
+  webpage$sendKeysToElement(list(key = "end"))
+  webpage$sendKeysToElement(list(key = "up_arrow"))
+  webpage$sendKeysToElement(list(key = "down_arrow"))
+```
+
+**Read HTML**
+After using RSelenium to get the webpage in the form we want, we can extract html using command $getPageSource(). Remember to give page time to fully load if your internet connection is poor.
+
+```{r extract html, eval=FALSE}
+  Sys.sleep(3)
+  html <- remDr$getPageSource()[[1]]
+```
+
+This html object can then be processed by all the rvest tools we have learned earlier. More information on rvest can be found on https://github.com/tidyverse/rvest if you are not familiar with this tool already.
+
+**Summary**
+RSelenium provides R bindings for the Selenium Webdriver, which is a powerful tool for automated web browsers. We have only covered a few simple functions in this tutorial. To realize the full potential of this package, we encourage the reader to explore the documentation of RSelenium on https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html. Background knowledge of HTML and CSS are also super helpful in the webscraping process.
