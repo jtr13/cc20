@@ -15,7 +15,7 @@ Similar with the more common scatter plots, Cleveland dot plots also map two var
 
 As an example, let's use the data set game metascore that is also used in Problem Set2: 
 ```{r, echo=FALSE, message=FALSE}
-score = read.csv("mv.csv")
+score = read.csv("resources/base_r_ggplot_graph/mv.csv")
 ```
 
 ```{r, fig.height=6, fig.width=8}
