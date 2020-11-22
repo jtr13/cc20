@@ -1,5 +1,6 @@
 book_filename: "cc20"
 output_dir: docs
+new_session: yes
 delete_merged_file: true
 edit: https://github.com/jtr13/cc20/edit/master/%s
 view: https://github.com/jtr13/cc20/blob/master/%s
@@ -13,15 +14,31 @@ rmd_files: [
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
 
-  # Part: Data Processing and Wrangling
+
+  # Part 2: Data Processing and Wrangling
   'r_data_transformation.Rmd', # contains PART header
+  'data_preprocessing_tutorial.Rmd',
+  'apply_family.Rmd',
+
+  # Part 3: Data Visualization
+
+  'pairs_and_ggpairs.Rmd', # contains PART header
+  'china_choropleth_map.Rmd',
+  'a_brief_introduction_to_seaborn.Rmd',
+  'rselenium_tutorial.Rmd',
+  'china_choropleth_map.Rmd',
+  'radar_chart.Rmd',
 
   # Part: Data Visualization
   'pairs_and_ggpairs.Rmd', # contains PART header
   'likert_scale.Rmd',
+  'a_simple_way_to_visualize_geographic_data.Rmd',
+#  'introduction_to_violin_plot.Rmd', # missing data file
+  'base_r_ggplot_graph.Rmd',
 
   # Part: Results Reporting
   'visualization_tools_in_real_work.Rmd',  # contains PART header
+  'color_in_r.Rmd',
 
   # Part: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
@@ -30,10 +47,14 @@ rmd_files: [
   # Part: Cheatsheets and Video Tutorials
   'mosaic_plot_cheatsheet.Rmd',  # contains PART header
   'add_ts_cheatsheet.Rmd',
+  'python_vs_r_cheatsheet.Rmd',
 
   # Part: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
   'datapipeline_design.Rmd',
+
+  # Part: Data Visualization
+  'label_setting_techniques.Rmd',
 
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd', # contains PART header
@@ -41,19 +62,18 @@ rmd_files: [
   'korean_translation_of_scatterplot.Rmd',
   'rmarkdown_tutorial_chinese_translation.rmd',
 
-
   # Part: Other Topics
   'rselenium_tutorial.Rmd',  # contains PART header
   'a_brief_introduction_to_seaborn.Rmd',
-
-  # Part: Video Tutorial
   'tableau_intro_tutorial_demo_with_pset.Rmd',
 
-  # Part: Other Topics
+
+  'ggpubr_package.Rmd',
+  'geographical_map_packages.Rmd',
+
+  'health_datasets_for_the_final_project.Rmd',
+  'layout_for_baseplot_and_ggpplot.Rmd',
   'a_basic_introduction_to_mcmc_in_r.Rmd',
-
-
-  # Part: Other Topics
   'automate_eda_with_dataexplorer.Rmd',
   'speed_up_in_r_programming.Rmd',
 
@@ -63,7 +83,6 @@ rmd_files: [
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd',
   'appendix_chapter_organization.Rmd'
-
 
 ]
 
