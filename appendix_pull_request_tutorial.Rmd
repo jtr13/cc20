@@ -79,7 +79,7 @@ If all is good to go, it's time to merge the pull request. There are several ste
 
 - Open the `_bookdown.yml` file.
 
-- NEW: **delete everything in the file beginning with `rmd_files: [` and then add the name of the new file in single quotes followed by a comma:
+- NEW: **delete everything in the file beginning with `rmd_files: [` and then add the name of the new file in single quotes followed by a comma:**
 
 <img src="resources/tutorial_pull_request_mergers/delete_most_of_bookdown_yml.png" width="700">
 
@@ -101,11 +101,13 @@ For every first article of each part, add the chapter name on the top of the `.R
 <img src="resources/tutorial_pull_request_mergers/chap_1.png" width="700">
 <br/><br/>
 
-**If you're not sure that you did things correctly, assign one of the PR merge leaders or @jtr13 to review**
-
 ### Merge PR and leave a comment
 
-Now comes the final step. We go back to the conversation tab of the pull requests page, for example: 
+Now comes the final step.
+
+**If you're not sure that you did things correctly, assign one of the PR merge leaders or @jtr13 to review before you merge the PR.**
+
+Go back to the conversation tab of the pull requests page, for example: 
 
 https://github.com/jtr13/cc20/pull/23#issuecomment-728506101
 
