@@ -31,7 +31,7 @@ Here we explain a tool for drawing radar chart in R
 
 
 ```{r}
-install.packages('fmsb')
+#install.packages('fmsb')
 library(fmsb)
 ```
 

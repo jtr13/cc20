@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 22 A basic Introduction to Markov Chain Monte Carlo Method in R | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 32 A basic Introduction to Markov Chain Monte Carlo Method in R | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 22 A basic Introduction to Markov Chain Monte Carlo Method in R | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 32 A basic Introduction to Markov Chain Monte Carlo Method in R | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,14 +16,14 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 22 A basic Introduction to Markov Chain Monte Carlo Method in R | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 32 A basic Introduction to Markov Chain Monte Carlo Method in R | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
 
 
 
-<meta name="date" content="2020-11-21" />
+<meta name="date" content="2020-11-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -210,314 +210,414 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#quick-eda-median-arrival-delays"><i class="fa fa-check"></i><b>3.4</b> Quick EDA: median arrival delays</a></li>
 <li class="chapter" data-level="3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#external-resource"><i class="fa fa-check"></i><b>3.5</b> External Resource</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="apply-family.html"><a href="apply-family.html"><i class="fa fa-check"></i><b>4</b> Apply family</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="apply-family.html"><a href="apply-family.html#apply"><i class="fa fa-check"></i><b>4.0.1</b> apply</a></li>
+<li class="chapter" data-level="4.0.2" data-path="apply-family.html"><a href="apply-family.html#lapply"><i class="fa fa-check"></i><b>4.0.2</b> Lapply</a></li>
+<li class="chapter" data-level="4.0.3" data-path="apply-family.html"><a href="apply-family.html#sapply"><i class="fa fa-check"></i><b>4.0.3</b> Sapply</a></li>
+<li class="chapter" data-level="4.0.4" data-path="apply-family.html"><a href="apply-family.html#tapply"><i class="fa fa-check"></i><b>4.0.4</b> tapply</a></li>
+</ul></li>
 <li class="part"><span><b>II Data Visualization</b></span></li>
-<li class="chapter" data-level="4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html"><i class="fa fa-check"></i><b>4</b> Customized Plot Matrix: pairs and ggpairs</a>
+<li class="chapter" data-level="5" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html"><i class="fa fa-check"></i><b>5</b> Customized Plot Matrix: pairs and ggpairs</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#overview-things-we-can-do-with-pairs-and-ggpairs"><i class="fa fa-check"></i><b>4.1</b> Overview: Things we can do with pairs() and ggpairs()</a></li>
-<li class="chapter" data-level="4.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#scatterplot-matrix-for-continuous-variables"><i class="fa fa-check"></i><b>4.2</b> Scatterplot matrix for continuous variables</a>
+<li class="chapter" data-level="5.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#overview-things-we-can-do-with-pairs-and-ggpairs"><i class="fa fa-check"></i><b>5.1</b> Overview: Things we can do with pairs() and ggpairs()</a></li>
+<li class="chapter" data-level="5.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#scatterplot-matrix-for-continuous-variables"><i class="fa fa-check"></i><b>5.2</b> Scatterplot matrix for continuous variables</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-pairs"><i class="fa fa-check"></i><b>4.2.1</b> Plot with pairs()</a></li>
-<li class="chapter" data-level="4.2.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-ggpairs-from-ggally-package"><i class="fa fa-check"></i><b>4.2.2</b> Plot with ggpairs() from <code>GGally</code> package</a></li>
+<li class="chapter" data-level="5.2.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-pairs"><i class="fa fa-check"></i><b>5.2.1</b> Plot with pairs()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-ggpairs-from-ggally-package"><i class="fa fa-check"></i><b>5.2.2</b> Plot with ggpairs() from <code>GGally</code> package</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#categorical-variables"><i class="fa fa-check"></i><b>4.3</b> Categorical variables</a>
+<li class="chapter" data-level="5.3" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#categorical-variables"><i class="fa fa-check"></i><b>5.3</b> Categorical variables</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#pairs-plot-for-categorical-variables"><i class="fa fa-check"></i><b>4.3.1</b> pairs() plot for categorical variables</a></li>
-<li class="chapter" data-level="4.3.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#highlight-correlations-with-shade-colors"><i class="fa fa-check"></i><b>4.3.2</b> Highlight correlations with shade colors</a></li>
+<li class="chapter" data-level="5.3.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#pairs-plot-for-categorical-variables"><i class="fa fa-check"></i><b>5.3.1</b> pairs() plot for categorical variables</a></li>
+<li class="chapter" data-level="5.3.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#highlight-correlations-with-shade-colors"><i class="fa fa-check"></i><b>5.3.2</b> Highlight correlations with shade colors</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#outside-sources"><i class="fa fa-check"></i><b>4.4</b> Outside sources</a></li>
+<li class="chapter" data-level="5.4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#outside-sources"><i class="fa fa-check"></i><b>5.4</b> Outside sources</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html"><i class="fa fa-check"></i><b>5</b> Likert Scale: Definition, Examples, and Visualization</a>
+<li class="part"><span><b>III Complete Analyses</b></span></li>
+<li class="chapter" data-level="6" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html"><i class="fa fa-check"></i><b>6</b> China choropleth map</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#what-is-likert-scale"><i class="fa fa-check"></i><b>5.1</b> What is Likert Scale?</a></li>
-<li class="chapter" data-level="5.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#test-your-understanding-of-likert-scale"><i class="fa fa-check"></i><b>5.2</b> Test Your Understanding of Likert Scale</a></li>
-<li class="chapter" data-level="5.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#visualization-of-a-sample-likert-scale-data-explore-climate-change-in-the-american-mind"><i class="fa fa-check"></i><b>5.3</b> Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind</a>
+<li class="chapter" data-level="6.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#overview"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
+<li class="chapter" data-level="6.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#data-collection"><i class="fa fa-check"></i><b>6.2</b> Data Collection</a></li>
+<li class="chapter" data-level="6.3" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#static-map-with-ggplot"><i class="fa fa-check"></i><b>6.3</b> Static Map with ggplot</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#overview-of-the-data"><i class="fa fa-check"></i><b>5.3.1</b> Overview of the Data</a></li>
-<li class="chapter" data-level="5.3.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#stacked-bar-chart"><i class="fa fa-check"></i><b>5.3.2</b> Stacked Bar Chart</a></li>
-<li class="chapter" data-level="5.3.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#faceted-bar-charts"><i class="fa fa-check"></i><b>5.3.3</b> Faceted Bar Charts</a></li>
-<li class="chapter" data-level="5.3.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#diverging-stacked-bar-chart"><i class="fa fa-check"></i><b>5.3.4</b> Diverging Stacked Bar Chart</a></li>
+<li class="chapter" data-level="6.3.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#prepare-the-shape-data-of-china"><i class="fa fa-check"></i><b>6.3.1</b> Prepare the shape data of China</a></li>
+<li class="chapter" data-level="6.3.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#plot"><i class="fa fa-check"></i><b>6.3.2</b> Plot:</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#arguments-on-each-type-of-charts"><i class="fa fa-check"></i><b>5.4</b> Arguments on each type of charts</a></li>
-<li class="chapter" data-level="5.5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#reference"><i class="fa fa-check"></i><b>5.5</b> Reference</a></li>
+<li class="chapter" data-level="6.4" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-hchinamap"><i class="fa fa-check"></i><b>6.4</b> Interactive Map with hchinamap</a></li>
+<li class="chapter" data-level="6.5" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-leafletcn"><i class="fa fa-check"></i><b>6.5</b> Interactive Map with leafletCN</a></li>
+<li class="chapter" data-level="6.6" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#conclusion"><i class="fa fa-check"></i><b>6.6</b> Conclusion</a></li>
 </ul></li>
-<li class="part"><span><b>III Results Reporting</b></span></li>
-<li class="chapter" data-level="6" data-path="visualiztion-tools-in-real-work.html"><a href="visualiztion-tools-in-real-work.html"><i class="fa fa-check"></i><b>6</b> Visualiztion tools in real work</a></li>
-<li class="chapter" data-level="7" data-path="color-in-r.html"><a href="color-in-r.html"><i class="fa fa-check"></i><b>7</b> Color in R</a>
+<li class="chapter" data-level="7" data-path="a-brief-introduction-to-seaborn.html"><a href="a-brief-introduction-to-seaborn.html"><i class="fa fa-check"></i><b>7</b> A brief introduction to seaborn</a></li>
+<li class="part"><span><b>IV Other Topics</b></span></li>
+<li class="chapter" data-level="8" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html"><i class="fa fa-check"></i><b>8</b> Webscraping Dynamic Content: Rselenium Tutorial</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="color-in-r.html"><a href="color-in-r.html#overview"><i class="fa fa-check"></i><b>7.1</b> Overview</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="color-in-r.html"><a href="color-in-r.html#sections"><i class="fa fa-check"></i><b>7.1.1</b> Sections</a></li>
+<li class="chapter" data-level="8.1" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#introduction-and-setup"><i class="fa fa-check"></i><b>8.1</b> Introduction and Setup</a></li>
+<li class="chapter" data-level="8.2" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#simple-illustrations-with-websites"><i class="fa fa-check"></i><b>8.2</b> Simple Illustrations with Websites</a></li>
+<li class="chapter" data-level="8.3" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#other-features"><i class="fa fa-check"></i><b>8.3</b> Other Features</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="color-in-r.html"><a href="color-in-r.html#discrete-colors"><i class="fa fa-check"></i><b>7.2</b> Discrete Colors</a>
+<li class="chapter" data-level="9" data-path="radar-chart.html"><a href="radar-chart.html"><i class="fa fa-check"></i><b>9</b> Radar Chart</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="color-in-r.html"><a href="color-in-r.html#basics-1"><i class="fa fa-check"></i><b>7.2.1</b> Basics</a></li>
-<li class="chapter" data-level="7.2.2" data-path="color-in-r.html"><a href="color-in-r.html#rcolorbrewer"><i class="fa fa-check"></i><b>7.2.2</b> RColorBrewer</a></li>
-<li class="chapter" data-level="7.2.3" data-path="color-in-r.html"><a href="color-in-r.html#viridis"><i class="fa fa-check"></i><b>7.2.3</b> Viridis</a></li>
-<li class="chapter" data-level="7.2.4" data-path="color-in-r.html"><a href="color-in-r.html#color-picker"><i class="fa fa-check"></i><b>7.2.4</b> Color Picker</a></li>
+<li class="chapter" data-level="9.1" data-path="radar-chart.html"><a href="radar-chart.html#introduction-of-radar-chart"><i class="fa fa-check"></i><b>9.1</b> Introduction of Radar Chart</a></li>
+<li class="chapter" data-level="9.2" data-path="radar-chart.html"><a href="radar-chart.html#basic-radar-chart"><i class="fa fa-check"></i><b>9.2</b> Basic Radar Chart</a></li>
+<li class="chapter" data-level="9.3" data-path="radar-chart.html"><a href="radar-chart.html#customize-radar-chart"><i class="fa fa-check"></i><b>9.3</b> Customize Radar Chart</a></li>
+<li class="chapter" data-level="9.4" data-path="radar-chart.html"><a href="radar-chart.html#radar-chart-with-several-individuals"><i class="fa fa-check"></i><b>9.4</b> Radar Chart with several individuals</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="radar-chart.html"><a href="radar-chart.html#basic-plot"><i class="fa fa-check"></i><b>9.4.1</b> basic plot</a></li>
+<li class="chapter" data-level="9.4.2" data-path="radar-chart.html"><a href="radar-chart.html#customize"><i class="fa fa-check"></i><b>9.4.2</b> customize</a></li>
+<li class="chapter" data-level="9.4.3" data-path="radar-chart.html"><a href="radar-chart.html#radar-vs.-bar-chart"><i class="fa fa-check"></i><b>9.4.3</b> Radar vs. Bar Chart</a></li>
+<li class="chapter" data-level="9.4.4" data-path="radar-chart.html"><a href="radar-chart.html#using-package-ggradar"><i class="fa fa-check"></i><b>9.4.4</b> Using package ‘ggradar’</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="color-in-r.html"><a href="color-in-r.html#continuous-colors"><i class="fa fa-check"></i><b>7.3</b> Continuous Colors</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="color-in-r.html"><a href="color-in-r.html#barplot"><i class="fa fa-check"></i><b>7.3.1</b> Barplot</a></li>
-<li class="chapter" data-level="7.3.2" data-path="color-in-r.html"><a href="color-in-r.html#heatmap"><i class="fa fa-check"></i><b>7.3.2</b> Heatmap</a></li>
-<li class="chapter" data-level="7.3.3" data-path="color-in-r.html"><a href="color-in-r.html#diverging-scales"><i class="fa fa-check"></i><b>7.3.3</b> Diverging Scales</a></li>
-<li class="chapter" data-level="7.3.4" data-path="color-in-r.html"><a href="color-in-r.html#colorblind"><i class="fa fa-check"></i><b>7.3.4</b> ColorBlind</a></li>
+<li class="chapter" data-level="9.5" data-path="radar-chart.html"><a href="radar-chart.html#reference"><i class="fa fa-check"></i><b>9.5</b> Reference</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="color-in-r.html"><a href="color-in-r.html#resources"><i class="fa fa-check"></i><b>7.4</b> Resources</a></li>
+<li class="part"><span><b>V Data Processing and Wrangling</b></span></li>
+<li class="chapter" data-level="10" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html"><i class="fa fa-check"></i><b>10</b> Data transformation in R</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#introduction-1"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#basics-1"><i class="fa fa-check"></i><b>10.2</b> Basics</a></li>
+<li class="chapter" data-level="10.3" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#function-usage-1"><i class="fa fa-check"></i><b>10.3</b> Function Usage</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#filter-1"><i class="fa fa-check"></i><b>10.3.1</b> 1. Filter( )</a></li>
+<li class="chapter" data-level="10.3.2" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#arrange-1"><i class="fa fa-check"></i><b>10.3.2</b> 2. Arrange( )</a></li>
+<li class="chapter" data-level="10.3.3" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#select-1"><i class="fa fa-check"></i><b>10.3.3</b> 3. Select( )</a></li>
+<li class="chapter" data-level="10.3.4" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#mutate-1"><i class="fa fa-check"></i><b>10.3.4</b> 4. Mutate( )</a></li>
+<li class="chapter" data-level="10.3.5" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#group_by-and-summarize-1"><i class="fa fa-check"></i><b>10.3.5</b> 5. Group_by( ) and Summarize( )</a></li>
 </ul></li>
-<li class="part"><span><b>IV Complete Analyses</b></span></li>
-<li class="chapter" data-level="8" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html"><i class="fa fa-check"></i><b>8</b> China choropleth map</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#overview-1"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
-<li class="chapter" data-level="8.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#data-collection"><i class="fa fa-check"></i><b>8.2</b> Data Collection</a></li>
-<li class="chapter" data-level="8.3" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#static-map-with-ggplot"><i class="fa fa-check"></i><b>8.3</b> Static Map with ggplot</a>
-<ul>
-<li class="chapter" data-level="8.3.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#prepare-the-shape-data-of-china"><i class="fa fa-check"></i><b>8.3.1</b> Prepare the shape data of China</a></li>
-<li class="chapter" data-level="8.3.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#plot"><i class="fa fa-check"></i><b>8.3.2</b> Plot:</a></li>
+<li class="chapter" data-level="10.4" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#quick-eda-median-arrival-delays-1"><i class="fa fa-check"></i><b>10.4</b> Quick EDA: median arrival delays</a></li>
+<li class="chapter" data-level="10.5" data-path="data-transformation-in-r-1.html"><a href="data-transformation-in-r-1.html#external-resource-1"><i class="fa fa-check"></i><b>10.5</b> External Resource</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-hchinamap"><i class="fa fa-check"></i><b>8.4</b> Interactive Map with hchinamap</a></li>
-<li class="chapter" data-level="8.5" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-leafletcn"><i class="fa fa-check"></i><b>8.5</b> Interactive Map with leafletCN</a></li>
-<li class="chapter" data-level="8.6" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#conclusion"><i class="fa fa-check"></i><b>8.6</b> Conclusion</a></li>
+<li class="chapter" data-level="11" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html"><i class="fa fa-check"></i><b>11</b> Data Preprocessing and Feature Engineering in R</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#overview-1"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#missing-values"><i class="fa fa-check"></i><b>11.2</b> Missing Values</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#exploring-the-dataset"><i class="fa fa-check"></i><b>11.2.1</b> Exploring the dataset</a></li>
+<li class="chapter" data-level="11.2.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#handling-missing-values-and-imputation"><i class="fa fa-check"></i><b>11.2.2</b> Handling Missing Values and Imputation</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="benfords-law-analysis-of-2020-election.html"><a href="benfords-law-analysis-of-2020-election.html"><i class="fa fa-check"></i><b>9</b> Benford’s Law Analysis of 2020 Election</a></li>
-<li class="part"><span><b>V Cheatsheets and Video Tutorials</b></span></li>
-<li class="chapter" data-level="10" data-path="mosaic-plot-cheatsheet.html"><a href="mosaic-plot-cheatsheet.html"><i class="fa fa-check"></i><b>10</b> Mosaic plot cheatsheet</a></li>
-<li class="chapter" data-level="11" data-path="time-series-cheatsheet.html"><a href="time-series-cheatsheet.html"><i class="fa fa-check"></i><b>11</b> Time Series Cheatsheet</a></li>
-<li class="part"><span><b>VI Live Tutorials</b></span></li>
-<li class="chapter" data-level="12" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>12</b> Tableau intro tutorial explained with proset2</a></li>
-<li class="chapter" data-level="13" data-path="solutioning-a-data-pipeline-for-visualization.html"><a href="solutioning-a-data-pipeline-for-visualization.html"><i class="fa fa-check"></i><b>13</b> Solutioning a Data pipeline for visualization</a></li>
-<li class="part"><span><b>VII Translations</b></span></li>
-<li class="chapter" data-level="14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>14</b> Chinese Translation of Candela Package</a>
+<li class="chapter" data-level="11.3" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#feature-selection"><i class="fa fa-check"></i><b>11.3</b> Feature Selection</a></li>
+<li class="chapter" data-level="11.4" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#dimentionality-reduction"><i class="fa fa-check"></i><b>11.4</b> Dimentionality Reduction</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>14.1</b> Candela</a>
-<ul>
-<li class="chapter" data-level="14.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>14.1.1</b> 开始</a></li>
-</ul></li>
-<li class="chapter" data-level="14.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>14.2</b> Candela 包使用</a>
-<ul>
-<li class="chapter" data-level="14.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>14.2.1</b> 安装</a></li>
-<li class="chapter" data-level="14.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>14.2.2</b> 版本控制</a></li>
-</ul></li>
-<li class="chapter" data-level="14.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>14.3</b> 组件</a>
-<ul>
-<li class="chapter" data-level="14.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>14.3.1</b> 条形图 (BarChart)</a></li>
-<li class="chapter" data-level="14.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>14.3.2</b> 箱线图 (BoxPlot)</a></li>
-<li class="chapter" data-level="14.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>14.3.3</b> 甘特图 (GanttChart)</a></li>
-<li class="chapter" data-level="14.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>14.3.4</b> 地理空间图 (Geo)</a></li>
-<li class="chapter" data-level="14.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>14.3.5</b> 地理点图(GeoDots)</a></li>
-<li class="chapter" data-level="14.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>14.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
-<li class="chapter" data-level="14.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>14.3.7</b> 直方图 (Histogram)</a></li>
-<li class="chapter" data-level="14.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>14.3.8</b> 折线图 (LineChart)</a></li>
-<li class="chapter" data-level="14.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>14.3.9</b> 排序图(Lineup)</a></li>
-<li class="chapter" data-level="14.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>14.3.10</b> OnSet组件 (OnSet)</a></li>
-<li class="chapter" data-level="14.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>14.3.11</b> 散点图 (ScatterPlot)</a></li>
-<li class="chapter" data-level="14.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>14.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
-<li class="chapter" data-level="14.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>14.3.13</b> 词树 (SentenTree)</a></li>
-<li class="chapter" data-level="14.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>14.3.14</b> 相似图 (SimilarityGraph)</a></li>
-<li class="chapter" data-level="14.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>14.3.15</b> 树状图(Tree Heatmap)</a></li>
-<li class="chapter" data-level="14.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>14.3.16</b> 集合可视化 (UpSet)</a></li>
-</ul></li>
-<li class="chapter" data-level="14.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>14.4</b> API文件</a>
-<ul>
-<li class="chapter" data-level="14.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>14.4.1</b> Candela JavaScript API</a></li>
-<li class="chapter" data-level="14.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>14.4.2</b> Candela Python API</a></li>
-<li class="chapter" data-level="14.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>14.4.3</b> Candela R API</a></li>
-</ul></li>
-<li class="chapter" data-level="14.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>14.5</b> 开发人员文件</a>
-<ul>
-<li class="chapter" data-level="14.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>14.5.1</b> 编码规范指南</a></li>
-<li class="chapter" data-level="14.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>14.5.2</b> 创建Candela代码发布</a></li>
-<li class="chapter" data-level="14.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>14.5.3</b> 测试</a></li>
+<li class="chapter" data-level="11.4.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>11.4.1</b> Principal Component Analysis (PCA)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>15</b> Greek translation of edav.info/histo</a>
+<li class="chapter" data-level="12" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html"><i class="fa fa-check"></i><b>12</b> Likert Scale: Definition, Examples, and Visualization</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>15.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
-<li class="chapter" data-level="15.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>15.2</b> Επισκόπηση</a></li>
-<li class="chapter" data-level="15.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>15.3</b> Σύνοψη</a></li>
-<li class="chapter" data-level="15.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>15.4</b> Simple examples</a>
+<li class="chapter" data-level="12.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#what-is-likert-scale"><i class="fa fa-check"></i><b>12.1</b> What is Likert Scale?</a></li>
+<li class="chapter" data-level="12.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#test-your-understanding-of-likert-scale"><i class="fa fa-check"></i><b>12.2</b> Test Your Understanding of Likert Scale</a></li>
+<li class="chapter" data-level="12.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#visualization-of-a-sample-likert-scale-data-explore-climate-change-in-the-american-mind"><i class="fa fa-check"></i><b>12.3</b> Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind</a>
 <ul>
-<li class="chapter" data-level="15.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>15.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
-<li class="chapter" data-level="15.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>15.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
+<li class="chapter" data-level="12.3.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#overview-of-the-data"><i class="fa fa-check"></i><b>12.3.1</b> Overview of the Data</a></li>
+<li class="chapter" data-level="12.3.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#stacked-bar-chart"><i class="fa fa-check"></i><b>12.3.2</b> Stacked Bar Chart</a></li>
+<li class="chapter" data-level="12.3.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#faceted-bar-charts"><i class="fa fa-check"></i><b>12.3.3</b> Faceted Bar Charts</a></li>
+<li class="chapter" data-level="12.3.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#diverging-stacked-bar-chart"><i class="fa fa-check"></i><b>12.3.4</b> Diverging Stacked Bar Chart</a></li>
 </ul></li>
-<li class="chapter" data-level="15.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>15.5</b> Θεωρία</a></li>
-<li class="chapter" data-level="15.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>15.6</b> Τύποι ιστογραμμάτων</a>
-<ul>
-<li class="chapter" data-level="15.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>15.6.1</b> Συχνότητα ή μέτρηση</a></li>
-<li class="chapter" data-level="15.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>15.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
-<li class="chapter" data-level="15.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>15.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
-<li class="chapter" data-level="15.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>15.6.4</b> Πυκνότητα</a></li>
+<li class="chapter" data-level="12.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#arguments-on-each-type-of-charts"><i class="fa fa-check"></i><b>12.4</b> Arguments on each type of charts</a></li>
+<li class="chapter" data-level="12.5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#reference-1"><i class="fa fa-check"></i><b>12.5</b> Reference</a></li>
 </ul></li>
-<li class="chapter" data-level="15.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>15.7</b> Παράμετροι</a>
+<li class="chapter" data-level="13" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html"><i class="fa fa-check"></i><b>13</b> A simple way to visualize geographic data</a>
 <ul>
-<li class="chapter" data-level="15.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>15.7.1</b> Όρια ζωνών</a></li>
-<li class="chapter" data-level="15.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>15.7.2</b> Αριθμός ζωνών</a></li>
-<li class="chapter" data-level="15.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>15.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+<li class="chapter" data-level="13.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#overview-2"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
+<li class="chapter" data-level="13.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#introduction-2"><i class="fa fa-check"></i><b>13.2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#load-packages"><i class="fa fa-check"></i><b>13.2.1</b> Load Packages</a></li>
+<li class="chapter" data-level="13.2.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarder-visualization"><i class="fa fa-check"></i><b>13.2.2</b> Boarder Visualization</a></li>
+<li class="chapter" data-level="13.2.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarders"><i class="fa fa-check"></i><b>13.2.3</b> Boarders</a></li>
+<li class="chapter" data-level="13.2.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#parts-of-the-map"><i class="fa fa-check"></i><b>13.2.4</b> Parts of the Map</a></li>
 </ul></li>
-<li class="chapter" data-level="15.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>15.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<li class="chapter" data-level="13.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#application"><i class="fa fa-check"></i><b>13.3</b> Application</a>
 <ul>
-<li class="chapter" data-level="15.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>15.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
-<li class="chapter" data-level="15.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>15.8.2</b> Παράδειγμα ΑΕΠ</a></li>
-<li class="chapter" data-level="15.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>15.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
-<li class="chapter" data-level="15.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>15.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
-<li class="chapter" data-level="15.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>15.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+<li class="chapter" data-level="13.3.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#data-collection-1"><i class="fa fa-check"></i><b>13.3.1</b> Data Collection</a></li>
+<li class="chapter" data-level="13.3.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#comparison"><i class="fa fa-check"></i><b>13.3.2</b> Comparison</a></li>
 </ul></li>
-<li class="chapter" data-level="15.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>15.9</b> Εξωτερικές πηγές</a></li>
+<li class="chapter" data-level="13.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#conclusion-1"><i class="fa fa-check"></i><b>13.4</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html"><i class="fa fa-check"></i><b>16</b> Korean translation of scatterplot</a>
+<li class="chapter" data-level="14" data-path="base-r-vs-ggplot2.html"><a href="base-r-vs-ggplot2.html"><i class="fa fa-check"></i><b>14</b> Base R vs. ggplot2</a></li>
+<li class="part"><span><b>VI Results Reporting</b></span></li>
+<li class="chapter" data-level="15" data-path="visualiztion-tools-in-real-work.html"><a href="visualiztion-tools-in-real-work.html"><i class="fa fa-check"></i><b>15</b> Visualiztion tools in real work</a></li>
+<li class="chapter" data-level="16" data-path="color-in-r.html"><a href="color-in-r.html"><i class="fa fa-check"></i><b>16</b> Color in R</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#개요"><i class="fa fa-check"></i><b>16.1</b> 개요</a></li>
-<li class="chapter" data-level="16.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#요약"><i class="fa fa-check"></i><b>16.2</b> 요약</a></li>
-<li class="chapter" data-level="16.3" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#간단한-예시"><i class="fa fa-check"></i><b>16.3</b> 간단한 예시</a>
+<li class="chapter" data-level="16.1" data-path="color-in-r.html"><a href="color-in-r.html#overview-3"><i class="fa fa-check"></i><b>16.1</b> Overview</a>
 <ul>
-<li class="chapter" data-level="16.3.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#base-r을-이용한-산점도"><i class="fa fa-check"></i><b>16.3.1</b> base R을 이용한 산점도</a></li>
-<li class="chapter" data-level="16.3.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#ggplot2를-이용한-산점도"><i class="fa fa-check"></i><b>16.3.2</b> ggplot2를 이용한 산점도</a></li>
+<li class="chapter" data-level="16.1.1" data-path="color-in-r.html"><a href="color-in-r.html#sections"><i class="fa fa-check"></i><b>16.1.1</b> Sections</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#이론"><i class="fa fa-check"></i><b>16.4</b> 이론</a></li>
-<li class="chapter" data-level="16.5" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#사용-시기"><i class="fa fa-check"></i><b>16.5</b> 사용 시기</a></li>
-<li class="chapter" data-level="16.6" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#고려-사항"><i class="fa fa-check"></i><b>16.6</b> 고려 사항</a>
+<li class="chapter" data-level="16.2" data-path="color-in-r.html"><a href="color-in-r.html#discrete-colors"><i class="fa fa-check"></i><b>16.2</b> Discrete Colors</a>
 <ul>
-<li class="chapter" data-level="16.6.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#겹치는-데이터"><i class="fa fa-check"></i><b>16.6.1</b> 겹치는 데이터</a></li>
-<li class="chapter" data-level="16.6.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#스케일링"><i class="fa fa-check"></i><b>16.6.2</b> 스케일링</a></li>
+<li class="chapter" data-level="16.2.1" data-path="color-in-r.html"><a href="color-in-r.html#basics-2"><i class="fa fa-check"></i><b>16.2.1</b> Basics</a></li>
+<li class="chapter" data-level="16.2.2" data-path="color-in-r.html"><a href="color-in-r.html#rcolorbrewer"><i class="fa fa-check"></i><b>16.2.2</b> RColorBrewer</a></li>
+<li class="chapter" data-level="16.2.3" data-path="color-in-r.html"><a href="color-in-r.html#viridis"><i class="fa fa-check"></i><b>16.2.3</b> Viridis</a></li>
+<li class="chapter" data-level="16.2.4" data-path="color-in-r.html"><a href="color-in-r.html#color-picker"><i class="fa fa-check"></i><b>16.2.4</b> Color Picker</a></li>
 </ul></li>
-<li class="chapter" data-level="16.7" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#변경"><i class="fa fa-check"></i><b>16.7</b> 변경</a>
+<li class="chapter" data-level="16.3" data-path="color-in-r.html"><a href="color-in-r.html#continuous-colors"><i class="fa fa-check"></i><b>16.3</b> Continuous Colors</a>
 <ul>
-<li class="chapter" data-level="16.7.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#등고선"><i class="fa fa-check"></i><b>16.7.1</b> 등고선</a></li>
-<li class="chapter" data-level="16.7.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#산점도-행렬"><i class="fa fa-check"></i><b>16.7.2</b> 산점도 행렬</a></li>
+<li class="chapter" data-level="16.3.1" data-path="color-in-r.html"><a href="color-in-r.html#barplot"><i class="fa fa-check"></i><b>16.3.1</b> Barplot</a></li>
+<li class="chapter" data-level="16.3.2" data-path="color-in-r.html"><a href="color-in-r.html#heatmap"><i class="fa fa-check"></i><b>16.3.2</b> Heatmap</a></li>
+<li class="chapter" data-level="16.3.3" data-path="color-in-r.html"><a href="color-in-r.html#diverging-scales"><i class="fa fa-check"></i><b>16.3.3</b> Diverging Scales</a></li>
+<li class="chapter" data-level="16.3.4" data-path="color-in-r.html"><a href="color-in-r.html#colorblind"><i class="fa fa-check"></i><b>16.3.4</b> ColorBlind</a></li>
 </ul></li>
-<li class="chapter" data-level="16.8" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#추가-자료"><i class="fa fa-check"></i><b>16.8</b> 추가 자료</a></li>
+<li class="chapter" data-level="16.4" data-path="color-in-r.html"><a href="color-in-r.html#resources"><i class="fa fa-check"></i><b>16.4</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><i class="fa fa-check"></i><b>17</b> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</a>
+<li class="chapter" data-level="17" data-path="benfords-law-analysis-of-2020-election.html"><a href="benfords-law-analysis-of-2020-election.html"><i class="fa fa-check"></i><b>17</b> Benford’s Law Analysis of 2020 Election</a></li>
+<li class="part"><span><b>VII Cheatsheets and Video Tutorials</b></span></li>
+<li class="chapter" data-level="18" data-path="mosaic-plot-cheatsheet.html"><a href="mosaic-plot-cheatsheet.html"><i class="fa fa-check"></i><b>18</b> Mosaic plot cheatsheet</a></li>
+<li class="chapter" data-level="19" data-path="time-series-cheatsheet.html"><a href="time-series-cheatsheet.html"><i class="fa fa-check"></i><b>19</b> Time Series Cheatsheet</a></li>
+<li class="chapter" data-level="20" data-path="python-vs-r-cheatsheet.html"><a href="python-vs-r-cheatsheet.html"><i class="fa fa-check"></i><b>20</b> Python vs. R Cheatsheet</a></li>
+<li class="part"><span><b>VIII Live Tutorials</b></span></li>
+<li class="chapter" data-level="21" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>21</b> Tableau intro tutorial explained with proset2</a></li>
+<li class="chapter" data-level="22" data-path="solutioning-a-data-pipeline-for-visualization.html"><a href="solutioning-a-data-pipeline-for-visualization.html"><i class="fa fa-check"></i><b>22</b> Solutioning a Data pipeline for visualization</a></li>
+<li class="chapter" data-level="23" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html"><i class="fa fa-check"></i><b>23</b> Some techniques for label setting</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#概述"><i class="fa fa-check"></i><b>17.1</b> 1. 概述</a>
+<li class="chapter" data-level="23.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#label-placement"><i class="fa fa-check"></i><b>23.1</b> 1. Label placement</a>
 <ul>
-<li><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#什么是r-markdown"><span class="toc-section-number">17.1.1</span> 1.1 什么是R Markdown？<br />
+<li class="chapter" data-level="23.1.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-1-adjusting-parameters-in-geom_text-like-hjust-vjust-nudge_x-and-nudge_y"><i class="fa fa-check"></i><b>23.1.1</b> Tip 1: Adjusting parameters in geom_text like hjust, vjust, nudge_x and nudge_y</a></li>
+<li class="chapter" data-level="23.1.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-2-ggrepel"><i class="fa fa-check"></i><b>23.1.2</b> Tip 2: ggrepel</a></li>
+<li class="chapter" data-level="23.1.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-3-directlabels"><i class="fa fa-check"></i><b>23.1.3</b> Tip 3: directlabels</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#auto-wrapping-of-long-labels-on-axis"><i class="fa fa-check"></i><b>23.2</b> 2. Auto wrapping of long labels on axis</a></li>
+<li class="chapter" data-level="23.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#add-shadow-effect-to-labels"><i class="fa fa-check"></i><b>23.3</b> 3. Add shadow effect to labels</a></li>
+</ul></li>
+<li class="part"><span><b>IX Translations</b></span></li>
+<li class="chapter" data-level="24" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>24</b> Chinese Translation of Candela Package</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>24.1</b> Candela</a>
+<ul>
+<li class="chapter" data-level="24.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>24.1.1</b> 开始</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>24.2</b> Candela 包使用</a>
+<ul>
+<li class="chapter" data-level="24.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>24.2.1</b> 安装</a></li>
+<li class="chapter" data-level="24.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>24.2.2</b> 版本控制</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>24.3</b> 组件</a>
+<ul>
+<li class="chapter" data-level="24.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>24.3.1</b> 条形图 (BarChart)</a></li>
+<li class="chapter" data-level="24.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>24.3.2</b> 箱线图 (BoxPlot)</a></li>
+<li class="chapter" data-level="24.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>24.3.3</b> 甘特图 (GanttChart)</a></li>
+<li class="chapter" data-level="24.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>24.3.4</b> 地理空间图 (Geo)</a></li>
+<li class="chapter" data-level="24.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>24.3.5</b> 地理点图(GeoDots)</a></li>
+<li class="chapter" data-level="24.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>24.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
+<li class="chapter" data-level="24.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>24.3.7</b> 直方图 (Histogram)</a></li>
+<li class="chapter" data-level="24.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>24.3.8</b> 折线图 (LineChart)</a></li>
+<li class="chapter" data-level="24.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>24.3.9</b> 排序图(Lineup)</a></li>
+<li class="chapter" data-level="24.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>24.3.10</b> OnSet组件 (OnSet)</a></li>
+<li class="chapter" data-level="24.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>24.3.11</b> 散点图 (ScatterPlot)</a></li>
+<li class="chapter" data-level="24.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>24.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
+<li class="chapter" data-level="24.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>24.3.13</b> 词树 (SentenTree)</a></li>
+<li class="chapter" data-level="24.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>24.3.14</b> 相似图 (SimilarityGraph)</a></li>
+<li class="chapter" data-level="24.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>24.3.15</b> 树状图(Tree Heatmap)</a></li>
+<li class="chapter" data-level="24.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>24.3.16</b> 集合可视化 (UpSet)</a></li>
+</ul></li>
+<li class="chapter" data-level="24.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>24.4</b> API文件</a>
+<ul>
+<li class="chapter" data-level="24.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>24.4.1</b> Candela JavaScript API</a></li>
+<li class="chapter" data-level="24.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>24.4.2</b> Candela Python API</a></li>
+<li class="chapter" data-level="24.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>24.4.3</b> Candela R API</a></li>
+</ul></li>
+<li class="chapter" data-level="24.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>24.5</b> 开发人员文件</a>
+<ul>
+<li class="chapter" data-level="24.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>24.5.1</b> 编码规范指南</a></li>
+<li class="chapter" data-level="24.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>24.5.2</b> 创建Candela代码发布</a></li>
+<li class="chapter" data-level="24.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>24.5.3</b> 测试</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>25</b> Greek translation of edav.info/histo</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>25.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
+<li class="chapter" data-level="25.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>25.2</b> Επισκόπηση</a></li>
+<li class="chapter" data-level="25.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>25.3</b> Σύνοψη</a></li>
+<li class="chapter" data-level="25.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>25.4</b> Simple examples</a>
+<ul>
+<li class="chapter" data-level="25.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>25.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
+<li class="chapter" data-level="25.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>25.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="25.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>25.5</b> Θεωρία</a></li>
+<li class="chapter" data-level="25.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>25.6</b> Τύποι ιστογραμμάτων</a>
+<ul>
+<li class="chapter" data-level="25.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>25.6.1</b> Συχνότητα ή μέτρηση</a></li>
+<li class="chapter" data-level="25.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>25.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
+<li class="chapter" data-level="25.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>25.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
+<li class="chapter" data-level="25.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>25.6.4</b> Πυκνότητα</a></li>
+</ul></li>
+<li class="chapter" data-level="25.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>25.7</b> Παράμετροι</a>
+<ul>
+<li class="chapter" data-level="25.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>25.7.1</b> Όρια ζωνών</a></li>
+<li class="chapter" data-level="25.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>25.7.2</b> Αριθμός ζωνών</a></li>
+<li class="chapter" data-level="25.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>25.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+</ul></li>
+<li class="chapter" data-level="25.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>25.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<ul>
+<li class="chapter" data-level="25.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>25.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
+<li class="chapter" data-level="25.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>25.8.2</b> Παράδειγμα ΑΕΠ</a></li>
+<li class="chapter" data-level="25.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>25.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
+<li class="chapter" data-level="25.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>25.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
+<li class="chapter" data-level="25.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>25.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+</ul></li>
+<li class="chapter" data-level="25.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>25.9</b> Εξωτερικές πηγές</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html"><i class="fa fa-check"></i><b>26</b> Korean translation of scatterplot</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#개요"><i class="fa fa-check"></i><b>26.1</b> 개요</a></li>
+<li class="chapter" data-level="26.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#요약"><i class="fa fa-check"></i><b>26.2</b> 요약</a></li>
+<li class="chapter" data-level="26.3" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#간단한-예시"><i class="fa fa-check"></i><b>26.3</b> 간단한 예시</a>
+<ul>
+<li class="chapter" data-level="26.3.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#base-r을-이용한-산점도"><i class="fa fa-check"></i><b>26.3.1</b> base R을 이용한 산점도</a></li>
+<li class="chapter" data-level="26.3.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#ggplot2를-이용한-산점도"><i class="fa fa-check"></i><b>26.3.2</b> ggplot2를 이용한 산점도</a></li>
+</ul></li>
+<li class="chapter" data-level="26.4" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#이론"><i class="fa fa-check"></i><b>26.4</b> 이론</a></li>
+<li class="chapter" data-level="26.5" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#사용-시기"><i class="fa fa-check"></i><b>26.5</b> 사용 시기</a></li>
+<li class="chapter" data-level="26.6" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#고려-사항"><i class="fa fa-check"></i><b>26.6</b> 고려 사항</a>
+<ul>
+<li class="chapter" data-level="26.6.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#겹치는-데이터"><i class="fa fa-check"></i><b>26.6.1</b> 겹치는 데이터</a></li>
+<li class="chapter" data-level="26.6.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#스케일링"><i class="fa fa-check"></i><b>26.6.2</b> 스케일링</a></li>
+</ul></li>
+<li class="chapter" data-level="26.7" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#변경"><i class="fa fa-check"></i><b>26.7</b> 변경</a>
+<ul>
+<li class="chapter" data-level="26.7.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#등고선"><i class="fa fa-check"></i><b>26.7.1</b> 등고선</a></li>
+<li class="chapter" data-level="26.7.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#산점도-행렬"><i class="fa fa-check"></i><b>26.7.2</b> 산점도 행렬</a></li>
+</ul></li>
+<li class="chapter" data-level="26.8" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#추가-자료"><i class="fa fa-check"></i><b>26.8</b> 추가 자료</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><i class="fa fa-check"></i><b>27</b> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#概述"><i class="fa fa-check"></i><b>27.1</b> 1. 概述</a>
+<ul>
+<li><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#什么是r-markdown"><span class="toc-section-number">27.1.1</span> 1.1 什么是R Markdown？<br />
 </a></li>
-<li class="chapter" data-level="17.1.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#工作流程"><i class="fa fa-check"></i><b>17.1.2</b> 1.2 工作流程</a></li>
+<li class="chapter" data-level="27.1.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#工作流程"><i class="fa fa-check"></i><b>27.1.2</b> 1.2 工作流程</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#入门"><i class="fa fa-check"></i><b>17.2</b> 2. 入门</a>
+<li class="chapter" data-level="27.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#入门"><i class="fa fa-check"></i><b>27.2</b> 2. 入门</a>
 <ul>
-<li class="chapter" data-level="17.2.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#安装套件"><i class="fa fa-check"></i><b>17.2.1</b> 2.1. 安装套件</a></li>
-<li class="chapter" data-level="17.2.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#打开文件"><i class="fa fa-check"></i><b>17.2.2</b> 2.2.打开文件</a></li>
-<li class="chapter" data-level="17.2.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#输出格式"><i class="fa fa-check"></i><b>17.2.3</b> 2.3. 输出格式</a></li>
+<li class="chapter" data-level="27.2.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#安装套件"><i class="fa fa-check"></i><b>27.2.1</b> 2.1. 安装套件</a></li>
+<li class="chapter" data-level="27.2.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#打开文件"><i class="fa fa-check"></i><b>27.2.2</b> 2.2.打开文件</a></li>
+<li class="chapter" data-level="27.2.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#输出格式"><i class="fa fa-check"></i><b>27.2.3</b> 2.3. 输出格式</a></li>
 </ul></li>
-<li class="chapter" data-level="17.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#markdown语法"><i class="fa fa-check"></i><b>17.3</b> 3. Markdown语法</a></li>
-<li class="chapter" data-level="17.4" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#嵌入代码"><i class="fa fa-check"></i><b>17.4</b> 4. 嵌入代码</a>
+<li class="chapter" data-level="27.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#markdown语法"><i class="fa fa-check"></i><b>27.3</b> 3. Markdown语法</a></li>
+<li class="chapter" data-level="27.4" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#嵌入代码"><i class="fa fa-check"></i><b>27.4</b> 4. 嵌入代码</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#内联代码"><i class="fa fa-check"></i><b>17.4.1</b> 4.1. 内联代码</a></li>
-<li class="chapter" data-level="17.4.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#代码块"><i class="fa fa-check"></i><b>17.4.2</b> 4.2. 代码块</a></li>
-<li class="chapter" data-level="17.4.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#显示选项"><i class="fa fa-check"></i><b>17.4.3</b> 4.3. 显示选项</a></li>
+<li class="chapter" data-level="27.4.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#内联代码"><i class="fa fa-check"></i><b>27.4.1</b> 4.1. 内联代码</a></li>
+<li class="chapter" data-level="27.4.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#代码块"><i class="fa fa-check"></i><b>27.4.2</b> 4.2. 代码块</a></li>
+<li class="chapter" data-level="27.4.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#显示选项"><i class="fa fa-check"></i><b>27.4.3</b> 4.3. 显示选项</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#渲染"><i class="fa fa-check"></i><b>17.5</b> 5. 渲染</a></li>
+<li class="chapter" data-level="27.5" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#渲染"><i class="fa fa-check"></i><b>27.5</b> 5. 渲染</a></li>
 </ul></li>
-<li class="part"><span><b>VIII Other Topics</b></span></li>
-<li class="chapter" data-level="18" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html"><i class="fa fa-check"></i><b>18</b> Webscraping Dynamic Content: Rselenium Tutorial</a>
+<li class="chapter" data-level="28" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html"><i class="fa fa-check"></i><b>28</b> Brief Introduction and Tutorial of ggpubr Package</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#introduction-and-setup"><i class="fa fa-check"></i><b>18.1</b> Introduction and Setup</a></li>
-<li class="chapter" data-level="18.2" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#simple-illustrations-with-websites"><i class="fa fa-check"></i><b>18.2</b> Simple Illustrations with Websites</a></li>
-<li class="chapter" data-level="18.3" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#other-features"><i class="fa fa-check"></i><b>18.3</b> Other Features</a></li>
+<li class="chapter" data-level="28.1" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#installation-and-loading"><i class="fa fa-check"></i><b>28.1</b> Installation and loading</a></li>
+<li class="chapter" data-level="28.2" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#introduction-3"><i class="fa fa-check"></i><b>28.2</b> Introduction</a></li>
+<li class="chapter" data-level="28.3" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#histogram"><i class="fa fa-check"></i><b>28.3</b> Histogram</a></li>
+<li class="chapter" data-level="28.4" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#density-plot"><i class="fa fa-check"></i><b>28.4</b> Density plot</a></li>
+<li class="chapter" data-level="28.5" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#box-plot"><i class="fa fa-check"></i><b>28.5</b> Box plot</a></li>
+<li class="chapter" data-level="28.6" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#violin-plot"><i class="fa fa-check"></i><b>28.6</b> Violin plot</a></li>
+<li class="chapter" data-level="28.7" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#bar-plot"><i class="fa fa-check"></i><b>28.7</b> Bar plot</a></li>
+<li class="chapter" data-level="28.8" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#lollipop-chart"><i class="fa fa-check"></i><b>28.8</b> Lollipop Chart</a></li>
+<li class="chapter" data-level="28.9" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#cleveland-dot-plot"><i class="fa fa-check"></i><b>28.9</b> Cleveland dot plot</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="a-brief-introduction-to-seaborn.html"><a href="a-brief-introduction-to-seaborn.html"><i class="fa fa-check"></i><b>19</b> A brief introduction to seaborn</a></li>
-<li class="chapter" data-level="20" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html"><i class="fa fa-check"></i><b>20</b> Health datasets for the final project</a>
+<li class="chapter" data-level="29" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html"><i class="fa fa-check"></i><b>29</b> Visualization of geographical maps</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#big-cities-health-inventory-data"><i class="fa fa-check"></i><b>20.1</b> Big Cities Health Inventory Data</a></li>
-<li class="chapter" data-level="20.2" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#mhealth-dataset"><i class="fa fa-check"></i><b>20.2</b> MHealth Dataset</a></li>
-<li class="chapter" data-level="20.3" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#human-mortality-database-hmd"><i class="fa fa-check"></i><b>20.3</b> Human Mortality Database (HMD)</a></li>
-<li class="chapter" data-level="20.4" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#seer-cancer-incidence"><i class="fa fa-check"></i><b>20.4</b> SEER Cancer Incidence</a></li>
-<li class="chapter" data-level="20.5" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#unicef-data-warehouse"><i class="fa fa-check"></i><b>20.5</b> UNICEF Data Warehouse</a></li>
+<li class="chapter" data-level="29.0.1" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#what-is-map-visualization"><i class="fa fa-check"></i><b>29.0.1</b> 1. What is map visualization</a></li>
+<li class="chapter" data-level="29.0.2" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#how-to-draw-a-map-in-r"><i class="fa fa-check"></i><b>29.0.2</b> 2. How to draw a map in R</a></li>
+<li class="chapter" data-level="29.0.3" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#tmap"><i class="fa fa-check"></i><b>29.0.3</b> 3. tmap</a></li>
+<li class="chapter" data-level="29.0.4" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#optional-watching-create-your-own-sf-object"><i class="fa fa-check"></i><b>29.0.4</b> 4.Optional watching: create your own sf object</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><i class="fa fa-check"></i><b>21</b> Laying out multiple plots for Baseplot and ggplot</a>
+<li class="chapter" data-level="30" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html"><i class="fa fa-check"></i><b>30</b> Health datasets for the final project</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#overview-2"><i class="fa fa-check"></i><b>21.1</b> Overview</a></li>
-<li class="chapter" data-level="21.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#most-easy-and-normal-form-par"><i class="fa fa-check"></i><b>21.2</b> Most easy and normal form <code>par()</code></a></li>
-<li class="chapter" data-level="21.3" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#complex-plot-layouts-with-layout"><i class="fa fa-check"></i><b>21.3</b> Complex plot layouts with <code>layout()</code></a></li>
-<li class="chapter" data-level="21.4" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#layout-for-ggplot"><i class="fa fa-check"></i><b>21.4</b> Layout for ggplot</a>
-<ul>
-<li class="chapter" data-level="21.4.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#grid.arrange-in-gridextra"><i class="fa fa-check"></i><b>21.4.1</b> <code>grid.arrange()</code> in <code>gridExtra</code></a></li>
-<li class="chapter" data-level="21.4.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#method-in-grid"><i class="fa fa-check"></i><b>21.4.2</b> method in <code>grid</code></a></li>
+<li class="chapter" data-level="30.1" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#big-cities-health-inventory-data"><i class="fa fa-check"></i><b>30.1</b> Big Cities Health Inventory Data</a></li>
+<li class="chapter" data-level="30.2" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#mhealth-dataset"><i class="fa fa-check"></i><b>30.2</b> MHealth Dataset</a></li>
+<li class="chapter" data-level="30.3" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#human-mortality-database-hmd"><i class="fa fa-check"></i><b>30.3</b> Human Mortality Database (HMD)</a></li>
+<li class="chapter" data-level="30.4" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#seer-cancer-incidence"><i class="fa fa-check"></i><b>30.4</b> SEER Cancer Incidence</a></li>
+<li class="chapter" data-level="30.5" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#unicef-data-warehouse"><i class="fa fa-check"></i><b>30.5</b> UNICEF Data Warehouse</a></li>
 </ul></li>
-<li class="chapter" data-level="21.5" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#reference-1"><i class="fa fa-check"></i><b>21.5</b> Reference</a></li>
+<li class="chapter" data-level="31" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><i class="fa fa-check"></i><b>31</b> Laying out multiple plots for Baseplot and ggplot</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#overview-4"><i class="fa fa-check"></i><b>31.1</b> Overview</a></li>
+<li class="chapter" data-level="31.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#most-easy-and-normal-form-par"><i class="fa fa-check"></i><b>31.2</b> Most easy and normal form <code>par()</code></a></li>
+<li class="chapter" data-level="31.3" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#complex-plot-layouts-with-layout"><i class="fa fa-check"></i><b>31.3</b> Complex plot layouts with <code>layout()</code></a></li>
+<li class="chapter" data-level="31.4" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#layout-for-ggplot"><i class="fa fa-check"></i><b>31.4</b> Layout for ggplot</a>
+<ul>
+<li class="chapter" data-level="31.4.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#grid.arrange-in-gridextra"><i class="fa fa-check"></i><b>31.4.1</b> <code>grid.arrange()</code> in <code>gridExtra</code></a></li>
+<li class="chapter" data-level="31.4.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#method-in-grid"><i class="fa fa-check"></i><b>31.4.2</b> method in <code>grid</code></a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><i class="fa fa-check"></i><b>22</b> A basic Introduction to Markov Chain Monte Carlo Method in R</a>
-<ul>
-<li class="chapter" data-level="22.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#introduction-1"><i class="fa fa-check"></i><b>22.1</b> 1. Introduction</a></li>
-<li class="chapter" data-level="22.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#markov-chain-simulation-method"><i class="fa fa-check"></i><b>22.2</b> 2. Markov Chain Simulation Method</a></li>
-<li class="chapter" data-level="22.3" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#acceptance-rejection-sampling"><i class="fa fa-check"></i><b>22.3</b> 3. Acceptance-Rejection Sampling</a></li>
-<li class="chapter" data-level="22.4" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-markov-chain"><i class="fa fa-check"></i><b>22.4</b> 4. Sampling from Markov Chain</a></li>
-<li class="chapter" data-level="22.5" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#mcmc-sampling-method"><i class="fa fa-check"></i><b>22.5</b> 5. MCMC Sampling Method</a></li>
-<li class="chapter" data-level="22.6" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#metropolis-hastings-sampling"><i class="fa fa-check"></i><b>22.6</b> 6. Metropolis-Hastings Sampling</a></li>
-<li class="chapter" data-level="22.7" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#implementation-in-r"><i class="fa fa-check"></i><b>22.7</b> 7. Implementation in R</a>
-<ul>
-<li class="chapter" data-level="22.7.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-an-exponential-distribution"><i class="fa fa-check"></i><b>22.7.1</b> 1. Sampling from an exponential distribution</a></li>
-<li class="chapter" data-level="22.7.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-a-normal-distribution"><i class="fa fa-check"></i><b>22.7.2</b> 2. Sampling from a normal distribution</a></li>
+<li class="chapter" data-level="31.5" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#reference-2"><i class="fa fa-check"></i><b>31.5</b> Reference</a></li>
 </ul></li>
-<li class="chapter" data-level="22.8" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#refenence"><i class="fa fa-check"></i><b>22.8</b> 8 Refenence</a></li>
+<li class="chapter" data-level="32" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><i class="fa fa-check"></i><b>32</b> A basic Introduction to Markov Chain Monte Carlo Method in R</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#introduction-4"><i class="fa fa-check"></i><b>32.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="32.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#markov-chain-simulation-method"><i class="fa fa-check"></i><b>32.2</b> 2. Markov Chain Simulation Method</a></li>
+<li class="chapter" data-level="32.3" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#acceptance-rejection-sampling"><i class="fa fa-check"></i><b>32.3</b> 3. Acceptance-Rejection Sampling</a></li>
+<li class="chapter" data-level="32.4" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-markov-chain"><i class="fa fa-check"></i><b>32.4</b> 4. Sampling from Markov Chain</a></li>
+<li class="chapter" data-level="32.5" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#mcmc-sampling-method"><i class="fa fa-check"></i><b>32.5</b> 5. MCMC Sampling Method</a></li>
+<li class="chapter" data-level="32.6" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#metropolis-hastings-sampling"><i class="fa fa-check"></i><b>32.6</b> 6. Metropolis-Hastings Sampling</a></li>
+<li class="chapter" data-level="32.7" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#implementation-in-r"><i class="fa fa-check"></i><b>32.7</b> 7. Implementation in R</a>
+<ul>
+<li class="chapter" data-level="32.7.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-an-exponential-distribution"><i class="fa fa-check"></i><b>32.7.1</b> 1. Sampling from an exponential distribution</a></li>
+<li class="chapter" data-level="32.7.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-a-normal-distribution"><i class="fa fa-check"></i><b>32.7.2</b> 2. Sampling from a normal distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html"><i class="fa fa-check"></i><b>23</b> automate eda with dataexplorer</a>
-<ul>
-<li class="chapter" data-level="23.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overview-3"><i class="fa fa-check"></i><b>23.1</b> Overview</a></li>
-<li class="chapter" data-level="23.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dataexplorer"><i class="fa fa-check"></i><b>23.2</b> DataExplorer</a></li>
-<li class="chapter" data-level="23.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#installation"><i class="fa fa-check"></i><b>23.3</b> Installation</a></li>
-<li class="chapter" data-level="23.4" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>23.4</b> Exploratory data analysis (EDA)</a>
-<ul>
-<li class="chapter" data-level="23.4.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overall-information"><i class="fa fa-check"></i><b>23.4.1</b> Overall Information</a></li>
-<li class="chapter" data-level="23.4.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#distribution"><i class="fa fa-check"></i><b>23.4.2</b> Distribution</a></li>
-<li class="chapter" data-level="23.4.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#correlation-analysis"><i class="fa fa-check"></i><b>23.4.3</b> Correlation Analysis</a></li>
+<li class="chapter" data-level="32.8" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#refenence"><i class="fa fa-check"></i><b>32.8</b> 8 Refenence</a></li>
 </ul></li>
-<li class="chapter" data-level="23.5" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#feature-engineering"><i class="fa fa-check"></i><b>23.5</b> Feature Engineering</a>
+<li class="chapter" data-level="33" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html"><i class="fa fa-check"></i><b>33</b> automate eda with dataexplorer</a>
 <ul>
-<li class="chapter" data-level="23.5.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#missing-value"><i class="fa fa-check"></i><b>23.5.1</b> Missing value</a></li>
-<li class="chapter" data-level="23.5.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dummy-variable"><i class="fa fa-check"></i><b>23.5.2</b> Dummy variable</a></li>
+<li class="chapter" data-level="33.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overview-5"><i class="fa fa-check"></i><b>33.1</b> Overview</a></li>
+<li class="chapter" data-level="33.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dataexplorer"><i class="fa fa-check"></i><b>33.2</b> DataExplorer</a></li>
+<li class="chapter" data-level="33.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#installation"><i class="fa fa-check"></i><b>33.3</b> Installation</a></li>
+<li class="chapter" data-level="33.4" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>33.4</b> Exploratory data analysis (EDA)</a>
+<ul>
+<li class="chapter" data-level="33.4.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overall-information"><i class="fa fa-check"></i><b>33.4.1</b> Overall Information</a></li>
+<li class="chapter" data-level="33.4.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#distribution"><i class="fa fa-check"></i><b>33.4.2</b> Distribution</a></li>
+<li class="chapter" data-level="33.4.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#correlation-analysis"><i class="fa fa-check"></i><b>33.4.3</b> Correlation Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="23.6" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#data-report"><i class="fa fa-check"></i><b>23.6</b> Data Report</a></li>
-<li class="chapter" data-level="23.7" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#external-resources"><i class="fa fa-check"></i><b>23.7</b> External Resources</a></li>
+<li class="chapter" data-level="33.5" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#feature-engineering"><i class="fa fa-check"></i><b>33.5</b> Feature Engineering</a>
+<ul>
+<li class="chapter" data-level="33.5.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#missing-value"><i class="fa fa-check"></i><b>33.5.1</b> Missing value</a></li>
+<li class="chapter" data-level="33.5.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dummy-variable"><i class="fa fa-check"></i><b>33.5.2</b> Dummy variable</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html"><i class="fa fa-check"></i><b>24</b> Speed up in r programming</a>
-<ul>
-<li class="chapter" data-level="24.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#typical-development-cycle-for-computational-statistics"><i class="fa fa-check"></i><b>24.1</b> Typical development cycle for computational statistics</a></li>
-<li class="chapter" data-level="24.2" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#bytecode-compilation"><i class="fa fa-check"></i><b>24.2</b> Bytecode compilation</a>
-<ul>
-<li class="chapter" data-level="24.2.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#example-summing-a-vector"><i class="fa fa-check"></i><b>24.2.1</b> Example: summing a vector</a></li>
+<li class="chapter" data-level="33.6" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#data-report"><i class="fa fa-check"></i><b>33.6</b> Data Report</a></li>
+<li class="chapter" data-level="33.7" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#external-resources"><i class="fa fa-check"></i><b>33.7</b> External Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#rcpp"><i class="fa fa-check"></i><b>24.3</b> Rcpp</a>
+<li class="chapter" data-level="34" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html"><i class="fa fa-check"></i><b>34</b> Speed up in r programming</a>
 <ul>
-<li class="chapter" data-level="24.3.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#use-cppfunction"><i class="fa fa-check"></i><b>24.3.1</b> Use <code>cppFunction</code></a></li>
+<li class="chapter" data-level="34.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#typical-development-cycle-for-computational-statistics"><i class="fa fa-check"></i><b>34.1</b> Typical development cycle for computational statistics</a></li>
+<li class="chapter" data-level="34.2" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#bytecode-compilation"><i class="fa fa-check"></i><b>34.2</b> Bytecode compilation</a>
+<ul>
+<li class="chapter" data-level="34.2.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#example-summing-a-vector"><i class="fa fa-check"></i><b>34.2.1</b> Example: summing a vector</a></li>
 </ul></li>
-<li class="chapter" data-level="24.4" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#parallel-computing"><i class="fa fa-check"></i><b>24.4</b> Parallel computing</a>
+<li class="chapter" data-level="34.3" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#rcpp"><i class="fa fa-check"></i><b>34.3</b> Rcpp</a>
 <ul>
-<li class="chapter" data-level="24.4.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#simulation-example"><i class="fa fa-check"></i><b>24.4.1</b> Simulation example</a></li>
+<li class="chapter" data-level="34.3.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#use-cppfunction"><i class="fa fa-check"></i><b>34.3.1</b> Use <code>cppFunction</code></a></li>
 </ul></li>
-<li class="chapter" data-level="24.5" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#package-development"><i class="fa fa-check"></i><b>24.5</b> Package development</a></li>
+<li class="chapter" data-level="34.4" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#parallel-computing"><i class="fa fa-check"></i><b>34.4</b> Parallel computing</a>
+<ul>
+<li class="chapter" data-level="34.4.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#simulation-example"><i class="fa fa-check"></i><b>34.4.1</b> Simulation example</a></li>
 </ul></li>
-<li class="part"><span><b>IX Appendices</b></span></li>
-<li class="chapter" data-level="25" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>25</b> Github Initial Setup</a></li>
-<li class="chapter" data-level="26" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html"><i class="fa fa-check"></i><b>26</b> Tutorial for Pull Request Mergers</a>
-<ul>
-<li class="chapter" data-level="26.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-branch"><i class="fa fa-check"></i><b>26.1</b> Check branch</a></li>
-<li class="chapter" data-level="26.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file"><i class="fa fa-check"></i><b>26.2</b> Check <code>.Rmd</code> file</a>
-<ul>
-<li class="chapter" data-level="26.2.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#examine-files-that-were-added-or-modified"><i class="fa fa-check"></i><b>26.2.1</b> Examine files that were added or modified</a></li>
-<li class="chapter" data-level="26.2.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file-1"><i class="fa fa-check"></i><b>26.2.2</b> Check <code>.Rmd</code> file</a></li>
-<li class="chapter" data-level="26.2.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-additional-resources"><i class="fa fa-check"></i><b>26.2.3</b> Check additional resources</a></li>
-<li class="chapter" data-level="26.2.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#request-a-change-if-.rmd-file-is-invalid"><i class="fa fa-check"></i><b>26.2.4</b> Request a change if <code>.Rmd</code> file is invalid</a></li>
+<li class="chapter" data-level="34.5" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#package-development"><i class="fa fa-check"></i><b>34.5</b> Package development</a></li>
 </ul></li>
-<li class="chapter" data-level="26.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#update-_bookdown.yml"><i class="fa fa-check"></i><b>26.3</b> Update <code>_bookdown.yml</code></a>
+<li class="part"><span><b>X Appendices</b></span></li>
+<li class="chapter" data-level="35" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>35</b> Github Initial Setup</a></li>
+<li class="chapter" data-level="36" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html"><i class="fa fa-check"></i><b>36</b> Tutorial for Pull Request Mergers</a>
 <ul>
-<li class="chapter" data-level="26.3.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-files-names-to-_bookdown.yml-in-prs-branch"><i class="fa fa-check"></i><b>26.3.1</b> Add files names to <code>_bookdown.yml</code> in PR’s <code>branch</code></a></li>
-<li class="chapter" data-level="26.3.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization"><i class="fa fa-check"></i><b>26.3.2</b> Add chapter names to <code>.Rmd</code> for every first article in each chapter (Chapter Organization)</a></li>
+<li class="chapter" data-level="36.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-branch"><i class="fa fa-check"></i><b>36.1</b> Check branch</a></li>
+<li class="chapter" data-level="36.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file"><i class="fa fa-check"></i><b>36.2</b> Check <code>.Rmd</code> file</a>
+<ul>
+<li class="chapter" data-level="36.2.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#examine-files-that-were-added-or-modified"><i class="fa fa-check"></i><b>36.2.1</b> Examine files that were added or modified</a></li>
+<li class="chapter" data-level="36.2.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file-1"><i class="fa fa-check"></i><b>36.2.2</b> Check <code>.Rmd</code> file</a></li>
+<li class="chapter" data-level="36.2.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-additional-resources"><i class="fa fa-check"></i><b>36.2.3</b> Check additional resources</a></li>
+<li class="chapter" data-level="36.2.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#request-a-change-if-.rmd-file-is-invalid"><i class="fa fa-check"></i><b>36.2.4</b> Request a change if <code>.Rmd</code> file is invalid</a></li>
 </ul></li>
-<li class="chapter" data-level="26.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-branch-into-jtr13master-and-resolve-conflicts"><i class="fa fa-check"></i><b>26.4</b> Merge <code>branch</code> into <code>jtr13:master</code> and resolve conflicts</a>
+<li class="chapter" data-level="36.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#update-_bookdown.yml"><i class="fa fa-check"></i><b>36.3</b> Update <code>_bookdown.yml</code></a>
 <ul>
-<li class="chapter" data-level="26.4.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#resolve-conflicts"><i class="fa fa-check"></i><b>26.4.1</b> Resolve conflicts</a></li>
-<li class="chapter" data-level="26.4.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-pr-and-leave-a-comment"><i class="fa fa-check"></i><b>26.4.2</b> Merge PR and leave a comment</a></li>
+<li class="chapter" data-level="36.3.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-files-names-to-_bookdown.yml-in-prs-branch"><i class="fa fa-check"></i><b>36.3.1</b> Add files names to <code>_bookdown.yml</code> in PR’s <code>branch</code></a></li>
+<li class="chapter" data-level="36.3.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization"><i class="fa fa-check"></i><b>36.3.2</b> Add chapter names to <code>.Rmd</code> for every first article in each chapter (Chapter Organization)</a></li>
+</ul></li>
+<li class="chapter" data-level="36.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-branch-into-jtr13master-and-resolve-conflicts"><i class="fa fa-check"></i><b>36.4</b> Merge <code>branch</code> into <code>jtr13:master</code> and resolve conflicts</a>
+<ul>
+<li class="chapter" data-level="36.4.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#resolve-conflicts"><i class="fa fa-check"></i><b>36.4.1</b> Resolve conflicts</a></li>
+<li class="chapter" data-level="36.4.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-pr-and-leave-a-comment"><i class="fa fa-check"></i><b>36.4.2</b> Merge PR and leave a comment</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="chapter-organization.html"><a href="chapter-organization.html"><i class="fa fa-check"></i><b>27</b> Chapter Organization</a>
+<li class="chapter" data-level="37" data-path="chapter-organization.html"><a href="chapter-organization.html"><i class="fa fa-check"></i><b>37</b> Chapter Organization</a>
 <ul>
-<li class="chapter" data-level="27.1" data-path="chapter-organization.html"><a href="chapter-organization.html#process-for-organizing-chapters"><i class="fa fa-check"></i><b>27.1</b> Process for Organizing Chapters</a></li>
-<li class="chapter" data-level="27.2" data-path="chapter-organization.html"><a href="chapter-organization.html#initial-book-parts"><i class="fa fa-check"></i><b>27.2</b> Initial Book Parts</a>
+<li class="chapter" data-level="37.1" data-path="chapter-organization.html"><a href="chapter-organization.html#process-for-organizing-chapters"><i class="fa fa-check"></i><b>37.1</b> Process for Organizing Chapters</a></li>
+<li class="chapter" data-level="37.2" data-path="chapter-organization.html"><a href="chapter-organization.html#initial-book-parts"><i class="fa fa-check"></i><b>37.2</b> Initial Book Parts</a>
 <ul>
-<li class="chapter" data-level="27.2.1" data-path="chapter-organization.html"><a href="chapter-organization.html#motivation"><i class="fa fa-check"></i><b>27.2.1</b> Motivation</a></li>
-<li class="chapter" data-level="27.2.2" data-path="chapter-organization.html"><a href="chapter-organization.html#additional-categories"><i class="fa fa-check"></i><b>27.2.2</b> Additional Categories</a></li>
+<li class="chapter" data-level="37.2.1" data-path="chapter-organization.html"><a href="chapter-organization.html#motivation"><i class="fa fa-check"></i><b>37.2.1</b> Motivation</a></li>
+<li class="chapter" data-level="37.2.2" data-path="chapter-organization.html"><a href="chapter-organization.html#additional-categories"><i class="fa fa-check"></i><b>37.2.2</b> Additional Categories</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -539,22 +639,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r" class="section level1" number="22">
-<h1><span class="header-section-number">Chapter 22</span> A basic Introduction to Markov Chain Monte Carlo Method in R</h1>
+<div id="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r" class="section level1" number="32">
+<h1><span class="header-section-number">Chapter 32</span> A basic Introduction to Markov Chain Monte Carlo Method in R</h1>
 <p>Qiran Li</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb298-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
-<div id="introduction-1" class="section level2" number="22.1">
-<h2><span class="header-section-number">22.1</span> 1. Introduction</h2>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb652-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
+<div id="introduction-4" class="section level2" number="32.1">
+<h2><span class="header-section-number">32.1</span> 1. Introduction</h2>
 <p>It is often not possible to understand (or learn) complicated probability distribution by theoretical analysis. In that scenario, one convenient way to learn about the probability distribution is to simulate from that particular distribution. Markov Chain Monte Carlo (MCMC) is probably the most popular way for the simulation purpose. It has wide application in statistics, data science, and machine learning. In this tutorial, I would first explain the theory of MCMC, and then provide my own implementation of this method in R as well as useful graphs for explanation. The purpose of this community contribution tutorial is to help people understand this tough but useful method.</p>
 <p>As we can see from the name of MCMC method, it contains two parts. One is related to Monte Carlo Simulation (MC) Method; the other is associated with Markov chain. Therefore, It would be nature to discuss MCMC by first introducing these two related methods.</p>
 </div>
-<div id="markov-chain-simulation-method" class="section level2" number="22.2">
-<h2><span class="header-section-number">22.2</span> 2. Markov Chain Simulation Method</h2>
+<div id="markov-chain-simulation-method" class="section level2" number="32.2">
+<h2><span class="header-section-number">32.2</span> 2. Markov Chain Simulation Method</h2>
 <p>The name of Monte Carlo was derived from a casino. The earliest applications of Monte Carlo Method were designed to solve some complex summation or integration problems. Suppose we want to solve the integration problem:
 <span class="math inline">\(\int_{a}^{b} f(x) dx\)</span>, but it’s hard to find the explicit form of <span class="math inline">\(f(x)\)</span>. One easy way of solving this problem is: find a <span class="math inline">\(x_0\)</span> between a and b and use <span class="math inline">\(f(x_0)\)</span> to represent all the values of <span class="math inline">\(f(x)\)</span> inside a and b. Then the answer would be <span class="math inline">\((b - a)f(x_0)\)</span>. However, using one value to represent all the values between a and b is a broad assumption. We could also use n values <span class="math inline">\((x_0,x_1,x_2,x_3,...,x_{n-1})\)</span> between a and b instead, thus the solution would be <span class="math inline">\(\frac{b-a}{n} \sum_{i=0}^{n - 1} f(x_i)\)</span>. Here we also made an assumption that x is uniformly distributed on [a,b]. If we know <span class="math inline">\(x\)</span>’s distribution <span class="math inline">\(p(x)\)</span> on [a,b], the answer would become <span class="math inline">\(\frac{1}{n} \sum_{i=0}^{n - 1} \frac {f(x_i)}{p(x_i)}\)</span>. Therefore, as long as we know the distribution of x on the interval, we could get an accurate estimate of the integral.</p>
 </div>
-<div id="acceptance-rejection-sampling" class="section level2" number="22.3">
-<h2><span class="header-section-number">22.3</span> 3. Acceptance-Rejection Sampling</h2>
+<div id="acceptance-rejection-sampling" class="section level2" number="32.3">
+<h2><span class="header-section-number">32.3</span> 3. Acceptance-Rejection Sampling</h2>
 <p>If the probability distribution of {x} is found, we need to get n samples based on this probability distribution and bring them into the Monte Carlo Simulation Method formula to solve it. How do we get the n samples based on the probability distribution? For common distributions like Uniform, F, Beta, Gamma distributions, we could use random number generator to get samples. However, for complicated distribution <span class="math inline">\(p(x)\)</span> that we could not directly sample, we need to use Acceptance-Rejection Sampling method. The process contains:</p>
 <ol style="list-style-type: decimal">
 <li><p>Set a common probability distribution function <span class="math inline">\(q(x)\)</span> that is convenient for sampling, set a constant <span class="math inline">\(k\)</span> so that <span class="math inline">\(p(x)\)</span> is always below <span class="math inline">\(kq(x).\)</span></p></li>
@@ -565,8 +665,8 @@ If u falls below <span class="math inline">\(kq(z)\)</span> and above <span clas
 <li><p>Get into the formula <span class="math inline">\(\frac{1}{n} \sum_{i=0}^{n - 1} \frac {f(x_i)}{p(x_i)}\)</span>.</p></li>
 </ol>
 </div>
-<div id="sampling-from-markov-chain" class="section level2" number="22.4">
-<h2><span class="header-section-number">22.4</span> 4. Sampling from Markov Chain</h2>
+<div id="sampling-from-markov-chain" class="section level2" number="32.4">
+<h2><span class="header-section-number">32.4</span> 4. Sampling from Markov Chain</h2>
 <p>For a finite irreducible aperiodic Markov Chain, we have the following properties:
 <span class="math inline">\(\lim_{n\to\infty} P_{ij}^n = \pi(j)\)</span>, <span class="math inline">\(\pi(j) = \sum_{i=0}^{\infty} \pi(i) P_{ij}\)</span>, and <span class="math inline">\(\sum_{i=0}^{\infty} \pi(i) = 1\)</span>.
 From these properties, we can see if we get the transition matrix of a Markov chain, we
@@ -581,8 +681,8 @@ get sample <span class="math inline">\(x_{t+1}\)</span> from the conditional pro
 <li><p>output the sample <span class="math inline">\(x_{n_1}, x_{n_1 + 1}, ..., x_{n_1 + n_2 - 1}\)</span></p></li>
 </ol>
 </div>
-<div id="mcmc-sampling-method" class="section level2" number="22.5">
-<h2><span class="header-section-number">22.5</span> 5. MCMC Sampling Method</h2>
+<div id="mcmc-sampling-method" class="section level2" number="32.5">
+<h2><span class="header-section-number">32.5</span> 5. MCMC Sampling Method</h2>
 <p>From Sampling from Markov Chain, we know if we get the transition matrix of the Markov Chain, we could easily get the samples from distribution and put it into use of the Monte Carlo Method. However, given a detailed balance probability distribution <span class="math inline">\(\pi\)</span>, it’s difficult to directly find associated Markov Chain probability transition matrix <span class="math inline">\(P\)</span>. So, here comes the MCMC Sampling Method.
 The definition of detailed balance condition:
 <span class="math display">\[ \pi(i)P(i,j) = \pi(j)P(j,i), \forall{i,j}\]</span>
@@ -607,8 +707,8 @@ Here is the procedure of MCMC Sampling:
 <li><p>Output the sample <span class="math inline">\(x_{n_1}, x_{n_1 + 1}, ..., x_{n_1 + n_2 - 1}\)</span></p></li>
 </ol>
 </div>
-<div id="metropolis-hastings-sampling" class="section level2" number="22.6">
-<h2><span class="header-section-number">22.6</span> 6. Metropolis-Hastings Sampling</h2>
+<div id="metropolis-hastings-sampling" class="section level2" number="32.6">
+<h2><span class="header-section-number">32.6</span> 6. Metropolis-Hastings Sampling</h2>
 <p>MCMC has a hidden problem when the <span class="math inline">\(\alpha(x_t,x_{\ast})\)</span> is too small. It could result in the fact that majority of our samplings are being rejected. This significantly reduces the efficiency of sampling. Metropolis-Hastings Sampling Method is designed to solve this problem. The major change is with related to the <span class="math inline">\(\alpha\)</span> value:
 <span class="math display">\[ \alpha(i,j)  = \min\{\frac{\pi(j)Q(j,i)}{\pi(i)Q(i,j)} ,1\} \]</span>
 The process is as follow:</p>
@@ -626,73 +726,73 @@ The process is as follow:</p>
 <li><p>Output the sample <span class="math inline">\(x_{n_1}, x_{n_1 + 1}, ..., x_{n_1 + n_2 - 1}\)</span></p></li>
 </ol>
 </div>
-<div id="implementation-in-r" class="section level2" number="22.7">
-<h2><span class="header-section-number">22.7</span> 7. Implementation in R</h2>
-<div id="sampling-from-an-exponential-distribution" class="section level3" number="22.7.1">
-<h3><span class="header-section-number">22.7.1</span> 1. Sampling from an exponential distribution</h3>
-<div id="a-define-the-pdf-of-exponential-distribution" class="section level4" number="22.7.1.1">
-<h4><span class="header-section-number">22.7.1.1</span> a) Define the pdf of exponential distribution</h4>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb299-1"></a>exp_dist =<span class="st"> </span><span class="cf">function</span>(x){</span>
-<span id="cb299-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb299-2"></a>  <span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
-<span id="cb299-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb299-3"></a>    <span class="kw">return</span> (<span class="dv">0</span>)</span>
-<span id="cb299-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb299-4"></a>  } <span class="cf">else</span> {</span>
-<span id="cb299-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb299-5"></a>    <span class="kw">return</span> (<span class="kw">exp</span>(<span class="op">-</span>x))</span>
-<span id="cb299-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb299-6"></a>  }</span>
-<span id="cb299-7"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb299-7"></a>}</span></code></pre></div>
+<div id="implementation-in-r" class="section level2" number="32.7">
+<h2><span class="header-section-number">32.7</span> 7. Implementation in R</h2>
+<div id="sampling-from-an-exponential-distribution" class="section level3" number="32.7.1">
+<h3><span class="header-section-number">32.7.1</span> 1. Sampling from an exponential distribution</h3>
+<div id="a-define-the-pdf-of-exponential-distribution" class="section level4" number="32.7.1.1">
+<h4><span class="header-section-number">32.7.1.1</span> a) Define the pdf of exponential distribution</h4>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb653-1"></a>exp_dist =<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb653-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb653-2"></a>  <span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb653-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb653-3"></a>    <span class="kw">return</span> (<span class="dv">0</span>)</span>
+<span id="cb653-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb653-4"></a>  } <span class="cf">else</span> {</span>
+<span id="cb653-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb653-5"></a>    <span class="kw">return</span> (<span class="kw">exp</span>(<span class="op">-</span>x))</span>
+<span id="cb653-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb653-6"></a>  }</span>
+<span id="cb653-7"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb653-7"></a>}</span></code></pre></div>
 </div>
-<div id="b-define-the-mcmc-function" class="section level4" number="22.7.1.2">
-<h4><span class="header-section-number">22.7.1.2</span> b) Define the MCMC function</h4>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-1"></a>MCMC =<span class="st"> </span><span class="cf">function</span>(T, startval, sd, target){</span>
-<span id="cb300-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-2"></a>  x =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,T)</span>
-<span id="cb300-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-3"></a>  x[<span class="dv">1</span>] =<span class="st"> </span>startval</span>
-<span id="cb300-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-4"></a>  <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>T) {</span>
-<span id="cb300-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-5"></a>    pi_star =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>,x[t<span class="dv">-1</span>],sd)</span>
-<span id="cb300-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-6"></a>    alpha =<span class="st"> </span><span class="kw">min</span>(<span class="kw">target</span>(pi_star)<span class="op">/</span><span class="kw">target</span>(x[t<span class="dv">-1</span>]), <span class="dv">1</span>)</span>
-<span id="cb300-7"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-7"></a>    u =<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>)</span>
-<span id="cb300-8"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-8"></a>    <span class="cf">if</span> (u <span class="op">&lt;</span><span class="st"> </span>alpha) {</span>
-<span id="cb300-9"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-9"></a>      x[t] =<span class="st"> </span>pi_star</span>
-<span id="cb300-10"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-10"></a>    } <span class="cf">else</span> {</span>
-<span id="cb300-11"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-11"></a>      x[t] =<span class="st"> </span>x[t <span class="dv">-1</span>]</span>
-<span id="cb300-12"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-12"></a>    }</span>
-<span id="cb300-13"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-13"></a>  }</span>
-<span id="cb300-14"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-14"></a>  <span class="kw">return</span>(x)</span>
-<span id="cb300-15"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb300-15"></a>}</span></code></pre></div>
+<div id="b-define-the-mcmc-function" class="section level4" number="32.7.1.2">
+<h4><span class="header-section-number">32.7.1.2</span> b) Define the MCMC function</h4>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-1"></a>MCMC =<span class="st"> </span><span class="cf">function</span>(T, startval, sd, target){</span>
+<span id="cb654-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-2"></a>  x =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,T)</span>
+<span id="cb654-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-3"></a>  x[<span class="dv">1</span>] =<span class="st"> </span>startval</span>
+<span id="cb654-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-4"></a>  <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>T) {</span>
+<span id="cb654-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-5"></a>    pi_star =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>,x[t<span class="dv">-1</span>],sd)</span>
+<span id="cb654-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-6"></a>    alpha =<span class="st"> </span><span class="kw">min</span>(<span class="kw">target</span>(pi_star)<span class="op">/</span><span class="kw">target</span>(x[t<span class="dv">-1</span>]), <span class="dv">1</span>)</span>
+<span id="cb654-7"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-7"></a>    u =<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb654-8"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-8"></a>    <span class="cf">if</span> (u <span class="op">&lt;</span><span class="st"> </span>alpha) {</span>
+<span id="cb654-9"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-9"></a>      x[t] =<span class="st"> </span>pi_star</span>
+<span id="cb654-10"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-10"></a>    } <span class="cf">else</span> {</span>
+<span id="cb654-11"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-11"></a>      x[t] =<span class="st"> </span>x[t <span class="dv">-1</span>]</span>
+<span id="cb654-12"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-12"></a>    }</span>
+<span id="cb654-13"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-13"></a>  }</span>
+<span id="cb654-14"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-14"></a>  <span class="kw">return</span>(x)</span>
+<span id="cb654-15"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb654-15"></a>}</span></code></pre></div>
 </div>
-<div id="c-ggplot-the-curve" class="section level4" number="22.7.1.3">
-<h4><span class="header-section-number">22.7.1.3</span> c) ggplot the curve</h4>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb301-1"></a>z =<span class="st"> </span><span class="kw">MCMC</span>(<span class="dv">5000</span>,<span class="dv">3</span>, <span class="dv">1</span>, exp_dist)</span>
-<span id="cb301-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb301-2"></a>z =<span class="st"> </span><span class="kw">data.frame</span>(z)</span>
-<span id="cb301-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb301-3"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>z,<span class="kw">aes</span>(<span class="dt">x=</span>z)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb301-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb301-4"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightblue&quot;</span>) <span class="op">+</span></span>
-<span id="cb301-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb301-5"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dexp, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb301-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb301-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-231-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="c-ggplot-the-curve" class="section level4" number="32.7.1.3">
+<h4><span class="header-section-number">32.7.1.3</span> c) ggplot the curve</h4>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb655-1"></a>z =<span class="st"> </span><span class="kw">MCMC</span>(<span class="dv">5000</span>,<span class="dv">3</span>, <span class="dv">1</span>, exp_dist)</span>
+<span id="cb655-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb655-2"></a>z =<span class="st"> </span><span class="kw">data.frame</span>(z)</span>
+<span id="cb655-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb655-3"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>z,<span class="kw">aes</span>(<span class="dt">x=</span>z)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb655-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb655-4"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb655-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb655-5"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dexp, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb655-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb655-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="a_basic_introduction_to_mcmc_in_r_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We find the density function is similar to the true distribution.</p>
 </div>
 </div>
-<div id="sampling-from-a-normal-distribution" class="section level3" number="22.7.2">
-<h3><span class="header-section-number">22.7.2</span> 2. Sampling from a normal distribution</h3>
-<div id="a-define-the-pdf-of-normal-distribution" class="section level4" number="22.7.2.1">
-<h4><span class="header-section-number">22.7.2.1</span> a) Define the pdf of normal distribution</h4>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb302-1"></a>norm_dist =<span class="st"> </span><span class="cf">function</span>(x){</span>
-<span id="cb302-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb302-2"></a>  <span class="kw">return</span> (<span class="kw">dnorm</span>(x))</span>
-<span id="cb302-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb302-3"></a>}</span></code></pre></div>
+<div id="sampling-from-a-normal-distribution" class="section level3" number="32.7.2">
+<h3><span class="header-section-number">32.7.2</span> 2. Sampling from a normal distribution</h3>
+<div id="a-define-the-pdf-of-normal-distribution" class="section level4" number="32.7.2.1">
+<h4><span class="header-section-number">32.7.2.1</span> a) Define the pdf of normal distribution</h4>
+<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb656-1"></a>norm_dist =<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb656-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb656-2"></a>  <span class="kw">return</span> (<span class="kw">dnorm</span>(x))</span>
+<span id="cb656-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb656-3"></a>}</span></code></pre></div>
 </div>
-<div id="b-use-previous-function-and-validate-the-result" class="section level4" number="22.7.2.2">
-<h4><span class="header-section-number">22.7.2.2</span> b) use previous function and validate the result</h4>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb303-1"></a>z =<span class="st"> </span><span class="kw">MCMC</span>(<span class="dv">5000</span>,<span class="dv">3</span>, <span class="dv">1</span>, norm_dist)</span>
-<span id="cb303-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb303-2"></a>z =<span class="st"> </span><span class="kw">data.frame</span>(z)</span>
-<span id="cb303-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb303-3"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>z,<span class="kw">aes</span>(<span class="dt">x=</span>z)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb303-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb303-4"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightblue&quot;</span>) <span class="op">+</span></span>
-<span id="cb303-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb303-5"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb303-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb303-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-233-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="b-use-previous-function-and-validate-the-result" class="section level4" number="32.7.2.2">
+<h4><span class="header-section-number">32.7.2.2</span> b) use previous function and validate the result</h4>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb657-1"></a>z =<span class="st"> </span><span class="kw">MCMC</span>(<span class="dv">5000</span>,<span class="dv">3</span>, <span class="dv">1</span>, norm_dist)</span>
+<span id="cb657-2"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb657-2"></a>z =<span class="st"> </span><span class="kw">data.frame</span>(z)</span>
+<span id="cb657-3"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb657-3"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>z,<span class="kw">aes</span>(<span class="dt">x=</span>z)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb657-4"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb657-4"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color=</span><span class="st">&quot;darkblue&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb657-5"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb657-5"></a><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb657-6"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#cb657-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="a_basic_introduction_to_mcmc_in_r_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Again, we find the density function is similar to the true distribution.</p>
 </div>
 </div>
 </div>
-<div id="refenence" class="section level2" number="22.8">
-<h2><span class="header-section-number">22.8</span> 8 Refenence</h2>
+<div id="refenence" class="section level2" number="32.8">
+<h2><span class="header-section-number">32.8</span> 8 Refenence</h2>
 <p><a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" class="uri">https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo</a></p>
 <p><a href="http://www.yaroslavvb.com/papers/peres-markov.pdf" class="uri">http://www.yaroslavvb.com/papers/peres-markov.pdf</a></p>
 <p><a href="https://www.cnblogs.com/pinard/p/6638955.html" class="uri">https://www.cnblogs.com/pinard/p/6638955.html</a></p>

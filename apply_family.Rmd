@@ -21,9 +21,10 @@ We will explain the most common forms of apply functions **(apply, sapply, lappl
 
 The apply() function is most often used to apply a function to the rows or columns of matrices, arrays and data frames. Apply can be used on lists too.
 
-**Fisrt, let's see the usage of apply:**
->apply(X, MARGIN, FUN...)
-
+**First, let's see the usage of apply:**
+```
+> apply(X, MARGIN, FUN...)
+```
 **X**: an array, a matrix or a dataframe.
 **MARGIN**: dimcode. 1 means apply to rows, 2 means apply to columns, and if they have names, we can use a character vector to select.
 **FUN**: function
@@ -210,9 +211,10 @@ Of course, we can apply functions to more than one dimensions.
 
 The lapply function works on a list. It applies the chosen function on a list interating through each elements and returns a list in the end.
 
-**Fisrt, let's see the usage of lapply:**
->lapply(X, FUN, â€?)
-
+**First, let's see the usage of lapply:**
+```
+> lapply(X, FUN, ???)
+```
 **X**: the targeted list.
 **FUN**: the function we want to perform on X.
 
@@ -230,15 +232,17 @@ lapply(data_frame[, 2:5], function(x) nrow(x)) %>%
 
 The sapply() function is quite like lapply(). The only **difference** is in the **return value**. 
 Sapply() will try to simplify the result of lapply() if possible(that is why it called 's'apply). Actually, sapply() functions like lapply() and then does the following algorithm:
-â€? If the result is a list with each element's length equals 1, then it will return a vector.
-â€? If the result is a list with vectors of the same length, then it will return a matrix.
-â€? Otherwise, it will return a list.
+??? If the result is a list with each element's length equals 1, then it will return a vector.
+??? If the result is a list with vectors of the same length, then it will return a matrix.
+??? Otherwise, it will return a list.
 
-**Fisrt, let's see the usage of sapply:**
->sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)
+**First, let's see the usage of sapply:**
+```
+> sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)
+```
 
 If we set simplify = FALSE, and USE.NAMES = FALSE, then it will be the same as lapply(x,FUN)
-**simplify**(cannot be abbreviated): logical/character; a vector, matrix or higher dimensional array. TRUE: returns a vector or matrix, whereas "array": returns an array of â€œrankâ€? (=length(dim(.))) one higher than the result of FUN(X[[i]]).
+**simplify**(cannot be abbreviated): logical/character; a vector, matrix or higher dimensional array. TRUE: returns a vector or matrix, whereas "array": returns an array of â€œrank??? (=length(dim(.))) one higher than the result of FUN(X[[i]]).
 **USE.NAMES**(cannot be abbreviated): logical; TRUE and X is character: use X as names for the result unless it had names already.
 
 **Then, let's see the examples:**
@@ -292,8 +296,10 @@ Since the sapply function do not have a MARGIN parameter, we can only apply this
 
 tapply() is used to apply a function over subsets of a vector: in cases we can group the datasets based on some variables.
 
-**Fisrt, let's see the usage of tapply:**
+**First, let's see the usage of tapply:**
+```
 > tapply(x, INDEX, FUN, ..., simplify = TRUE)
+```
 
 **x**: the target numerical or logical vector.
 **INDEX**: a factor or a list of factors that divides the dataset into groups

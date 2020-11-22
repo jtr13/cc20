@@ -1,5 +1,6 @@
 book_filename: "cc20"
 output_dir: docs
+new_session: yes
 delete_merged_file: true
 edit: https://github.com/jtr13/cc20/edit/master/%s
 view: https://github.com/jtr13/cc20/blob/master/%s
@@ -13,11 +14,11 @@ rmd_files: [
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
 
-  
+
   # Part 2: Data Processing and Wrangling
   'R_data_transformation.Rmd',
   'apply_family.Rmd',
-  
+
   # Part 3: Data Visualization
 
   'pairs_and_ggpairs.Rmd',
@@ -28,8 +29,6 @@ rmd_files: [
   'china_choropleth_map.Rmd',
   'radar_chart.Rmd',
 
-  # Part 4: R Shiny
-
   # Part: Data Processing and Wrangling
   'r_data_transformation.Rmd', # contains PART header
   'data_preprocessing_tutorial.Rmd',
@@ -38,7 +37,7 @@ rmd_files: [
   'pairs_and_ggpairs.Rmd', # contains PART header
   'likert_scale.Rmd',
   'a_simple_way_to_visualize_geographic_data.Rmd',
-  'introduction_to_violin_plot.Rmd',
+#  'introduction_to_violin_plot.Rmd', # missing data file
   'base_r_ggplot_graph.Rmd',
 
   # Part: Results Reporting
@@ -61,7 +60,7 @@ rmd_files: [
 
   # Part: Data Visualization
   'label_setting_techniques.Rmd',
-  
+
   # Part: Translations
   'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
