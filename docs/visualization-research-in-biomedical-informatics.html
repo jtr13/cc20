@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 37 Chapter Organization | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 21 Visualization Research in Biomedical Informatics | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 37 Chapter Organization | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 21 Visualization Research in Biomedical Informatics | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 37 Chapter Organization | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 21 Visualization Research in Biomedical Informatics | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tutorial-for-pull-request-mergers.html"/>
-
+<link rel="prev" href="solutioning-a-data-pipeline-for-visualization.html"/>
+<link rel="next" href="some-techniques-for-label-setting.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -632,40 +632,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chapter-organization" class="section level1" number="37">
-<h1><span class="header-section-number">Chapter 37</span> Chapter Organization</h1>
-<p>Yibai Liu and Colin Payne-Rogers</p>
-<p>This appendix contains information on how chapters in the <code>cc20</code> book are organized.</p>
-<div id="process-for-organizing-chapters" class="section level2" number="37.1">
-<h2><span class="header-section-number">37.1</span> Process for Organizing Chapters</h2>
-<ol style="list-style-type: decimal">
-<li><p>Each pull request that contains a chapter will be marked with at least one label prefixed with <code>chap: #</code>. This identifies which part of the book it should be added to.</p></li>
-<li><p>Additional labels may be added by chapter organizers or pull request reviewers. The goal for these is to add additional context to each chapter pull request. For instance, a “Python vs. R” cheat sheet and a “Mosaic Plot” cheat sheet will have different <code>chap:</code> labels, but the same <code>cheatsheet</code> label. These labels may help the chapter organizers re-organize chapters at a later date, if any initial chapters become bloated with contributions :)</p></li>
-<li><p>The chapter organizers will request that pull requests are updated so that the <code>_bookdown.yml</code> chapter list is in accordance with the chapter organization.</p></li>
-</ol>
+<div id="visualization-research-in-biomedical-informatics" class="section level1" number="21">
+<h1><span class="header-section-number">Chapter 21</span> Visualization Research in Biomedical Informatics</h1>
+<div id="community-contribution-zoom-session" class="section level2" number="21.1">
+<h2><span class="header-section-number">21.1</span> Community Contribution Zoom Session</h2>
+<p>Adrienne Pichon (<a href="mailto:ab3886@cumc.columbia.edu" class="email">ab3886@cumc.columbia.edu</a>) is a 2nd year PhD student in the Department of Biomedical Informatics at Columbia and previously received her MPH in Sociomedical Sciences and Sexuality, Sexual, and Reproductive Health from Columbia’s Mailman School of Public Health. Her work focuses on person-generated data and supporting the collaborative work of patients and providers when caring for chronic disease. This zoom session connected visualization principles learned in class to a real-world application.</p>
+<p>The hour-long session was held on Friday (11/20 2pm ET) via Zoom
+1. Presentation of recently published paper, eliciting design needs of end-users of an interactive visualization tool (5 min video available)
+2. Overview of the Phendo app and aggregate data
+3. Discussion of initial tool prototype, for viewing and understanding individual-level data to support care of an enigmatic chronic condition
+4. Resources for human-centered computing that were discussed in the zoom session are also listed below</p>
+<p>The slides are available <a href="../resources/project_pichon/Pichon_CSCW_forEDAVcc_Slides.pdf">here</a></p>
+<div id="designing-an-interactive-visualization-tool-for-understanding-caring-for-a-complex-chronic-condition" class="section level3" number="21.1.1">
+<h3><span class="header-section-number">21.1.1</span> Designing an Interactive Visualization Tool for Understanding &amp; Caring for a Complex Chronic Condition</h3>
+<p>Download a <a href="../resources/project_pichon/Pichon_2020_V4cscw261.pdf">copy of the paper</a>, or see current publications: <a href="http://www.columbia.edu/~ab3886/">website</a> or <a href="https://scholar.google.com/citations?user=tWw9g3wAAAAJ&amp;hl=en&amp;oi=ao">google scholar</a>.
+There is also a <a href="https://youtu.be/PtXjzquAjCY">five minute video</a> available, that was presented at the CSCW conference.</p>
+<p>In this qualitative research, focus groups with women with endometriosis (a painful chronic illness) and interviewers medical providers who treat the condition provided useful insights on the work of patients and providers in caring for this enigmatic condition.
+Findings from thematic analysis enabled identification of 3 design opportunities.
+The talk highlighted the potential applications of visualization techniques and innovation that we plan to incorporate into the design of this tool.</p>
 </div>
-<div id="initial-book-parts" class="section level2" number="37.2">
-<h2><span class="header-section-number">37.2</span> Initial Book Parts</h2>
-<p>These are subject to change based on the content of the classes contributions. They are:</p>
-<ol style="list-style-type: decimal">
-<li>Data Processing and Wrangling</li>
-<li>Data Visualization</li>
-<li>Reporting Results</li>
-<li>Complete Analyses</li>
-<li>Translations</li>
-<li>Live Tutorials</li>
-<li>Other Topics</li>
-</ol>
-<div id="motivation" class="section level3" number="37.2.1">
-<h3><span class="header-section-number">37.2.1</span> Motivation</h3>
-<p>The chapters are organized with a real-world data pipeline in mind. First, an analyst needs to obtain and organize the data they hope to explore and visualize (“data processing and wrangling”). This may include contributions related to tidying data, handling missing data, web scraping, and more.</p>
-<p>Data in hand, our analyst will want to lean on data visualization tools, like those from this class, first for the exploratory data analysis and later for visualization aimed at their audience, customer, etc. These contributions are captured in “data visualization” but may become two sections if enough pull requests fall into each category.</p>
-<p>The “final” step in a data analysis pipeline is to share the results of an analysis with interested third parties. This might be through a website build in R with Shiny, or using D3, or with a platform like Tableau. Community contributions that focus on how to format charts for an audience, rather than how to create them in R, may belong here in “Reporting Results.”</p>
-<p>At this point, readers of our “book” may be ready to appreciate the hard work that goes into “Complete Analyses” - those community contributions that find or import data, tidy and format it, explore and analyze it, and present conclusions to readers belong in the fourth section.</p>
+<div id="phendo-app-prototype-of-interactive-visualization" class="section level3" number="21.1.2">
+<h3><span class="header-section-number">21.1.2</span> Phendo App &amp; Prototype of Interactive Visualization</h3>
+<p>A high-level view of the phendo app and data for users was presented.</p>
+<p>Finally, we reviewed an early prototype of the interactive visualization tool. This early version uses D3 to display a heatmap of self-tracked symptom data in a unified timeline. Discussing and brainstorming this early prototype together with peers made it possible to integrate principles from the EDAV class to this real-world application.</p>
 </div>
-<div id="additional-categories" class="section level3" number="37.2.2">
-<h3><span class="header-section-number">37.2.2</span> Additional Categories</h3>
-<p>A careful reader will notice that sections <code>5</code> and <code>6</code> are missing from the chapter organization motivation. That’s because these categories, “Translations,” “Live Tutorials,” and “Other Topics,” don’t fit neatly into the data pipeline heuristic. Chapters that are labeled and initially organized into those sections may find that that’s where they belong, or they may have a new home when future pull requests update the chapter organization based on the community contributions we’ve received.</p>
+<div id="resources-for-human-centered-visualization-computing" class="section level3" number="21.1.3">
+<h3><span class="header-section-number">21.1.3</span> Resources for Human-Centered Visualization &amp; Computing</h3>
+<p><em>Data Feminism</em></p>
+<p>D’Ignazio, C., &amp; Klein, L. F. (2020). Data Feminism. MIT Press.</p>
+<ul>
+<li>open access, free online; also webinar recordings and sketchnotes from sessions with the authors: [<a href="http://datafeminism.io/" class="uri">http://datafeminism.io/</a>]</li>
+</ul>
+<p><em>Race After Technology</em></p>
+<p>Benjamin, R. (2019). Race After Technology: Abolitionist Tools for the New Jim Code. John Wiley &amp; Sons.
+- [<a href="https://www.ruhabenjamin.com/race-after-technology" class="uri">https://www.ruhabenjamin.com/race-after-technology</a>]</p>
+<p><em>Design Justice</em>
+Costanza-Chock, S. (2018). Design Justice: Towards an Intersectional Feminist Framework for Design Theory and Practice (SSRN Scholarly Paper ID 3189696). Social Science Research Network.
+- [<a href="https://designjustice.org/" class="uri">https://designjustice.org/</a>]</p>
+<p><em>Data Comics</em></p>
+<p>Bach, B., Wang, Z., Farinella, M., Murray-Rust, D., &amp; Henry Riche, N. (2018). Design Patterns for Data Comics. Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems, 38:1–38:12. [<a href="https://doi.org/10.1145/3173574.3173612" class="uri">https://doi.org/10.1145/3173574.3173612</a>]</p>
+<p>Bach, B., Riche, N. H., Carpendale, S., &amp; Pfister, H. (2017). The Emerging Genre of Data Comics. IEEE Computer Graphics and Applications, 37(3), 6–13. [<a href="https://doi.org/10.1109/MCG.2017.33" class="uri">https://doi.org/10.1109/MCG.2017.33</a>]</p>
 
 </div>
 </div>
@@ -675,8 +681,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="tutorial-for-pull-request-mergers.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="solutioning-a-data-pipeline-for-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="some-techniques-for-label-setting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -707,7 +713,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/cc20/edit/master/appendix_chapter_organization.Rmd",
+"link": "https://github.com/jtr13/cc20/edit/master/project_pichon.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -715,7 +721,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/cc20/blob/master/appendix_chapter_organization.Rmd",
+"link": "https://github.com/jtr13/cc20/blob/master/project_pichon.Rmd",
 "text": null
 },
 "download": null,
