@@ -16,22 +16,18 @@ rmd_files: [
 
 
   # Part 2: Data Processing and Wrangling
-  'R_data_transformation.Rmd',
+  'r_data_transformation.Rmd', # contains PART header
+  'data_preprocessing_tutorial.Rmd',
   'apply_family.Rmd',
 
   # Part 3: Data Visualization
 
-  'pairs_and_ggpairs.Rmd',
+  'pairs_and_ggpairs.Rmd', # contains PART header
   'china_choropleth_map.Rmd',
-  'R_data_transformation.Rmd',
   'a_brief_introduction_to_seaborn.Rmd',
   'rselenium_tutorial.Rmd',
   'china_choropleth_map.Rmd',
   'radar_chart.Rmd',
-
-  # Part: Data Processing and Wrangling
-  'r_data_transformation.Rmd', # contains PART header
-  'data_preprocessing_tutorial.Rmd',
 
   # Part: Data Visualization
   'pairs_and_ggpairs.Rmd', # contains PART header
@@ -56,7 +52,6 @@ rmd_files: [
   # Part: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
   'datapipeline_design.Rmd',
-
 
   # Part: Data Visualization
   'label_setting_techniques.Rmd',
