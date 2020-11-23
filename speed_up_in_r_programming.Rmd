@@ -283,7 +283,7 @@ In order to indicate the *option 2*, we save the above codes in script [`runSim.
 
 2. The [`autoSim.R`] script to run simulations with combinations of sample sizes `nVals = seq(100, 500, by=100)` and distributions `distTypes = c("gaussian", "t1", "t5")`.  `rep = 50` is used for MSE. 
 
-```{bash}
+```
 cat resources/speed_up_in_r_programming/autoSim.R
 ```
 
