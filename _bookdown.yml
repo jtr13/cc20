@@ -47,6 +47,7 @@ rmd_files: [
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
   'datapipeline_design.Rmd',
   'project_pichon.Rmd',
+  'american_history_trivia_night.Rmd',
 
   # Part: Data Visualization
   'label_setting_techniques.Rmd',
