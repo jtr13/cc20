@@ -8,6 +8,7 @@ language:
   ui:
     chapter_name: "Chapter "
 
+
 # Chapter ordering
 rmd_files: [
   # Part: Introduction
@@ -49,7 +50,8 @@ rmd_files: [
   'datapipeline_design.Rmd',
   'project_pichon.Rmd',
   'american_history_trivia_night.Rmd',
-
+  'consuming_terrorism_statistics.Rmd',
+  
   # Part: Data Visualization
   'label_setting_techniques.Rmd',
 
@@ -75,6 +77,7 @@ rmd_files: [
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd',
   'appendix_chapter_organization.Rmd']
+
 
 
 before_chapter_script: "_common.R"
