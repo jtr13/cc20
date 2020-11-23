@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 42 Tutorial for Pull Request Mergers | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 6 Writing SQL in R | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 42 Tutorial for Pull Request Mergers | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 6 Writing SQL in R | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 42 Tutorial for Pull Request Mergers | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 6 Writing SQL in R | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="github-initial-setup.html"/>
-<link rel="next" href="chapter-organization.html"/>
+<link rel="prev" href="apply-family.html"/>
+<link rel="next" href="customized-plot-matrix-pairs-and-ggpairs.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -662,117 +662,254 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tutorial-for-pull-request-mergers" class="section level1" number="42">
-<h1><span class="header-section-number">Chapter 42</span> Tutorial for Pull Request Mergers</h1>
-<div id="check-branch" class="section level2" number="42.1">
-<h2><span class="header-section-number">42.1</span> Check branch</h2>
-<p>PR should be submitted from a <strong>non-master</strong> branch.</p>
-<p><img src="resources/tutorial_pull_request_mergers/1.png" width="700">
-<br/></p>
-<p>If PR was submitted from the <strong>master</strong> branch, you can link to this explanation of what to do to fix it:</p>
-<p><a href="https://edav.info/github#fixing-mistakes" class="uri">https://edav.info/github#fixing-mistakes</a>.</p>
-<p><br/>
-<img src="resources/tutorial_pull_request_mergers/2.png" width="700"></p>
-<p><br/></p>
+<div id="writing-sql-in-r" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Writing SQL in R</h1>
+<p>Jingyuan Liu</p>
+<div id="introduction-1" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> 1. Introduction</h2>
+<p>SQL has been one of the go-to solutions for data scientists to perform data analysis and manage data pipelines. This is because SQL is fairly easy to read and learn –almost everybody knows it. As a result, it would be helpful for some to work with SQL under the R framework. This post will explore methods to incorporate SQL in R.</p>
 </div>
-<div id="examine-files-that-were-added-or-modified" class="section level2" number="42.2">
-<h2><span class="header-section-number">42.2</span> Examine files that were added or modified</h2>
-<p><img src="resources/tutorial_pull_request_mergers/files_changed.png" width="700">
-<br/><br/></p>
-<ul>
-<li><p>There should be only ONE <code>.Rmd</code> file.</p></li>
-<li><p>All of the additional resources should be in the <code>resources/&lt;project_name&gt;/</code> folder.</p></li>
-<li><p>There should be no other files in the root directory besides the <code>.Rmd</code> file.</p></li>
-</ul>
+<div id="what-is-sql" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> 2. What is SQL?</h2>
+<p>SQL stands for Structured Query Language which let you access and manipulate databases. SQL is designed for managing data in relational database management systems(RDBMS).</p>
 </div>
-<div id="check-.rmd-filename" class="section level2" number="42.3">
-<h2><span class="header-section-number">42.3</span> Check <code>.Rmd</code> filename</h2>
-<ul>
-<li>The <code>.Rmd</code> filename should be words only and joined with underscores, no white space. (Update: It does not need to be the same as the branch name.)</li>
-<li>The <code>.Rmd</code> filename can only contain <strong>lowercase letters</strong>. (Otherwise the filenames do not sort nicely on the repo home page.)</li>
-</ul>
+<div id="r-packages" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> 3. R Packages</h2>
+<p>We will be trying out three R packages in this post in the following order:
+<a href="https://www.rdocumentation.org/packages/sqldf/versions/0.4-11" target="_blank"><code>sqldf</code></a>,
+<a href="https://www.rdocumentation.org/packages/DBI/versions/0.5-1" target="_blank"><code>DBI</code></a>,
+<a href="https://www.rdocumentation.org/packages/dplyr" target="_blank"><code>dplyr</code></a>.</p>
+<div id="load-packages" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Load packages</h3>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="writing-sql-in-r.html#cb274-1"></a><span class="kw">library</span>(proto)</span>
+<span id="cb274-2"><a href="writing-sql-in-r.html#cb274-2"></a><span class="kw">library</span>(gsubfn)</span>
+<span id="cb274-3"><a href="writing-sql-in-r.html#cb274-3"></a><span class="kw">library</span>(RSQLite)</span>
+<span id="cb274-4"><a href="writing-sql-in-r.html#cb274-4"></a><span class="kw">library</span>(sqldf)</span>
+<span id="cb274-5"><a href="writing-sql-in-r.html#cb274-5"></a></span>
+<span id="cb274-6"><a href="writing-sql-in-r.html#cb274-6"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb274-7"><a href="writing-sql-in-r.html#cb274-7"></a></span>
+<span id="cb274-8"><a href="writing-sql-in-r.html#cb274-8"></a><span class="kw">library</span>(DBI)</span></code></pre></div>
 </div>
-<div id="check-.rmd-file-contents" class="section level2" number="42.4">
-<h2><span class="header-section-number">42.4</span> Check <code>.Rmd</code> file contents</h2>
-<ul>
-<li>The file should <strong>not</strong> contain a YAML header nor a <code>---</code> line.</li>
-<li>The second line should be blank, followed by the author name(s).</li>
-<li>The first line should start with a <strong>single hashtag <code>#</code></strong>, followed by a <strong>single whitespace</strong>, and then the title.</li>
-<li>There should be no additional single hashtag headers in the chapter. (If there are, new chapters will be created.)</li>
-<li>NEW: Other hashtag headers should <strong>not</strong> be followed by numbers since the hashtags will create numbered subheadings. Correct: <code>## Subheading</code>. Incorrect: <code>## 3. Subheading</code>.</li>
-<li>If the file contains a setup chunk in <code>.Rmd</code> file, it should <strong>not</strong> contain a <code>setup</code> label. (The bookdown render will fail if there are duplicate chunk labels.)
-<br/>i.e. use <code>{r, include=FALSE}</code> instead of <code>{r setup, include=FALSE}</code>.
-<br/><a href="https://github.com/jtr13/cc20/blob/master/sample_project.Rmd">See sample <code>.Rmd</code></a></li>
-<li>Links to internal files must contain <code>resources/&lt;project_name&gt;/</code> in the path, such as: <code>![Test Photo](resources/sample_project/election.jpg)</code></li>
-<li>The file should not contain any <code>install.packages()</code>, <code>write</code> functions, <code>setwd()</code>, or <code>getwd()</code>.</li>
-<li>If there’s anything else that looks odd but you’re not sure, assign <code>jtr13</code> to review and explain the issue.</li>
-</ul>
+<div id="dataset" class="section level3" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Dataset</h3>
+<p>We will be using the dataset iris throughout this project. First we use DBI package to copy iris from Dataframe into the database.</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="writing-sql-in-r.html#cb275-1"></a><span class="kw">head</span>(iris)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="writing-sql-in-r.html#cb277-1"></a>connection &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(<span class="kw">SQLite</span>(), <span class="st">&quot;&quot;</span>)</span>
+<span id="cb277-2"><a href="writing-sql-in-r.html#cb277-2"></a><span class="kw">dbWriteTable</span>(connection, <span class="st">&#39;iris&#39;</span>, iris)</span>
+<span id="cb277-3"><a href="writing-sql-in-r.html#cb277-3"></a>iris_tbl =<span class="st"> </span><span class="kw">dbReadTable</span>(connection, <span class="st">&#39;iris&#39;</span>)</span></code></pre></div>
 </div>
-<div id="request-changes" class="section level2" number="42.5">
-<h2><span class="header-section-number">42.5</span> Request changes</h2>
-<p>If there are problems with any of the checks listed above, explain why the pull request cannot be merged and request changes by following these steps:</p>
-<p><img src="resources/tutorial_pull_request_mergers/check_format.png" width="700">
-<img src="resources/tutorial_pull_request_mergers/request_change_lines.png" width="700">
-<img src="resources/tutorial_pull_request_mergers/request_change_files.png" width="700">
-<img src="resources/tutorial_pull_request_mergers/request_change_submit_review.png" width="700"></p>
-<p>Then, add a <code>changes requested</code> label to this pull request.</p>
-<p>Your job for this pull request is done for now. Once contributors fix their requests, review again and either move forward with the merge or explain what changes still need to be made.</p>
-<p><br/></p>
 </div>
-<div id="merge-the-pull-request" class="section level2" number="42.6">
-<h2><span class="header-section-number">42.6</span> Merge the pull request</h2>
-<p>If all is good to go, it’s time to merge the pull request. There are several steps.</p>
-<div id="add-chapter-filename-to-_bookdown.yml-in-prs-branch" class="section level3" number="42.6.1">
-<h3><span class="header-section-number">42.6.1</span> Add chapter filename to <code>_bookdown.yml</code> in PR’s <code>branch</code></h3>
-<ul>
-<li>To access the PR branch:</li>
-</ul>
-<p><img src="resources/tutorial_pull_request_mergers/3.png" width="700"></p>
-<ul>
-<li>Make sure you are on the PR branch by checking that the PR branch name is shown (not <code>master</code>):</li>
-</ul>
-<p><img src="resources/tutorial_pull_request_mergers/4.png" width="700"></p>
-<ul>
-<li><p>Open the <code>_bookdown.yml</code> file.</p></li>
-<li><p>NEW: <strong>delete everything in the file beginning with <code>rmd_files: [</code> and then add the name of the new file in single quotes followed by a comma:</strong></p></li>
-</ul>
-<p><img src="resources/tutorial_pull_request_mergers/delete_most_of_bookdown_yml.png" width="700"></p>
-<p>Why? Because it will be easier to fix the merge conflicts this way. (A better way to do this is to merge master into the PR branch <em>before</em> adding the new file but this can’t be done on GitHub. If there’s interest I will explain how to do this locally.)</p>
-<ul>
-<li><p>Save the edited version.</p></li>
-<li><p>Click the resolve conflicts button:</p></li>
-</ul>
-<p><img src="resources/tutorial_pull_request_mergers/resolve_conflicts.png" width="700"></p>
-<ul>
-<li>Cut the new filename and paste it into the proper location. Then delete the lines with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; xxxx</code>, <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</code>. In short, the file should look correct when you’re done. Click the “Marked as resolved” button and then the green “Commit merge” button.</li>
-</ul>
+<div id="sqldf" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> sqldf</h2>
+<p>sqldf is the simplest way to use SQL in R among the three packages. It contains only one function <code>sqldf()</code> which we just pass in the SQL query we want.</p>
+<div id="sql-queries" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> SQL Queries</h3>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="writing-sql-in-r.html#cb278-1"></a><span class="kw">sqldf</span>(<span class="st">&quot;SELECT * FROM iris LIMIT 10&quot;</span>)</span></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa</code></pre>
 </div>
-<div id="add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization" class="section level3" number="42.6.2">
-<h3><span class="header-section-number">42.6.2</span> Add chapter names to <code>.Rmd</code> for every first article in each chapter (Chapter Organization)</h3>
-<p><strong>Only do this if you are adding the first chapter in a PART.</strong></p>
-<p>For every first article of each part, add the chapter name on the top of the <code>.Rmd</code> file, then propose changes. The example is like this.
-<img src="resources/tutorial_pull_request_mergers/chap_1.png" width="700">
-<br/><br/></p>
+<div id="whereandor" class="section level3" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Where/And/Or</h3>
+<p>Notice that <code>sqldf</code> does not allow <code>.</code> in column names, so in this case we need to put column name in backticks.</p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="writing-sql-in-r.html#cb280-1"></a><span class="kw">sqldf</span>(<span class="st">&quot;SELECT Sepal.Length, Species FROM iris WHERE Species=&#39;setosa&#39; LIMIT 10 &quot;</span>  )</span></code></pre></div>
+<pre><code>## Error: no such column: Sepal.Length</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="writing-sql-in-r.html#cb282-1"></a><span class="kw">sqldf</span>(<span class="st">&quot;SELECT `Sepal.Length`, Species FROM iris WHERE Species=&#39;setosa&#39; LIMIT 10 &quot;</span>  )</span></code></pre></div>
+<pre><code>##    Sepal.Length Species
+## 1           5.1  setosa
+## 2           4.9  setosa
+## 3           4.7  setosa
+## 4           4.6  setosa
+## 5           5.0  setosa
+## 6           5.4  setosa
+## 7           4.6  setosa
+## 8           5.0  setosa
+## 9           4.4  setosa
+## 10          4.9  setosa</code></pre>
 </div>
-<div id="merge-pr-and-leave-a-comment" class="section level3" number="42.6.3">
-<h3><span class="header-section-number">42.6.3</span> Merge PR and leave a comment</h3>
-<p>Now comes the final step.</p>
-<p><strong>If you’re not sure that you did things correctly, assign one of the PR merge leaders or <span class="citation">@jtr13</span> to review before you merge the PR.</strong></p>
-<p>Go back to the conversation tab of the pull requests page, for example:</p>
-<p><a href="https://github.com/jtr13/cc20/pull/23#issuecomment-728506101" class="uri">https://github.com/jtr13/cc20/pull/23#issuecomment-728506101</a></p>
-<p>Leave comments for congratulations 🎉 (type <code>:tada:</code>) and then click on the green button for merge.
-<br/></p>
+<div id="more-sqldf-examples" class="section level3" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> More sqldf Examples</h3>
+<p>Use <code>SELECT COUNT()</code>.</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="writing-sql-in-r.html#cb284-1"></a><span class="kw">sqldf</span>(<span class="st">&quot;SELECT COUNT() FROM iris WHERE Species = &#39;setosa&#39;&quot;</span>)</span></code></pre></div>
+<pre><code>##   COUNT()
+## 1      50</code></pre>
+<p>Creating new table for data aggregation</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="writing-sql-in-r.html#cb286-1"></a>df =<span class="st"> </span><span class="kw">sqldf</span>(<span class="st">&quot;SELECT Species, AVG(`Sepal.Length`) FROM iris GROUP BY Species&quot;</span>)</span>
+<span id="cb286-2"><a href="writing-sql-in-r.html#cb286-2"></a>df</span></code></pre></div>
+<pre><code>##      Species AVG(`Sepal.Length`)
+## 1     setosa               5.006
+## 2 versicolor               5.936
+## 3  virginica               6.588</code></pre>
+</div>
+<div id="sqldf-summary" class="section level3" number="6.4.4">
+<h3><span class="header-section-number">6.4.4</span> sqldf Summary:</h3>
+<p>We see that sqldf provided a surprisingly easy way to write SQL in R. The user simply specifies an SQL statement in R using data frame names in place of table names and a database with appropriate table layouts/schema is automatically created. Currently, sqdl supports (1) the SQLite backend database, (2) the H2 java database, (3) the PostgreSQL database and (4) MySQL.</p>
+</div>
+</div>
+<div id="dplyr" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> DPLYR</h2>
+<p>DPLYR provides a way to write your code in consistent with R and translate to SQL with the <code>show_query()</code> function.</p>
+<div id="dplyr-queries" class="section level3" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> DPLYR Queries</h3>
+<p>Select sepal.length and species with species <code>Virginica</code>.</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="writing-sql-in-r.html#cb288-1"></a>iris_tbl &lt;-<span class="st"> </span><span class="kw">tbl</span>(connection, <span class="st">&#39;iris&#39;</span>)</span>
+<span id="cb288-2"><a href="writing-sql-in-r.html#cb288-2"></a>q1 &lt;-<span class="st"> </span>iris_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Sepal.Length, Species) <span class="op">%&gt;%</span></span>
+<span id="cb288-3"><a href="writing-sql-in-r.html#cb288-3"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &#39;virginica&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb288-4"><a href="writing-sql-in-r.html#cb288-4"></a><span class="st">  </span><span class="kw">head</span>(<span class="dv">10</span>)</span>
+<span id="cb288-5"><a href="writing-sql-in-r.html#cb288-5"></a><span class="kw">show_query</span>(q1)</span></code></pre></div>
+<pre><code>## &lt;SQL&gt;
+## SELECT *
+## FROM (SELECT `Sepal.Length`, `Species`
+## FROM `iris`)
+## WHERE (`Species` = &#39;virginica&#39;)
+## LIMIT 10</code></pre>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="writing-sql-in-r.html#cb290-1"></a>q1</span></code></pre></div>
+<pre><code>## # Source:   lazy query [?? x 2]
+## # Database: sqlite 3.33.0 []
+##    Sepal.Length Species  
+##           &lt;dbl&gt; &lt;chr&gt;    
+##  1          6.3 virginica
+##  2          5.8 virginica
+##  3          7.1 virginica
+##  4          6.3 virginica
+##  5          6.5 virginica
+##  6          7.6 virginica
+##  7          4.9 virginica
+##  8          7.3 virginica
+##  9          6.7 virginica
+## 10          7.2 virginica</code></pre>
+</div>
+<div id="more-examples" class="section level3" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> More Examples</h3>
+<p>Count number of rows with species <code>setosa</code></p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="writing-sql-in-r.html#cb292-1"></a>q2 &lt;-<span class="st"> </span>iris_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Sepal.Length, Species) <span class="op">%&gt;%</span></span>
+<span id="cb292-2"><a href="writing-sql-in-r.html#cb292-2"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &#39;setosa&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb292-3"><a href="writing-sql-in-r.html#cb292-3"></a><span class="st">  </span><span class="kw">count</span>()</span>
+<span id="cb292-4"><a href="writing-sql-in-r.html#cb292-4"></a><span class="kw">show_query</span>(q2)</span></code></pre></div>
+<pre><code>## &lt;SQL&gt;
+## SELECT COUNT() AS `n`
+## FROM (SELECT `Sepal.Length`, `Species`
+## FROM `iris`)
+## WHERE (`Species` = &#39;setosa&#39;)</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="writing-sql-in-r.html#cb294-1"></a>q2</span></code></pre></div>
+<pre><code>## # Source:   lazy query [?? x 1]
+## # Database: sqlite 3.33.0 []
+##       n
+##   &lt;int&gt;
+## 1    50</code></pre>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="writing-sql-in-r.html#cb296-1"></a>q3 &lt;-<span class="st"> </span>iris_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Sepal.Length, Species) <span class="op">%&gt;%</span></span>
+<span id="cb296-2"><a href="writing-sql-in-r.html#cb296-2"></a><span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span></span>
+<span id="cb296-3"><a href="writing-sql-in-r.html#cb296-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb296-4"><a href="writing-sql-in-r.html#cb296-4"></a><span class="kw">show_query</span>(q3)</span></code></pre></div>
+<pre><code>## &lt;SQL&gt;
+## SELECT `Species`, AVG(`Sepal.Length`) AS `mean(Sepal.Length, na.rm = TRUE)`
+## FROM (SELECT `Sepal.Length`, `Species`
+## FROM `iris`)
+## GROUP BY `Species`</code></pre>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="writing-sql-in-r.html#cb298-1"></a>q3</span></code></pre></div>
+<pre><code>## # Source:   lazy query [?? x 2]
+## # Database: sqlite 3.33.0 []
+##   Species    `mean(Sepal.Length, na.rm = TRUE)`
+##   &lt;chr&gt;                                   &lt;dbl&gt;
+## 1 setosa                                   5.01
+## 2 versicolor                               5.94
+## 3 virginica                                6.59</code></pre>
+</div>
+<div id="dplyr-summary" class="section level3" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> DPLYR Summary</h3>
+<p>Dplyr provides a convenient way to translate R syntax into SQL. This feature is particular useful for some who are more familiar with R than SQL. However, Dplyr sometimes generate sub-optimal SQL queries that does not perform well with massive data set. Moreover, it takes sometime to get familiar with Dplyr functions.</p>
+</div>
+</div>
+<div id="dbi" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> DBI</h2>
+<p>DBI provides a most comprehensive way to use database in R. It allows the user to connect, write, read, and manage database directly with functions includes in the package. In this post, we mainly focus on the query part.</p>
+<div id="dbi-queries" class="section level3" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> DBI Queries:</h3>
+<p>Again, select first ten rows from <code>iris</code></p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="writing-sql-in-r.html#cb300-1"></a>res &lt;-<span class="st"> </span><span class="kw">dbSendQuery</span>(connection, <span class="st">&quot;SELECT * FROM iris LIMIT 10&quot;</span>)</span>
+<span id="cb300-2"><a href="writing-sql-in-r.html#cb300-2"></a><span class="kw">dbFetch</span>(res)</span></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa</code></pre>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="writing-sql-in-r.html#cb302-1"></a><span class="kw">dbClearResult</span>(res)</span></code></pre></div>
+<p>Select sepal.length and species with species <code>setosa</code>.</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="writing-sql-in-r.html#cb303-1"></a>res &lt;-<span class="st"> </span><span class="kw">dbSendQuery</span>(connection, <span class="st">&quot;SELECT `Sepal.Length`, Species FROM iris WHERE Species=&#39;setosa&#39; LIMIT 10  &quot;</span>)</span>
+<span id="cb303-2"><a href="writing-sql-in-r.html#cb303-2"></a><span class="kw">dbFetch</span>(res)</span></code></pre></div>
+<pre><code>##    Sepal.Length Species
+## 1           5.1  setosa
+## 2           4.9  setosa
+## 3           4.7  setosa
+## 4           4.6  setosa
+## 5           5.0  setosa
+## 6           5.4  setosa
+## 7           4.6  setosa
+## 8           5.0  setosa
+## 9           4.4  setosa
+## 10          4.9  setosa</code></pre>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="writing-sql-in-r.html#cb305-1"></a><span class="kw">dbClearResult</span>(res)</span></code></pre></div>
+<p>Count number of rows with species <code>setosa</code></p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="writing-sql-in-r.html#cb306-1"></a>res &lt;-<span class="st"> </span><span class="kw">dbSendQuery</span>(connection, <span class="st">&quot;SELECT COUNT() FROM iris WHERE Species = &#39;setosa&#39;&quot;</span>)</span>
+<span id="cb306-2"><a href="writing-sql-in-r.html#cb306-2"></a><span class="kw">dbFetch</span>(res)</span></code></pre></div>
+<pre><code>##   COUNT()
+## 1      50</code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="writing-sql-in-r.html#cb308-1"></a><span class="kw">dbClearResult</span>(res)</span></code></pre></div>
+<p>Select the average Sepal.Length for each of the species.</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="writing-sql-in-r.html#cb309-1"></a>res &lt;-<span class="st"> </span><span class="kw">dbSendQuery</span>(connection, <span class="st">&quot;SELECT Species, AVG(`Sepal.Length`) FROM iris GROUP BY Species&quot;</span>)</span>
+<span id="cb309-2"><a href="writing-sql-in-r.html#cb309-2"></a><span class="kw">dbFetch</span>(res)</span></code></pre></div>
+<pre><code>##      Species AVG(`Sepal.Length`)
+## 1     setosa               5.006
+## 2 versicolor               5.936
+## 3  virginica               6.588</code></pre>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="writing-sql-in-r.html#cb311-1"></a><span class="kw">dbClearResult</span>(res)</span>
+<span id="cb311-2"><a href="writing-sql-in-r.html#cb311-2"></a><span class="kw">dbDisconnect</span>(connection)</span></code></pre></div>
+</div>
+</div>
+<div id="conclusion" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Conclusion</h2>
+<p>In this project we explored different methods to work with SQL in R. The sqldf provides the most intuitive way by the single function <code>sqldf</code> which works directly with R’s dataframe object. Dplyr allows user to translate their R syntax into SQL which is really helpful for some SQL newbies. DBI, on the other hand, is the most powerful database tool at this time. It allows the user to connect and work with database directly. However, it seems not as easy to use as sqldf.</p>
+</div>
+<div id="work-cited" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> Work Cited:</h2>
+<p>Dplyr Relational Databases, Alberto Munguia and Chengyi Chen</p>
+<p><a href="https://jtr13.github.io/cc19/dplyr-relational-databases.html" class="uri">https://jtr13.github.io/cc19/dplyr-relational-databases.html</a></p>
+<p>Using DBI
+<a href="https://db.rstudio.com/dbi" class="uri">https://db.rstudio.com/dbi</a></p>
 
 </div>
 </div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="github-initial-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chapter-organization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="apply-family.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="customized-plot-matrix-pairs-and-ggpairs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -803,7 +940,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/cc20/edit/master/appendix_pull_request_tutorial.Rmd",
+"link": "https://github.com/jtr13/cc20/edit/master/using_sql_in_r.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -811,7 +948,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/cc20/blob/master/appendix_pull_request_tutorial.Rmd",
+"link": "https://github.com/jtr13/cc20/blob/master/using_sql_in_r.Rmd",
 "text": null
 },
 "download": null,
