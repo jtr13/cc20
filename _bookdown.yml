@@ -42,6 +42,7 @@ rmd_files: [
   'add_ts_cheatsheet.Rmd',
   'python_vs_r_cheatsheet.Rmd',
   'likert_data_cheatsheet.Rmd',
+  'categorical_cheat_sheet.rmd',
 
   # Part: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
