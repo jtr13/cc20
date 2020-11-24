@@ -1,0 +1,221 @@
+# Data Preprocessing and Feature Engineering in R
+
+Kenny Jin
+
+```{r}
+library(naniar)
+library(zoo)
+library(dplyr)
+library(VIM)
+library(caret)
+library(factoextra)
+```
+
+## Overview
+
+Data proprocessing and feature engineering is usually a necessary step for data visualization and machine learning. This article will introduce several data preprocessing and feature engineering techniques and how to implement these techniques in R. 
+
+## Missing Values
+
+Real world datasets usually contain missing values. Hence, it is important to properly handle these missing values before we continue to perform any data related tasks. 
+
+### Exploring the dataset
+We use R's airquality dataset as an example. The first thing to do for handling missing values is to explore the dataset and find out how many values are missing, and where are these values. 
+
+```{r}
+head(airquality)
+```
+
+Using head() function, we can clearly see that there are missing values (denoted as NA) in this dataset. But how many values are missing? We can find this out using the n_miss() function from the "naniar" package.
+
+
+```{r}
+n_miss(airquality)
+```
+
+The function tells us that there are 44 missing values in total. We can also pass a single column to n_miss() to find out how many missing values are in the column.
+
+```{r}
+n_miss(airquality$Ozone)
+```
+
+We see that the "Ozone" column alone has 37 missing values.
+
+Usually we want to find out the proportion of missing values, rather than a single number. This can be easily achieved using prop_miss(). Note that you can also pass a single column to this function.
+
+```{r}
+prop_miss(airquality)
+prop_miss(airquality$Ozone)
+```
+
+The results above shows that there are about 4.79% of the values missing for the whole dataset, and 24.18% of the values are missing for the Ozone column.
+
+We can also find out the count and proportion of non-missing values using n_complete(), prop_complete().
+
+```{r}
+n_complete(airquality)
+prop_complete(airquality)
+n_complete(airquality$Ozone)
+prop_complete(airquality$Ozone)
+```
+
+We can also get a summary for the whole dataset using miss_var_summary(). Note this is a summary for each column, or variable. n_miss is the number of missing values in that column, and pct_miss is the percentage.
+
+```{r}
+miss_var_summary(airquality)
+```
+
+Getting the summary for each row, or each case, can be achieved using miss_case_summary(). "case" is the row number of the observation. n_miss is the number of missing values in that row, and pct_miss is the percentage.
+
+```{r}
+miss_case_summary(airquality)
+```
+
+We can also visualize the count of missing values for each column using gg_miss_var().
+
+```{r}
+gg_miss_var(airquality)
+```
+
+### Handling Missing Values and Imputation
+
+The easiest way to handle the missing values is simply to drop all instances(rows) with NA. This can be achieved using na.omit().
+
+```{r}
+airquality_clean = na.omit(airquality)
+head(airquality_clean)
+n_miss(airquality_clean)
+```
+
+Using n_miss, we see that all rows with NAs are dropped.
+
+Sometimes we want to fill in the NA values rather than simply dropping the row. The process of filling in NA entries is called "Imputation". 
+
+#### Mean Imputation
+
+There are many imputation methods, and one of the most popular is "mean imputation", to fill in all the missing values with the mean of that column.
+
+To implement mean imputation, we can use the mutate_all() from the package dplyr.
+
+```{r}
+air_imp <- airquality %>% mutate_all(~ifelse(is.na(.x), mean(.x, na.rm = TRUE), .x))
+n_miss(air_imp)
+head(air_imp)
+```
+
+We can see that all NAs are replaced by the mean value of that column.
+
+We can also achieve the mean imputation using na.aggregate() from package zoo.
+
+```{r}
+air_imp_1 <- na.aggregate(airquality)
+n_miss(air_imp_1)
+head(air_imp_1)
+```
+
+The results are the same as above.
+
+It is worth noting that mean imputation might be problematic if the variable we are imputing is correlated with other variables. In this case, the relationships between variables might be destroyed.
+
+#### KNN Imputation
+
+We can also fill in the missing values using the k-nearest neighbor methods. Instead of computing the overall mean for the whole column, The algorithm will only compute the average of the k nearest data points when performing inference regarding the missing values. 
+
+KNN imputation can be achieved using kNN() function from package VIM.
+
+
+```{r}
+air_imp_knn <- kNN(airquality, k = 5, variable = "Ozone")
+n_miss(air_imp_knn$Ozone)
+head(air_imp_knn)
+```
+
+k is the number of neighbors for inference. In this example we specify k = 5.
+
+A modifed KNN method is to compute the distance-weighted mean. The weights are inverted distanced from each neighbor. This can also be achieved using kNN().
+
+```{r}
+air_imp_knn_1 <- kNN(airquality, k = 5, variable = "Ozone", numFun = weighted.mean, weightDist = TRUE)
+n_miss(air_imp_knn_1$Ozone)
+head(air_imp_knn_1)
+```
+
+## Feature Selection
+
+Reference: https://learn.datacamp.com/courses/machine-learning-with-caret-in-r
+
+Before performing any supervised machine learning tasks, it is ususally necessary to select features. One common technique for feature selection is to remove features with low variance. If a feature has low variance, it is likely that it contains "low information", thus might not be very helpful for predictive analysis.
+
+We use the BloodBrain dataset from caret as an example.
+
+```{r}
+data(BloodBrain)
+```
+
+
+```{r}
+bloodbrain_x = bbbDescr
+```
+
+We can identify the features that have low variance with the nearZeroVar() function from caret library.
+
+```{r}
+# Identify near zero variance predictors: remove_cols
+remove_cols <- nearZeroVar(bloodbrain_x, names = TRUE, 
+                           freqCut = 2, uniqueCut = 20)
+```
+
+```{r}
+remove_cols
+```
+
+```{r}
+# Get all column names from bloodbrain_x: all_cols
+all_cols <- names(bloodbrain_x)
+
+# Remove from data: bloodbrain_x_small
+bloodbrain_x_small <- bloodbrain_x[ , setdiff(all_cols, remove_cols)]
+```
+
+```{r}
+dim(bloodbrain_x)
+dim(bloodbrain_x_small)
+```
+
+After removing the features with low variance, we are left with only 112 features instead of the original 134 features.
+
+We can also remove the features with low variance using caret's preProcess() function, just to specify the method as "nzv". Note that a separate predict() step is needed to get the transformed dataset.
+
+```{r}
+preproc = preProcess(bloodbrain_x, method = "nzv", freqCut = 2, uniqueCut = 20)
+bloodbrain_x_small_1 = predict(preproc, bloodbrain_x)
+dim(bloodbrain_x_small_1)
+```
+
+## Dimentionality Reduction
+
+### Principal Component Analysis (PCA)
+
+We usually need to do dimensionality reduction for data analysis. PCA is one of the most commonly used method, and can be used simply with base R's function prcomp().
+
+We use base R's mtcars dataset as an example.
+
+```{r}
+mtcars.pca <- prcomp(mtcars[,c(1:7,10,11)], center = TRUE,scale. = TRUE)
+```
+
+```{r}
+predict(mtcars.pca, mtcars)
+```
+
+We can plot the percentages of explained variances using fviz_eig() from the library factoextra.
+
+```{r}
+fviz_eig(mtcars.pca)
+```
+
+In practice, we usually use "elbow" method to select the number of components. In this case, the best number of component is 3.
+
+
+
+
