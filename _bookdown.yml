@@ -7,12 +7,7 @@ language:
   ui:
     chapter_name: "Chapter "
 
-rmd_files: [
-  # Part I: Introduction
-  'index.Rmd', # do not move
-  'sample_project.Rmd'
-
-]
+'among_us_stats.Rmd',
 
 before_chapter_script: "_common.R"
 
