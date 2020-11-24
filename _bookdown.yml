@@ -33,7 +33,7 @@ rmd_files: [
   # Part: Results Reporting
   'visualization_tools_in_real_work.Rmd',  # contains PART header
   'color_in_r.Rmd',
-  'visualization_nyc_covid19_rshiny.Rmd',
+  #'visualization_nyc_covid19_rshiny.Rmd', #shiny doesn't work
 
   # Part: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
