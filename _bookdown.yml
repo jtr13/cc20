@@ -33,6 +33,7 @@ rmd_files: [
   # Part: Results Reporting
   'visualization_tools_in_real_work.Rmd',  # contains PART header
   'color_in_r.Rmd',
+  'visualization_nyc_covid19_rshiny.Rmd',
 
   # Part: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
@@ -51,7 +52,7 @@ rmd_files: [
   'project_pichon.Rmd',
   'american_history_trivia_night.Rmd',
   'consuming_terrorism_statistics.Rmd',
-  
+
   # Part: Data Visualization
   'label_setting_techniques.Rmd',
 
