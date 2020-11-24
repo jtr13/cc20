@@ -73,6 +73,9 @@ rmd_files: [
   'speed_up_in_r_programming.Rmd',
   'data_visualization_in_python.Rmd',
   'final_project_teammate_finder.Rmd',
+  'among_us_stats.Rmd',
+
+
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
