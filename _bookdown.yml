@@ -14,6 +14,9 @@ rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
+  'pairs_and_ggpairs.Rmd',
+  'china_choropleth_map.Rmd',
+  'illustrate_graphs_in_r.Rmd',
 
   # Part 2: Data Processing and Wrangling
   'r_data_transformation.Rmd', # contains PART header
