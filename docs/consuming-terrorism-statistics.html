@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 31 Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南 | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 26 Consuming terrorism statistics | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 31 Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南 | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 26 Consuming terrorism statistics | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 31 Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南 | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 26 Consuming terrorism statistics | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="korean-translation-of-scatterplot.html"/>
-<link rel="next" href="webscraping-dynamic-content-rselenium-tutorial.html"/>
+<link rel="prev" href="american-history-trivia-night.html"/>
+<link rel="next" href="some-techniques-for-label-setting.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -664,332 +664,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南" class="section level1" number="31">
-<h1><span class="header-section-number">Chapter 31</span> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</h1>
-<p>Author: Yuzheng Jia</p>
-<div id="源文件链接" class="section level4" number="31.0.0.1">
-<h4><span class="header-section-number">31.0.0.1</span> 源文件链接</h4>
-<p><a href="https://jtr13.github.io/cc19/rmarkdown-tutorial.html" class="uri">https://jtr13.github.io/cc19/rmarkdown-tutorial.html</a></p>
-</div>
-<div id="概述" class="section level2" number="31.1">
-<h2><span class="header-section-number">31.1</span> 1. 概述</h2>
-<p>R Markdown为数据科学提供了一个整洁的框架。Markdown文件通常可以帮助我们：<br />
-- <strong>保存并执行您编写的代码</strong><br />
-- <strong>生成可以与受众共享的高质量报告</strong><br />
-R Markdown文件是可完全重新实现的，并支持数十种静态和动态输出格式。<br />
-该链接提供了R Markdown功能的快速介绍。-<a href="https://vimeo.com/178485416">链接</a></p>
-<div id="什么是r-markdown" class="section level3" number="31.1.1">
-<h3 number="31.1.1"><span class="header-section-number">31.1.1</span> 1.1 什么是R Markdown？<br />
-</h3>
-<ul>
-<li><strong>Rmd文件</strong><br />
-· R Markdown（.Rmd）文件是您的项目的记录。它包含他人重现您的作品所需的代码以及帮助他人可以理解您所做工作的所有脚本。<br />
-</li>
-<li><strong>可重实现的研究</strong><br />
-· 您可以使用 <code>Knit</code>来重新运行R Markdown文件中的代码以重实现您的作品并将结果导出为格式正确的报告。<br />
-</li>
-<li><strong>动态文档</strong><br />
-· 有很多方法可以导出报告。格式包括html、pdf、MS Word或RTF文档、基于html或pdf的幻灯片、Notebooks等。<br />
-</li>
-</ul>
-</div>
-<div id="工作流程" class="section level3" number="31.1.2">
-<h3><span class="header-section-number">31.1.2</span> 1.2 工作流程</h3>
-<ol style="list-style-type: decimal">
-<li><strong>打开一个新的.Rmd文件</strong> ：文件 ▶ 新文件 ▶ R Markdown。<br />
-</li>
-<li>通过编辑模板<strong>编写文档</strong><br />
-</li>
-<li><strong>编织文件</strong>以创建报告；使用编织按钮或
-<strong>render()</strong>进行编织<br />
-</li>
-<li>在IDE窗口中<strong>预览输出</strong><br />
-</li>
-<li><strong>发布</strong>（可选）到Web服务器<br />
-</li>
-<li>在R Markdown控制台中<strong>检查构建日志</strong><br />
-</li>
-<li><strong>使用输出文件</strong>：与.Rmd一起保存的</li>
-</ol>
-</div>
-</div>
-<div id="入门" class="section level2" number="31.2">
-<h2><span class="header-section-number">31.2</span> 2. 入门</h2>
-<div id="安装套件" class="section level3" number="31.2.1">
-<h3><span class="header-section-number">31.2.1</span> 2.1. 安装套件</h3>
-<p>您可以使用以下命令来安装所需的库。</p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb549-1"></a><span class="kw">install.packages</span>(<span class="st">&#39;rmarkdown&#39;</span>)</span></code></pre></div>
-</div>
-<div id="打开文件" class="section level3" number="31.2.2">
-<h3><span class="header-section-number">31.2.2</span> 2.2.打开文件</h3>
-<p>您可以创建一个新文件或从您选择的目录中打开现有文件。</p>
-</div>
-<div id="输出格式" class="section level3" number="31.2.3">
-<h3><span class="header-section-number">31.2.3</span> 2.3. 输出格式</h3>
-<p>R markdown可以将任何Rmd文件呈现为R markdown支持的格式。例如，下面的代码将OutputExample.Rmd呈现为Microsoft Word文档。</p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb550-1"></a><span class="kw">library</span>(rmarkdown)</span>
-<span id="cb550-2"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb550-2"></a><span class="co"># render(&quot;resources/rmarkdown_tutorial/OutputExample.Rmd&quot;, output_format = &quot;word_document&quot;)</span></span></code></pre></div>
-<p>以下是可以选择的所有格式的表：
-<strong>输出值表</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>输出值</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>html_document</td>
-<td>html</td>
-</tr>
-<tr class="even">
-<td>pdf_document</td>
-<td>pdf (需要Tex )</td>
-</tr>
-<tr class="odd">
-<td>word_document</td>
-<td>Microsof Word (.docx)</td>
-</tr>
-<tr class="even">
-<td>odt_document</td>
-<td>OpenDocument Text</td>
-</tr>
-<tr class="odd">
-<td>rtf_document</td>
-<td>Rich Text Format</td>
-</tr>
-<tr class="even">
-<td>md_document</td>
-<td>Markdown</td>
-</tr>
-<tr class="odd">
-<td>github_document</td>
-<td>Github兼容的markdown</td>
-</tr>
-<tr class="even">
-<td>ioslides_presentation</td>
-<td>ioslides HTML slides</td>
-</tr>
-<tr class="odd">
-<td>slidy_presentation</td>
-<td>slidy HTML slides</td>
-</tr>
-<tr class="even">
-<td>beamer_presentation</td>
-<td>Beamer pdf slides (需要Tex)</td>
-</tr>
-</tbody>
-</table>
-<p>您可以通过单击编织按钮旁边的下拉菜单来选择呈现所需的格式：</p>
-</div>
-</div>
-<div id="markdown语法" class="section level2" number="31.3">
-<h2><span class="header-section-number">31.3</span> 3. Markdown语法</h2>
-<p>Rmarkdown有许多精美的语法，因此您可以生成有序且美观的文档。<br />
-我们将在此处提供我们经常使用的语法。</p>
-<ul>
-<li><p><strong>纯文本</strong><br />
-纯文本</p></li>
-<li><p><strong>斜体和粗体</strong><br />
-</p></li>
-</ul>
-<pre><code>*斜体* and **粗体**</code></pre>
-<ul>
-<li><strong>列表</strong><br />
-</li>
-</ul>
-<pre><code>* 无序列表  
-   + 分项1  
-   + 分项2  
-   - 次分项1 </code></pre>
-<ul>
-<li>无序列表
-<ul>
-<li>分项1<br />
-</li>
-<li>分项2<br />
-</li>
-<li>次分项1</li>
-</ul></li>
-</ul>
-<pre><code>1. 有序列表
-2. 项2  
- i) 分项1 
-    A. 次分项1  </code></pre>
-<ol style="list-style-type: decimal">
-<li>有序列表</li>
-<li>项2<br />
-</li>
-</ol>
-<ol style="list-style-type: lower-roman">
-<li>分项1
-A. 次分项1</li>
-</ol>
-<ul>
-<li><strong>标头</strong></li>
-</ul>
-<pre><code># 标头1 {#anchor}
-## 标头2 {#css_id}
-### 标头3 {.css_class}
-#### 标头4
-##### 标头5
-###### 标头6 </code></pre>
-<ul>
-<li><strong>超连接</strong></li>
-</ul>
-<pre><code>&lt;http://www.rstudio.com&gt;
-[link](www.rstudio.com)
-Jump to [Header 1](#anchor) </code></pre>
-<p><a href="http://www.rstudio.com" class="uri">http://www.rstudio.com</a>
-<a href="www.rstudio.com">link</a>
-Jump to <a href="#anchor">Header 1</a></p>
-<ul>
-<li><strong>表</strong></li>
-</ul>
-<pre><code>| 右 | 左 | 默认 | 中央 |
-|------:|:-----|---------|:------:|
-| 12    | 12   | 12      | 12     |
-| 123   | 123  | 123     | 123    |
-| 1     | 1    | 1       | 1      | </code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="right">右</th>
-<th align="left">左</th>
-<th>默认</th>
-<th align="center">中央</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">12</td>
-<td align="left">12</td>
-<td>12</td>
-<td align="center">12</td>
-</tr>
-<tr class="even">
-<td align="right">123</td>
-<td align="left">123</td>
-<td>123</td>
-<td align="center">123</td>
-</tr>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">1</td>
-<td>1</td>
-<td align="center">1</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>方程</strong></li>
-</ul>
-<pre><code>$$E = mc^{2}$$ </code></pre>
-<p><span class="math display">\[E = mc^{2}\]</span></p>
-</div>
-<div id="嵌入代码" class="section level2" number="31.4">
-<h2><span class="header-section-number">31.4</span> 4. 嵌入代码</h2>
-<div id="内联代码" class="section level3" number="31.4.1">
-<h3><span class="header-section-number">31.4.1</span> 4.1. 内联代码</h3>
-<p>您可以在代码前后加上勾号和r。R将用其结果替换内联代码。</p>
-<p>例如：</p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb558-1"></a>  一加一等于 <span class="st">`</span><span class="dt">r 1+1</span><span class="st">`</span></span></code></pre></div>
-<p>输出为:</p>
-<p>一加一等于2</p>
-</div>
-<div id="代码块" class="section level3" number="31.4.2">
-<h3><span class="header-section-number">31.4.2</span> 4.2. 代码块</h3>
-<p>您需要以 ``` {r}开始一个块并以```结尾。</p>
-<p>例如：</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb559-1"></a><span class="kw">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Hello, world!&quot;</code></pre>
-</div>
-<div id="显示选项" class="section level3" number="31.4.3">
-<h3><span class="header-section-number">31.4.3</span> 4.3. 显示选项</h3>
-<p>还有很多选项可以显示您的代码和结果。</p>
-<p>例如，您可以使用<code>eval</code>在输出中选择TRUE或FALSE来决定是否评估代码并包括其结果。</p>
-<p>这是两个选项之间的区别：</p>
-<p><code>eval = TRUE</code>:</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb561-1"></a><span class="kw">print</span>(<span class="st">&quot;Hi there!&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Hi there!&quot;</code></pre>
-<p><code>eval = FALSE</code>:</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#cb563-1"></a><span class="kw">print</span>(<span class="st">&quot;Hi there!&quot;</span>)</span></code></pre></div>
-<p>下表包含我们通常使用的选项</p>
-<table>
-<thead>
-<tr class="header">
-<th>选项</th>
-<th>默认</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>eval</td>
-<td>TRUE</td>
-<td>Whether to evaluate the code and include its results</td>
-</tr>
-<tr class="even">
-<td>echo</td>
-<td>TRUE</td>
-<td>Whether to display code along with its results</td>
-</tr>
-<tr class="odd">
-<td>warning</td>
-<td>TRUE</td>
-<td>Whether to display warnings</td>
-</tr>
-<tr class="even">
-<td>error</td>
-<td>FALSE</td>
-<td>Whether to display errors</td>
-</tr>
-<tr class="odd">
-<td>message</td>
-<td>TRUE</td>
-<td>Whether to display messages</td>
-</tr>
-<tr class="even">
-<td>tidy</td>
-<td>FALSE</td>
-<td>Whether to reformat code in a tidy way when displaying it</td>
-</tr>
-<tr class="odd">
-<td>cache</td>
-<td>FALSE</td>
-<td>Whether to cache results for future renders</td>
-</tr>
-<tr class="even">
-<td>comment</td>
-<td>“##”</td>
-<td>Comment character to preface results with</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="渲染" class="section level2" number="31.5">
-<h2><span class="header-section-number">31.5</span> 5. 渲染</h2>
-<ul>
-<li><p><strong>第一种方式</strong></p>
-<p>您可以在控制台中运行<code>rmarkdown::render("&lt;file path&gt;")</code>。</p></li>
-<li><p><strong>第二种方式</strong></p>
-<p>您可以单击<code>Knit</code>顶部窗格中的按钮，然后选择所需的输出格式。</p></li>
-</ul>
+<div id="consuming-terrorism-statistics" class="section level1" number="26">
+<h1><span class="header-section-number">Chapter 26</span> Consuming terrorism statistics</h1>
+<p>Michelle Strayer
+For the community contribution project, I presented a lecture on how to
+critically consume statistics on terrorism. This lecture was broken down
+into several parts, including a discussion of why critical consumption is
+necessary, how media presentation of terrorism statistics shapes (and distorts)
+our understanding of current events, barriers in studying terrorism, and
+suggestions on responsibly consuming terrorism statistics from the lenses of
+political science, data science, statistics, and mass media.</p>
 
 </div>
-</div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="korean-translation-of-scatterplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="webscraping-dynamic-content-rselenium-tutorial.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="american-history-trivia-night.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="some-techniques-for-label-setting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1020,7 +713,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/cc20/edit/master/rmarkdown_tutorial_chinese_translation.rmd",
+"link": "https://github.com/jtr13/cc20/edit/master/consuming_terrorism_statistics.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -1028,7 +721,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/cc20/blob/master/rmarkdown_tutorial_chinese_translation.rmd",
+"link": "https://github.com/jtr13/cc20/blob/master/consuming_terrorism_statistics.Rmd",
 "text": null
 },
 "download": null,

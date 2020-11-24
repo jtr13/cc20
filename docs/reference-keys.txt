@@ -145,6 +145,7 @@ designing-an-interactive-visualization-tool-for-understanding-caring-for-a-compl
 phendo-app-prototype-of-interactive-visualization
 resources-for-human-centered-visualization-computing
 american-history-trivia-night
+consuming-terrorism-statistics
 some-techniques-for-label-setting
 label-placement
 tip-1-adjusting-parameters-in-geom_text-like-hjust-vjust-nudge_x-and-nudge_y
@@ -368,6 +369,7 @@ using-clustermap
 package-development
 data-visualization-in-python-using-different-plotting-packages
 final-project-teammate-finder
+among-us-player-statistics
 github-initial-setup
 tutorial-for-pull-request-mergers
 check-branch
