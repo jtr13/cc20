@@ -42,6 +42,7 @@ rmd_files: [
   # Part: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
   'benfords_law.Rmd',
+  'visualizing_electoral_margins.Rmd',
 
   # Part: Cheatsheets and Video Tutorials
   'mosaic_plot_cheatsheet.Rmd',  # contains PART header
@@ -89,4 +90,3 @@ rmd_files: [
 
 
 before_chapter_script: "_common.R"
-
