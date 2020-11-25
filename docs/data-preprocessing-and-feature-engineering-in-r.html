@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Data Preprocessing and Feature Engineering in R | Fall 2020 EDAV Community Contributions</title>
+  <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Data Preprocessing and Feature Engineering in R | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="github-repo" content="jtr13/cc20" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Data Preprocessing and Feature Engineering in R | Fall 2020 EDAV Community Contributions" />
+  
+  <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  
+
+
+
+<meta name="date" content="2020-11-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-transformation-in-r.html"/>
+<link rel="next" href="apply-family.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/hchinamap-7.0.3/highmaps.js"></script>
+<script src="libs/hchinamap-7.0.3/hebei.js"></script>
+<script src="libs/hchinamap-7.0.3/anhui.js"></script>
+<script src="libs/hchinamap-7.0.3/aomen.js"></script>
+<script src="libs/hchinamap-7.0.3/beijing.js"></script>
+<script src="libs/hchinamap-7.0.3/china.js"></script>
+<script src="libs/hchinamap-7.0.3/chongqing.js"></script>
+<script src="libs/hchinamap-7.0.3/fujian.js"></script>
+<script src="libs/hchinamap-7.0.3/gansu.js"></script>
+<script src="libs/hchinamap-7.0.3/guangdong.js"></script>
+<script src="libs/hchinamap-7.0.3/guangxi.js"></script>
+<script src="libs/hchinamap-7.0.3/guizhou.js"></script>
+<script src="libs/hchinamap-7.0.3/hainan.js"></script>
+<script src="libs/hchinamap-7.0.3/heilongjiang.js"></script>
+<script src="libs/hchinamap-7.0.3/henan.js"></script>
+<script src="libs/hchinamap-7.0.3/hubei.js"></script>
+<script src="libs/hchinamap-7.0.3/hunan.js"></script>
+<script src="libs/hchinamap-7.0.3/jiangsu.js"></script>
+<script src="libs/hchinamap-7.0.3/jiangxi.js"></script>
+<script src="libs/hchinamap-7.0.3/jilin.js"></script>
+<script src="libs/hchinamap-7.0.3/liaoning.js"></script>
+<script src="libs/hchinamap-7.0.3/neimenggu.js"></script>
+<script src="libs/hchinamap-7.0.3/ningxia.js"></script>
+<script src="libs/hchinamap-7.0.3/qinghai.js"></script>
+<script src="libs/hchinamap-7.0.3/shandong.js"></script>
+<script src="libs/hchinamap-7.0.3/shanghai.js"></script>
+<script src="libs/hchinamap-7.0.3/shanxi.js"></script>
+<script src="libs/hchinamap-7.0.3/shanxi2.js"></script>
+<script src="libs/hchinamap-7.0.3/sichuan.js"></script>
+<script src="libs/hchinamap-7.0.3/tianjin.js"></script>
+<script src="libs/hchinamap-7.0.3/xianggang.js"></script>
+<script src="libs/hchinamap-7.0.3/xinjiang.js"></script>
+<script src="libs/hchinamap-7.0.3/xizang.js"></script>
+<script src="libs/hchinamap-7.0.3/yunnan.js"></script>
+<script src="libs/hchinamap-7.0.3/zhejiang.js"></script>
+<script src="libs/hchinamap-binding-0.1.0/hchinamap.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">cc for EDAV 2020</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#background"><i class="fa fa-check"></i><b>1.1</b> Background</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#preparing-your-.rmd-file"><i class="fa fa-check"></i><b>1.2</b> Preparing your <code>.Rmd</code> file</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#submission-steps"><i class="fa fa-check"></i><b>1.3</b> Submission steps</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#optional-tweaks"><i class="fa fa-check"></i><b>1.4</b> Optional tweaks</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.5</b> FAQ</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#what-should-i-expect-after-creating-a-pull-request"><i class="fa fa-check"></i><b>1.5.1</b> What should I expect after creating a pull request?</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-before-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.2</b> What if I catch mistakes before my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-after-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.3</b> What if I catch mistakes after my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.4" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.4</b> Other questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>2</b> Sample project</a></li>
+<li class="part"><span><b>I Data Visualization</b></span></li>
+<li class="chapter" data-level="3" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html"><i class="fa fa-check"></i><b>3</b> Customized Plot Matrix: pairs and ggpairs</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#overview-things-we-can-do-with-pairs-and-ggpairs"><i class="fa fa-check"></i><b>3.1</b> Overview: Things we can do with pairs() and ggpairs()</a></li>
+<li class="chapter" data-level="3.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#scatterplot-matrix-for-continuous-variables"><i class="fa fa-check"></i><b>3.2</b> Scatterplot matrix for continuous variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-pairs"><i class="fa fa-check"></i><b>3.2.1</b> Plot with pairs()</a></li>
+<li class="chapter" data-level="3.2.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-ggpairs-from-ggally-package"><i class="fa fa-check"></i><b>3.2.2</b> Plot with ggpairs() from <code>GGally</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#categorical-variables"><i class="fa fa-check"></i><b>3.3</b> Categorical variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#pairs-plot-for-categorical-variables"><i class="fa fa-check"></i><b>3.3.1</b> pairs() plot for categorical variables</a></li>
+<li class="chapter" data-level="3.3.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#highlight-correlations-with-shade-colors"><i class="fa fa-check"></i><b>3.3.2</b> Highlight correlations with shade colors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#outside-sources"><i class="fa fa-check"></i><b>3.4</b> Outside sources</a></li>
+</ul></li>
+<li class="part"><span><b>II Complete Analyses</b></span></li>
+<li class="chapter" data-level="4" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html"><i class="fa fa-check"></i><b>4</b> China choropleth map</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#overview"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
+<li class="chapter" data-level="4.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#data-collection"><i class="fa fa-check"></i><b>4.2</b> Data Collection</a></li>
+<li class="chapter" data-level="4.3" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#static-map-with-ggplot"><i class="fa fa-check"></i><b>4.3</b> Static Map with ggplot</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#prepare-the-shape-data-of-china"><i class="fa fa-check"></i><b>4.3.1</b> Prepare the shape data of China</a></li>
+<li class="chapter" data-level="4.3.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#plot"><i class="fa fa-check"></i><b>4.3.2</b> Plot:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-hchinamap"><i class="fa fa-check"></i><b>4.4</b> Interactive Map with hchinamap</a></li>
+<li class="chapter" data-level="4.5" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-leafletcn"><i class="fa fa-check"></i><b>4.5</b> Interactive Map with leafletCN</a></li>
+<li class="chapter" data-level="4.6" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#conclusion"><i class="fa fa-check"></i><b>4.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html"><i class="fa fa-check"></i><b>5</b> Illustrate commonly used graphs in R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html#numerical-variables-with-abalone-and-mtcars"><i class="fa fa-check"></i><b>5.1</b> Numerical Variables with Abalone and Mtcars</a></li>
+<li class="chapter" data-level="5.2" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html#categorical-graphs-with-arthritis-data"><i class="fa fa-check"></i><b>5.2</b> Categorical Graphs with Arthritis Data</a></li>
+</ul></li>
+<li class="part"><span><b>III Data Processing and Wrangling</b></span></li>
+<li class="chapter" data-level="6" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html"><i class="fa fa-check"></i><b>6</b> Data transformation in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#basics"><i class="fa fa-check"></i><b>6.2</b> Basics</a></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#function-usage"><i class="fa fa-check"></i><b>6.3</b> Function Usage</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#filter"><i class="fa fa-check"></i><b>6.3.1</b> 1. Filter( )</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#arrange"><i class="fa fa-check"></i><b>6.3.2</b> 2. Arrange( )</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#select"><i class="fa fa-check"></i><b>6.3.3</b> 3. Select( )</a></li>
+<li class="chapter" data-level="6.3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#mutate"><i class="fa fa-check"></i><b>6.3.4</b> 4. Mutate( )</a></li>
+<li class="chapter" data-level="6.3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#group_by-and-summarize"><i class="fa fa-check"></i><b>6.3.5</b> 5. Group_by( ) and Summarize( )</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#quick-eda-median-arrival-delays"><i class="fa fa-check"></i><b>6.4</b> Quick EDA: median arrival delays</a></li>
+<li class="chapter" data-level="6.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#external-resource"><i class="fa fa-check"></i><b>6.5</b> External Resource</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html"><i class="fa fa-check"></i><b>7</b> Data Preprocessing and Feature Engineering in R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#overview-1"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#missing-values"><i class="fa fa-check"></i><b>7.2</b> Missing Values</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#exploring-the-dataset"><i class="fa fa-check"></i><b>7.2.1</b> Exploring the dataset</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#handling-missing-values-and-imputation"><i class="fa fa-check"></i><b>7.2.2</b> Handling Missing Values and Imputation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#feature-selection"><i class="fa fa-check"></i><b>7.3</b> Feature Selection</a></li>
+<li class="chapter" data-level="7.4" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#dimentionality-reduction"><i class="fa fa-check"></i><b>7.4</b> Dimentionality Reduction</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>7.4.1</b> Principal Component Analysis (PCA)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="apply-family.html"><a href="apply-family.html"><i class="fa fa-check"></i><b>8</b> Apply family</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="apply-family.html"><a href="apply-family.html#apply"><i class="fa fa-check"></i><b>8.0.1</b> apply</a></li>
+<li class="chapter" data-level="8.0.2" data-path="apply-family.html"><a href="apply-family.html#lapply"><i class="fa fa-check"></i><b>8.0.2</b> Lapply</a></li>
+<li class="chapter" data-level="8.0.3" data-path="apply-family.html"><a href="apply-family.html#sapply"><i class="fa fa-check"></i><b>8.0.3</b> Sapply</a></li>
+<li class="chapter" data-level="8.0.4" data-path="apply-family.html"><a href="apply-family.html#tapply"><i class="fa fa-check"></i><b>8.0.4</b> tapply</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html"><i class="fa fa-check"></i><b>9</b> Writing SQL in R</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#introduction-1"><i class="fa fa-check"></i><b>9.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#what-is-sql"><i class="fa fa-check"></i><b>9.2</b> 2. What is SQL?</a></li>
+<li class="chapter" data-level="9.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#r-packages"><i class="fa fa-check"></i><b>9.3</b> 3. R Packages</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#load-packages"><i class="fa fa-check"></i><b>9.3.1</b> Load packages</a></li>
+<li class="chapter" data-level="9.3.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dataset"><i class="fa fa-check"></i><b>9.3.2</b> Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sqldf"><i class="fa fa-check"></i><b>9.4</b> sqldf</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sql-queries"><i class="fa fa-check"></i><b>9.4.1</b> SQL Queries</a></li>
+<li class="chapter" data-level="9.4.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#whereandor"><i class="fa fa-check"></i><b>9.4.2</b> Where/And/Or</a></li>
+<li class="chapter" data-level="9.4.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#more-sqldf-examples"><i class="fa fa-check"></i><b>9.4.3</b> More sqldf Examples</a></li>
+<li class="chapter" data-level="9.4.4" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sqldf-summary"><i class="fa fa-check"></i><b>9.4.4</b> sqldf Summary:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr"><i class="fa fa-check"></i><b>9.5</b> DPLYR</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr-queries"><i class="fa fa-check"></i><b>9.5.1</b> DPLYR Queries</a></li>
+<li class="chapter" data-level="9.5.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#more-examples"><i class="fa fa-check"></i><b>9.5.2</b> More Examples</a></li>
+<li class="chapter" data-level="9.5.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr-summary"><i class="fa fa-check"></i><b>9.5.3</b> DPLYR Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dbi"><i class="fa fa-check"></i><b>9.6</b> DBI</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dbi-queries"><i class="fa fa-check"></i><b>9.6.1</b> DBI Queries:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#conclusion-1"><i class="fa fa-check"></i><b>9.7</b> Conclusion</a></li>
+<li class="chapter" data-level="9.8" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#work-cited"><i class="fa fa-check"></i><b>9.8</b> Work Cited:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="a-brief-introduction-to-seaborn.html"><a href="a-brief-introduction-to-seaborn.html"><i class="fa fa-check"></i><b>10</b> A brief introduction to seaborn</a></li>
+<li class="chapter" data-level="11" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html"><i class="fa fa-check"></i><b>11</b> GeomMLBStadiums</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#overview-2"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#setup"><i class="fa fa-check"></i><b>11.2</b> Setup</a></li>
+<li class="chapter" data-level="11.3" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#geom_mlb_stadium"><i class="fa fa-check"></i><b>11.3</b> <code>geom_mlb_stadium</code></a></li>
+<li class="chapter" data-level="11.4" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#geom_spraychart"><i class="fa fa-check"></i><b>11.4</b> <code>geom_spraychart</code></a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#mlbam_xy_transformation"><i class="fa fa-check"></i><b>11.4.1</b> <code>mlbam_xy_transformation</code></a></li>
+<li class="chapter" data-level="11.4.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#spraycharts"><i class="fa fa-check"></i><b>11.4.2</b> Spraycharts</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#other-types-of-visualizations-with-geommlbstadiums"><i class="fa fa-check"></i><b>11.5</b> Other types of Visualizations with <code>GeomMLBStadiums</code></a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#heatmaps-with-geommlbstadiums"><i class="fa fa-check"></i><b>11.5.1</b> Heatmaps with <code>GeomMLBStadiums</code></a></li>
+<li class="chapter" data-level="11.5.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#stat_summary_hex-with-geommlbstadiums"><i class="fa fa-check"></i><b>11.5.2</b> <code>stat_summary_hex</code> with <code>GeomMLBStadiums</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="radar-chart.html"><a href="radar-chart.html"><i class="fa fa-check"></i><b>12</b> Radar Chart</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="radar-chart.html"><a href="radar-chart.html#introduction-of-radar-chart"><i class="fa fa-check"></i><b>12.1</b> Introduction of Radar Chart</a></li>
+<li class="chapter" data-level="12.2" data-path="radar-chart.html"><a href="radar-chart.html#basic-radar-chart"><i class="fa fa-check"></i><b>12.2</b> Basic Radar Chart</a></li>
+<li class="chapter" data-level="12.3" data-path="radar-chart.html"><a href="radar-chart.html#customize-radar-chart"><i class="fa fa-check"></i><b>12.3</b> Customize Radar Chart</a></li>
+<li class="chapter" data-level="12.4" data-path="radar-chart.html"><a href="radar-chart.html#radar-chart-with-several-individuals"><i class="fa fa-check"></i><b>12.4</b> Radar Chart with several individuals</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="radar-chart.html"><a href="radar-chart.html#basic-plot"><i class="fa fa-check"></i><b>12.4.1</b> basic plot</a></li>
+<li class="chapter" data-level="12.4.2" data-path="radar-chart.html"><a href="radar-chart.html#customize"><i class="fa fa-check"></i><b>12.4.2</b> customize</a></li>
+<li class="chapter" data-level="12.4.3" data-path="radar-chart.html"><a href="radar-chart.html#radar-vs.-bar-chart"><i class="fa fa-check"></i><b>12.4.3</b> Radar vs. Bar Chart</a></li>
+<li class="chapter" data-level="12.4.4" data-path="radar-chart.html"><a href="radar-chart.html#using-package-ggradar"><i class="fa fa-check"></i><b>12.4.4</b> Using package ‘ggradar’</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="radar-chart.html"><a href="radar-chart.html#reference"><i class="fa fa-check"></i><b>12.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html"><i class="fa fa-check"></i><b>13</b> Likert Scale: Definition, Examples, and Visualization</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#what-is-likert-scale"><i class="fa fa-check"></i><b>13.1</b> What is Likert Scale?</a></li>
+<li class="chapter" data-level="13.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#test-your-understanding-of-likert-scale"><i class="fa fa-check"></i><b>13.2</b> Test Your Understanding of Likert Scale</a></li>
+<li class="chapter" data-level="13.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#visualization-of-a-sample-likert-scale-data-explore-climate-change-in-the-american-mind"><i class="fa fa-check"></i><b>13.3</b> Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#overview-of-the-data"><i class="fa fa-check"></i><b>13.3.1</b> Overview of the Data</a></li>
+<li class="chapter" data-level="13.3.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#stacked-bar-chart"><i class="fa fa-check"></i><b>13.3.2</b> Stacked Bar Chart</a></li>
+<li class="chapter" data-level="13.3.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#faceted-bar-charts"><i class="fa fa-check"></i><b>13.3.3</b> Faceted Bar Charts</a></li>
+<li class="chapter" data-level="13.3.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#diverging-stacked-bar-chart"><i class="fa fa-check"></i><b>13.3.4</b> Diverging Stacked Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#arguments-on-each-type-of-charts"><i class="fa fa-check"></i><b>13.4</b> Arguments on each type of charts</a></li>
+<li class="chapter" data-level="13.5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#reference-1"><i class="fa fa-check"></i><b>13.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html"><i class="fa fa-check"></i><b>14</b> A simple way to visualize geographic data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#overview-3"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#introduction-2"><i class="fa fa-check"></i><b>14.2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#load-packages-1"><i class="fa fa-check"></i><b>14.2.1</b> Load Packages</a></li>
+<li class="chapter" data-level="14.2.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarder-visualization"><i class="fa fa-check"></i><b>14.2.2</b> Boarder Visualization</a></li>
+<li class="chapter" data-level="14.2.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarders"><i class="fa fa-check"></i><b>14.2.3</b> Boarders</a></li>
+<li class="chapter" data-level="14.2.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#parts-of-the-map"><i class="fa fa-check"></i><b>14.2.4</b> Parts of the Map</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#application"><i class="fa fa-check"></i><b>14.3</b> Application</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#data-collection-1"><i class="fa fa-check"></i><b>14.3.1</b> Data Collection</a></li>
+<li class="chapter" data-level="14.3.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#comparison"><i class="fa fa-check"></i><b>14.3.2</b> Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#conclusion-2"><i class="fa fa-check"></i><b>14.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="base-r-vs-ggplot2.html"><a href="base-r-vs-ggplot2.html"><i class="fa fa-check"></i><b>15</b> Base R vs. ggplot2</a></li>
+<li class="part"><span><b>IV Results Reporting</b></span></li>
+<li class="chapter" data-level="16" data-path="visualiztion-tools-in-real-work.html"><a href="visualiztion-tools-in-real-work.html"><i class="fa fa-check"></i><b>16</b> Visualiztion tools in real work</a></li>
+<li class="chapter" data-level="17" data-path="color-in-r.html"><a href="color-in-r.html"><i class="fa fa-check"></i><b>17</b> Color in R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="color-in-r.html"><a href="color-in-r.html#overview-4"><i class="fa fa-check"></i><b>17.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="color-in-r.html"><a href="color-in-r.html#sections"><i class="fa fa-check"></i><b>17.1.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="color-in-r.html"><a href="color-in-r.html#discrete-colors"><i class="fa fa-check"></i><b>17.2</b> Discrete Colors</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="color-in-r.html"><a href="color-in-r.html#basics-1"><i class="fa fa-check"></i><b>17.2.1</b> Basics</a></li>
+<li class="chapter" data-level="17.2.2" data-path="color-in-r.html"><a href="color-in-r.html#rcolorbrewer"><i class="fa fa-check"></i><b>17.2.2</b> RColorBrewer</a></li>
+<li class="chapter" data-level="17.2.3" data-path="color-in-r.html"><a href="color-in-r.html#viridis"><i class="fa fa-check"></i><b>17.2.3</b> Viridis</a></li>
+<li class="chapter" data-level="17.2.4" data-path="color-in-r.html"><a href="color-in-r.html#color-picker"><i class="fa fa-check"></i><b>17.2.4</b> Color Picker</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="color-in-r.html"><a href="color-in-r.html#continuous-colors"><i class="fa fa-check"></i><b>17.3</b> Continuous Colors</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="color-in-r.html"><a href="color-in-r.html#barplot"><i class="fa fa-check"></i><b>17.3.1</b> Barplot</a></li>
+<li class="chapter" data-level="17.3.2" data-path="color-in-r.html"><a href="color-in-r.html#heatmap"><i class="fa fa-check"></i><b>17.3.2</b> Heatmap</a></li>
+<li class="chapter" data-level="17.3.3" data-path="color-in-r.html"><a href="color-in-r.html#diverging-scales"><i class="fa fa-check"></i><b>17.3.3</b> Diverging Scales</a></li>
+<li class="chapter" data-level="17.3.4" data-path="color-in-r.html"><a href="color-in-r.html#colorblind"><i class="fa fa-check"></i><b>17.3.4</b> ColorBlind</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="color-in-r.html"><a href="color-in-r.html#resources"><i class="fa fa-check"></i><b>17.4</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="benfords-law-analysis-of-2020-election.html"><a href="benfords-law-analysis-of-2020-election.html"><i class="fa fa-check"></i><b>18</b> Benford’s Law Analysis of 2020 Election</a></li>
+<li class="part"><span><b>V Cheatsheets and Video Tutorials</b></span></li>
+<li class="chapter" data-level="19" data-path="mosaic-plot-cheatsheet.html"><a href="mosaic-plot-cheatsheet.html"><i class="fa fa-check"></i><b>19</b> Mosaic plot cheatsheet</a></li>
+<li class="chapter" data-level="20" data-path="time-series-cheatsheet.html"><a href="time-series-cheatsheet.html"><i class="fa fa-check"></i><b>20</b> Time Series Cheatsheet</a></li>
+<li class="chapter" data-level="21" data-path="python-vs-r-cheatsheet.html"><a href="python-vs-r-cheatsheet.html"><i class="fa fa-check"></i><b>21</b> Python vs. R Cheatsheet</a></li>
+<li class="chapter" data-level="22" data-path="likert-data-cheat-sheet.html"><a href="likert-data-cheat-sheet.html"><i class="fa fa-check"></i><b>22</b> likert data cheat sheet</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="likert-data-cheat-sheet.html"><a href="likert-data-cheat-sheet.html#link-is-below"><i class="fa fa-check"></i><b>22.1</b> link is below</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="categorical-data-visualization-cheat-sheet.html"><a href="categorical-data-visualization-cheat-sheet.html"><i class="fa fa-check"></i><b>23</b> Categorical Data Visualization Cheat Sheet</a></li>
+<li class="part"><span><b>VI Live Tutorials</b></span></li>
+<li class="chapter" data-level="24" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>24</b> Tableau intro tutorial explained with proset2</a></li>
+<li class="chapter" data-level="25" data-path="solutioning-a-data-pipeline-for-visualization.html"><a href="solutioning-a-data-pipeline-for-visualization.html"><i class="fa fa-check"></i><b>25</b> Solutioning a Data pipeline for visualization</a></li>
+<li class="chapter" data-level="26" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html"><i class="fa fa-check"></i><b>26</b> Visualization Research in Biomedical Informatics</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#community-contribution-zoom-session"><i class="fa fa-check"></i><b>26.1</b> Community Contribution Zoom Session</a>
+<ul>
+<li class="chapter" data-level="26.1.1" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#designing-an-interactive-visualization-tool-for-understanding-caring-for-a-complex-chronic-condition"><i class="fa fa-check"></i><b>26.1.1</b> Designing an Interactive Visualization Tool for Understanding &amp; Caring for a Complex Chronic Condition</a></li>
+<li class="chapter" data-level="26.1.2" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#phendo-app-prototype-of-interactive-visualization"><i class="fa fa-check"></i><b>26.1.2</b> Phendo App &amp; Prototype of Interactive Visualization</a></li>
+<li class="chapter" data-level="26.1.3" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#resources-for-human-centered-visualization-computing"><i class="fa fa-check"></i><b>26.1.3</b> Resources for Human-Centered Visualization &amp; Computing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="american-history-trivia-night.html"><a href="american-history-trivia-night.html"><i class="fa fa-check"></i><b>27</b> American History Trivia Night</a></li>
+<li class="chapter" data-level="28" data-path="consuming-terrorism-statistics.html"><a href="consuming-terrorism-statistics.html"><i class="fa fa-check"></i><b>28</b> Consuming terrorism statistics</a></li>
+<li class="chapter" data-level="29" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html"><i class="fa fa-check"></i><b>29</b> Some techniques for label setting</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#label-placement"><i class="fa fa-check"></i><b>29.1</b> 1. Label placement</a>
+<ul>
+<li class="chapter" data-level="29.1.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-1-adjusting-parameters-in-geom_text-like-hjust-vjust-nudge_x-and-nudge_y"><i class="fa fa-check"></i><b>29.1.1</b> Tip 1: Adjusting parameters in geom_text like hjust, vjust, nudge_x and nudge_y</a></li>
+<li class="chapter" data-level="29.1.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-2-ggrepel"><i class="fa fa-check"></i><b>29.1.2</b> Tip 2: ggrepel</a></li>
+<li class="chapter" data-level="29.1.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-3-directlabels"><i class="fa fa-check"></i><b>29.1.3</b> Tip 3: directlabels</a></li>
+</ul></li>
+<li class="chapter" data-level="29.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#auto-wrapping-of-long-labels-on-axis"><i class="fa fa-check"></i><b>29.2</b> 2. Auto wrapping of long labels on axis</a></li>
+<li class="chapter" data-level="29.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#add-shadow-effect-to-labels"><i class="fa fa-check"></i><b>29.3</b> 3. Add shadow effect to labels</a></li>
+</ul></li>
+<li class="part"><span><b>VII Translations</b></span></li>
+<li class="chapter" data-level="30" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>30</b> Chinese Translation of Candela Package</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>30.1</b> Candela</a>
+<ul>
+<li class="chapter" data-level="30.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>30.1.1</b> 开始</a></li>
+</ul></li>
+<li class="chapter" data-level="30.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>30.2</b> Candela 包使用</a>
+<ul>
+<li class="chapter" data-level="30.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>30.2.1</b> 安装</a></li>
+<li class="chapter" data-level="30.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>30.2.2</b> 版本控制</a></li>
+</ul></li>
+<li class="chapter" data-level="30.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>30.3</b> 组件</a>
+<ul>
+<li class="chapter" data-level="30.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>30.3.1</b> 条形图 (BarChart)</a></li>
+<li class="chapter" data-level="30.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>30.3.2</b> 箱线图 (BoxPlot)</a></li>
+<li class="chapter" data-level="30.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>30.3.3</b> 甘特图 (GanttChart)</a></li>
+<li class="chapter" data-level="30.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>30.3.4</b> 地理空间图 (Geo)</a></li>
+<li class="chapter" data-level="30.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>30.3.5</b> 地理点图(GeoDots)</a></li>
+<li class="chapter" data-level="30.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>30.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
+<li class="chapter" data-level="30.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>30.3.7</b> 直方图 (Histogram)</a></li>
+<li class="chapter" data-level="30.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>30.3.8</b> 折线图 (LineChart)</a></li>
+<li class="chapter" data-level="30.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>30.3.9</b> 排序图(Lineup)</a></li>
+<li class="chapter" data-level="30.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>30.3.10</b> OnSet组件 (OnSet)</a></li>
+<li class="chapter" data-level="30.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>30.3.11</b> 散点图 (ScatterPlot)</a></li>
+<li class="chapter" data-level="30.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>30.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
+<li class="chapter" data-level="30.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>30.3.13</b> 词树 (SentenTree)</a></li>
+<li class="chapter" data-level="30.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>30.3.14</b> 相似图 (SimilarityGraph)</a></li>
+<li class="chapter" data-level="30.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>30.3.15</b> 树状图(Tree Heatmap)</a></li>
+<li class="chapter" data-level="30.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>30.3.16</b> 集合可视化 (UpSet)</a></li>
+</ul></li>
+<li class="chapter" data-level="30.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>30.4</b> API文件</a>
+<ul>
+<li class="chapter" data-level="30.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>30.4.1</b> Candela JavaScript API</a></li>
+<li class="chapter" data-level="30.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>30.4.2</b> Candela Python API</a></li>
+<li class="chapter" data-level="30.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>30.4.3</b> Candela R API</a></li>
+</ul></li>
+<li class="chapter" data-level="30.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>30.5</b> 开发人员文件</a>
+<ul>
+<li class="chapter" data-level="30.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>30.5.1</b> 编码规范指南</a></li>
+<li class="chapter" data-level="30.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>30.5.2</b> 创建Candela代码发布</a></li>
+<li class="chapter" data-level="30.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>30.5.3</b> 测试</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>31</b> Greek translation of edav.info/histo</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>31.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
+<li class="chapter" data-level="31.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>31.2</b> Επισκόπηση</a></li>
+<li class="chapter" data-level="31.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>31.3</b> Σύνοψη</a></li>
+<li class="chapter" data-level="31.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>31.4</b> Simple examples</a>
+<ul>
+<li class="chapter" data-level="31.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>31.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
+<li class="chapter" data-level="31.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>31.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="31.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>31.5</b> Θεωρία</a></li>
+<li class="chapter" data-level="31.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>31.6</b> Τύποι ιστογραμμάτων</a>
+<ul>
+<li class="chapter" data-level="31.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>31.6.1</b> Συχνότητα ή μέτρηση</a></li>
+<li class="chapter" data-level="31.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>31.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
+<li class="chapter" data-level="31.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>31.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
+<li class="chapter" data-level="31.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>31.6.4</b> Πυκνότητα</a></li>
+</ul></li>
+<li class="chapter" data-level="31.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>31.7</b> Παράμετροι</a>
+<ul>
+<li class="chapter" data-level="31.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>31.7.1</b> Όρια ζωνών</a></li>
+<li class="chapter" data-level="31.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>31.7.2</b> Αριθμός ζωνών</a></li>
+<li class="chapter" data-level="31.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>31.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+</ul></li>
+<li class="chapter" data-level="31.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>31.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<ul>
+<li class="chapter" data-level="31.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>31.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
+<li class="chapter" data-level="31.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>31.8.2</b> Παράδειγμα ΑΕΠ</a></li>
+<li class="chapter" data-level="31.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>31.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
+<li class="chapter" data-level="31.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>31.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
+<li class="chapter" data-level="31.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>31.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+</ul></li>
+<li class="chapter" data-level="31.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>31.9</b> Εξωτερικές πηγές</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html"><i class="fa fa-check"></i><b>32</b> Korean translation of scatterplot</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#개요"><i class="fa fa-check"></i><b>32.1</b> 개요</a></li>
+<li class="chapter" data-level="32.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#요약"><i class="fa fa-check"></i><b>32.2</b> 요약</a></li>
+<li class="chapter" data-level="32.3" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#간단한-예시"><i class="fa fa-check"></i><b>32.3</b> 간단한 예시</a>
+<ul>
+<li class="chapter" data-level="32.3.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#base-r을-이용한-산점도"><i class="fa fa-check"></i><b>32.3.1</b> base R을 이용한 산점도</a></li>
+<li class="chapter" data-level="32.3.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#ggplot2를-이용한-산점도"><i class="fa fa-check"></i><b>32.3.2</b> ggplot2를 이용한 산점도</a></li>
+</ul></li>
+<li class="chapter" data-level="32.4" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#이론"><i class="fa fa-check"></i><b>32.4</b> 이론</a></li>
+<li class="chapter" data-level="32.5" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#사용-시기"><i class="fa fa-check"></i><b>32.5</b> 사용 시기</a></li>
+<li class="chapter" data-level="32.6" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#고려-사항"><i class="fa fa-check"></i><b>32.6</b> 고려 사항</a>
+<ul>
+<li class="chapter" data-level="32.6.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#겹치는-데이터"><i class="fa fa-check"></i><b>32.6.1</b> 겹치는 데이터</a></li>
+<li class="chapter" data-level="32.6.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#스케일링"><i class="fa fa-check"></i><b>32.6.2</b> 스케일링</a></li>
+</ul></li>
+<li class="chapter" data-level="32.7" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#변경"><i class="fa fa-check"></i><b>32.7</b> 변경</a>
+<ul>
+<li class="chapter" data-level="32.7.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#등고선"><i class="fa fa-check"></i><b>32.7.1</b> 등고선</a></li>
+<li class="chapter" data-level="32.7.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#산점도-행렬"><i class="fa fa-check"></i><b>32.7.2</b> 산점도 행렬</a></li>
+</ul></li>
+<li class="chapter" data-level="32.8" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#추가-자료"><i class="fa fa-check"></i><b>32.8</b> 추가 자료</a></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><i class="fa fa-check"></i><b>33</b> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#概述"><i class="fa fa-check"></i><b>33.1</b> 1. 概述</a>
+<ul>
+<li><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#什么是r-markdown"><span class="toc-section-number">33.1.1</span> 1.1 什么是R Markdown？<br />
+</a></li>
+<li class="chapter" data-level="33.1.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#工作流程"><i class="fa fa-check"></i><b>33.1.2</b> 1.2 工作流程</a></li>
+</ul></li>
+<li class="chapter" data-level="33.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#入门"><i class="fa fa-check"></i><b>33.2</b> 2. 入门</a>
+<ul>
+<li class="chapter" data-level="33.2.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#安装套件"><i class="fa fa-check"></i><b>33.2.1</b> 2.1. 安装套件</a></li>
+<li class="chapter" data-level="33.2.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#打开文件"><i class="fa fa-check"></i><b>33.2.2</b> 2.2.打开文件</a></li>
+<li class="chapter" data-level="33.2.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#输出格式"><i class="fa fa-check"></i><b>33.2.3</b> 2.3. 输出格式</a></li>
+</ul></li>
+<li class="chapter" data-level="33.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#markdown语法"><i class="fa fa-check"></i><b>33.3</b> 3. Markdown语法</a></li>
+<li class="chapter" data-level="33.4" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#嵌入代码"><i class="fa fa-check"></i><b>33.4</b> 4. 嵌入代码</a>
+<ul>
+<li class="chapter" data-level="33.4.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#内联代码"><i class="fa fa-check"></i><b>33.4.1</b> 4.1. 内联代码</a></li>
+<li class="chapter" data-level="33.4.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#代码块"><i class="fa fa-check"></i><b>33.4.2</b> 4.2. 代码块</a></li>
+<li class="chapter" data-level="33.4.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#显示选项"><i class="fa fa-check"></i><b>33.4.3</b> 4.3. 显示选项</a></li>
+</ul></li>
+<li class="chapter" data-level="33.5" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#渲染"><i class="fa fa-check"></i><b>33.5</b> 5. 渲染</a></li>
+</ul></li>
+<li class="part"><span><b>VIII Other Topics</b></span></li>
+<li class="chapter" data-level="34" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html"><i class="fa fa-check"></i><b>34</b> Webscraping Dynamic Content: Rselenium Tutorial</a>
+<ul>
+<li class="chapter" data-level="34.1" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#introduction-and-setup"><i class="fa fa-check"></i><b>34.1</b> Introduction and Setup</a></li>
+<li class="chapter" data-level="34.2" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#simple-illustrations-with-websites"><i class="fa fa-check"></i><b>34.2</b> Simple Illustrations with Websites</a></li>
+<li class="chapter" data-level="34.3" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#other-features"><i class="fa fa-check"></i><b>34.3</b> Other Features</a></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html"><i class="fa fa-check"></i><b>35</b> Brief Introduction and Tutorial of ggpubr Package</a>
+<ul>
+<li class="chapter" data-level="35.1" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#installation-and-loading"><i class="fa fa-check"></i><b>35.1</b> Installation and loading</a></li>
+<li class="chapter" data-level="35.2" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#introduction-3"><i class="fa fa-check"></i><b>35.2</b> Introduction</a></li>
+<li class="chapter" data-level="35.3" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#histogram"><i class="fa fa-check"></i><b>35.3</b> Histogram</a></li>
+<li class="chapter" data-level="35.4" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#density-plot"><i class="fa fa-check"></i><b>35.4</b> Density plot</a></li>
+<li class="chapter" data-level="35.5" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#box-plot"><i class="fa fa-check"></i><b>35.5</b> Box plot</a></li>
+<li class="chapter" data-level="35.6" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#violin-plot"><i class="fa fa-check"></i><b>35.6</b> Violin plot</a></li>
+<li class="chapter" data-level="35.7" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#bar-plot"><i class="fa fa-check"></i><b>35.7</b> Bar plot</a></li>
+<li class="chapter" data-level="35.8" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#lollipop-chart"><i class="fa fa-check"></i><b>35.8</b> Lollipop Chart</a></li>
+<li class="chapter" data-level="35.9" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#cleveland-dot-plot"><i class="fa fa-check"></i><b>35.9</b> Cleveland dot plot</a></li>
+</ul></li>
+<li class="chapter" data-level="36" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html"><i class="fa fa-check"></i><b>36</b> Visualization of geographical maps</a>
+<ul>
+<li class="chapter" data-level="36.0.1" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#what-is-map-visualization"><i class="fa fa-check"></i><b>36.0.1</b> 1. What is map visualization</a></li>
+<li class="chapter" data-level="36.0.2" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#how-to-draw-a-map-in-r"><i class="fa fa-check"></i><b>36.0.2</b> 2. How to draw a map in R</a></li>
+<li class="chapter" data-level="36.0.3" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#tmap"><i class="fa fa-check"></i><b>36.0.3</b> 3. tmap</a></li>
+<li class="chapter" data-level="36.0.4" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#optional-watching-create-your-own-sf-object"><i class="fa fa-check"></i><b>36.0.4</b> 4.Optional watching: create your own sf object</a></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html"><i class="fa fa-check"></i><b>37</b> Health datasets for the final project</a>
+<ul>
+<li class="chapter" data-level="37.1" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#big-cities-health-inventory-data"><i class="fa fa-check"></i><b>37.1</b> Big Cities Health Inventory Data</a></li>
+<li class="chapter" data-level="37.2" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#mhealth-dataset"><i class="fa fa-check"></i><b>37.2</b> MHealth Dataset</a></li>
+<li class="chapter" data-level="37.3" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#human-mortality-database-hmd"><i class="fa fa-check"></i><b>37.3</b> Human Mortality Database (HMD)</a></li>
+<li class="chapter" data-level="37.4" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#seer-cancer-incidence"><i class="fa fa-check"></i><b>37.4</b> SEER Cancer Incidence</a></li>
+<li class="chapter" data-level="37.5" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#unicef-data-warehouse"><i class="fa fa-check"></i><b>37.5</b> UNICEF Data Warehouse</a></li>
+</ul></li>
+<li class="chapter" data-level="38" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><i class="fa fa-check"></i><b>38</b> Laying out multiple plots for Baseplot and ggplot</a>
+<ul>
+<li class="chapter" data-level="38.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#overview-5"><i class="fa fa-check"></i><b>38.1</b> Overview</a></li>
+<li class="chapter" data-level="38.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#most-easy-and-normal-form-par"><i class="fa fa-check"></i><b>38.2</b> Most easy and normal form <code>par()</code></a></li>
+<li class="chapter" data-level="38.3" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#complex-plot-layouts-with-layout"><i class="fa fa-check"></i><b>38.3</b> Complex plot layouts with <code>layout()</code></a></li>
+<li class="chapter" data-level="38.4" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#layout-for-ggplot"><i class="fa fa-check"></i><b>38.4</b> Layout for ggplot</a>
+<ul>
+<li class="chapter" data-level="38.4.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#grid.arrange-in-gridextra"><i class="fa fa-check"></i><b>38.4.1</b> <code>grid.arrange()</code> in <code>gridExtra</code></a></li>
+<li class="chapter" data-level="38.4.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#method-in-grid"><i class="fa fa-check"></i><b>38.4.2</b> method in <code>grid</code></a></li>
+</ul></li>
+<li class="chapter" data-level="38.5" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#reference-2"><i class="fa fa-check"></i><b>38.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="39" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><i class="fa fa-check"></i><b>39</b> A basic Introduction to Markov Chain Monte Carlo Method in R</a>
+<ul>
+<li class="chapter" data-level="39.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#introduction-4"><i class="fa fa-check"></i><b>39.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="39.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#markov-chain-simulation-method"><i class="fa fa-check"></i><b>39.2</b> 2. Markov Chain Simulation Method</a></li>
+<li class="chapter" data-level="39.3" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#acceptance-rejection-sampling"><i class="fa fa-check"></i><b>39.3</b> 3. Acceptance-Rejection Sampling</a></li>
+<li class="chapter" data-level="39.4" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-markov-chain"><i class="fa fa-check"></i><b>39.4</b> 4. Sampling from Markov Chain</a></li>
+<li class="chapter" data-level="39.5" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#mcmc-sampling-method"><i class="fa fa-check"></i><b>39.5</b> 5. MCMC Sampling Method</a></li>
+<li class="chapter" data-level="39.6" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#metropolis-hastings-sampling"><i class="fa fa-check"></i><b>39.6</b> 6. Metropolis-Hastings Sampling</a></li>
+<li class="chapter" data-level="39.7" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#implementation-in-r"><i class="fa fa-check"></i><b>39.7</b> 7. Implementation in R</a>
+<ul>
+<li class="chapter" data-level="39.7.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-an-exponential-distribution"><i class="fa fa-check"></i><b>39.7.1</b> 1. Sampling from an exponential distribution</a></li>
+<li class="chapter" data-level="39.7.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-a-normal-distribution"><i class="fa fa-check"></i><b>39.7.2</b> 2. Sampling from a normal distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="39.8" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#refenence"><i class="fa fa-check"></i><b>39.8</b> 8 Refenence</a></li>
+</ul></li>
+<li class="chapter" data-level="40" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html"><i class="fa fa-check"></i><b>40</b> automate eda with dataexplorer</a>
+<ul>
+<li class="chapter" data-level="40.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overview-6"><i class="fa fa-check"></i><b>40.1</b> Overview</a></li>
+<li class="chapter" data-level="40.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dataexplorer"><i class="fa fa-check"></i><b>40.2</b> DataExplorer</a></li>
+<li class="chapter" data-level="40.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#installation"><i class="fa fa-check"></i><b>40.3</b> Installation</a></li>
+<li class="chapter" data-level="40.4" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>40.4</b> Exploratory data analysis (EDA)</a>
+<ul>
+<li class="chapter" data-level="40.4.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overall-information"><i class="fa fa-check"></i><b>40.4.1</b> Overall Information</a></li>
+<li class="chapter" data-level="40.4.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#distribution"><i class="fa fa-check"></i><b>40.4.2</b> Distribution</a></li>
+<li class="chapter" data-level="40.4.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#correlation-analysis"><i class="fa fa-check"></i><b>40.4.3</b> Correlation Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="40.5" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#feature-engineering"><i class="fa fa-check"></i><b>40.5</b> Feature Engineering</a>
+<ul>
+<li class="chapter" data-level="40.5.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#missing-value"><i class="fa fa-check"></i><b>40.5.1</b> Missing value</a></li>
+<li class="chapter" data-level="40.5.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dummy-variable"><i class="fa fa-check"></i><b>40.5.2</b> Dummy variable</a></li>
+</ul></li>
+<li class="chapter" data-level="40.6" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#data-report"><i class="fa fa-check"></i><b>40.6</b> Data Report</a></li>
+<li class="chapter" data-level="40.7" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#external-resources"><i class="fa fa-check"></i><b>40.7</b> External Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="41" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html"><i class="fa fa-check"></i><b>41</b> Speed up in r programming</a>
+<ul>
+<li class="chapter" data-level="41.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#typical-development-cycle-for-computational-statistics"><i class="fa fa-check"></i><b>41.1</b> Typical development cycle for computational statistics</a></li>
+<li class="chapter" data-level="41.2" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#bytecode-compilation"><i class="fa fa-check"></i><b>41.2</b> Bytecode compilation</a>
+<ul>
+<li class="chapter" data-level="41.2.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#example-summing-a-vector"><i class="fa fa-check"></i><b>41.2.1</b> Example: summing a vector</a></li>
+</ul></li>
+<li class="chapter" data-level="41.3" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#rcpp"><i class="fa fa-check"></i><b>41.3</b> Rcpp</a>
+<ul>
+<li class="chapter" data-level="41.3.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#use-cppfunction"><i class="fa fa-check"></i><b>41.3.1</b> Use <code>cppFunction</code></a></li>
+</ul></li>
+<li class="chapter" data-level="41.4" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#parallel-computing"><i class="fa fa-check"></i><b>41.4</b> Parallel computing</a>
+<ul>
+<li class="chapter" data-level="41.4.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#simulation-example"><i class="fa fa-check"></i><b>41.4.1</b> Simulation example</a></li>
+</ul></li>
+<li class="chapter" data-level="41.5" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#package-development"><i class="fa fa-check"></i><b>41.5</b> Package development</a></li>
+</ul></li>
+<li class="chapter" data-level="42" data-path="data-visualization-in-python-using-different-plotting-packages.html"><a href="data-visualization-in-python-using-different-plotting-packages.html"><i class="fa fa-check"></i><b>42</b> Data Visualization in Python using different plotting packages</a></li>
+<li class="chapter" data-level="43" data-path="final-project-teammate-finder.html"><a href="final-project-teammate-finder.html"><i class="fa fa-check"></i><b>43</b> Final project teammate finder</a></li>
+<li class="chapter" data-level="44" data-path="among-us-player-statistics.html"><a href="among-us-player-statistics.html"><i class="fa fa-check"></i><b>44</b> Among Us Player Statistics</a></li>
+<li class="part"><span><b>IX Appendices</b></span></li>
+<li class="chapter" data-level="45" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>45</b> Github Initial Setup</a></li>
+<li class="chapter" data-level="46" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html"><i class="fa fa-check"></i><b>46</b> Tutorial for Pull Request Mergers</a>
+<ul>
+<li class="chapter" data-level="46.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-branch"><i class="fa fa-check"></i><b>46.1</b> Check branch</a></li>
+<li class="chapter" data-level="46.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#examine-files-that-were-added-or-modified"><i class="fa fa-check"></i><b>46.2</b> Examine files that were added or modified</a></li>
+<li class="chapter" data-level="46.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-filename"><i class="fa fa-check"></i><b>46.3</b> Check <code>.Rmd</code> filename</a></li>
+<li class="chapter" data-level="46.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file-contents"><i class="fa fa-check"></i><b>46.4</b> Check <code>.Rmd</code> file contents</a></li>
+<li class="chapter" data-level="46.5" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#request-changes"><i class="fa fa-check"></i><b>46.5</b> Request changes</a></li>
+<li class="chapter" data-level="46.6" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-the-pull-request"><i class="fa fa-check"></i><b>46.6</b> Merge the pull request</a>
+<ul>
+<li class="chapter" data-level="46.6.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-filename-to-_bookdown.yml-in-prs-branch"><i class="fa fa-check"></i><b>46.6.1</b> Add chapter filename to <code>_bookdown.yml</code> in PR’s <code>branch</code></a></li>
+<li class="chapter" data-level="46.6.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization"><i class="fa fa-check"></i><b>46.6.2</b> Add chapter names to <code>.Rmd</code> for every first article in each chapter (Chapter Organization)</a></li>
+<li class="chapter" data-level="46.6.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-pr-and-leave-a-comment"><i class="fa fa-check"></i><b>46.6.3</b> Merge PR and leave a comment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="47" data-path="chapter-organization.html"><a href="chapter-organization.html"><i class="fa fa-check"></i><b>47</b> Chapter Organization</a>
+<ul>
+<li class="chapter" data-level="47.1" data-path="chapter-organization.html"><a href="chapter-organization.html#process-for-organizing-chapters"><i class="fa fa-check"></i><b>47.1</b> Process for Organizing Chapters</a></li>
+<li class="chapter" data-level="47.2" data-path="chapter-organization.html"><a href="chapter-organization.html#initial-book-parts"><i class="fa fa-check"></i><b>47.2</b> Initial Book Parts</a>
+<ul>
+<li class="chapter" data-level="47.2.1" data-path="chapter-organization.html"><a href="chapter-organization.html#motivation"><i class="fa fa-check"></i><b>47.2.1</b> Motivation</a></li>
+<li class="chapter" data-level="47.2.2" data-path="chapter-organization.html"><a href="chapter-organization.html#additional-categories"><i class="fa fa-check"></i><b>47.2.2</b> Additional Categories</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Fall 2020 EDAV Community Contributions</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-preprocessing-and-feature-engineering-in-r" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Data Preprocessing and Feature Engineering in R</h1>
+<p>Kenny Jin</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb150-1"></a><span class="kw">library</span>(naniar)</span>
+<span id="cb150-2"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb150-2"></a><span class="kw">library</span>(zoo)</span>
+<span id="cb150-3"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb150-3"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb150-4"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb150-4"></a><span class="kw">library</span>(VIM)</span>
+<span id="cb150-5"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb150-5"></a><span class="kw">library</span>(caret)</span>
+<span id="cb150-6"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb150-6"></a><span class="kw">library</span>(factoextra)</span></code></pre></div>
+<div id="overview-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Overview</h2>
+<p>Data proprocessing and feature engineering is usually a necessary step for data visualization and machine learning. This article will introduce several data preprocessing and feature engineering techniques and how to implement these techniques in R.</p>
+</div>
+<div id="missing-values" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Missing Values</h2>
+<p>Real world datasets usually contain missing values. Hence, it is important to properly handle these missing values before we continue to perform any data related tasks.</p>
+<div id="exploring-the-dataset" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Exploring the dataset</h3>
+<p>We use R’s airquality dataset as an example. The first thing to do for handling missing values is to explore the dataset and find out how many values are missing, and where are these values.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb151-1"></a><span class="kw">head</span>(airquality)</span></code></pre></div>
+<pre><code>##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3
+## 4    18     313 11.5   62     5   4
+## 5    NA      NA 14.3   56     5   5
+## 6    28      NA 14.9   66     5   6</code></pre>
+<p>Using head() function, we can clearly see that there are missing values (denoted as NA) in this dataset. But how many values are missing? We can find this out using the n_miss() function from the “naniar” package.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb153-1"></a><span class="kw">n_miss</span>(airquality)</span></code></pre></div>
+<pre><code>## [1] 44</code></pre>
+<p>The function tells us that there are 44 missing values in total. We can also pass a single column to n_miss() to find out how many missing values are in the column.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb155-1"></a><span class="kw">n_miss</span>(airquality<span class="op">$</span>Ozone)</span></code></pre></div>
+<pre><code>## [1] 37</code></pre>
+<p>We see that the “Ozone” column alone has 37 missing values.</p>
+<p>Usually we want to find out the proportion of missing values, rather than a single number. This can be easily achieved using prop_miss(). Note that you can also pass a single column to this function.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb157-1"></a><span class="kw">prop_miss</span>(airquality)</span></code></pre></div>
+<pre><code>## [1] 0.04793028</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb159-1"></a><span class="kw">prop_miss</span>(airquality<span class="op">$</span>Ozone)</span></code></pre></div>
+<pre><code>## [1] 0.2418301</code></pre>
+<p>The results above shows that there are about 4.79% of the values missing for the whole dataset, and 24.18% of the values are missing for the Ozone column.</p>
+<p>We can also find out the count and proportion of non-missing values using n_complete(), prop_complete().</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb161-1"></a><span class="kw">n_complete</span>(airquality)</span></code></pre></div>
+<pre><code>## [1] 874</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb163-1"></a><span class="kw">prop_complete</span>(airquality)</span></code></pre></div>
+<pre><code>## [1] 0.9520697</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb165-1"></a><span class="kw">n_complete</span>(airquality<span class="op">$</span>Ozone)</span></code></pre></div>
+<pre><code>## [1] 116</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb167-1"></a><span class="kw">prop_complete</span>(airquality<span class="op">$</span>Ozone)</span></code></pre></div>
+<pre><code>## [1] 0.7581699</code></pre>
+<p>We can also get a summary for the whole dataset using miss_var_summary(). Note this is a summary for each column, or variable. n_miss is the number of missing values in that column, and pct_miss is the percentage.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb169-1"></a><span class="kw">miss_var_summary</span>(airquality)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   variable n_miss pct_miss
+##   &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt;
+## 1 Ozone        37    24.2 
+## 2 Solar.R       7     4.58
+## 3 Wind          0     0   
+## 4 Temp          0     0   
+## 5 Month         0     0   
+## 6 Day           0     0</code></pre>
+<p>Getting the summary for each row, or each case, can be achieved using miss_case_summary(). “case” is the row number of the observation. n_miss is the number of missing values in that row, and pct_miss is the percentage.</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb171-1"></a><span class="kw">miss_case_summary</span>(airquality)</span></code></pre></div>
+<pre><code>## # A tibble: 153 x 3
+##     case n_miss pct_miss
+##    &lt;int&gt;  &lt;int&gt;    &lt;dbl&gt;
+##  1     5      2     33.3
+##  2    27      2     33.3
+##  3     6      1     16.7
+##  4    10      1     16.7
+##  5    11      1     16.7
+##  6    25      1     16.7
+##  7    26      1     16.7
+##  8    32      1     16.7
+##  9    33      1     16.7
+## 10    34      1     16.7
+## # … with 143 more rows</code></pre>
+<p>We can also visualize the count of missing values for each column using gg_miss_var().</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb173-1"></a><span class="kw">gg_miss_var</span>(airquality)</span></code></pre></div>
+<p><img src="data_preprocessing_tutorial_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="handling-missing-values-and-imputation" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Handling Missing Values and Imputation</h3>
+<p>The easiest way to handle the missing values is simply to drop all instances(rows) with NA. This can be achieved using na.omit().</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb174-1"></a>airquality_clean =<span class="st"> </span><span class="kw">na.omit</span>(airquality)</span>
+<span id="cb174-2"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb174-2"></a><span class="kw">head</span>(airquality_clean)</span></code></pre></div>
+<pre><code>##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3
+## 4    18     313 11.5   62     5   4
+## 7    23     299  8.6   65     5   7
+## 8    19      99 13.8   59     5   8</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb176-1"></a><span class="kw">n_miss</span>(airquality_clean)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>Using n_miss, we see that all rows with NAs are dropped.</p>
+<p>Sometimes we want to fill in the NA values rather than simply dropping the row. The process of filling in NA entries is called “Imputation”.</p>
+<div id="mean-imputation" class="section level4" number="7.2.2.1">
+<h4><span class="header-section-number">7.2.2.1</span> Mean Imputation</h4>
+<p>There are many imputation methods, and one of the most popular is “mean imputation”, to fill in all the missing values with the mean of that column.</p>
+<p>To implement mean imputation, we can use the mutate_all() from the package dplyr.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb178-1"></a>air_imp &lt;-<span class="st"> </span>airquality <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(<span class="op">~</span><span class="kw">ifelse</span>(<span class="kw">is.na</span>(.x), <span class="kw">mean</span>(.x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), .x))</span>
+<span id="cb178-2"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb178-2"></a><span class="kw">n_miss</span>(air_imp)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb180-1"></a><span class="kw">head</span>(air_imp)</span></code></pre></div>
+<pre><code>##      Ozone  Solar.R Wind Temp Month Day
+## 1 41.00000 190.0000  7.4   67     5   1
+## 2 36.00000 118.0000  8.0   72     5   2
+## 3 12.00000 149.0000 12.6   74     5   3
+## 4 18.00000 313.0000 11.5   62     5   4
+## 5 42.12931 185.9315 14.3   56     5   5
+## 6 28.00000 185.9315 14.9   66     5   6</code></pre>
+<p>We can see that all NAs are replaced by the mean value of that column.</p>
+<p>We can also achieve the mean imputation using na.aggregate() from package zoo.</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb182-1"></a>air_imp_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">na.aggregate</span>(airquality)</span>
+<span id="cb182-2"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb182-2"></a><span class="kw">n_miss</span>(air_imp_<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb184-1"></a><span class="kw">head</span>(air_imp_<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##      Ozone  Solar.R Wind Temp Month Day
+## 1 41.00000 190.0000  7.4   67     5   1
+## 2 36.00000 118.0000  8.0   72     5   2
+## 3 12.00000 149.0000 12.6   74     5   3
+## 4 18.00000 313.0000 11.5   62     5   4
+## 5 42.12931 185.9315 14.3   56     5   5
+## 6 28.00000 185.9315 14.9   66     5   6</code></pre>
+<p>The results are the same as above.</p>
+<p>It is worth noting that mean imputation might be problematic if the variable we are imputing is correlated with other variables. In this case, the relationships between variables might be destroyed.</p>
+</div>
+<div id="knn-imputation" class="section level4" number="7.2.2.2">
+<h4><span class="header-section-number">7.2.2.2</span> KNN Imputation</h4>
+<p>We can also fill in the missing values using the k-nearest neighbor methods. Instead of computing the overall mean for the whole column, The algorithm will only compute the average of the k nearest data points when performing inference regarding the missing values.</p>
+<p>KNN imputation can be achieved using kNN() function from package VIM.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb186-1"></a>air_imp_knn &lt;-<span class="st"> </span><span class="kw">kNN</span>(airquality, <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">variable =</span> <span class="st">&quot;Ozone&quot;</span>)</span>
+<span id="cb186-2"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb186-2"></a><span class="kw">n_miss</span>(air_imp_knn<span class="op">$</span>Ozone)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb188-1"></a><span class="kw">head</span>(air_imp_knn)</span></code></pre></div>
+<pre><code>##   Ozone Solar.R Wind Temp Month Day Ozone_imp
+## 1    41     190  7.4   67     5   1     FALSE
+## 2    36     118  8.0   72     5   2     FALSE
+## 3    12     149 12.6   74     5   3     FALSE
+## 4    18     313 11.5   62     5   4     FALSE
+## 5    18      NA 14.3   56     5   5      TRUE
+## 6    28      NA 14.9   66     5   6     FALSE</code></pre>
+<p>k is the number of neighbors for inference. In this example we specify k = 5.</p>
+<p>A modifed KNN method is to compute the distance-weighted mean. The weights are inverted distanced from each neighbor. This can also be achieved using kNN().</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb190-1"></a>air_imp_knn_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">kNN</span>(airquality, <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">variable =</span> <span class="st">&quot;Ozone&quot;</span>, <span class="dt">numFun =</span> weighted.mean, <span class="dt">weightDist =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb190-2"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb190-2"></a><span class="kw">n_miss</span>(air_imp_knn_<span class="dv">1</span><span class="op">$</span>Ozone)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb192-1"></a><span class="kw">head</span>(air_imp_knn_<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##   Ozone Solar.R Wind Temp Month Day Ozone_imp
+## 1    41     190  7.4   67     5   1     FALSE
+## 2    36     118  8.0   72     5   2     FALSE
+## 3    12     149 12.6   74     5   3     FALSE
+## 4    18     313 11.5   62     5   4     FALSE
+## 5    18      NA 14.3   56     5   5      TRUE
+## 6    28      NA 14.9   66     5   6     FALSE</code></pre>
+</div>
+</div>
+</div>
+<div id="feature-selection" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Feature Selection</h2>
+<p>Reference: <a href="https://learn.datacamp.com/courses/machine-learning-with-caret-in-r" class="uri">https://learn.datacamp.com/courses/machine-learning-with-caret-in-r</a></p>
+<p>Before performing any supervised machine learning tasks, it is ususally necessary to select features. One common technique for feature selection is to remove features with low variance. If a feature has low variance, it is likely that it contains “low information”, thus might not be very helpful for predictive analysis.</p>
+<p>We use the BloodBrain dataset from caret as an example.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb194-1"></a><span class="kw">data</span>(BloodBrain)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb195-1"></a>bloodbrain_x =<span class="st"> </span>bbbDescr</span></code></pre></div>
+<p>We can identify the features that have low variance with the nearZeroVar() function from caret library.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb196-1"></a><span class="co"># Identify near zero variance predictors: remove_cols</span></span>
+<span id="cb196-2"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb196-2"></a>remove_cols &lt;-<span class="st"> </span><span class="kw">nearZeroVar</span>(bloodbrain_x, <span class="dt">names =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb196-3"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb196-3"></a>                           <span class="dt">freqCut =</span> <span class="dv">2</span>, <span class="dt">uniqueCut =</span> <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb197-1"></a>remove_cols</span></code></pre></div>
+<pre><code>##  [1] &quot;negative&quot;            &quot;peoe_vsa.3&quot;          &quot;peoe_vsa.4&quot;         
+##  [4] &quot;peoe_vsa.5&quot;          &quot;peoe_vsa.2.1&quot;        &quot;peoe_vsa.3.1&quot;       
+##  [7] &quot;peoe_vsa.4.1&quot;        &quot;peoe_vsa.5.1&quot;        &quot;peoe_vsa.6.1&quot;       
+## [10] &quot;a_acid&quot;              &quot;vsa_acid&quot;            &quot;vsa_base&quot;           
+## [13] &quot;vsa_pol&quot;             &quot;slogp_vsa2&quot;          &quot;slogp_vsa6&quot;         
+## [16] &quot;slogp_vsa8&quot;          &quot;smr_vsa4&quot;            &quot;frac.anion7.&quot;       
+## [19] &quot;rule.of.5violations&quot; &quot;alert&quot;               &quot;inthb&quot;              
+## [22] &quot;chdh3&quot;</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb199-1"></a><span class="co"># Get all column names from bloodbrain_x: all_cols</span></span>
+<span id="cb199-2"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb199-2"></a>all_cols &lt;-<span class="st"> </span><span class="kw">names</span>(bloodbrain_x)</span>
+<span id="cb199-3"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb199-3"></a></span>
+<span id="cb199-4"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb199-4"></a><span class="co"># Remove from data: bloodbrain_x_small</span></span>
+<span id="cb199-5"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb199-5"></a>bloodbrain_x_small &lt;-<span class="st"> </span>bloodbrain_x[ , <span class="kw">setdiff</span>(all_cols, remove_cols)]</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb200-1"></a><span class="kw">dim</span>(bloodbrain_x)</span></code></pre></div>
+<pre><code>## [1] 208 134</code></pre>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb202-1"></a><span class="kw">dim</span>(bloodbrain_x_small)</span></code></pre></div>
+<pre><code>## [1] 208 112</code></pre>
+<p>After removing the features with low variance, we are left with only 112 features instead of the original 134 features.</p>
+<p>We can also remove the features with low variance using caret’s preProcess() function, just to specify the method as “nzv”. Note that a separate predict() step is needed to get the transformed dataset.</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb204-1"></a>preproc =<span class="st"> </span><span class="kw">preProcess</span>(bloodbrain_x, <span class="dt">method =</span> <span class="st">&quot;nzv&quot;</span>, <span class="dt">freqCut =</span> <span class="dv">2</span>, <span class="dt">uniqueCut =</span> <span class="dv">20</span>)</span>
+<span id="cb204-2"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb204-2"></a>bloodbrain_x_small_<span class="dv">1</span> =<span class="st"> </span><span class="kw">predict</span>(preproc, bloodbrain_x)</span>
+<span id="cb204-3"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb204-3"></a><span class="kw">dim</span>(bloodbrain_x_small_<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 208 112</code></pre>
+</div>
+<div id="dimentionality-reduction" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Dimentionality Reduction</h2>
+<div id="principal-component-analysis-pca" class="section level3" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Principal Component Analysis (PCA)</h3>
+<p>We usually need to do dimensionality reduction for data analysis. PCA is one of the most commonly used method, and can be used simply with base R’s function prcomp().</p>
+<p>We use base R’s mtcars dataset as an example.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb206-1"></a>mtcars.pca &lt;-<span class="st"> </span><span class="kw">prcomp</span>(mtcars[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">11</span>)], <span class="dt">center =</span> <span class="ot">TRUE</span>,<span class="dt">scale. =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb207-1"></a><span class="kw">predict</span>(mtcars.pca, mtcars)</span></code></pre></div>
+<pre><code>##                             PC1        PC2         PC3         PC4         PC5
+## Mazda RX4           -0.66422351  1.1734476 -0.20431724 -0.12601751  0.75200784
+## Mazda RX4 Wag       -0.63719807  0.9769448  0.11077779 -0.08567709  0.65668822
+## Datsun 710          -2.29973601 -0.3265893 -0.21014955 -0.10862524 -0.07622329
+## Hornet 4 Drive      -0.21529670 -1.9768101 -0.32946822 -0.30806225 -0.24391787
+## Hornet Sportabout    1.58697405 -0.8287285 -1.03299254  0.14738418 -0.22270405
+## Valiant              0.04960512 -2.4466838  0.11177774 -0.87154914 -0.12574876
+## Duster 360           2.71439677  0.3610529 -0.65206041  0.09633337  0.29674234
+## Merc 240D           -2.04370658 -0.8006412  0.84898795 -0.27451338 -0.26307848
+## Merc 230            -2.29506729 -1.3056004  1.96848450  0.05055875 -0.45988113
+## Merc 280            -0.38252133  0.5811211  0.88632274  0.07026946  0.45835852
+## Merc 280C           -0.36652708  0.4121971  1.14860950  0.06150898  0.48309076
+## Merc 450SE           1.88466875 -0.7241198 -0.20604588 -0.21856675  0.27996207
+## Merc 450SL           1.67107231 -0.7144354 -0.32644071 -0.28933625  0.28061777
+## Merc 450SLC          1.77692371 -0.8411687 -0.08557921 -0.28421711  0.34961695
+## Cadillac Fleetwood   3.64958983 -0.9480878  0.88315862  0.21645793 -0.34788247
+## Lincoln Continental  3.71033756 -0.8426945  0.93230325  0.34099021 -0.34260485
+## Chrysler Imperial    3.33196300 -0.4805609  0.67061959  0.65189724 -0.43940743
+## Fiat 128            -3.45236266 -0.4327074 -0.22604214  0.10018032 -0.33470301
+## Honda Civic         -3.85477722  0.7084152 -0.22670973  1.19340342  0.53954318
+## Toyota Corolla      -3.85488283 -0.3872111 -0.25488964  0.21962306 -0.30372397
+## Toyota Corona       -1.90375523 -1.5725638  0.06620424  0.07989679  0.50126570
+## Dodge Challenger     1.80402354 -1.1340965 -1.00776416 -0.58796239  0.09903732
+## AMC Javelin          1.46483534 -0.9777629 -0.76680342 -0.03308788  0.26871378
+## Camaro Z28           2.60135738  0.7649595 -0.48915140  0.95247550  0.53065965
+## Pontiac Firebird     1.87424485 -0.9791561 -0.89787633  0.22438738 -0.50770999
+## Fiat X1-9           -3.14830645 -0.2552569 -0.36230545  0.06406082  0.03361267
+## Porsche 914-2       -2.77939557  1.6373369 -0.35969974  0.31886540 -0.43251030
+## Lotus Europa        -2.90895427  1.3962368 -0.91635036 -0.90254314 -0.75861156
+## Ford Pantera L       1.54812696  3.0206982 -0.51945216  0.86560850 -0.86048411
+## Ferrari Dino         0.08049995  2.8346567  0.34481747 -1.14659658  0.29944552
+## Maserati Bora        2.96252801  3.9993896  0.70296512 -0.73000448 -0.22756074
+## Volvo 142E          -1.90443632  0.1084190  0.39906976  0.31285789  0.11738974
+##                             PC6         PC7          PC8          PC9
+## Mazda RX4           -0.12506777 -0.42357334 -0.003259165 -0.167051112
+## Mazda RX4 Wag       -0.06619437 -0.44849307  0.056643244 -0.071592094
+## Datsun 710          -0.56693648  0.38612406 -0.202035744  0.114505030
+## Hornet 4 Drive       0.08382435  0.03299362 -0.023714111 -0.145255757
+## Hornet Sportabout    0.18280435 -0.05793795  0.152342587 -0.154646072
+## Valiant             -0.23043022  0.22451528  0.098663134 -0.004233901
+## Duster 360           0.27763557  0.44227307 -0.306373481 -0.186980810
+## Merc 240D           -0.19042527 -0.39416400 -0.187088365 -0.010461330
+## Merc 230             0.20443847  0.53713423  0.413455512 -0.169005773
+## Merc 280            -0.07984989 -0.26113412  0.204105964  0.110461785
+## Merc 280C           -0.16066456 -0.07979514  0.352641772  0.027108266
+## Merc 450SE           0.17135058 -0.08914480  0.092140434  0.396034809
+## Merc 450SL           0.33682412  0.03346598  0.182323579  0.196526577
+## Merc 450SLC          0.13926264  0.20632469  0.295340402  0.147796262
+## Cadillac Fleetwood  -0.24002207 -0.31053111 -0.171865268 -0.251117818
+## Lincoln Continental -0.22646211 -0.28589695 -0.239313268 -0.028994385
+## Chrysler Imperial    0.31045750 -0.38304409 -0.359765688  0.223097923
+## Fiat 128             0.57303421 -0.24650594 -0.066340528  0.220271421
+## Honda Civic          0.37207104 -0.20055288  0.087333576 -0.241702175
+## Toyota Corolla       0.83750899 -0.10186868  0.104053562  0.042833437
+## Toyota Corona       -0.07212137  0.74680802 -0.408144457 -0.082722856
+## Dodge Challenger    -0.33920894 -0.14045443  0.156086022 -0.050247532
+## AMC Javelin         -0.31479492  0.03753417  0.370979414 -0.043466032
+## Camaro Z28           0.05970074  0.38212238 -0.289612990  0.082069840
+## Pontiac Firebird     0.20785973 -0.32709161  0.027471038 -0.130958896
+## Fiat X1-9           -0.09586730  0.10352270 -0.020876499  0.021084764
+## Porsche 914-2       -0.69006515 -0.26313120 -0.105695694  0.085027267
+## Lotus Europa         0.05473409 -0.03491081 -0.236552376 -0.046341050
+## Ford Pantera L      -0.50704173  0.37940892  0.548070377  0.053196712
+## Ferrari Dino        -0.08124583 -0.26924964 -0.123537656 -0.047915313
+## Maserati Bora        0.65580986  0.49422807 -0.082329298 -0.053112079
+## Volvo 142E          -0.48091826  0.31102454 -0.315146031  0.165790892</code></pre>
+<p>We can plot the percentages of explained variances using fviz_eig() from the library factoextra.</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="data-preprocessing-and-feature-engineering-in-r.html#cb209-1"></a><span class="kw">fviz_eig</span>(mtcars.pca)</span></code></pre></div>
+<p><img src="data_preprocessing_tutorial_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>In practice, we usually use “elbow” method to select the number of components. In this case, the best number of component is 3.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-transformation-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="apply-family.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jtr13/cc20/edit/master/data_preprocessing_tutorial.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/jtr13/cc20/blob/master/data_preprocessing_tutorial.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

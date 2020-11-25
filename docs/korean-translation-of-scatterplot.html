@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Korean translation of scatterplot | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 32 Korean translation of scatterplot | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Korean translation of scatterplot | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 32 Korean translation of scatterplot | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,14 +16,14 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Korean translation of scatterplot | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 32 Korean translation of scatterplot | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
 
 
 
-<meta name="date" content="2020-11-18" />
+<meta name="date" content="2020-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="greek-translation-of-edav-infohisto.html"/>
-<link rel="next" href="tableau-intro-tutorial-explained-with-proset2.html"/>
+<link rel="next" href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,7 +53,7 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
 <script src="libs/hchinamap-7.0.3/highmaps.js"></script>
 <script src="libs/hchinamap-7.0.3/hebei.js"></script>
 <script src="libs/hchinamap-7.0.3/anhui.js"></script>
@@ -97,6 +97,12 @@
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -188,11 +194,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.5</b> FAQ</a>
 <ul>
 <li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#what-should-i-expect-after-creating-a-pull-request"><i class="fa fa-check"></i><b>1.5.1</b> What should I expect after creating a pull request?</a></li>
-<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-after-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.2</b> What if I catch mistakes after my pull request is merged?</a></li>
-<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.3</b> Other questions</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-before-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.2</b> What if I catch mistakes before my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-after-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.3</b> What if I catch mistakes after my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.4" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.4</b> Other questions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>2</b> Sample project</a></li>
+<li class="part"><span><b>I Data Visualization</b></span></li>
 <li class="chapter" data-level="3" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html"><i class="fa fa-check"></i><b>3</b> Customized Plot Matrix: pairs and ggpairs</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#overview-things-we-can-do-with-pairs-and-ggpairs"><i class="fa fa-check"></i><b>3.1</b> Overview: Things we can do with pairs() and ggpairs()</a></li>
@@ -208,6 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#outside-sources"><i class="fa fa-check"></i><b>3.4</b> Outside sources</a></li>
 </ul></li>
+<li class="part"><span><b>II Complete Analyses</b></span></li>
 <li class="chapter" data-level="4" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html"><i class="fa fa-check"></i><b>4</b> China choropleth map</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#overview"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
@@ -221,133 +230,448 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-leafletcn"><i class="fa fa-check"></i><b>4.5</b> Interactive Map with leafletCN</a></li>
 <li class="chapter" data-level="4.6" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#conclusion"><i class="fa fa-check"></i><b>4.6</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html"><i class="fa fa-check"></i><b>5</b> Data transformation in R</a>
+<li class="chapter" data-level="5" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html"><i class="fa fa-check"></i><b>5</b> Illustrate commonly used graphs in R</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#basics"><i class="fa fa-check"></i><b>5.2</b> Basics</a></li>
-<li class="chapter" data-level="5.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#function-usage"><i class="fa fa-check"></i><b>5.3</b> Function Usage</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#filter"><i class="fa fa-check"></i><b>5.3.1</b> 1. Filter( )</a></li>
-<li class="chapter" data-level="5.3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#arrange"><i class="fa fa-check"></i><b>5.3.2</b> 2. Arrange( )</a></li>
-<li class="chapter" data-level="5.3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#select"><i class="fa fa-check"></i><b>5.3.3</b> 3. Select( )</a></li>
-<li class="chapter" data-level="5.3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#mutate"><i class="fa fa-check"></i><b>5.3.4</b> 4. Mutate( )</a></li>
-<li class="chapter" data-level="5.3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#group_by-and-summarize"><i class="fa fa-check"></i><b>5.3.5</b> 5. Group_by( ) and Summarize( )</a></li>
+<li class="chapter" data-level="5.1" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html#numerical-variables-with-abalone-and-mtcars"><i class="fa fa-check"></i><b>5.1</b> Numerical Variables with Abalone and Mtcars</a></li>
+<li class="chapter" data-level="5.2" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html#categorical-graphs-with-arthritis-data"><i class="fa fa-check"></i><b>5.2</b> Categorical Graphs with Arthritis Data</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#quick-eda-median-arrival-delays"><i class="fa fa-check"></i><b>5.4</b> Quick EDA: median arrival delays</a></li>
-<li class="chapter" data-level="5.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#external-resource"><i class="fa fa-check"></i><b>5.5</b> External Resource</a></li>
+<li class="part"><span><b>III Data Processing and Wrangling</b></span></li>
+<li class="chapter" data-level="6" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html"><i class="fa fa-check"></i><b>6</b> Data transformation in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#basics"><i class="fa fa-check"></i><b>6.2</b> Basics</a></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#function-usage"><i class="fa fa-check"></i><b>6.3</b> Function Usage</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#filter"><i class="fa fa-check"></i><b>6.3.1</b> 1. Filter( )</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#arrange"><i class="fa fa-check"></i><b>6.3.2</b> 2. Arrange( )</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#select"><i class="fa fa-check"></i><b>6.3.3</b> 3. Select( )</a></li>
+<li class="chapter" data-level="6.3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#mutate"><i class="fa fa-check"></i><b>6.3.4</b> 4. Mutate( )</a></li>
+<li class="chapter" data-level="6.3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#group_by-and-summarize"><i class="fa fa-check"></i><b>6.3.5</b> 5. Group_by( ) and Summarize( )</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="a-brief-introduction-to-seaborn.html"><a href="a-brief-introduction-to-seaborn.html"><i class="fa fa-check"></i><b>6</b> A brief introduction to seaborn</a></li>
-<li class="chapter" data-level="7" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html"><i class="fa fa-check"></i><b>7</b> Webscraping Dynamic Content: Rselenium Tutorial</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#introduction-and-setup"><i class="fa fa-check"></i><b>7.1</b> Introduction and Setup</a></li>
-<li class="chapter" data-level="7.2" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#simple-illustrations-with-websites"><i class="fa fa-check"></i><b>7.2</b> Simple Illustrations with Websites</a></li>
-<li class="chapter" data-level="7.3" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#other-features"><i class="fa fa-check"></i><b>7.3</b> Other Features</a></li>
+<li class="chapter" data-level="6.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#quick-eda-median-arrival-delays"><i class="fa fa-check"></i><b>6.4</b> Quick EDA: median arrival delays</a></li>
+<li class="chapter" data-level="6.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#external-resource"><i class="fa fa-check"></i><b>6.5</b> External Resource</a></li>
 </ul></li>
-<li class="part"><span><b>I Translations</b></span></li>
-<li class="chapter" data-level="8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>8</b> Chinese Translation of Candela Package</a>
+<li class="chapter" data-level="7" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html"><i class="fa fa-check"></i><b>7</b> Data Preprocessing and Feature Engineering in R</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>8.1</b> Candela</a>
+<li class="chapter" data-level="7.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#overview-1"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#missing-values"><i class="fa fa-check"></i><b>7.2</b> Missing Values</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>8.1.1</b> 开始</a></li>
+<li class="chapter" data-level="7.2.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#exploring-the-dataset"><i class="fa fa-check"></i><b>7.2.1</b> Exploring the dataset</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#handling-missing-values-and-imputation"><i class="fa fa-check"></i><b>7.2.2</b> Handling Missing Values and Imputation</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>8.2</b> Candela 包使用</a>
+<li class="chapter" data-level="7.3" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#feature-selection"><i class="fa fa-check"></i><b>7.3</b> Feature Selection</a></li>
+<li class="chapter" data-level="7.4" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#dimentionality-reduction"><i class="fa fa-check"></i><b>7.4</b> Dimentionality Reduction</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>8.2.1</b> 安装</a></li>
-<li class="chapter" data-level="8.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>8.2.2</b> 版本控制</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>8.3</b> 组件</a>
-<ul>
-<li class="chapter" data-level="8.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>8.3.1</b> 条形图 (BarChart)</a></li>
-<li class="chapter" data-level="8.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>8.3.2</b> 箱线图 (BoxPlot)</a></li>
-<li class="chapter" data-level="8.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>8.3.3</b> 甘特图 (GanttChart)</a></li>
-<li class="chapter" data-level="8.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>8.3.4</b> 地理空间图 (Geo)</a></li>
-<li class="chapter" data-level="8.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>8.3.5</b> 地理点图(GeoDots)</a></li>
-<li class="chapter" data-level="8.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>8.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
-<li class="chapter" data-level="8.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>8.3.7</b> 直方图 (Histogram)</a></li>
-<li class="chapter" data-level="8.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>8.3.8</b> 折线图 (LineChart)</a></li>
-<li class="chapter" data-level="8.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>8.3.9</b> 排序图(Lineup)</a></li>
-<li class="chapter" data-level="8.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>8.3.10</b> OnSet组件 (OnSet)</a></li>
-<li class="chapter" data-level="8.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>8.3.11</b> 散点图 (ScatterPlot)</a></li>
-<li class="chapter" data-level="8.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>8.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
-<li class="chapter" data-level="8.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>8.3.13</b> 词树 (SentenTree)</a></li>
-<li class="chapter" data-level="8.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>8.3.14</b> 相似图 (SimilarityGraph)</a></li>
-<li class="chapter" data-level="8.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>8.3.15</b> 树状图(Tree Heatmap)</a></li>
-<li class="chapter" data-level="8.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>8.3.16</b> 集合可视化 (UpSet)</a></li>
-</ul></li>
-<li class="chapter" data-level="8.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>8.4</b> API文件</a>
-<ul>
-<li class="chapter" data-level="8.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>8.4.1</b> Candela JavaScript API</a></li>
-<li class="chapter" data-level="8.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>8.4.2</b> Candela Python API</a></li>
-<li class="chapter" data-level="8.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>8.4.3</b> Candela R API</a></li>
-</ul></li>
-<li class="chapter" data-level="8.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>8.5</b> 开发人员文件</a>
-<ul>
-<li class="chapter" data-level="8.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>8.5.1</b> 编码规范指南</a></li>
-<li class="chapter" data-level="8.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>8.5.2</b> 创建Candela代码发布</a></li>
-<li class="chapter" data-level="8.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>8.5.3</b> 测试</a></li>
+<li class="chapter" data-level="7.4.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>7.4.1</b> Principal Component Analysis (PCA)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>9</b> Greek translation of edav.info/histo</a>
+<li class="chapter" data-level="8" data-path="apply-family.html"><a href="apply-family.html"><i class="fa fa-check"></i><b>8</b> Apply family</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>9.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
-<li class="chapter" data-level="9.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>9.2</b> Επισκόπηση</a></li>
-<li class="chapter" data-level="9.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>9.3</b> Σύνοψη</a></li>
-<li class="chapter" data-level="9.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>9.4</b> Simple examples</a>
+<li class="chapter" data-level="8.0.1" data-path="apply-family.html"><a href="apply-family.html#apply"><i class="fa fa-check"></i><b>8.0.1</b> apply</a></li>
+<li class="chapter" data-level="8.0.2" data-path="apply-family.html"><a href="apply-family.html#lapply"><i class="fa fa-check"></i><b>8.0.2</b> Lapply</a></li>
+<li class="chapter" data-level="8.0.3" data-path="apply-family.html"><a href="apply-family.html#sapply"><i class="fa fa-check"></i><b>8.0.3</b> Sapply</a></li>
+<li class="chapter" data-level="8.0.4" data-path="apply-family.html"><a href="apply-family.html#tapply"><i class="fa fa-check"></i><b>8.0.4</b> tapply</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html"><i class="fa fa-check"></i><b>9</b> Writing SQL in R</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>9.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
-<li class="chapter" data-level="9.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>9.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
-</ul></li>
-<li class="chapter" data-level="9.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>9.5</b> Θεωρία</a></li>
-<li class="chapter" data-level="9.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>9.6</b> Τύποι ιστογραμμάτων</a>
+<li class="chapter" data-level="9.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#introduction-1"><i class="fa fa-check"></i><b>9.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#what-is-sql"><i class="fa fa-check"></i><b>9.2</b> 2. What is SQL?</a></li>
+<li class="chapter" data-level="9.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#r-packages"><i class="fa fa-check"></i><b>9.3</b> 3. R Packages</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>9.6.1</b> Συχνότητα ή μέτρηση</a></li>
-<li class="chapter" data-level="9.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>9.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
-<li class="chapter" data-level="9.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>9.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
-<li class="chapter" data-level="9.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>9.6.4</b> Πυκνότητα</a></li>
+<li class="chapter" data-level="9.3.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#load-packages"><i class="fa fa-check"></i><b>9.3.1</b> Load packages</a></li>
+<li class="chapter" data-level="9.3.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dataset"><i class="fa fa-check"></i><b>9.3.2</b> Dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>9.7</b> Παράμετροι</a>
+<li class="chapter" data-level="9.4" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sqldf"><i class="fa fa-check"></i><b>9.4</b> sqldf</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>9.7.1</b> Όρια ζωνών</a></li>
-<li class="chapter" data-level="9.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>9.7.2</b> Αριθμός ζωνών</a></li>
-<li class="chapter" data-level="9.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>9.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+<li class="chapter" data-level="9.4.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sql-queries"><i class="fa fa-check"></i><b>9.4.1</b> SQL Queries</a></li>
+<li class="chapter" data-level="9.4.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#whereandor"><i class="fa fa-check"></i><b>9.4.2</b> Where/And/Or</a></li>
+<li class="chapter" data-level="9.4.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#more-sqldf-examples"><i class="fa fa-check"></i><b>9.4.3</b> More sqldf Examples</a></li>
+<li class="chapter" data-level="9.4.4" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sqldf-summary"><i class="fa fa-check"></i><b>9.4.4</b> sqldf Summary:</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>9.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<li class="chapter" data-level="9.5" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr"><i class="fa fa-check"></i><b>9.5</b> DPLYR</a>
 <ul>
-<li class="chapter" data-level="9.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>9.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
-<li class="chapter" data-level="9.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>9.8.2</b> Παράδειγμα ΑΕΠ</a></li>
-<li class="chapter" data-level="9.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>9.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
-<li class="chapter" data-level="9.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>9.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
-<li class="chapter" data-level="9.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>9.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+<li class="chapter" data-level="9.5.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr-queries"><i class="fa fa-check"></i><b>9.5.1</b> DPLYR Queries</a></li>
+<li class="chapter" data-level="9.5.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#more-examples"><i class="fa fa-check"></i><b>9.5.2</b> More Examples</a></li>
+<li class="chapter" data-level="9.5.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr-summary"><i class="fa fa-check"></i><b>9.5.3</b> DPLYR Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="9.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>9.9</b> Εξωτερικές πηγές</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html"><i class="fa fa-check"></i><b>10</b> Korean translation of scatterplot</a>
+<li class="chapter" data-level="9.6" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dbi"><i class="fa fa-check"></i><b>9.6</b> DBI</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#개요"><i class="fa fa-check"></i><b>10.1</b> 개요</a></li>
-<li class="chapter" data-level="10.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#요약"><i class="fa fa-check"></i><b>10.2</b> 요약</a></li>
-<li class="chapter" data-level="10.3" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#간단한-예시"><i class="fa fa-check"></i><b>10.3</b> 간단한 예시</a>
+<li class="chapter" data-level="9.6.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dbi-queries"><i class="fa fa-check"></i><b>9.6.1</b> DBI Queries:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#conclusion-1"><i class="fa fa-check"></i><b>9.7</b> Conclusion</a></li>
+<li class="chapter" data-level="9.8" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#work-cited"><i class="fa fa-check"></i><b>9.8</b> Work Cited:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="a-brief-introduction-to-seaborn.html"><a href="a-brief-introduction-to-seaborn.html"><i class="fa fa-check"></i><b>10</b> A brief introduction to seaborn</a></li>
+<li class="chapter" data-level="11" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html"><i class="fa fa-check"></i><b>11</b> GeomMLBStadiums</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#base-r을-이용한-산점도"><i class="fa fa-check"></i><b>10.3.1</b> base R을 이용한 산점도</a></li>
-<li class="chapter" data-level="10.3.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#ggplot2를-이용한-산점도"><i class="fa fa-check"></i><b>10.3.2</b> ggplot2를 이용한 산점도</a></li>
-</ul></li>
-<li class="chapter" data-level="10.4" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#이론"><i class="fa fa-check"></i><b>10.4</b> 이론</a></li>
-<li class="chapter" data-level="10.5" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#사용-시기"><i class="fa fa-check"></i><b>10.5</b> 사용 시기</a></li>
-<li class="chapter" data-level="10.6" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#고려-사항"><i class="fa fa-check"></i><b>10.6</b> 고려 사항</a>
+<li class="chapter" data-level="11.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#overview-2"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#setup"><i class="fa fa-check"></i><b>11.2</b> Setup</a></li>
+<li class="chapter" data-level="11.3" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#geom_mlb_stadium"><i class="fa fa-check"></i><b>11.3</b> <code>geom_mlb_stadium</code></a></li>
+<li class="chapter" data-level="11.4" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#geom_spraychart"><i class="fa fa-check"></i><b>11.4</b> <code>geom_spraychart</code></a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#겹치는-데이터"><i class="fa fa-check"></i><b>10.6.1</b> 겹치는 데이터</a></li>
-<li class="chapter" data-level="10.6.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#스케일링"><i class="fa fa-check"></i><b>10.6.2</b> 스케일링</a></li>
+<li class="chapter" data-level="11.4.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#mlbam_xy_transformation"><i class="fa fa-check"></i><b>11.4.1</b> <code>mlbam_xy_transformation</code></a></li>
+<li class="chapter" data-level="11.4.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#spraycharts"><i class="fa fa-check"></i><b>11.4.2</b> Spraycharts</a></li>
 </ul></li>
-<li class="chapter" data-level="10.7" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#변경"><i class="fa fa-check"></i><b>10.7</b> 변경</a>
+<li class="chapter" data-level="11.5" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#other-types-of-visualizations-with-geommlbstadiums"><i class="fa fa-check"></i><b>11.5</b> Other types of Visualizations with <code>GeomMLBStadiums</code></a>
 <ul>
-<li class="chapter" data-level="10.7.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#등고선"><i class="fa fa-check"></i><b>10.7.1</b> 등고선</a></li>
-<li class="chapter" data-level="10.7.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#산점도-행렬"><i class="fa fa-check"></i><b>10.7.2</b> 산점도 행렬</a></li>
+<li class="chapter" data-level="11.5.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#heatmaps-with-geommlbstadiums"><i class="fa fa-check"></i><b>11.5.1</b> Heatmaps with <code>GeomMLBStadiums</code></a></li>
+<li class="chapter" data-level="11.5.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#stat_summary_hex-with-geommlbstadiums"><i class="fa fa-check"></i><b>11.5.2</b> <code>stat_summary_hex</code> with <code>GeomMLBStadiums</code></a></li>
 </ul></li>
-<li class="chapter" data-level="10.8" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#추가-자료"><i class="fa fa-check"></i><b>10.8</b> 추가 자료</a></li>
 </ul></li>
-<li class="part"><span><b>II Video Tutorial</b></span></li>
-<li class="chapter" data-level="11" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>11</b> Tableau intro tutorial explained with proset2</a></li>
-<li class="part"><span><b>III Appendices</b></span></li>
-<li class="chapter" data-level="12" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>12</b> Github Initial Setup</a></li>
+<li class="chapter" data-level="12" data-path="radar-chart.html"><a href="radar-chart.html"><i class="fa fa-check"></i><b>12</b> Radar Chart</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="radar-chart.html"><a href="radar-chart.html#introduction-of-radar-chart"><i class="fa fa-check"></i><b>12.1</b> Introduction of Radar Chart</a></li>
+<li class="chapter" data-level="12.2" data-path="radar-chart.html"><a href="radar-chart.html#basic-radar-chart"><i class="fa fa-check"></i><b>12.2</b> Basic Radar Chart</a></li>
+<li class="chapter" data-level="12.3" data-path="radar-chart.html"><a href="radar-chart.html#customize-radar-chart"><i class="fa fa-check"></i><b>12.3</b> Customize Radar Chart</a></li>
+<li class="chapter" data-level="12.4" data-path="radar-chart.html"><a href="radar-chart.html#radar-chart-with-several-individuals"><i class="fa fa-check"></i><b>12.4</b> Radar Chart with several individuals</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="radar-chart.html"><a href="radar-chart.html#basic-plot"><i class="fa fa-check"></i><b>12.4.1</b> basic plot</a></li>
+<li class="chapter" data-level="12.4.2" data-path="radar-chart.html"><a href="radar-chart.html#customize"><i class="fa fa-check"></i><b>12.4.2</b> customize</a></li>
+<li class="chapter" data-level="12.4.3" data-path="radar-chart.html"><a href="radar-chart.html#radar-vs.-bar-chart"><i class="fa fa-check"></i><b>12.4.3</b> Radar vs. Bar Chart</a></li>
+<li class="chapter" data-level="12.4.4" data-path="radar-chart.html"><a href="radar-chart.html#using-package-ggradar"><i class="fa fa-check"></i><b>12.4.4</b> Using package ‘ggradar’</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="radar-chart.html"><a href="radar-chart.html#reference"><i class="fa fa-check"></i><b>12.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html"><i class="fa fa-check"></i><b>13</b> Likert Scale: Definition, Examples, and Visualization</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#what-is-likert-scale"><i class="fa fa-check"></i><b>13.1</b> What is Likert Scale?</a></li>
+<li class="chapter" data-level="13.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#test-your-understanding-of-likert-scale"><i class="fa fa-check"></i><b>13.2</b> Test Your Understanding of Likert Scale</a></li>
+<li class="chapter" data-level="13.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#visualization-of-a-sample-likert-scale-data-explore-climate-change-in-the-american-mind"><i class="fa fa-check"></i><b>13.3</b> Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#overview-of-the-data"><i class="fa fa-check"></i><b>13.3.1</b> Overview of the Data</a></li>
+<li class="chapter" data-level="13.3.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#stacked-bar-chart"><i class="fa fa-check"></i><b>13.3.2</b> Stacked Bar Chart</a></li>
+<li class="chapter" data-level="13.3.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#faceted-bar-charts"><i class="fa fa-check"></i><b>13.3.3</b> Faceted Bar Charts</a></li>
+<li class="chapter" data-level="13.3.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#diverging-stacked-bar-chart"><i class="fa fa-check"></i><b>13.3.4</b> Diverging Stacked Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#arguments-on-each-type-of-charts"><i class="fa fa-check"></i><b>13.4</b> Arguments on each type of charts</a></li>
+<li class="chapter" data-level="13.5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#reference-1"><i class="fa fa-check"></i><b>13.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html"><i class="fa fa-check"></i><b>14</b> A simple way to visualize geographic data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#overview-3"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#introduction-2"><i class="fa fa-check"></i><b>14.2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#load-packages-1"><i class="fa fa-check"></i><b>14.2.1</b> Load Packages</a></li>
+<li class="chapter" data-level="14.2.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarder-visualization"><i class="fa fa-check"></i><b>14.2.2</b> Boarder Visualization</a></li>
+<li class="chapter" data-level="14.2.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarders"><i class="fa fa-check"></i><b>14.2.3</b> Boarders</a></li>
+<li class="chapter" data-level="14.2.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#parts-of-the-map"><i class="fa fa-check"></i><b>14.2.4</b> Parts of the Map</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#application"><i class="fa fa-check"></i><b>14.3</b> Application</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#data-collection-1"><i class="fa fa-check"></i><b>14.3.1</b> Data Collection</a></li>
+<li class="chapter" data-level="14.3.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#comparison"><i class="fa fa-check"></i><b>14.3.2</b> Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#conclusion-2"><i class="fa fa-check"></i><b>14.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="base-r-vs-ggplot2.html"><a href="base-r-vs-ggplot2.html"><i class="fa fa-check"></i><b>15</b> Base R vs. ggplot2</a></li>
+<li class="part"><span><b>IV Results Reporting</b></span></li>
+<li class="chapter" data-level="16" data-path="visualiztion-tools-in-real-work.html"><a href="visualiztion-tools-in-real-work.html"><i class="fa fa-check"></i><b>16</b> Visualiztion tools in real work</a></li>
+<li class="chapter" data-level="17" data-path="color-in-r.html"><a href="color-in-r.html"><i class="fa fa-check"></i><b>17</b> Color in R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="color-in-r.html"><a href="color-in-r.html#overview-4"><i class="fa fa-check"></i><b>17.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="color-in-r.html"><a href="color-in-r.html#sections"><i class="fa fa-check"></i><b>17.1.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="color-in-r.html"><a href="color-in-r.html#discrete-colors"><i class="fa fa-check"></i><b>17.2</b> Discrete Colors</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="color-in-r.html"><a href="color-in-r.html#basics-1"><i class="fa fa-check"></i><b>17.2.1</b> Basics</a></li>
+<li class="chapter" data-level="17.2.2" data-path="color-in-r.html"><a href="color-in-r.html#rcolorbrewer"><i class="fa fa-check"></i><b>17.2.2</b> RColorBrewer</a></li>
+<li class="chapter" data-level="17.2.3" data-path="color-in-r.html"><a href="color-in-r.html#viridis"><i class="fa fa-check"></i><b>17.2.3</b> Viridis</a></li>
+<li class="chapter" data-level="17.2.4" data-path="color-in-r.html"><a href="color-in-r.html#color-picker"><i class="fa fa-check"></i><b>17.2.4</b> Color Picker</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="color-in-r.html"><a href="color-in-r.html#continuous-colors"><i class="fa fa-check"></i><b>17.3</b> Continuous Colors</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="color-in-r.html"><a href="color-in-r.html#barplot"><i class="fa fa-check"></i><b>17.3.1</b> Barplot</a></li>
+<li class="chapter" data-level="17.3.2" data-path="color-in-r.html"><a href="color-in-r.html#heatmap"><i class="fa fa-check"></i><b>17.3.2</b> Heatmap</a></li>
+<li class="chapter" data-level="17.3.3" data-path="color-in-r.html"><a href="color-in-r.html#diverging-scales"><i class="fa fa-check"></i><b>17.3.3</b> Diverging Scales</a></li>
+<li class="chapter" data-level="17.3.4" data-path="color-in-r.html"><a href="color-in-r.html#colorblind"><i class="fa fa-check"></i><b>17.3.4</b> ColorBlind</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="color-in-r.html"><a href="color-in-r.html#resources"><i class="fa fa-check"></i><b>17.4</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="benfords-law-analysis-of-2020-election.html"><a href="benfords-law-analysis-of-2020-election.html"><i class="fa fa-check"></i><b>18</b> Benford’s Law Analysis of 2020 Election</a></li>
+<li class="part"><span><b>V Cheatsheets and Video Tutorials</b></span></li>
+<li class="chapter" data-level="19" data-path="mosaic-plot-cheatsheet.html"><a href="mosaic-plot-cheatsheet.html"><i class="fa fa-check"></i><b>19</b> Mosaic plot cheatsheet</a></li>
+<li class="chapter" data-level="20" data-path="time-series-cheatsheet.html"><a href="time-series-cheatsheet.html"><i class="fa fa-check"></i><b>20</b> Time Series Cheatsheet</a></li>
+<li class="chapter" data-level="21" data-path="python-vs-r-cheatsheet.html"><a href="python-vs-r-cheatsheet.html"><i class="fa fa-check"></i><b>21</b> Python vs. R Cheatsheet</a></li>
+<li class="chapter" data-level="22" data-path="likert-data-cheat-sheet.html"><a href="likert-data-cheat-sheet.html"><i class="fa fa-check"></i><b>22</b> likert data cheat sheet</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="likert-data-cheat-sheet.html"><a href="likert-data-cheat-sheet.html#link-is-below"><i class="fa fa-check"></i><b>22.1</b> link is below</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="categorical-data-visualization-cheat-sheet.html"><a href="categorical-data-visualization-cheat-sheet.html"><i class="fa fa-check"></i><b>23</b> Categorical Data Visualization Cheat Sheet</a></li>
+<li class="part"><span><b>VI Live Tutorials</b></span></li>
+<li class="chapter" data-level="24" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>24</b> Tableau intro tutorial explained with proset2</a></li>
+<li class="chapter" data-level="25" data-path="solutioning-a-data-pipeline-for-visualization.html"><a href="solutioning-a-data-pipeline-for-visualization.html"><i class="fa fa-check"></i><b>25</b> Solutioning a Data pipeline for visualization</a></li>
+<li class="chapter" data-level="26" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html"><i class="fa fa-check"></i><b>26</b> Visualization Research in Biomedical Informatics</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#community-contribution-zoom-session"><i class="fa fa-check"></i><b>26.1</b> Community Contribution Zoom Session</a>
+<ul>
+<li class="chapter" data-level="26.1.1" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#designing-an-interactive-visualization-tool-for-understanding-caring-for-a-complex-chronic-condition"><i class="fa fa-check"></i><b>26.1.1</b> Designing an Interactive Visualization Tool for Understanding &amp; Caring for a Complex Chronic Condition</a></li>
+<li class="chapter" data-level="26.1.2" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#phendo-app-prototype-of-interactive-visualization"><i class="fa fa-check"></i><b>26.1.2</b> Phendo App &amp; Prototype of Interactive Visualization</a></li>
+<li class="chapter" data-level="26.1.3" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#resources-for-human-centered-visualization-computing"><i class="fa fa-check"></i><b>26.1.3</b> Resources for Human-Centered Visualization &amp; Computing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="american-history-trivia-night.html"><a href="american-history-trivia-night.html"><i class="fa fa-check"></i><b>27</b> American History Trivia Night</a></li>
+<li class="chapter" data-level="28" data-path="consuming-terrorism-statistics.html"><a href="consuming-terrorism-statistics.html"><i class="fa fa-check"></i><b>28</b> Consuming terrorism statistics</a></li>
+<li class="chapter" data-level="29" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html"><i class="fa fa-check"></i><b>29</b> Some techniques for label setting</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#label-placement"><i class="fa fa-check"></i><b>29.1</b> 1. Label placement</a>
+<ul>
+<li class="chapter" data-level="29.1.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-1-adjusting-parameters-in-geom_text-like-hjust-vjust-nudge_x-and-nudge_y"><i class="fa fa-check"></i><b>29.1.1</b> Tip 1: Adjusting parameters in geom_text like hjust, vjust, nudge_x and nudge_y</a></li>
+<li class="chapter" data-level="29.1.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-2-ggrepel"><i class="fa fa-check"></i><b>29.1.2</b> Tip 2: ggrepel</a></li>
+<li class="chapter" data-level="29.1.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-3-directlabels"><i class="fa fa-check"></i><b>29.1.3</b> Tip 3: directlabels</a></li>
+</ul></li>
+<li class="chapter" data-level="29.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#auto-wrapping-of-long-labels-on-axis"><i class="fa fa-check"></i><b>29.2</b> 2. Auto wrapping of long labels on axis</a></li>
+<li class="chapter" data-level="29.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#add-shadow-effect-to-labels"><i class="fa fa-check"></i><b>29.3</b> 3. Add shadow effect to labels</a></li>
+</ul></li>
+<li class="part"><span><b>VII Translations</b></span></li>
+<li class="chapter" data-level="30" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>30</b> Chinese Translation of Candela Package</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>30.1</b> Candela</a>
+<ul>
+<li class="chapter" data-level="30.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>30.1.1</b> 开始</a></li>
+</ul></li>
+<li class="chapter" data-level="30.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>30.2</b> Candela 包使用</a>
+<ul>
+<li class="chapter" data-level="30.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>30.2.1</b> 安装</a></li>
+<li class="chapter" data-level="30.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>30.2.2</b> 版本控制</a></li>
+</ul></li>
+<li class="chapter" data-level="30.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>30.3</b> 组件</a>
+<ul>
+<li class="chapter" data-level="30.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>30.3.1</b> 条形图 (BarChart)</a></li>
+<li class="chapter" data-level="30.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>30.3.2</b> 箱线图 (BoxPlot)</a></li>
+<li class="chapter" data-level="30.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>30.3.3</b> 甘特图 (GanttChart)</a></li>
+<li class="chapter" data-level="30.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>30.3.4</b> 地理空间图 (Geo)</a></li>
+<li class="chapter" data-level="30.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>30.3.5</b> 地理点图(GeoDots)</a></li>
+<li class="chapter" data-level="30.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>30.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
+<li class="chapter" data-level="30.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>30.3.7</b> 直方图 (Histogram)</a></li>
+<li class="chapter" data-level="30.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>30.3.8</b> 折线图 (LineChart)</a></li>
+<li class="chapter" data-level="30.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>30.3.9</b> 排序图(Lineup)</a></li>
+<li class="chapter" data-level="30.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>30.3.10</b> OnSet组件 (OnSet)</a></li>
+<li class="chapter" data-level="30.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>30.3.11</b> 散点图 (ScatterPlot)</a></li>
+<li class="chapter" data-level="30.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>30.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
+<li class="chapter" data-level="30.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>30.3.13</b> 词树 (SentenTree)</a></li>
+<li class="chapter" data-level="30.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>30.3.14</b> 相似图 (SimilarityGraph)</a></li>
+<li class="chapter" data-level="30.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>30.3.15</b> 树状图(Tree Heatmap)</a></li>
+<li class="chapter" data-level="30.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>30.3.16</b> 集合可视化 (UpSet)</a></li>
+</ul></li>
+<li class="chapter" data-level="30.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>30.4</b> API文件</a>
+<ul>
+<li class="chapter" data-level="30.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>30.4.1</b> Candela JavaScript API</a></li>
+<li class="chapter" data-level="30.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>30.4.2</b> Candela Python API</a></li>
+<li class="chapter" data-level="30.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>30.4.3</b> Candela R API</a></li>
+</ul></li>
+<li class="chapter" data-level="30.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>30.5</b> 开发人员文件</a>
+<ul>
+<li class="chapter" data-level="30.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>30.5.1</b> 编码规范指南</a></li>
+<li class="chapter" data-level="30.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>30.5.2</b> 创建Candela代码发布</a></li>
+<li class="chapter" data-level="30.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>30.5.3</b> 测试</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>31</b> Greek translation of edav.info/histo</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>31.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
+<li class="chapter" data-level="31.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>31.2</b> Επισκόπηση</a></li>
+<li class="chapter" data-level="31.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>31.3</b> Σύνοψη</a></li>
+<li class="chapter" data-level="31.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>31.4</b> Simple examples</a>
+<ul>
+<li class="chapter" data-level="31.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>31.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
+<li class="chapter" data-level="31.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>31.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="31.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>31.5</b> Θεωρία</a></li>
+<li class="chapter" data-level="31.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>31.6</b> Τύποι ιστογραμμάτων</a>
+<ul>
+<li class="chapter" data-level="31.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>31.6.1</b> Συχνότητα ή μέτρηση</a></li>
+<li class="chapter" data-level="31.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>31.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
+<li class="chapter" data-level="31.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>31.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
+<li class="chapter" data-level="31.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>31.6.4</b> Πυκνότητα</a></li>
+</ul></li>
+<li class="chapter" data-level="31.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>31.7</b> Παράμετροι</a>
+<ul>
+<li class="chapter" data-level="31.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>31.7.1</b> Όρια ζωνών</a></li>
+<li class="chapter" data-level="31.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>31.7.2</b> Αριθμός ζωνών</a></li>
+<li class="chapter" data-level="31.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>31.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+</ul></li>
+<li class="chapter" data-level="31.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>31.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<ul>
+<li class="chapter" data-level="31.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>31.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
+<li class="chapter" data-level="31.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>31.8.2</b> Παράδειγμα ΑΕΠ</a></li>
+<li class="chapter" data-level="31.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>31.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
+<li class="chapter" data-level="31.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>31.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
+<li class="chapter" data-level="31.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>31.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+</ul></li>
+<li class="chapter" data-level="31.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>31.9</b> Εξωτερικές πηγές</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html"><i class="fa fa-check"></i><b>32</b> Korean translation of scatterplot</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#개요"><i class="fa fa-check"></i><b>32.1</b> 개요</a></li>
+<li class="chapter" data-level="32.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#요약"><i class="fa fa-check"></i><b>32.2</b> 요약</a></li>
+<li class="chapter" data-level="32.3" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#간단한-예시"><i class="fa fa-check"></i><b>32.3</b> 간단한 예시</a>
+<ul>
+<li class="chapter" data-level="32.3.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#base-r을-이용한-산점도"><i class="fa fa-check"></i><b>32.3.1</b> base R을 이용한 산점도</a></li>
+<li class="chapter" data-level="32.3.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#ggplot2를-이용한-산점도"><i class="fa fa-check"></i><b>32.3.2</b> ggplot2를 이용한 산점도</a></li>
+</ul></li>
+<li class="chapter" data-level="32.4" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#이론"><i class="fa fa-check"></i><b>32.4</b> 이론</a></li>
+<li class="chapter" data-level="32.5" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#사용-시기"><i class="fa fa-check"></i><b>32.5</b> 사용 시기</a></li>
+<li class="chapter" data-level="32.6" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#고려-사항"><i class="fa fa-check"></i><b>32.6</b> 고려 사항</a>
+<ul>
+<li class="chapter" data-level="32.6.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#겹치는-데이터"><i class="fa fa-check"></i><b>32.6.1</b> 겹치는 데이터</a></li>
+<li class="chapter" data-level="32.6.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#스케일링"><i class="fa fa-check"></i><b>32.6.2</b> 스케일링</a></li>
+</ul></li>
+<li class="chapter" data-level="32.7" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#변경"><i class="fa fa-check"></i><b>32.7</b> 변경</a>
+<ul>
+<li class="chapter" data-level="32.7.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#등고선"><i class="fa fa-check"></i><b>32.7.1</b> 등고선</a></li>
+<li class="chapter" data-level="32.7.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#산점도-행렬"><i class="fa fa-check"></i><b>32.7.2</b> 산점도 행렬</a></li>
+</ul></li>
+<li class="chapter" data-level="32.8" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#추가-자료"><i class="fa fa-check"></i><b>32.8</b> 추가 자료</a></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><i class="fa fa-check"></i><b>33</b> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#概述"><i class="fa fa-check"></i><b>33.1</b> 1. 概述</a>
+<ul>
+<li><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#什么是r-markdown"><span class="toc-section-number">33.1.1</span> 1.1 什么是R Markdown？<br />
+</a></li>
+<li class="chapter" data-level="33.1.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#工作流程"><i class="fa fa-check"></i><b>33.1.2</b> 1.2 工作流程</a></li>
+</ul></li>
+<li class="chapter" data-level="33.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#入门"><i class="fa fa-check"></i><b>33.2</b> 2. 入门</a>
+<ul>
+<li class="chapter" data-level="33.2.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#安装套件"><i class="fa fa-check"></i><b>33.2.1</b> 2.1. 安装套件</a></li>
+<li class="chapter" data-level="33.2.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#打开文件"><i class="fa fa-check"></i><b>33.2.2</b> 2.2.打开文件</a></li>
+<li class="chapter" data-level="33.2.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#输出格式"><i class="fa fa-check"></i><b>33.2.3</b> 2.3. 输出格式</a></li>
+</ul></li>
+<li class="chapter" data-level="33.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#markdown语法"><i class="fa fa-check"></i><b>33.3</b> 3. Markdown语法</a></li>
+<li class="chapter" data-level="33.4" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#嵌入代码"><i class="fa fa-check"></i><b>33.4</b> 4. 嵌入代码</a>
+<ul>
+<li class="chapter" data-level="33.4.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#内联代码"><i class="fa fa-check"></i><b>33.4.1</b> 4.1. 内联代码</a></li>
+<li class="chapter" data-level="33.4.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#代码块"><i class="fa fa-check"></i><b>33.4.2</b> 4.2. 代码块</a></li>
+<li class="chapter" data-level="33.4.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#显示选项"><i class="fa fa-check"></i><b>33.4.3</b> 4.3. 显示选项</a></li>
+</ul></li>
+<li class="chapter" data-level="33.5" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#渲染"><i class="fa fa-check"></i><b>33.5</b> 5. 渲染</a></li>
+</ul></li>
+<li class="part"><span><b>VIII Other Topics</b></span></li>
+<li class="chapter" data-level="34" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html"><i class="fa fa-check"></i><b>34</b> Webscraping Dynamic Content: Rselenium Tutorial</a>
+<ul>
+<li class="chapter" data-level="34.1" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#introduction-and-setup"><i class="fa fa-check"></i><b>34.1</b> Introduction and Setup</a></li>
+<li class="chapter" data-level="34.2" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#simple-illustrations-with-websites"><i class="fa fa-check"></i><b>34.2</b> Simple Illustrations with Websites</a></li>
+<li class="chapter" data-level="34.3" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#other-features"><i class="fa fa-check"></i><b>34.3</b> Other Features</a></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html"><i class="fa fa-check"></i><b>35</b> Brief Introduction and Tutorial of ggpubr Package</a>
+<ul>
+<li class="chapter" data-level="35.1" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#installation-and-loading"><i class="fa fa-check"></i><b>35.1</b> Installation and loading</a></li>
+<li class="chapter" data-level="35.2" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#introduction-3"><i class="fa fa-check"></i><b>35.2</b> Introduction</a></li>
+<li class="chapter" data-level="35.3" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#histogram"><i class="fa fa-check"></i><b>35.3</b> Histogram</a></li>
+<li class="chapter" data-level="35.4" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#density-plot"><i class="fa fa-check"></i><b>35.4</b> Density plot</a></li>
+<li class="chapter" data-level="35.5" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#box-plot"><i class="fa fa-check"></i><b>35.5</b> Box plot</a></li>
+<li class="chapter" data-level="35.6" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#violin-plot"><i class="fa fa-check"></i><b>35.6</b> Violin plot</a></li>
+<li class="chapter" data-level="35.7" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#bar-plot"><i class="fa fa-check"></i><b>35.7</b> Bar plot</a></li>
+<li class="chapter" data-level="35.8" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#lollipop-chart"><i class="fa fa-check"></i><b>35.8</b> Lollipop Chart</a></li>
+<li class="chapter" data-level="35.9" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#cleveland-dot-plot"><i class="fa fa-check"></i><b>35.9</b> Cleveland dot plot</a></li>
+</ul></li>
+<li class="chapter" data-level="36" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html"><i class="fa fa-check"></i><b>36</b> Visualization of geographical maps</a>
+<ul>
+<li class="chapter" data-level="36.0.1" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#what-is-map-visualization"><i class="fa fa-check"></i><b>36.0.1</b> 1. What is map visualization</a></li>
+<li class="chapter" data-level="36.0.2" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#how-to-draw-a-map-in-r"><i class="fa fa-check"></i><b>36.0.2</b> 2. How to draw a map in R</a></li>
+<li class="chapter" data-level="36.0.3" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#tmap"><i class="fa fa-check"></i><b>36.0.3</b> 3. tmap</a></li>
+<li class="chapter" data-level="36.0.4" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#optional-watching-create-your-own-sf-object"><i class="fa fa-check"></i><b>36.0.4</b> 4.Optional watching: create your own sf object</a></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html"><i class="fa fa-check"></i><b>37</b> Health datasets for the final project</a>
+<ul>
+<li class="chapter" data-level="37.1" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#big-cities-health-inventory-data"><i class="fa fa-check"></i><b>37.1</b> Big Cities Health Inventory Data</a></li>
+<li class="chapter" data-level="37.2" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#mhealth-dataset"><i class="fa fa-check"></i><b>37.2</b> MHealth Dataset</a></li>
+<li class="chapter" data-level="37.3" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#human-mortality-database-hmd"><i class="fa fa-check"></i><b>37.3</b> Human Mortality Database (HMD)</a></li>
+<li class="chapter" data-level="37.4" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#seer-cancer-incidence"><i class="fa fa-check"></i><b>37.4</b> SEER Cancer Incidence</a></li>
+<li class="chapter" data-level="37.5" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#unicef-data-warehouse"><i class="fa fa-check"></i><b>37.5</b> UNICEF Data Warehouse</a></li>
+</ul></li>
+<li class="chapter" data-level="38" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><i class="fa fa-check"></i><b>38</b> Laying out multiple plots for Baseplot and ggplot</a>
+<ul>
+<li class="chapter" data-level="38.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#overview-5"><i class="fa fa-check"></i><b>38.1</b> Overview</a></li>
+<li class="chapter" data-level="38.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#most-easy-and-normal-form-par"><i class="fa fa-check"></i><b>38.2</b> Most easy and normal form <code>par()</code></a></li>
+<li class="chapter" data-level="38.3" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#complex-plot-layouts-with-layout"><i class="fa fa-check"></i><b>38.3</b> Complex plot layouts with <code>layout()</code></a></li>
+<li class="chapter" data-level="38.4" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#layout-for-ggplot"><i class="fa fa-check"></i><b>38.4</b> Layout for ggplot</a>
+<ul>
+<li class="chapter" data-level="38.4.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#grid.arrange-in-gridextra"><i class="fa fa-check"></i><b>38.4.1</b> <code>grid.arrange()</code> in <code>gridExtra</code></a></li>
+<li class="chapter" data-level="38.4.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#method-in-grid"><i class="fa fa-check"></i><b>38.4.2</b> method in <code>grid</code></a></li>
+</ul></li>
+<li class="chapter" data-level="38.5" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#reference-2"><i class="fa fa-check"></i><b>38.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="39" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><i class="fa fa-check"></i><b>39</b> A basic Introduction to Markov Chain Monte Carlo Method in R</a>
+<ul>
+<li class="chapter" data-level="39.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#introduction-4"><i class="fa fa-check"></i><b>39.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="39.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#markov-chain-simulation-method"><i class="fa fa-check"></i><b>39.2</b> 2. Markov Chain Simulation Method</a></li>
+<li class="chapter" data-level="39.3" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#acceptance-rejection-sampling"><i class="fa fa-check"></i><b>39.3</b> 3. Acceptance-Rejection Sampling</a></li>
+<li class="chapter" data-level="39.4" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-markov-chain"><i class="fa fa-check"></i><b>39.4</b> 4. Sampling from Markov Chain</a></li>
+<li class="chapter" data-level="39.5" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#mcmc-sampling-method"><i class="fa fa-check"></i><b>39.5</b> 5. MCMC Sampling Method</a></li>
+<li class="chapter" data-level="39.6" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#metropolis-hastings-sampling"><i class="fa fa-check"></i><b>39.6</b> 6. Metropolis-Hastings Sampling</a></li>
+<li class="chapter" data-level="39.7" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#implementation-in-r"><i class="fa fa-check"></i><b>39.7</b> 7. Implementation in R</a>
+<ul>
+<li class="chapter" data-level="39.7.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-an-exponential-distribution"><i class="fa fa-check"></i><b>39.7.1</b> 1. Sampling from an exponential distribution</a></li>
+<li class="chapter" data-level="39.7.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-a-normal-distribution"><i class="fa fa-check"></i><b>39.7.2</b> 2. Sampling from a normal distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="39.8" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#refenence"><i class="fa fa-check"></i><b>39.8</b> 8 Refenence</a></li>
+</ul></li>
+<li class="chapter" data-level="40" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html"><i class="fa fa-check"></i><b>40</b> automate eda with dataexplorer</a>
+<ul>
+<li class="chapter" data-level="40.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overview-6"><i class="fa fa-check"></i><b>40.1</b> Overview</a></li>
+<li class="chapter" data-level="40.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dataexplorer"><i class="fa fa-check"></i><b>40.2</b> DataExplorer</a></li>
+<li class="chapter" data-level="40.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#installation"><i class="fa fa-check"></i><b>40.3</b> Installation</a></li>
+<li class="chapter" data-level="40.4" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>40.4</b> Exploratory data analysis (EDA)</a>
+<ul>
+<li class="chapter" data-level="40.4.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overall-information"><i class="fa fa-check"></i><b>40.4.1</b> Overall Information</a></li>
+<li class="chapter" data-level="40.4.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#distribution"><i class="fa fa-check"></i><b>40.4.2</b> Distribution</a></li>
+<li class="chapter" data-level="40.4.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#correlation-analysis"><i class="fa fa-check"></i><b>40.4.3</b> Correlation Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="40.5" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#feature-engineering"><i class="fa fa-check"></i><b>40.5</b> Feature Engineering</a>
+<ul>
+<li class="chapter" data-level="40.5.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#missing-value"><i class="fa fa-check"></i><b>40.5.1</b> Missing value</a></li>
+<li class="chapter" data-level="40.5.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dummy-variable"><i class="fa fa-check"></i><b>40.5.2</b> Dummy variable</a></li>
+</ul></li>
+<li class="chapter" data-level="40.6" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#data-report"><i class="fa fa-check"></i><b>40.6</b> Data Report</a></li>
+<li class="chapter" data-level="40.7" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#external-resources"><i class="fa fa-check"></i><b>40.7</b> External Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="41" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html"><i class="fa fa-check"></i><b>41</b> Speed up in r programming</a>
+<ul>
+<li class="chapter" data-level="41.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#typical-development-cycle-for-computational-statistics"><i class="fa fa-check"></i><b>41.1</b> Typical development cycle for computational statistics</a></li>
+<li class="chapter" data-level="41.2" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#bytecode-compilation"><i class="fa fa-check"></i><b>41.2</b> Bytecode compilation</a>
+<ul>
+<li class="chapter" data-level="41.2.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#example-summing-a-vector"><i class="fa fa-check"></i><b>41.2.1</b> Example: summing a vector</a></li>
+</ul></li>
+<li class="chapter" data-level="41.3" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#rcpp"><i class="fa fa-check"></i><b>41.3</b> Rcpp</a>
+<ul>
+<li class="chapter" data-level="41.3.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#use-cppfunction"><i class="fa fa-check"></i><b>41.3.1</b> Use <code>cppFunction</code></a></li>
+</ul></li>
+<li class="chapter" data-level="41.4" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#parallel-computing"><i class="fa fa-check"></i><b>41.4</b> Parallel computing</a>
+<ul>
+<li class="chapter" data-level="41.4.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#simulation-example"><i class="fa fa-check"></i><b>41.4.1</b> Simulation example</a></li>
+</ul></li>
+<li class="chapter" data-level="41.5" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#package-development"><i class="fa fa-check"></i><b>41.5</b> Package development</a></li>
+</ul></li>
+<li class="chapter" data-level="42" data-path="data-visualization-in-python-using-different-plotting-packages.html"><a href="data-visualization-in-python-using-different-plotting-packages.html"><i class="fa fa-check"></i><b>42</b> Data Visualization in Python using different plotting packages</a></li>
+<li class="chapter" data-level="43" data-path="final-project-teammate-finder.html"><a href="final-project-teammate-finder.html"><i class="fa fa-check"></i><b>43</b> Final project teammate finder</a></li>
+<li class="chapter" data-level="44" data-path="among-us-player-statistics.html"><a href="among-us-player-statistics.html"><i class="fa fa-check"></i><b>44</b> Among Us Player Statistics</a></li>
+<li class="part"><span><b>IX Appendices</b></span></li>
+<li class="chapter" data-level="45" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>45</b> Github Initial Setup</a></li>
+<li class="chapter" data-level="46" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html"><i class="fa fa-check"></i><b>46</b> Tutorial for Pull Request Mergers</a>
+<ul>
+<li class="chapter" data-level="46.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-branch"><i class="fa fa-check"></i><b>46.1</b> Check branch</a></li>
+<li class="chapter" data-level="46.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#examine-files-that-were-added-or-modified"><i class="fa fa-check"></i><b>46.2</b> Examine files that were added or modified</a></li>
+<li class="chapter" data-level="46.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-filename"><i class="fa fa-check"></i><b>46.3</b> Check <code>.Rmd</code> filename</a></li>
+<li class="chapter" data-level="46.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file-contents"><i class="fa fa-check"></i><b>46.4</b> Check <code>.Rmd</code> file contents</a></li>
+<li class="chapter" data-level="46.5" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#request-changes"><i class="fa fa-check"></i><b>46.5</b> Request changes</a></li>
+<li class="chapter" data-level="46.6" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-the-pull-request"><i class="fa fa-check"></i><b>46.6</b> Merge the pull request</a>
+<ul>
+<li class="chapter" data-level="46.6.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-filename-to-_bookdown.yml-in-prs-branch"><i class="fa fa-check"></i><b>46.6.1</b> Add chapter filename to <code>_bookdown.yml</code> in PR’s <code>branch</code></a></li>
+<li class="chapter" data-level="46.6.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization"><i class="fa fa-check"></i><b>46.6.2</b> Add chapter names to <code>.Rmd</code> for every first article in each chapter (Chapter Organization)</a></li>
+<li class="chapter" data-level="46.6.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-pr-and-leave-a-comment"><i class="fa fa-check"></i><b>46.6.3</b> Merge PR and leave a comment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="47" data-path="chapter-organization.html"><a href="chapter-organization.html"><i class="fa fa-check"></i><b>47</b> Chapter Organization</a>
+<ul>
+<li class="chapter" data-level="47.1" data-path="chapter-organization.html"><a href="chapter-organization.html#process-for-organizing-chapters"><i class="fa fa-check"></i><b>47.1</b> Process for Organizing Chapters</a></li>
+<li class="chapter" data-level="47.2" data-path="chapter-organization.html"><a href="chapter-organization.html#initial-book-parts"><i class="fa fa-check"></i><b>47.2</b> Initial Book Parts</a>
+<ul>
+<li class="chapter" data-level="47.2.1" data-path="chapter-organization.html"><a href="chapter-organization.html#motivation"><i class="fa fa-check"></i><b>47.2.1</b> Motivation</a></li>
+<li class="chapter" data-level="47.2.2" data-path="chapter-organization.html"><a href="chapter-organization.html#additional-categories"><i class="fa fa-check"></i><b>47.2.2</b> Additional Categories</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -367,70 +691,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="korean-translation-of-scatterplot" class="section level1" number="10">
-<h1><span class="header-section-number">Chapter 10</span> Korean translation of scatterplot</h1>
+<div id="korean-translation-of-scatterplot" class="section level1" number="32">
+<h1><span class="header-section-number">Chapter 32</span> Korean translation of scatterplot</h1>
 <p><strong>산점도</strong></p>
 <p>by Matthew Lim</p>
 <p>*Source: <a href="https://edav.info/scatter.html" class="uri">https://edav.info/scatter.html</a></p>
-<div id="개요" class="section level2" number="10.1">
-<h2><span class="header-section-number">10.1</span> 개요</h2>
+<div id="개요" class="section level2" number="32.1">
+<h2><span class="header-section-number">32.1</span> 개요</h2>
 <p>R을 이용해 산점도를 그리는 방법</p>
 </div>
-<div id="요약" class="section level2" number="10.2">
-<h2><span class="header-section-number">10.2</span> 요약</h2>
+<div id="요약" class="section level2" number="32.2">
+<h2><span class="header-section-number">32.2</span> 요약</h2>
 <p>예시</p>
 <!-- 설명: -->
 <p>지상에 사는 포유류 62종의 뇌무게와 몸무게 사이의 관계</p>
-<p><img src="cc20_files/figure-html/tldr-scatter-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="korean_translation_of_scatterplot_files/figure-html/tldr-scatter-1.png" width="864" style="display: block; margin: auto;" /></p>
 <p>사용된 코드:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="korean-translation-of-scatterplot.html#cb232-1"></a><span class="kw">library</span>(ggplot2) <span class="co"># 그래프</span></span>
-<span id="cb232-2"><a href="korean-translation-of-scatterplot.html#cb232-2"></a>mammals &lt;-<span class="st"> </span>MASS<span class="op">::</span>mammals</span>
-<span id="cb232-3"><a href="korean-translation-of-scatterplot.html#cb232-3"></a><span class="co"># 색상 비율</span></span>
-<span id="cb232-4"><a href="korean-translation-of-scatterplot.html#cb232-4"></a>ratio &lt;-<span class="st"> </span>mammals<span class="op">$</span>brain <span class="op">/</span><span class="st"> </span>(mammals<span class="op">$</span>body<span class="op">*</span><span class="dv">1000</span>)</span>
-<span id="cb232-5"><a href="korean-translation-of-scatterplot.html#cb232-5"></a><span class="kw">ggplot</span>(mammals, <span class="kw">aes</span>(<span class="dt">x =</span> body, <span class="dt">y =</span> brain)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb232-6"><a href="korean-translation-of-scatterplot.html#cb232-6"></a><span class="st">  </span><span class="co"># 색상별로 그룹지정 후 포인트 그리기</span></span>
-<span id="cb232-7"><a href="korean-translation-of-scatterplot.html#cb232-7"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> <span class="kw">ifelse</span>(ratio <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.02</span>, <span class="st">&quot;#0000ff&quot;</span>,</span>
-<span id="cb232-8"><a href="korean-translation-of-scatterplot.html#cb232-8"></a>                   <span class="kw">ifelse</span>(ratio <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.01</span> <span class="op">&amp;</span><span class="st"> </span>ratio <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.02</span>, <span class="st">&quot;#00ff00&quot;</span>, </span>
-<span id="cb232-9"><a href="korean-translation-of-scatterplot.html#cb232-9"></a>                   <span class="kw">ifelse</span>(ratio <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.005</span> <span class="op">&amp;</span><span class="st"> </span>ratio <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.01</span>, <span class="st">&quot;#00ffff&quot;</span>,</span>
-<span id="cb232-10"><a href="korean-translation-of-scatterplot.html#cb232-10"></a>                   <span class="kw">ifelse</span>(ratio <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.001</span> <span class="op">&amp;</span><span class="st"> </span>ratio <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.005</span>, <span class="st">&quot;#ffff00&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>))))), </span>
-<span id="cb232-11"><a href="korean-translation-of-scatterplot.html#cb232-11"></a>             <span class="dt">col =</span> <span class="st">&quot;#656565&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></span>
-<span id="cb232-12"><a href="korean-translation-of-scatterplot.html#cb232-12"></a><span class="st">  </span><span class="co"># 데이터 포인트에 대한 텍스트 삽입</span></span>
-<span id="cb232-13"><a href="korean-translation-of-scatterplot.html#cb232-13"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">ifelse</span>(<span class="kw">row.names</span>(mammals) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Mouse&quot;</span>, <span class="st">&quot;Human&quot;</span>, <span class="st">&quot;Asian elephant&quot;</span>, <span class="st">&quot;Chimpanzee&quot;</span>, <span class="st">&quot;Owl monkey&quot;</span>, <span class="st">&quot;Ground squirrel&quot;</span>),</span>
-<span id="cb232-14"><a href="korean-translation-of-scatterplot.html#cb232-14"></a>                               <span class="kw">paste</span>(<span class="kw">as.character</span>(<span class="kw">row.names</span>(mammals)), <span class="st">&quot;→&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>),<span class="st">&#39;&#39;</span>)),</span>
-<span id="cb232-15"><a href="korean-translation-of-scatterplot.html#cb232-15"></a>            <span class="dt">hjust =</span> <span class="fl">1.12</span>, <span class="dt">vjust =</span> <span class="fl">0.3</span>, <span class="dt">col =</span> <span class="st">&quot;grey35&quot;</span>) <span class="op">+</span></span>
-<span id="cb232-16"><a href="korean-translation-of-scatterplot.html#cb232-16"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">ifelse</span>(<span class="kw">row.names</span>(mammals) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Golden hamster&quot;</span>, <span class="st">&quot;Kangaroo&quot;</span>, <span class="st">&quot;Water opossum&quot;</span>, <span class="st">&quot;Cow&quot;</span>), </span>
-<span id="cb232-17"><a href="korean-translation-of-scatterplot.html#cb232-17"></a>                               <span class="kw">paste</span>(<span class="st">&quot;←&quot;</span>, <span class="kw">as.character</span>(<span class="kw">row.names</span>(mammals)), <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>),<span class="st">&#39;&#39;</span>)),</span>
-<span id="cb232-18"><a href="korean-translation-of-scatterplot.html#cb232-18"></a>            <span class="dt">hjust =</span> <span class="fl">-0.12</span>, <span class="dt">vjust =</span> <span class="fl">0.35</span>, <span class="dt">col =</span> <span class="st">&quot;grey35&quot;</span>) <span class="op">+</span></span>
-<span id="cb232-19"><a href="korean-translation-of-scatterplot.html#cb232-19"></a><span class="st">  </span><span class="co"># 범례/색상 커스터마이제이션</span></span>
-<span id="cb232-20"><a href="korean-translation-of-scatterplot.html#cb232-20"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">name =</span> <span class="st">&quot;Brain Weight, as the</span><span class="ch">\n</span><span class="st">% of Body Weight&quot;</span>,</span>
-<span id="cb232-21"><a href="korean-translation-of-scatterplot.html#cb232-21"></a>                    <span class="co"># values = c(&#39;#e66101&#39;,&#39;#fdb863&#39;,&#39;#b2abd2&#39;,&#39;#5e3c99&#39;),</span></span>
-<span id="cb232-22"><a href="korean-translation-of-scatterplot.html#cb232-22"></a>                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&#39;#d7191c&#39;</span>,<span class="st">&#39;#fdae61&#39;</span>,<span class="st">&#39;#ffffbf&#39;</span>,<span class="st">&#39;#abd9e9&#39;</span>,<span class="st">&#39;#2c7bb6&#39;</span>),</span>
-<span id="cb232-23"><a href="korean-translation-of-scatterplot.html#cb232-23"></a>                    <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;#0000ff&quot;</span>, <span class="st">&quot;#00ff00&quot;</span>, <span class="st">&quot;#00ffff&quot;</span>, <span class="st">&quot;#ffff00&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>),</span>
-<span id="cb232-24"><a href="korean-translation-of-scatterplot.html#cb232-24"></a>                    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Greater than 2%&quot;</span>, <span class="st">&quot;Between 1%-2%&quot;</span>, <span class="st">&quot;Between 0.5%-1%&quot;</span>, <span class="st">&quot;Between 0.1%-0.5%&quot;</span>, <span class="st">&quot;Less than 0.1%&quot;</span>)) <span class="op">+</span></span>
-<span id="cb232-25"><a href="korean-translation-of-scatterplot.html#cb232-25"></a><span class="st">  </span><span class="co"># 포맷팅</span></span>
-<span id="cb232-26"><a href="korean-translation-of-scatterplot.html#cb232-26"></a><span class="st">  </span><span class="kw">scale_x_log10</span>(<span class="dt">name =</span> <span class="st">&quot;Body Weight&quot;</span>, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.01</span>, <span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">10000</span>),</span>
-<span id="cb232-27"><a href="korean-translation-of-scatterplot.html#cb232-27"></a>                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;10 g&quot;</span>, <span class="st">&quot;1 kg&quot;</span>, <span class="st">&quot;100 kg&quot;</span>, <span class="st">&quot;10K kg&quot;</span>)) <span class="op">+</span></span>
-<span id="cb232-28"><a href="korean-translation-of-scatterplot.html#cb232-28"></a><span class="st">  </span><span class="kw">scale_y_log10</span>(<span class="dt">name =</span> <span class="st">&quot;Brain Weight&quot;</span>, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>),</span>
-<span id="cb232-29"><a href="korean-translation-of-scatterplot.html#cb232-29"></a>                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;1 g&quot;</span>, <span class="st">&quot;10 g&quot;</span>, <span class="st">&quot;100 g&quot;</span>, <span class="st">&quot;1 kg&quot;</span>)) <span class="op">+</span></span>
-<span id="cb232-30"><a href="korean-translation-of-scatterplot.html#cb232-30"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;An Elephant Never Forgets...How Big A Brain It Has&quot;</span>, </span>
-<span id="cb232-31"><a href="korean-translation-of-scatterplot.html#cb232-31"></a>          <span class="dt">subtitle =</span> <span class="st">&quot;Brain and Body Weights of Sixty-Two Species of Land Mammals&quot;</span>) <span class="op">+</span></span>
-<span id="cb232-32"><a href="korean-translation-of-scatterplot.html#cb232-32"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">caption =</span> <span class="st">&quot;Source: MASS::mammals&quot;</span>) <span class="op">+</span></span>
-<span id="cb232-33"><a href="korean-translation-of-scatterplot.html#cb232-33"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="op">+</span></span>
-<span id="cb232-34"><a href="korean-translation-of-scatterplot.html#cb232-34"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;grey35&quot;</span>)) <span class="op">+</span></span>
-<span id="cb232-35"><a href="korean-translation-of-scatterplot.html#cb232-35"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;grey68&quot;</span>)) <span class="op">+</span></span>
-<span id="cb232-36"><a href="korean-translation-of-scatterplot.html#cb232-36"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.832</span>, <span class="fl">0.21</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="korean-translation-of-scatterplot.html#cb592-1"></a><span class="kw">library</span>(ggplot2) <span class="co"># 그래프</span></span>
+<span id="cb592-2"><a href="korean-translation-of-scatterplot.html#cb592-2"></a>mammals &lt;-<span class="st"> </span>MASS<span class="op">::</span>mammals</span>
+<span id="cb592-3"><a href="korean-translation-of-scatterplot.html#cb592-3"></a><span class="co"># 색상 비율</span></span>
+<span id="cb592-4"><a href="korean-translation-of-scatterplot.html#cb592-4"></a>ratio &lt;-<span class="st"> </span>mammals<span class="op">$</span>brain <span class="op">/</span><span class="st"> </span>(mammals<span class="op">$</span>body<span class="op">*</span><span class="dv">1000</span>)</span>
+<span id="cb592-5"><a href="korean-translation-of-scatterplot.html#cb592-5"></a><span class="kw">ggplot</span>(mammals, <span class="kw">aes</span>(<span class="dt">x =</span> body, <span class="dt">y =</span> brain)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb592-6"><a href="korean-translation-of-scatterplot.html#cb592-6"></a><span class="st">  </span><span class="co"># 색상별로 그룹지정 후 포인트 그리기</span></span>
+<span id="cb592-7"><a href="korean-translation-of-scatterplot.html#cb592-7"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> <span class="kw">ifelse</span>(ratio <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.02</span>, <span class="st">&quot;#0000ff&quot;</span>,</span>
+<span id="cb592-8"><a href="korean-translation-of-scatterplot.html#cb592-8"></a>                   <span class="kw">ifelse</span>(ratio <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.01</span> <span class="op">&amp;</span><span class="st"> </span>ratio <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.02</span>, <span class="st">&quot;#00ff00&quot;</span>, </span>
+<span id="cb592-9"><a href="korean-translation-of-scatterplot.html#cb592-9"></a>                   <span class="kw">ifelse</span>(ratio <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.005</span> <span class="op">&amp;</span><span class="st"> </span>ratio <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.01</span>, <span class="st">&quot;#00ffff&quot;</span>,</span>
+<span id="cb592-10"><a href="korean-translation-of-scatterplot.html#cb592-10"></a>                   <span class="kw">ifelse</span>(ratio <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.001</span> <span class="op">&amp;</span><span class="st"> </span>ratio <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.005</span>, <span class="st">&quot;#ffff00&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>))))), </span>
+<span id="cb592-11"><a href="korean-translation-of-scatterplot.html#cb592-11"></a>             <span class="dt">col =</span> <span class="st">&quot;#656565&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></span>
+<span id="cb592-12"><a href="korean-translation-of-scatterplot.html#cb592-12"></a><span class="st">  </span><span class="co"># 데이터 포인트에 대한 텍스트 삽입</span></span>
+<span id="cb592-13"><a href="korean-translation-of-scatterplot.html#cb592-13"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">ifelse</span>(<span class="kw">row.names</span>(mammals) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Mouse&quot;</span>, <span class="st">&quot;Human&quot;</span>, <span class="st">&quot;Asian elephant&quot;</span>, <span class="st">&quot;Chimpanzee&quot;</span>, <span class="st">&quot;Owl monkey&quot;</span>, <span class="st">&quot;Ground squirrel&quot;</span>),</span>
+<span id="cb592-14"><a href="korean-translation-of-scatterplot.html#cb592-14"></a>                               <span class="kw">paste</span>(<span class="kw">as.character</span>(<span class="kw">row.names</span>(mammals)), <span class="st">&quot;→&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>),<span class="st">&#39;&#39;</span>)),</span>
+<span id="cb592-15"><a href="korean-translation-of-scatterplot.html#cb592-15"></a>            <span class="dt">hjust =</span> <span class="fl">1.12</span>, <span class="dt">vjust =</span> <span class="fl">0.3</span>, <span class="dt">col =</span> <span class="st">&quot;grey35&quot;</span>) <span class="op">+</span></span>
+<span id="cb592-16"><a href="korean-translation-of-scatterplot.html#cb592-16"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">ifelse</span>(<span class="kw">row.names</span>(mammals) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Golden hamster&quot;</span>, <span class="st">&quot;Kangaroo&quot;</span>, <span class="st">&quot;Water opossum&quot;</span>, <span class="st">&quot;Cow&quot;</span>), </span>
+<span id="cb592-17"><a href="korean-translation-of-scatterplot.html#cb592-17"></a>                               <span class="kw">paste</span>(<span class="st">&quot;←&quot;</span>, <span class="kw">as.character</span>(<span class="kw">row.names</span>(mammals)), <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>),<span class="st">&#39;&#39;</span>)),</span>
+<span id="cb592-18"><a href="korean-translation-of-scatterplot.html#cb592-18"></a>            <span class="dt">hjust =</span> <span class="fl">-0.12</span>, <span class="dt">vjust =</span> <span class="fl">0.35</span>, <span class="dt">col =</span> <span class="st">&quot;grey35&quot;</span>) <span class="op">+</span></span>
+<span id="cb592-19"><a href="korean-translation-of-scatterplot.html#cb592-19"></a><span class="st">  </span><span class="co"># 범례/색상 커스터마이제이션</span></span>
+<span id="cb592-20"><a href="korean-translation-of-scatterplot.html#cb592-20"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">name =</span> <span class="st">&quot;Brain Weight, as the</span><span class="ch">\n</span><span class="st">% of Body Weight&quot;</span>,</span>
+<span id="cb592-21"><a href="korean-translation-of-scatterplot.html#cb592-21"></a>                    <span class="co"># values = c(&#39;#e66101&#39;,&#39;#fdb863&#39;,&#39;#b2abd2&#39;,&#39;#5e3c99&#39;),</span></span>
+<span id="cb592-22"><a href="korean-translation-of-scatterplot.html#cb592-22"></a>                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&#39;#d7191c&#39;</span>,<span class="st">&#39;#fdae61&#39;</span>,<span class="st">&#39;#ffffbf&#39;</span>,<span class="st">&#39;#abd9e9&#39;</span>,<span class="st">&#39;#2c7bb6&#39;</span>),</span>
+<span id="cb592-23"><a href="korean-translation-of-scatterplot.html#cb592-23"></a>                    <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;#0000ff&quot;</span>, <span class="st">&quot;#00ff00&quot;</span>, <span class="st">&quot;#00ffff&quot;</span>, <span class="st">&quot;#ffff00&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>),</span>
+<span id="cb592-24"><a href="korean-translation-of-scatterplot.html#cb592-24"></a>                    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Greater than 2%&quot;</span>, <span class="st">&quot;Between 1%-2%&quot;</span>, <span class="st">&quot;Between 0.5%-1%&quot;</span>, <span class="st">&quot;Between 0.1%-0.5%&quot;</span>, <span class="st">&quot;Less than 0.1%&quot;</span>)) <span class="op">+</span></span>
+<span id="cb592-25"><a href="korean-translation-of-scatterplot.html#cb592-25"></a><span class="st">  </span><span class="co"># 포맷팅</span></span>
+<span id="cb592-26"><a href="korean-translation-of-scatterplot.html#cb592-26"></a><span class="st">  </span><span class="kw">scale_x_log10</span>(<span class="dt">name =</span> <span class="st">&quot;Body Weight&quot;</span>, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.01</span>, <span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">10000</span>),</span>
+<span id="cb592-27"><a href="korean-translation-of-scatterplot.html#cb592-27"></a>                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;10 g&quot;</span>, <span class="st">&quot;1 kg&quot;</span>, <span class="st">&quot;100 kg&quot;</span>, <span class="st">&quot;10K kg&quot;</span>)) <span class="op">+</span></span>
+<span id="cb592-28"><a href="korean-translation-of-scatterplot.html#cb592-28"></a><span class="st">  </span><span class="kw">scale_y_log10</span>(<span class="dt">name =</span> <span class="st">&quot;Brain Weight&quot;</span>, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>),</span>
+<span id="cb592-29"><a href="korean-translation-of-scatterplot.html#cb592-29"></a>                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;1 g&quot;</span>, <span class="st">&quot;10 g&quot;</span>, <span class="st">&quot;100 g&quot;</span>, <span class="st">&quot;1 kg&quot;</span>)) <span class="op">+</span></span>
+<span id="cb592-30"><a href="korean-translation-of-scatterplot.html#cb592-30"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;An Elephant Never Forgets...How Big A Brain It Has&quot;</span>, </span>
+<span id="cb592-31"><a href="korean-translation-of-scatterplot.html#cb592-31"></a>          <span class="dt">subtitle =</span> <span class="st">&quot;Brain and Body Weights of Sixty-Two Species of Land Mammals&quot;</span>) <span class="op">+</span></span>
+<span id="cb592-32"><a href="korean-translation-of-scatterplot.html#cb592-32"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">caption =</span> <span class="st">&quot;Source: MASS::mammals&quot;</span>) <span class="op">+</span></span>
+<span id="cb592-33"><a href="korean-translation-of-scatterplot.html#cb592-33"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="op">+</span></span>
+<span id="cb592-34"><a href="korean-translation-of-scatterplot.html#cb592-34"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;grey35&quot;</span>)) <span class="op">+</span></span>
+<span id="cb592-35"><a href="korean-translation-of-scatterplot.html#cb592-35"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;grey68&quot;</span>)) <span class="op">+</span></span>
+<span id="cb592-36"><a href="korean-translation-of-scatterplot.html#cb592-36"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.832</span>, <span class="fl">0.21</span>))</span></code></pre></div>
 <p>이 데이터셋에 대한 더 많은 정보가 궁금하시다면 콘솔에 <code>?MASS::mammals</code>을 입력하세요.</p>
 <p>맨 오른쪽 상단 끝에 있는 점이 궁금하셨다면 그 점은 다른 종의 코끼리입니다. 좀 더 구체적으론 아프리카 코끼리입니다. 아프리카 코끼리도 자기 뇌가 얼마나 큰지 잊지않죠. <i class="far fa-smile-beam"></i></p>
 </div>
-<div id="간단한-예시" class="section level2" number="10.3">
-<h2><span class="header-section-number">10.3</span> 간단한 예시</h2>
+<div id="간단한-예시" class="section level2" number="32.3">
+<h2><span class="header-section-number">32.3</span> 간단한 예시</h2>
 <!-- 간단 노트 -->
 <p>이전 예시는 너무 복잡했어요! 좀 더 간단하게 부탁해요!</p>
 <!-- 데이터에 대한 간단한 설명: -->
 <p>이번엔 <code>GDAdata</code>에서 <code>SpeedSki</code> 데이터셋을 통해 참가자가 태어난 해와 그들의 속도의 관계에 대해 알아봅시다:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="korean-translation-of-scatterplot.html#cb233-1"></a><span class="kw">library</span>(GDAdata)</span>
-<span id="cb233-2"><a href="korean-translation-of-scatterplot.html#cb233-2"></a></span>
-<span id="cb233-3"><a href="korean-translation-of-scatterplot.html#cb233-3"></a><span class="kw">head</span>(SpeedSki, <span class="dt">n =</span> <span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="korean-translation-of-scatterplot.html#cb593-1"></a><span class="kw">library</span>(GDAdata)</span>
+<span id="cb593-2"><a href="korean-translation-of-scatterplot.html#cb593-2"></a></span>
+<span id="cb593-3"><a href="korean-translation-of-scatterplot.html#cb593-3"></a><span class="kw">head</span>(SpeedSki, <span class="dt">n =</span> <span class="dv">7</span>)</span></code></pre></div>
 <pre><code>##   Rank Bib FIS.Code                 Name Year Nation  Speed  Sex     Event
 ## 1    1  61     7039       ORIGONE Simone 1979    ITA 211.67 Male Speed One
 ## 2    2  59     7078         ORIGONE Ivan 1987    ITA 209.70 Male Speed One
@@ -447,35 +771,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5          4
 ## 6          4
 ## 7          4</code></pre>
-<div id="base-r을-이용한-산점도" class="section level3" number="10.3.1">
-<h3><span class="header-section-number">10.3.1</span> base R을 이용한 산점도</h3>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="korean-translation-of-scatterplot.html#cb235-1"></a>x &lt;-<span class="st"> </span>SpeedSki<span class="op">$</span>Year</span>
-<span id="cb235-2"><a href="korean-translation-of-scatterplot.html#cb235-2"></a>y &lt;-<span class="st"> </span>SpeedSki<span class="op">$</span>Speed</span>
-<span id="cb235-3"><a href="korean-translation-of-scatterplot.html#cb235-3"></a><span class="co"># 그래프 삽입</span></span>
-<span id="cb235-4"><a href="korean-translation-of-scatterplot.html#cb235-4"></a><span class="kw">plot</span>(x, y, <span class="dt">main =</span> <span class="st">&quot;Scatterplot of Speed vs. Birth Year&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-177-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="base-r을-이용한-산점도" class="section level3" number="32.3.1">
+<h3><span class="header-section-number">32.3.1</span> base R을 이용한 산점도</h3>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="korean-translation-of-scatterplot.html#cb595-1"></a>x &lt;-<span class="st"> </span>SpeedSki<span class="op">$</span>Year</span>
+<span id="cb595-2"><a href="korean-translation-of-scatterplot.html#cb595-2"></a>y &lt;-<span class="st"> </span>SpeedSki<span class="op">$</span>Speed</span>
+<span id="cb595-3"><a href="korean-translation-of-scatterplot.html#cb595-3"></a><span class="co"># 그래프 삽입</span></span>
+<span id="cb595-4"><a href="korean-translation-of-scatterplot.html#cb595-4"></a><span class="kw">plot</span>(x, y, <span class="dt">main =</span> <span class="st">&quot;Scatterplot of Speed vs. Birth Year&quot;</span>)</span></code></pre></div>
+<p><img src="korean_translation_of_scatterplot_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <!-- Base R 그래프 설명 -->
 <p>두개의 변수만 있으면 아주 간단하게 Base R을 통해 산점도를 그릴 수 있습니다. 산점도를 통해 범주 변수를 그릴 수도 있지만 대게 연속 변수를 그릴 때 사용됩니다.</p>
 </div>
-<div id="ggplot2를-이용한-산점도" class="section level3" number="10.3.2">
-<h3><span class="header-section-number">10.3.2</span> ggplot2를 이용한 산점도</h3>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="korean-translation-of-scatterplot.html#cb236-1"></a><span class="kw">library</span>(GDAdata) <span class="co"># 데이터</span></span>
-<span id="cb236-2"><a href="korean-translation-of-scatterplot.html#cb236-2"></a><span class="kw">library</span>(ggplot2) <span class="co"># 그래프</span></span>
-<span id="cb236-3"><a href="korean-translation-of-scatterplot.html#cb236-3"></a></span>
-<span id="cb236-4"><a href="korean-translation-of-scatterplot.html#cb236-4"></a><span class="co"># 메인 그래프</span></span>
-<span id="cb236-5"><a href="korean-translation-of-scatterplot.html#cb236-5"></a>scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(SpeedSki, <span class="kw">aes</span>(Year, Speed)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</span>
-<span id="cb236-6"><a href="korean-translation-of-scatterplot.html#cb236-6"></a></span>
-<span id="cb236-7"><a href="korean-translation-of-scatterplot.html#cb236-7"></a><span class="co"># 타이틀, 축 이름 추가</span></span>
-<span id="cb236-8"><a href="korean-translation-of-scatterplot.html#cb236-8"></a>scatter <span class="op">+</span></span>
-<span id="cb236-9"><a href="korean-translation-of-scatterplot.html#cb236-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Birth Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Speed Achieved (km/hr)&quot;</span>) <span class="op">+</span></span>
-<span id="cb236-10"><a href="korean-translation-of-scatterplot.html#cb236-10"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ninety-One Skiers by Birth Year and Speed Achieved&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-178-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="ggplot2를-이용한-산점도" class="section level3" number="32.3.2">
+<h3><span class="header-section-number">32.3.2</span> ggplot2를 이용한 산점도</h3>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="korean-translation-of-scatterplot.html#cb596-1"></a><span class="kw">library</span>(GDAdata) <span class="co"># 데이터</span></span>
+<span id="cb596-2"><a href="korean-translation-of-scatterplot.html#cb596-2"></a><span class="kw">library</span>(ggplot2) <span class="co"># 그래프</span></span>
+<span id="cb596-3"><a href="korean-translation-of-scatterplot.html#cb596-3"></a></span>
+<span id="cb596-4"><a href="korean-translation-of-scatterplot.html#cb596-4"></a><span class="co"># 메인 그래프</span></span>
+<span id="cb596-5"><a href="korean-translation-of-scatterplot.html#cb596-5"></a>scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(SpeedSki, <span class="kw">aes</span>(Year, Speed)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</span>
+<span id="cb596-6"><a href="korean-translation-of-scatterplot.html#cb596-6"></a></span>
+<span id="cb596-7"><a href="korean-translation-of-scatterplot.html#cb596-7"></a><span class="co"># 타이틀, 축 이름 추가</span></span>
+<span id="cb596-8"><a href="korean-translation-of-scatterplot.html#cb596-8"></a>scatter <span class="op">+</span></span>
+<span id="cb596-9"><a href="korean-translation-of-scatterplot.html#cb596-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Birth Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Speed Achieved (km/hr)&quot;</span>) <span class="op">+</span></span>
+<span id="cb596-10"><a href="korean-translation-of-scatterplot.html#cb596-10"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ninety-One Skiers by Birth Year and Speed Achieved&quot;</span>)</span></code></pre></div>
+<p><img src="korean_translation_of_scatterplot_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <!-- ggplot2 설명 -->
 <p><code>ggplot2</code>을 이용해서 산점도를 아주 간단하게 그릴 수 있습니다. <code>geom_point()</code> 코드를 통해 한 그래프에 2개의 aesthetic을 그릴 수 있습니다. 또한, 추가적인 포맷을 통해 그래프를 좀 더 깔끔하게 만드는데 더 욱 더 용이합니다. (실질적으로 필요한건 데이터와 aesthetics과 geom입니다).</p>
 </div>
 </div>
-<div id="이론" class="section level2" number="10.4">
-<h2><span class="header-section-number">10.4</span> 이론</h2>
+<div id="이론" class="section level2" number="32.4">
+<h2><span class="header-section-number">32.4</span> 이론</h2>
 <p>산점도를 통해 변수간의 상관관계를 아주 쉽게 이해할 수 있습니다. 예를 들어 <a href="scatter.html#tldr-7">section 13.2</a>의 산점도를 보면 포유류의 뇌무게와 몸무게가 정적 상관관계를 가지고 있는걸 볼 수 있습니다. 산점도를 통해 변수들이 상관관계가 있는지, 있다면 정적 상관인지 부적 상관인지 알 수 있습니다. 하지만 상관관계를 원인과 혼동하시면 안됩니다!</p>
 <p>이제 어떻게하면 산점도에 대한 이해도를 높힐 수 있을지 알아봅시다.</p>
 <!-- *교재 링크 -->
@@ -483,82 +807,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>For more info about adding lines/contours, comparing groups, and plotting continuous variables check out <a href="http://www.gradaanwr.net/content/ch05/" target="_blank">Chapter 5</a> of the textbook.</li>
 </ul>
 </div>
-<div id="사용-시기" class="section level2" number="10.5">
-<h2><span class="header-section-number">10.5</span> 사용 시기</h2>
+<div id="사용-시기" class="section level2" number="32.5">
+<h2><span class="header-section-number">32.5</span> 사용 시기</h2>
 <!-- 언제 이 그래프를 쓰는지 간단한 설명 -->
 <p>산점도는 변수들간의 관계를 알아볼때 유용합니다. 당신이 변수들간의 관계가 궁금하다면 산점도부터 시작해보세요.</p>
 </div>
-<div id="고려-사항" class="section level2" number="10.6">
-<h2><span class="header-section-number">10.6</span> 고려 사항</h2>
+<div id="고려-사항" class="section level2" number="32.6">
+<h2><span class="header-section-number">32.6</span> 고려 사항</h2>
 <!-- *  예시를 통해 알아보는 주의할 점 -->
-<div id="겹치는-데이터" class="section level3" number="10.6.1">
-<h3><span class="header-section-number">10.6.1</span> 겹치는 데이터</h3>
+<div id="겹치는-데이터" class="section level3" number="32.6.1">
+<h3><span class="header-section-number">32.6.1</span> 겹치는 데이터</h3>
 <p>비슷한 값의 데이터는 산점도에서 겹쳐질 것이며 이는 문제를 일으킬 수 있습니다. 해결방안으로 <a href="iris.html#aside-example-where-alpha-blending-works">alpha blending</a>이나 <a href="iris.html#second-jittering">jittering</a>을 고려해보세요 (<a href="iris.html#overlapping-data">Overlapping Data</a>의 <a href="iris.html">Iris Walkthrough</a>섹션의 링크).</p>
 </div>
-<div id="스케일링" class="section level3" number="10.6.2">
-<h3><span class="header-section-number">10.6.2</span> 스케일링</h3>
+<div id="스케일링" class="section level3" number="32.6.2">
+<h3><span class="header-section-number">32.6.2</span> 스케일링</h3>
 <p>스케일링이 어떻게 산점도의 해석을 바꿀 수 있는지 고려하세요:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="korean-translation-of-scatterplot.html#cb237-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb237-2"><a href="korean-translation-of-scatterplot.html#cb237-2"></a>num_points &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb237-3"><a href="korean-translation-of-scatterplot.html#cb237-3"></a>wide_x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">50</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">2</span>), </span>
-<span id="cb237-4"><a href="korean-translation-of-scatterplot.html#cb237-4"></a>            <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">50</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>))</span>
-<span id="cb237-5"><a href="korean-translation-of-scatterplot.html#cb237-5"></a>wide_y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> num_points, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb237-6"><a href="korean-translation-of-scatterplot.html#cb237-6"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(wide_x, wide_y)</span>
-<span id="cb237-7"><a href="korean-translation-of-scatterplot.html#cb237-7"></a>  </span>
-<span id="cb237-8"><a href="korean-translation-of-scatterplot.html#cb237-8"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(wide_x, wide_y)) <span class="op">+</span></span>
-<span id="cb237-9"><a href="korean-translation-of-scatterplot.html#cb237-9"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
-<span id="cb237-10"><a href="korean-translation-of-scatterplot.html#cb237-10"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Linear X-Axis&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/scaling-fix-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="korean-translation-of-scatterplot.html#cb238-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(wide_x, wide_y)) <span class="op">+</span></span>
-<span id="cb238-2"><a href="korean-translation-of-scatterplot.html#cb238-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
-<span id="cb238-3"><a href="korean-translation-of-scatterplot.html#cb238-3"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Log-10 X-Axis&quot;</span>) <span class="op">+</span></span>
-<span id="cb238-4"><a href="korean-translation-of-scatterplot.html#cb238-4"></a><span class="st">  </span><span class="kw">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="cc20_files/figure-html/scaling-fix-2.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="korean-translation-of-scatterplot.html#cb597-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb597-2"><a href="korean-translation-of-scatterplot.html#cb597-2"></a>num_points &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb597-3"><a href="korean-translation-of-scatterplot.html#cb597-3"></a>wide_x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">50</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">2</span>), </span>
+<span id="cb597-4"><a href="korean-translation-of-scatterplot.html#cb597-4"></a>            <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">50</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb597-5"><a href="korean-translation-of-scatterplot.html#cb597-5"></a>wide_y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> num_points, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb597-6"><a href="korean-translation-of-scatterplot.html#cb597-6"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(wide_x, wide_y)</span>
+<span id="cb597-7"><a href="korean-translation-of-scatterplot.html#cb597-7"></a>  </span>
+<span id="cb597-8"><a href="korean-translation-of-scatterplot.html#cb597-8"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(wide_x, wide_y)) <span class="op">+</span></span>
+<span id="cb597-9"><a href="korean-translation-of-scatterplot.html#cb597-9"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb597-10"><a href="korean-translation-of-scatterplot.html#cb597-10"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Linear X-Axis&quot;</span>)</span></code></pre></div>
+<p><img src="korean_translation_of_scatterplot_files/figure-html/scaling-fix-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="korean-translation-of-scatterplot.html#cb598-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(wide_x, wide_y)) <span class="op">+</span></span>
+<span id="cb598-2"><a href="korean-translation-of-scatterplot.html#cb598-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb598-3"><a href="korean-translation-of-scatterplot.html#cb598-3"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Log-10 X-Axis&quot;</span>) <span class="op">+</span></span>
+<span id="cb598-4"><a href="korean-translation-of-scatterplot.html#cb598-4"></a><span class="st">  </span><span class="kw">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="korean_translation_of_scatterplot_files/figure-html/scaling-fix-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="변경" class="section level2" number="10.7">
-<h2><span class="header-section-number">10.7</span> 변경</h2>
-<div id="등고선" class="section level3" number="10.7.1">
-<h3><span class="header-section-number">10.7.1</span> 등고선</h3>
+<div id="변경" class="section level2" number="32.7">
+<h2><span class="header-section-number">32.7</span> 변경</h2>
+<div id="등고선" class="section level3" number="32.7.1">
+<h3><span class="header-section-number">32.7.1</span> 등고선</h3>
 <!-- 안내문 -->
 <p>등고선은 데이터의 밀도에 대해 알려줍니다.</p>
 <p><code>SpeedSki</code> 데이터셋을 이용해 등고선에 대해 알아봅시다.</p>
 <p><code>geom_density_2d()</code>을 사용해 등고선을 추가할 수 있습니다:</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="korean-translation-of-scatterplot.html#cb239-1"></a><span class="kw">ggplot</span>(SpeedSki, <span class="kw">aes</span>(Year, Speed)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb239-2"><a href="korean-translation-of-scatterplot.html#cb239-2"></a><span class="st">  </span><span class="kw">geom_density_2d</span>() </span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-179-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="korean-translation-of-scatterplot.html#cb599-1"></a><span class="kw">ggplot</span>(SpeedSki, <span class="kw">aes</span>(Year, Speed)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb599-2"><a href="korean-translation-of-scatterplot.html#cb599-2"></a><span class="st">  </span><span class="kw">geom_density_2d</span>() </span></code></pre></div>
+<p><img src="korean_translation_of_scatterplot_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>등고선은 다른 그래프와 사용시 가장 효율적입니다:</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="korean-translation-of-scatterplot.html#cb240-1"></a><span class="kw">ggplot</span>(SpeedSki, <span class="kw">aes</span>(Year, Speed)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb240-2"><a href="korean-translation-of-scatterplot.html#cb240-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb240-3"><a href="korean-translation-of-scatterplot.html#cb240-3"></a><span class="st">  </span><span class="kw">geom_density_2d</span>(<span class="dt">bins =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-180-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="korean-translation-of-scatterplot.html#cb600-1"></a><span class="kw">ggplot</span>(SpeedSki, <span class="kw">aes</span>(Year, Speed)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb600-2"><a href="korean-translation-of-scatterplot.html#cb600-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb600-3"><a href="korean-translation-of-scatterplot.html#cb600-3"></a><span class="st">  </span><span class="kw">geom_density_2d</span>(<span class="dt">bins =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="korean_translation_of_scatterplot_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="산점도-행렬" class="section level3" number="10.7.2">
-<h3><span class="header-section-number">10.7.2</span> 산점도 행렬</h3>
+<div id="산점도-행렬" class="section level3" number="32.7.2">
+<h3><span class="header-section-number">32.7.2</span> 산점도 행렬</h3>
 <p>여러개의 매개변수를 비교하고 싶다면 사점도 행렬을 사용하는 것을 고려해보세요. 산점도 행렬을 통해 좀 더 효율적으로 변수들을 비교할 수 있습니다.</p>
 <p><code>ggplot2movies</code>패키지의 <code>movies</code> 데이터셋을 통해 산점도 행렬에 대해 더 자세히 알아봅시다.</p>
 <p>base R의 <code>plot()</code> 펑션을 통해 산점도 행렬을 그릴 수 있습니다:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="korean-translation-of-scatterplot.html#cb241-1"></a><span class="kw">library</span>(ggplot2movies) <span class="co"># 데이터</span></span>
-<span id="cb241-2"><a href="korean-translation-of-scatterplot.html#cb241-2"></a><span class="kw">library</span>(dplyr) <span class="co"># 데이터 편집</span></span>
-<span id="cb241-3"><a href="korean-translation-of-scatterplot.html#cb241-3"></a></span>
-<span id="cb241-4"><a href="korean-translation-of-scatterplot.html#cb241-4"></a>index &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">nrow</span>(movies), <span class="dv">500</span>) <span class="co">#샘플 데이터</span></span>
-<span id="cb241-5"><a href="korean-translation-of-scatterplot.html#cb241-5"></a>moviedf &lt;-<span class="st"> </span>movies[index,] <span class="co"># 데이터 프레임</span></span>
-<span id="cb241-6"><a href="korean-translation-of-scatterplot.html#cb241-6"></a></span>
-<span id="cb241-7"><a href="korean-translation-of-scatterplot.html#cb241-7"></a>splomvar &lt;-<span class="st"> </span>moviedf <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb241-8"><a href="korean-translation-of-scatterplot.html#cb241-8"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(length, budget, votes, rating, year)</span>
-<span id="cb241-9"><a href="korean-translation-of-scatterplot.html#cb241-9"></a></span>
-<span id="cb241-10"><a href="korean-translation-of-scatterplot.html#cb241-10"></a><span class="kw">plot</span>(splomvar)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-181-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="korean-translation-of-scatterplot.html#cb601-1"></a><span class="kw">library</span>(ggplot2movies) <span class="co"># 데이터</span></span>
+<span id="cb601-2"><a href="korean-translation-of-scatterplot.html#cb601-2"></a><span class="kw">library</span>(dplyr) <span class="co"># 데이터 편집</span></span>
+<span id="cb601-3"><a href="korean-translation-of-scatterplot.html#cb601-3"></a></span>
+<span id="cb601-4"><a href="korean-translation-of-scatterplot.html#cb601-4"></a>index &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">nrow</span>(movies), <span class="dv">500</span>) <span class="co">#샘플 데이터</span></span>
+<span id="cb601-5"><a href="korean-translation-of-scatterplot.html#cb601-5"></a>moviedf &lt;-<span class="st"> </span>movies[index,] <span class="co"># 데이터 프레임</span></span>
+<span id="cb601-6"><a href="korean-translation-of-scatterplot.html#cb601-6"></a></span>
+<span id="cb601-7"><a href="korean-translation-of-scatterplot.html#cb601-7"></a>splomvar &lt;-<span class="st"> </span>moviedf <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb601-8"><a href="korean-translation-of-scatterplot.html#cb601-8"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(length, budget, votes, rating, year)</span>
+<span id="cb601-9"><a href="korean-translation-of-scatterplot.html#cb601-9"></a></span>
+<span id="cb601-10"><a href="korean-translation-of-scatterplot.html#cb601-10"></a><span class="kw">plot</span>(splomvar)</span></code></pre></div>
+<p><img src="korean_translation_of_scatterplot_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>base R의 <code>plot()</code> 펑션을 개인적인 연구를 위해 사용하는건 괜찮지만 프레젠테이션을 위해 해당 펑션을 사용하는 것은 추천드리지 않습니다. 해당 펑션을 사용해 산점도 행렬을 그릴 시 <a href="https://en.wikipedia.org/wiki/Grid_illusion" target="_blank">Hermann grid illusion</a> 때문에 해당 그래프를 해석하기게 매우 어렵습니다.</p>
 <p><code>lattice</code>의 <code>splom()</code> 펑션을 통해 이 문제를 해결할 수 있습니다:</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="korean-translation-of-scatterplot.html#cb242-1"></a><span class="kw">library</span>(lattice) <span class="co">#sploms</span></span>
-<span id="cb242-2"><a href="korean-translation-of-scatterplot.html#cb242-2"></a></span>
-<span id="cb242-3"><a href="korean-translation-of-scatterplot.html#cb242-3"></a><span class="kw">splom</span>(splomvar)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-182-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="korean-translation-of-scatterplot.html#cb602-1"></a><span class="kw">library</span>(lattice) <span class="co">#sploms</span></span>
+<span id="cb602-2"><a href="korean-translation-of-scatterplot.html#cb602-2"></a></span>
+<span id="cb602-3"><a href="korean-translation-of-scatterplot.html#cb602-3"></a><span class="kw">splom</span>(splomvar)</span></code></pre></div>
+<p><img src="korean_translation_of_scatterplot_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="추가-자료" class="section level2" number="10.8">
-<h2><span class="header-section-number">10.8</span> 추가 자료</h2>
+<div id="추가-자료" class="section level2" number="32.8">
+<h2><span class="header-section-number">32.8</span> 추가 자료</h2>
 <!-- - []](){target="_blank"}: 추가 자료 링크 -->
 <ul>
 <li><a href="https://www.statmethods.net/graphs/scatterplot.html" target="_blank">Quick-R article</a> Base R을 통한 산점도. 산점도 행렬, 고밀도, 3D 버전의 간단한 예시부터 어려운 예시까지 있습니다.</li>
@@ -570,16 +894,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="greek-translation-of-edav-infohisto.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tableau-intro-tutorial-explained-with-proset2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -629,6 +950,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
