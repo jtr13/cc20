@@ -116,10 +116,17 @@ data-collection
 comparison
 conclusion-1
 d3.js-intereactive-choropleth-map
+introduction-to-violin-plots
+overview-3
+theory
+basic-violin-plot
+grouped-violin-plot
+grouped-violin-plot-with-split-violins
+violin-plot-versus-box-plot
 base-r-vs.-ggplot2
 visualiztion-tools-in-real-work
 color-in-r
-overview-3
+overview-4
 sections
 discrete-colors
 basics-1
@@ -136,7 +143,7 @@ illustrate-commonly-used-graphs-in-r
 numerical-variables-with-abalone-and-mtcars
 categorical-graphs-with-arthritis-data
 china-choropleth-map
-overview-4
+overview-5
 data-collection-1
 static-map-with-ggplot
 prepare-the-shape-data-of-china
@@ -333,7 +340,7 @@ human-mortality-database-hmd
 seer-cancer-incidence
 unicef-data-warehouse
 laying-out-multiple-plots-for-baseplot-and-ggplot
-overview-5
+overview-6
 most-easy-and-normal-form-par
 complex-plot-layouts-with-layout
 layout-for-ggplot
@@ -357,7 +364,7 @@ a-define-the-pdf-of-normal-distribution
 b-use-previous-function-and-validate-the-result
 refenence
 automate-eda-with-dataexplorer
-overview-6
+overview-7
 dataexplorer
 installation
 exploratory-data-analysis-eda
@@ -403,9 +410,3 @@ process-for-organizing-chapters
 initial-book-parts
 motivation
 additional-categories
-basic-scatterplot-matrix-of-the-mtcars-dataset-all-numeric-variables-continuous-variables-only-change-color-shape-size-of-points-as-well-as-labels-and-gaps-of-the-plot-add-a-smoother-to-each-scatterplot-separate-groups-using-different-colors-choose-panel-display-customize-your-own-plot-matrix-plot-with-ggpairs-fromggally-package
-factorize-discretecategorical-variables
-input-data
-示例-11
-示例-12
-示例-13
