@@ -31,6 +31,7 @@ rmd_files: [
   'radar_chart.Rmd',
   'likert_scale.Rmd',
   'a_simple_way_to_visualize_geographic_data.Rmd',
+  'interactive_choropleth_map.Rmd',
 #  'introduction_to_violin_plot.Rmd', # missing data file
   'base_r_ggplot_graph.Rmd',
 
@@ -80,6 +81,11 @@ rmd_files: [
   'final_project_teammate_finder.Rmd',
   'among_us_stats.Rmd',
   'ipywidgets_tutorial.Rmd',
+
+  # Part: Appendices
+  'appendix_initial_setup.Rmd', # contains PART header
+  
+]
 
 
 
