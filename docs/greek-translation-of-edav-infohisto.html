@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Greek translation of edav.info/histo | Fall 2020 EDAV Community Contributions</title>
+  <title>Chapter 31 Greek translation of edav.info/histo | Fall 2020 EDAV Community Contributions</title>
   <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Greek translation of edav.info/histo | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:title" content="Chapter 31 Greek translation of edav.info/histo | Fall 2020 EDAV Community Contributions" />
   <meta property="og:type" content="book" />
   
   
@@ -16,14 +16,14 @@
   <meta name="github-repo" content="jtr13/cc20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Greek translation of edav.info/histo | Fall 2020 EDAV Community Contributions" />
+  <meta name="twitter:title" content="Chapter 31 Greek translation of edav.info/histo | Fall 2020 EDAV Community Contributions" />
   
   <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
   
 
 
 
-<meta name="date" content="2020-11-16" />
+<meta name="date" content="2020-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="chinese-translation-of-candela-package.html"/>
-<link rel="next" href="tableau-intro-tutorial-explained-with-proset2.html"/>
+<link rel="next" href="korean-translation-of-scatterplot.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,7 +53,7 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
 <script src="libs/hchinamap-7.0.3/highmaps.js"></script>
 <script src="libs/hchinamap-7.0.3/hebei.js"></script>
 <script src="libs/hchinamap-7.0.3/anhui.js"></script>
@@ -97,6 +97,12 @@
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -188,11 +194,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.5</b> FAQ</a>
 <ul>
 <li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#what-should-i-expect-after-creating-a-pull-request"><i class="fa fa-check"></i><b>1.5.1</b> What should I expect after creating a pull request?</a></li>
-<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-after-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.2</b> What if I catch mistakes after my pull request is merged?</a></li>
-<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.3</b> Other questions</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-before-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.2</b> What if I catch mistakes before my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-after-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.3</b> What if I catch mistakes after my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.4" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.4</b> Other questions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>2</b> Sample project</a></li>
+<li class="part"><span><b>I Data Visualization</b></span></li>
 <li class="chapter" data-level="3" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html"><i class="fa fa-check"></i><b>3</b> Customized Plot Matrix: pairs and ggpairs</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#overview-things-we-can-do-with-pairs-and-ggpairs"><i class="fa fa-check"></i><b>3.1</b> Overview: Things we can do with pairs() and ggpairs()</a></li>
@@ -208,6 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#outside-sources"><i class="fa fa-check"></i><b>3.4</b> Outside sources</a></li>
 </ul></li>
+<li class="part"><span><b>II Complete Analyses</b></span></li>
 <li class="chapter" data-level="4" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html"><i class="fa fa-check"></i><b>4</b> China choropleth map</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#overview"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
@@ -221,88 +230,448 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-leafletcn"><i class="fa fa-check"></i><b>4.5</b> Interactive Map with leafletCN</a></li>
 <li class="chapter" data-level="4.6" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#conclusion"><i class="fa fa-check"></i><b>4.6</b> Conclusion</a></li>
 </ul></li>
-<li class="part"><span><b>I Translations</b></span></li>
-<li class="chapter" data-level="5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>5</b> Chinese Translation of Candela Package</a>
+<li class="chapter" data-level="5" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html"><i class="fa fa-check"></i><b>5</b> Illustrate commonly used graphs in R</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>5.1</b> Candela</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>5.1.1</b> 开始</a></li>
+<li class="chapter" data-level="5.1" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html#numerical-variables-with-abalone-and-mtcars"><i class="fa fa-check"></i><b>5.1</b> Numerical Variables with Abalone and Mtcars</a></li>
+<li class="chapter" data-level="5.2" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html#categorical-graphs-with-arthritis-data"><i class="fa fa-check"></i><b>5.2</b> Categorical Graphs with Arthritis Data</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>5.2</b> Candela 包使用</a>
+<li class="part"><span><b>III Data Processing and Wrangling</b></span></li>
+<li class="chapter" data-level="6" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html"><i class="fa fa-check"></i><b>6</b> Data transformation in R</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>5.2.1</b> 安装</a></li>
-<li class="chapter" data-level="5.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>5.2.2</b> 版本控制</a></li>
+<li class="chapter" data-level="6.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#basics"><i class="fa fa-check"></i><b>6.2</b> Basics</a></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#function-usage"><i class="fa fa-check"></i><b>6.3</b> Function Usage</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#filter"><i class="fa fa-check"></i><b>6.3.1</b> 1. Filter( )</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#arrange"><i class="fa fa-check"></i><b>6.3.2</b> 2. Arrange( )</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#select"><i class="fa fa-check"></i><b>6.3.3</b> 3. Select( )</a></li>
+<li class="chapter" data-level="6.3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#mutate"><i class="fa fa-check"></i><b>6.3.4</b> 4. Mutate( )</a></li>
+<li class="chapter" data-level="6.3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#group_by-and-summarize"><i class="fa fa-check"></i><b>6.3.5</b> 5. Group_by( ) and Summarize( )</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>5.3</b> 组件</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>5.3.1</b> 条形图 (BarChart)</a></li>
-<li class="chapter" data-level="5.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>5.3.2</b> 箱线图 (BoxPlot)</a></li>
-<li class="chapter" data-level="5.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>5.3.3</b> 甘特图 (GanttChart)</a></li>
-<li class="chapter" data-level="5.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>5.3.4</b> 地理空间图 (Geo)</a></li>
-<li class="chapter" data-level="5.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>5.3.5</b> 地理点图(GeoDots)</a></li>
-<li class="chapter" data-level="5.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>5.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
-<li class="chapter" data-level="5.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>5.3.7</b> 直方图 (Histogram)</a></li>
-<li class="chapter" data-level="5.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>5.3.8</b> 折线图 (LineChart)</a></li>
-<li class="chapter" data-level="5.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>5.3.9</b> 排序图(Lineup)</a></li>
-<li class="chapter" data-level="5.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>5.3.10</b> OnSet组件 (OnSet)</a></li>
-<li class="chapter" data-level="5.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>5.3.11</b> 散点图 (ScatterPlot)</a></li>
-<li class="chapter" data-level="5.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>5.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
-<li class="chapter" data-level="5.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>5.3.13</b> 词树 (SentenTree)</a></li>
-<li class="chapter" data-level="5.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>5.3.14</b> 相似图 (SimilarityGraph)</a></li>
-<li class="chapter" data-level="5.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>5.3.15</b> 树状图(Tree Heatmap)</a></li>
-<li class="chapter" data-level="5.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>5.3.16</b> 集合可视化 (UpSet)</a></li>
+<li class="chapter" data-level="6.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#quick-eda-median-arrival-delays"><i class="fa fa-check"></i><b>6.4</b> Quick EDA: median arrival delays</a></li>
+<li class="chapter" data-level="6.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#external-resource"><i class="fa fa-check"></i><b>6.5</b> External Resource</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>5.4</b> API文件</a>
+<li class="chapter" data-level="7" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html"><i class="fa fa-check"></i><b>7</b> Data Preprocessing and Feature Engineering in R</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>5.4.1</b> Candela JavaScript API</a></li>
-<li class="chapter" data-level="5.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>5.4.2</b> Candela Python API</a></li>
-<li class="chapter" data-level="5.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>5.4.3</b> Candela R API</a></li>
+<li class="chapter" data-level="7.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#overview-1"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#missing-values"><i class="fa fa-check"></i><b>7.2</b> Missing Values</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#exploring-the-dataset"><i class="fa fa-check"></i><b>7.2.1</b> Exploring the dataset</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#handling-missing-values-and-imputation"><i class="fa fa-check"></i><b>7.2.2</b> Handling Missing Values and Imputation</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>5.5</b> 开发人员文件</a>
+<li class="chapter" data-level="7.3" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#feature-selection"><i class="fa fa-check"></i><b>7.3</b> Feature Selection</a></li>
+<li class="chapter" data-level="7.4" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#dimentionality-reduction"><i class="fa fa-check"></i><b>7.4</b> Dimentionality Reduction</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>5.5.1</b> 编码规范指南</a></li>
-<li class="chapter" data-level="5.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>5.5.2</b> 创建Candela代码发布</a></li>
-<li class="chapter" data-level="5.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>5.5.3</b> 测试</a></li>
+<li class="chapter" data-level="7.4.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>7.4.1</b> Principal Component Analysis (PCA)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>6</b> Greek translation of edav.info/histo</a>
+<li class="chapter" data-level="8" data-path="apply-family.html"><a href="apply-family.html"><i class="fa fa-check"></i><b>8</b> Apply family</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>6.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
-<li class="chapter" data-level="6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>6.2</b> Επισκόπηση</a></li>
-<li class="chapter" data-level="6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>6.3</b> Σύνοψη</a></li>
-<li class="chapter" data-level="6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>6.4</b> Simple examples</a>
+<li class="chapter" data-level="8.0.1" data-path="apply-family.html"><a href="apply-family.html#apply"><i class="fa fa-check"></i><b>8.0.1</b> apply</a></li>
+<li class="chapter" data-level="8.0.2" data-path="apply-family.html"><a href="apply-family.html#lapply"><i class="fa fa-check"></i><b>8.0.2</b> Lapply</a></li>
+<li class="chapter" data-level="8.0.3" data-path="apply-family.html"><a href="apply-family.html#sapply"><i class="fa fa-check"></i><b>8.0.3</b> Sapply</a></li>
+<li class="chapter" data-level="8.0.4" data-path="apply-family.html"><a href="apply-family.html#tapply"><i class="fa fa-check"></i><b>8.0.4</b> tapply</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html"><i class="fa fa-check"></i><b>9</b> Writing SQL in R</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>6.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
-<li class="chapter" data-level="6.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>6.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>6.5</b> Θεωρία</a></li>
-<li class="chapter" data-level="6.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>6.6</b> Τύποι ιστογραμμάτων</a>
+<li class="chapter" data-level="9.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#introduction-1"><i class="fa fa-check"></i><b>9.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#what-is-sql"><i class="fa fa-check"></i><b>9.2</b> 2. What is SQL?</a></li>
+<li class="chapter" data-level="9.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#r-packages"><i class="fa fa-check"></i><b>9.3</b> 3. R Packages</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>6.6.1</b> Συχνότητα ή μέτρηση</a></li>
-<li class="chapter" data-level="6.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>6.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
-<li class="chapter" data-level="6.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>6.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
-<li class="chapter" data-level="6.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>6.6.4</b> Πυκνότητα</a></li>
+<li class="chapter" data-level="9.3.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#load-packages"><i class="fa fa-check"></i><b>9.3.1</b> Load packages</a></li>
+<li class="chapter" data-level="9.3.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dataset"><i class="fa fa-check"></i><b>9.3.2</b> Dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>6.7</b> Παράμετροι</a>
+<li class="chapter" data-level="9.4" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sqldf"><i class="fa fa-check"></i><b>9.4</b> sqldf</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>6.7.1</b> Όρια ζωνών</a></li>
-<li class="chapter" data-level="6.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>6.7.2</b> Αριθμός ζωνών</a></li>
-<li class="chapter" data-level="6.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>6.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+<li class="chapter" data-level="9.4.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sql-queries"><i class="fa fa-check"></i><b>9.4.1</b> SQL Queries</a></li>
+<li class="chapter" data-level="9.4.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#whereandor"><i class="fa fa-check"></i><b>9.4.2</b> Where/And/Or</a></li>
+<li class="chapter" data-level="9.4.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#more-sqldf-examples"><i class="fa fa-check"></i><b>9.4.3</b> More sqldf Examples</a></li>
+<li class="chapter" data-level="9.4.4" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sqldf-summary"><i class="fa fa-check"></i><b>9.4.4</b> sqldf Summary:</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>6.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<li class="chapter" data-level="9.5" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr"><i class="fa fa-check"></i><b>9.5</b> DPLYR</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>6.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
-<li class="chapter" data-level="6.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>6.8.2</b> Παράδειγμα ΑΕΠ</a></li>
-<li class="chapter" data-level="6.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>6.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
-<li class="chapter" data-level="6.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>6.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
-<li class="chapter" data-level="6.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>6.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+<li class="chapter" data-level="9.5.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr-queries"><i class="fa fa-check"></i><b>9.5.1</b> DPLYR Queries</a></li>
+<li class="chapter" data-level="9.5.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#more-examples"><i class="fa fa-check"></i><b>9.5.2</b> More Examples</a></li>
+<li class="chapter" data-level="9.5.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr-summary"><i class="fa fa-check"></i><b>9.5.3</b> DPLYR Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="6.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>6.9</b> Εξωτερικές πηγές</a></li>
+<li class="chapter" data-level="9.6" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dbi"><i class="fa fa-check"></i><b>9.6</b> DBI</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dbi-queries"><i class="fa fa-check"></i><b>9.6.1</b> DBI Queries:</a></li>
 </ul></li>
-<li class="part"><span><b>II Video Tutorial</b></span></li>
-<li class="chapter" data-level="7" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>7</b> Tableau intro tutorial explained with proset2</a></li>
-<li class="part"><span><b>III Appendices</b></span></li>
-<li class="chapter" data-level="8" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>8</b> Github Initial Setup</a></li>
+<li class="chapter" data-level="9.7" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#conclusion-1"><i class="fa fa-check"></i><b>9.7</b> Conclusion</a></li>
+<li class="chapter" data-level="9.8" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#work-cited"><i class="fa fa-check"></i><b>9.8</b> Work Cited:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="a-brief-introduction-to-seaborn.html"><a href="a-brief-introduction-to-seaborn.html"><i class="fa fa-check"></i><b>10</b> A brief introduction to seaborn</a></li>
+<li class="chapter" data-level="11" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html"><i class="fa fa-check"></i><b>11</b> GeomMLBStadiums</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#overview-2"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#setup"><i class="fa fa-check"></i><b>11.2</b> Setup</a></li>
+<li class="chapter" data-level="11.3" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#geom_mlb_stadium"><i class="fa fa-check"></i><b>11.3</b> <code>geom_mlb_stadium</code></a></li>
+<li class="chapter" data-level="11.4" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#geom_spraychart"><i class="fa fa-check"></i><b>11.4</b> <code>geom_spraychart</code></a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#mlbam_xy_transformation"><i class="fa fa-check"></i><b>11.4.1</b> <code>mlbam_xy_transformation</code></a></li>
+<li class="chapter" data-level="11.4.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#spraycharts"><i class="fa fa-check"></i><b>11.4.2</b> Spraycharts</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#other-types-of-visualizations-with-geommlbstadiums"><i class="fa fa-check"></i><b>11.5</b> Other types of Visualizations with <code>GeomMLBStadiums</code></a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#heatmaps-with-geommlbstadiums"><i class="fa fa-check"></i><b>11.5.1</b> Heatmaps with <code>GeomMLBStadiums</code></a></li>
+<li class="chapter" data-level="11.5.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#stat_summary_hex-with-geommlbstadiums"><i class="fa fa-check"></i><b>11.5.2</b> <code>stat_summary_hex</code> with <code>GeomMLBStadiums</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="radar-chart.html"><a href="radar-chart.html"><i class="fa fa-check"></i><b>12</b> Radar Chart</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="radar-chart.html"><a href="radar-chart.html#introduction-of-radar-chart"><i class="fa fa-check"></i><b>12.1</b> Introduction of Radar Chart</a></li>
+<li class="chapter" data-level="12.2" data-path="radar-chart.html"><a href="radar-chart.html#basic-radar-chart"><i class="fa fa-check"></i><b>12.2</b> Basic Radar Chart</a></li>
+<li class="chapter" data-level="12.3" data-path="radar-chart.html"><a href="radar-chart.html#customize-radar-chart"><i class="fa fa-check"></i><b>12.3</b> Customize Radar Chart</a></li>
+<li class="chapter" data-level="12.4" data-path="radar-chart.html"><a href="radar-chart.html#radar-chart-with-several-individuals"><i class="fa fa-check"></i><b>12.4</b> Radar Chart with several individuals</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="radar-chart.html"><a href="radar-chart.html#basic-plot"><i class="fa fa-check"></i><b>12.4.1</b> basic plot</a></li>
+<li class="chapter" data-level="12.4.2" data-path="radar-chart.html"><a href="radar-chart.html#customize"><i class="fa fa-check"></i><b>12.4.2</b> customize</a></li>
+<li class="chapter" data-level="12.4.3" data-path="radar-chart.html"><a href="radar-chart.html#radar-vs.-bar-chart"><i class="fa fa-check"></i><b>12.4.3</b> Radar vs. Bar Chart</a></li>
+<li class="chapter" data-level="12.4.4" data-path="radar-chart.html"><a href="radar-chart.html#using-package-ggradar"><i class="fa fa-check"></i><b>12.4.4</b> Using package ‘ggradar’</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="radar-chart.html"><a href="radar-chart.html#reference"><i class="fa fa-check"></i><b>12.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html"><i class="fa fa-check"></i><b>13</b> Likert Scale: Definition, Examples, and Visualization</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#what-is-likert-scale"><i class="fa fa-check"></i><b>13.1</b> What is Likert Scale?</a></li>
+<li class="chapter" data-level="13.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#test-your-understanding-of-likert-scale"><i class="fa fa-check"></i><b>13.2</b> Test Your Understanding of Likert Scale</a></li>
+<li class="chapter" data-level="13.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#visualization-of-a-sample-likert-scale-data-explore-climate-change-in-the-american-mind"><i class="fa fa-check"></i><b>13.3</b> Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#overview-of-the-data"><i class="fa fa-check"></i><b>13.3.1</b> Overview of the Data</a></li>
+<li class="chapter" data-level="13.3.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#stacked-bar-chart"><i class="fa fa-check"></i><b>13.3.2</b> Stacked Bar Chart</a></li>
+<li class="chapter" data-level="13.3.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#faceted-bar-charts"><i class="fa fa-check"></i><b>13.3.3</b> Faceted Bar Charts</a></li>
+<li class="chapter" data-level="13.3.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#diverging-stacked-bar-chart"><i class="fa fa-check"></i><b>13.3.4</b> Diverging Stacked Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#arguments-on-each-type-of-charts"><i class="fa fa-check"></i><b>13.4</b> Arguments on each type of charts</a></li>
+<li class="chapter" data-level="13.5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#reference-1"><i class="fa fa-check"></i><b>13.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html"><i class="fa fa-check"></i><b>14</b> A simple way to visualize geographic data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#overview-3"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#introduction-2"><i class="fa fa-check"></i><b>14.2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#load-packages-1"><i class="fa fa-check"></i><b>14.2.1</b> Load Packages</a></li>
+<li class="chapter" data-level="14.2.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarder-visualization"><i class="fa fa-check"></i><b>14.2.2</b> Boarder Visualization</a></li>
+<li class="chapter" data-level="14.2.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarders"><i class="fa fa-check"></i><b>14.2.3</b> Boarders</a></li>
+<li class="chapter" data-level="14.2.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#parts-of-the-map"><i class="fa fa-check"></i><b>14.2.4</b> Parts of the Map</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#application"><i class="fa fa-check"></i><b>14.3</b> Application</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#data-collection-1"><i class="fa fa-check"></i><b>14.3.1</b> Data Collection</a></li>
+<li class="chapter" data-level="14.3.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#comparison"><i class="fa fa-check"></i><b>14.3.2</b> Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#conclusion-2"><i class="fa fa-check"></i><b>14.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="base-r-vs-ggplot2.html"><a href="base-r-vs-ggplot2.html"><i class="fa fa-check"></i><b>15</b> Base R vs. ggplot2</a></li>
+<li class="part"><span><b>IV Results Reporting</b></span></li>
+<li class="chapter" data-level="16" data-path="visualiztion-tools-in-real-work.html"><a href="visualiztion-tools-in-real-work.html"><i class="fa fa-check"></i><b>16</b> Visualiztion tools in real work</a></li>
+<li class="chapter" data-level="17" data-path="color-in-r.html"><a href="color-in-r.html"><i class="fa fa-check"></i><b>17</b> Color in R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="color-in-r.html"><a href="color-in-r.html#overview-4"><i class="fa fa-check"></i><b>17.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="color-in-r.html"><a href="color-in-r.html#sections"><i class="fa fa-check"></i><b>17.1.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="color-in-r.html"><a href="color-in-r.html#discrete-colors"><i class="fa fa-check"></i><b>17.2</b> Discrete Colors</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="color-in-r.html"><a href="color-in-r.html#basics-1"><i class="fa fa-check"></i><b>17.2.1</b> Basics</a></li>
+<li class="chapter" data-level="17.2.2" data-path="color-in-r.html"><a href="color-in-r.html#rcolorbrewer"><i class="fa fa-check"></i><b>17.2.2</b> RColorBrewer</a></li>
+<li class="chapter" data-level="17.2.3" data-path="color-in-r.html"><a href="color-in-r.html#viridis"><i class="fa fa-check"></i><b>17.2.3</b> Viridis</a></li>
+<li class="chapter" data-level="17.2.4" data-path="color-in-r.html"><a href="color-in-r.html#color-picker"><i class="fa fa-check"></i><b>17.2.4</b> Color Picker</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="color-in-r.html"><a href="color-in-r.html#continuous-colors"><i class="fa fa-check"></i><b>17.3</b> Continuous Colors</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="color-in-r.html"><a href="color-in-r.html#barplot"><i class="fa fa-check"></i><b>17.3.1</b> Barplot</a></li>
+<li class="chapter" data-level="17.3.2" data-path="color-in-r.html"><a href="color-in-r.html#heatmap"><i class="fa fa-check"></i><b>17.3.2</b> Heatmap</a></li>
+<li class="chapter" data-level="17.3.3" data-path="color-in-r.html"><a href="color-in-r.html#diverging-scales"><i class="fa fa-check"></i><b>17.3.3</b> Diverging Scales</a></li>
+<li class="chapter" data-level="17.3.4" data-path="color-in-r.html"><a href="color-in-r.html#colorblind"><i class="fa fa-check"></i><b>17.3.4</b> ColorBlind</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="color-in-r.html"><a href="color-in-r.html#resources"><i class="fa fa-check"></i><b>17.4</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="benfords-law-analysis-of-2020-election.html"><a href="benfords-law-analysis-of-2020-election.html"><i class="fa fa-check"></i><b>18</b> Benford’s Law Analysis of 2020 Election</a></li>
+<li class="part"><span><b>V Cheatsheets and Video Tutorials</b></span></li>
+<li class="chapter" data-level="19" data-path="mosaic-plot-cheatsheet.html"><a href="mosaic-plot-cheatsheet.html"><i class="fa fa-check"></i><b>19</b> Mosaic plot cheatsheet</a></li>
+<li class="chapter" data-level="20" data-path="time-series-cheatsheet.html"><a href="time-series-cheatsheet.html"><i class="fa fa-check"></i><b>20</b> Time Series Cheatsheet</a></li>
+<li class="chapter" data-level="21" data-path="python-vs-r-cheatsheet.html"><a href="python-vs-r-cheatsheet.html"><i class="fa fa-check"></i><b>21</b> Python vs. R Cheatsheet</a></li>
+<li class="chapter" data-level="22" data-path="likert-data-cheat-sheet.html"><a href="likert-data-cheat-sheet.html"><i class="fa fa-check"></i><b>22</b> likert data cheat sheet</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="likert-data-cheat-sheet.html"><a href="likert-data-cheat-sheet.html#link-is-below"><i class="fa fa-check"></i><b>22.1</b> link is below</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="categorical-data-visualization-cheat-sheet.html"><a href="categorical-data-visualization-cheat-sheet.html"><i class="fa fa-check"></i><b>23</b> Categorical Data Visualization Cheat Sheet</a></li>
+<li class="part"><span><b>VI Live Tutorials</b></span></li>
+<li class="chapter" data-level="24" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>24</b> Tableau intro tutorial explained with proset2</a></li>
+<li class="chapter" data-level="25" data-path="solutioning-a-data-pipeline-for-visualization.html"><a href="solutioning-a-data-pipeline-for-visualization.html"><i class="fa fa-check"></i><b>25</b> Solutioning a Data pipeline for visualization</a></li>
+<li class="chapter" data-level="26" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html"><i class="fa fa-check"></i><b>26</b> Visualization Research in Biomedical Informatics</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#community-contribution-zoom-session"><i class="fa fa-check"></i><b>26.1</b> Community Contribution Zoom Session</a>
+<ul>
+<li class="chapter" data-level="26.1.1" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#designing-an-interactive-visualization-tool-for-understanding-caring-for-a-complex-chronic-condition"><i class="fa fa-check"></i><b>26.1.1</b> Designing an Interactive Visualization Tool for Understanding &amp; Caring for a Complex Chronic Condition</a></li>
+<li class="chapter" data-level="26.1.2" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#phendo-app-prototype-of-interactive-visualization"><i class="fa fa-check"></i><b>26.1.2</b> Phendo App &amp; Prototype of Interactive Visualization</a></li>
+<li class="chapter" data-level="26.1.3" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#resources-for-human-centered-visualization-computing"><i class="fa fa-check"></i><b>26.1.3</b> Resources for Human-Centered Visualization &amp; Computing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="american-history-trivia-night.html"><a href="american-history-trivia-night.html"><i class="fa fa-check"></i><b>27</b> American History Trivia Night</a></li>
+<li class="chapter" data-level="28" data-path="consuming-terrorism-statistics.html"><a href="consuming-terrorism-statistics.html"><i class="fa fa-check"></i><b>28</b> Consuming terrorism statistics</a></li>
+<li class="chapter" data-level="29" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html"><i class="fa fa-check"></i><b>29</b> Some techniques for label setting</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#label-placement"><i class="fa fa-check"></i><b>29.1</b> 1. Label placement</a>
+<ul>
+<li class="chapter" data-level="29.1.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-1-adjusting-parameters-in-geom_text-like-hjust-vjust-nudge_x-and-nudge_y"><i class="fa fa-check"></i><b>29.1.1</b> Tip 1: Adjusting parameters in geom_text like hjust, vjust, nudge_x and nudge_y</a></li>
+<li class="chapter" data-level="29.1.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-2-ggrepel"><i class="fa fa-check"></i><b>29.1.2</b> Tip 2: ggrepel</a></li>
+<li class="chapter" data-level="29.1.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-3-directlabels"><i class="fa fa-check"></i><b>29.1.3</b> Tip 3: directlabels</a></li>
+</ul></li>
+<li class="chapter" data-level="29.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#auto-wrapping-of-long-labels-on-axis"><i class="fa fa-check"></i><b>29.2</b> 2. Auto wrapping of long labels on axis</a></li>
+<li class="chapter" data-level="29.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#add-shadow-effect-to-labels"><i class="fa fa-check"></i><b>29.3</b> 3. Add shadow effect to labels</a></li>
+</ul></li>
+<li class="part"><span><b>VII Translations</b></span></li>
+<li class="chapter" data-level="30" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>30</b> Chinese Translation of Candela Package</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>30.1</b> Candela</a>
+<ul>
+<li class="chapter" data-level="30.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>30.1.1</b> 开始</a></li>
+</ul></li>
+<li class="chapter" data-level="30.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>30.2</b> Candela 包使用</a>
+<ul>
+<li class="chapter" data-level="30.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>30.2.1</b> 安装</a></li>
+<li class="chapter" data-level="30.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>30.2.2</b> 版本控制</a></li>
+</ul></li>
+<li class="chapter" data-level="30.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>30.3</b> 组件</a>
+<ul>
+<li class="chapter" data-level="30.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>30.3.1</b> 条形图 (BarChart)</a></li>
+<li class="chapter" data-level="30.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>30.3.2</b> 箱线图 (BoxPlot)</a></li>
+<li class="chapter" data-level="30.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>30.3.3</b> 甘特图 (GanttChart)</a></li>
+<li class="chapter" data-level="30.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>30.3.4</b> 地理空间图 (Geo)</a></li>
+<li class="chapter" data-level="30.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>30.3.5</b> 地理点图(GeoDots)</a></li>
+<li class="chapter" data-level="30.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>30.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
+<li class="chapter" data-level="30.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>30.3.7</b> 直方图 (Histogram)</a></li>
+<li class="chapter" data-level="30.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>30.3.8</b> 折线图 (LineChart)</a></li>
+<li class="chapter" data-level="30.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>30.3.9</b> 排序图(Lineup)</a></li>
+<li class="chapter" data-level="30.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>30.3.10</b> OnSet组件 (OnSet)</a></li>
+<li class="chapter" data-level="30.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>30.3.11</b> 散点图 (ScatterPlot)</a></li>
+<li class="chapter" data-level="30.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>30.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
+<li class="chapter" data-level="30.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>30.3.13</b> 词树 (SentenTree)</a></li>
+<li class="chapter" data-level="30.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>30.3.14</b> 相似图 (SimilarityGraph)</a></li>
+<li class="chapter" data-level="30.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>30.3.15</b> 树状图(Tree Heatmap)</a></li>
+<li class="chapter" data-level="30.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>30.3.16</b> 集合可视化 (UpSet)</a></li>
+</ul></li>
+<li class="chapter" data-level="30.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>30.4</b> API文件</a>
+<ul>
+<li class="chapter" data-level="30.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>30.4.1</b> Candela JavaScript API</a></li>
+<li class="chapter" data-level="30.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>30.4.2</b> Candela Python API</a></li>
+<li class="chapter" data-level="30.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>30.4.3</b> Candela R API</a></li>
+</ul></li>
+<li class="chapter" data-level="30.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>30.5</b> 开发人员文件</a>
+<ul>
+<li class="chapter" data-level="30.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>30.5.1</b> 编码规范指南</a></li>
+<li class="chapter" data-level="30.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>30.5.2</b> 创建Candela代码发布</a></li>
+<li class="chapter" data-level="30.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>30.5.3</b> 测试</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>31</b> Greek translation of edav.info/histo</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>31.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
+<li class="chapter" data-level="31.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>31.2</b> Επισκόπηση</a></li>
+<li class="chapter" data-level="31.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>31.3</b> Σύνοψη</a></li>
+<li class="chapter" data-level="31.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>31.4</b> Simple examples</a>
+<ul>
+<li class="chapter" data-level="31.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>31.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
+<li class="chapter" data-level="31.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>31.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="31.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>31.5</b> Θεωρία</a></li>
+<li class="chapter" data-level="31.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>31.6</b> Τύποι ιστογραμμάτων</a>
+<ul>
+<li class="chapter" data-level="31.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>31.6.1</b> Συχνότητα ή μέτρηση</a></li>
+<li class="chapter" data-level="31.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>31.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
+<li class="chapter" data-level="31.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>31.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
+<li class="chapter" data-level="31.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>31.6.4</b> Πυκνότητα</a></li>
+</ul></li>
+<li class="chapter" data-level="31.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>31.7</b> Παράμετροι</a>
+<ul>
+<li class="chapter" data-level="31.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>31.7.1</b> Όρια ζωνών</a></li>
+<li class="chapter" data-level="31.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>31.7.2</b> Αριθμός ζωνών</a></li>
+<li class="chapter" data-level="31.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>31.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+</ul></li>
+<li class="chapter" data-level="31.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>31.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<ul>
+<li class="chapter" data-level="31.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>31.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
+<li class="chapter" data-level="31.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>31.8.2</b> Παράδειγμα ΑΕΠ</a></li>
+<li class="chapter" data-level="31.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>31.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
+<li class="chapter" data-level="31.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>31.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
+<li class="chapter" data-level="31.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>31.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+</ul></li>
+<li class="chapter" data-level="31.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>31.9</b> Εξωτερικές πηγές</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html"><i class="fa fa-check"></i><b>32</b> Korean translation of scatterplot</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#개요"><i class="fa fa-check"></i><b>32.1</b> 개요</a></li>
+<li class="chapter" data-level="32.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#요약"><i class="fa fa-check"></i><b>32.2</b> 요약</a></li>
+<li class="chapter" data-level="32.3" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#간단한-예시"><i class="fa fa-check"></i><b>32.3</b> 간단한 예시</a>
+<ul>
+<li class="chapter" data-level="32.3.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#base-r을-이용한-산점도"><i class="fa fa-check"></i><b>32.3.1</b> base R을 이용한 산점도</a></li>
+<li class="chapter" data-level="32.3.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#ggplot2를-이용한-산점도"><i class="fa fa-check"></i><b>32.3.2</b> ggplot2를 이용한 산점도</a></li>
+</ul></li>
+<li class="chapter" data-level="32.4" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#이론"><i class="fa fa-check"></i><b>32.4</b> 이론</a></li>
+<li class="chapter" data-level="32.5" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#사용-시기"><i class="fa fa-check"></i><b>32.5</b> 사용 시기</a></li>
+<li class="chapter" data-level="32.6" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#고려-사항"><i class="fa fa-check"></i><b>32.6</b> 고려 사항</a>
+<ul>
+<li class="chapter" data-level="32.6.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#겹치는-데이터"><i class="fa fa-check"></i><b>32.6.1</b> 겹치는 데이터</a></li>
+<li class="chapter" data-level="32.6.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#스케일링"><i class="fa fa-check"></i><b>32.6.2</b> 스케일링</a></li>
+</ul></li>
+<li class="chapter" data-level="32.7" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#변경"><i class="fa fa-check"></i><b>32.7</b> 변경</a>
+<ul>
+<li class="chapter" data-level="32.7.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#등고선"><i class="fa fa-check"></i><b>32.7.1</b> 등고선</a></li>
+<li class="chapter" data-level="32.7.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#산점도-행렬"><i class="fa fa-check"></i><b>32.7.2</b> 산점도 행렬</a></li>
+</ul></li>
+<li class="chapter" data-level="32.8" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#추가-자료"><i class="fa fa-check"></i><b>32.8</b> 추가 자료</a></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><i class="fa fa-check"></i><b>33</b> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#概述"><i class="fa fa-check"></i><b>33.1</b> 1. 概述</a>
+<ul>
+<li><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#什么是r-markdown"><span class="toc-section-number">33.1.1</span> 1.1 什么是R Markdown？<br />
+</a></li>
+<li class="chapter" data-level="33.1.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#工作流程"><i class="fa fa-check"></i><b>33.1.2</b> 1.2 工作流程</a></li>
+</ul></li>
+<li class="chapter" data-level="33.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#入门"><i class="fa fa-check"></i><b>33.2</b> 2. 入门</a>
+<ul>
+<li class="chapter" data-level="33.2.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#安装套件"><i class="fa fa-check"></i><b>33.2.1</b> 2.1. 安装套件</a></li>
+<li class="chapter" data-level="33.2.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#打开文件"><i class="fa fa-check"></i><b>33.2.2</b> 2.2.打开文件</a></li>
+<li class="chapter" data-level="33.2.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#输出格式"><i class="fa fa-check"></i><b>33.2.3</b> 2.3. 输出格式</a></li>
+</ul></li>
+<li class="chapter" data-level="33.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#markdown语法"><i class="fa fa-check"></i><b>33.3</b> 3. Markdown语法</a></li>
+<li class="chapter" data-level="33.4" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#嵌入代码"><i class="fa fa-check"></i><b>33.4</b> 4. 嵌入代码</a>
+<ul>
+<li class="chapter" data-level="33.4.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#内联代码"><i class="fa fa-check"></i><b>33.4.1</b> 4.1. 内联代码</a></li>
+<li class="chapter" data-level="33.4.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#代码块"><i class="fa fa-check"></i><b>33.4.2</b> 4.2. 代码块</a></li>
+<li class="chapter" data-level="33.4.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#显示选项"><i class="fa fa-check"></i><b>33.4.3</b> 4.3. 显示选项</a></li>
+</ul></li>
+<li class="chapter" data-level="33.5" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-.html#渲染"><i class="fa fa-check"></i><b>33.5</b> 5. 渲染</a></li>
+</ul></li>
+<li class="part"><span><b>VIII Other Topics</b></span></li>
+<li class="chapter" data-level="34" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html"><i class="fa fa-check"></i><b>34</b> Webscraping Dynamic Content: Rselenium Tutorial</a>
+<ul>
+<li class="chapter" data-level="34.1" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#introduction-and-setup"><i class="fa fa-check"></i><b>34.1</b> Introduction and Setup</a></li>
+<li class="chapter" data-level="34.2" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#simple-illustrations-with-websites"><i class="fa fa-check"></i><b>34.2</b> Simple Illustrations with Websites</a></li>
+<li class="chapter" data-level="34.3" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#other-features"><i class="fa fa-check"></i><b>34.3</b> Other Features</a></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html"><i class="fa fa-check"></i><b>35</b> Brief Introduction and Tutorial of ggpubr Package</a>
+<ul>
+<li class="chapter" data-level="35.1" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#installation-and-loading"><i class="fa fa-check"></i><b>35.1</b> Installation and loading</a></li>
+<li class="chapter" data-level="35.2" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#introduction-3"><i class="fa fa-check"></i><b>35.2</b> Introduction</a></li>
+<li class="chapter" data-level="35.3" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#histogram"><i class="fa fa-check"></i><b>35.3</b> Histogram</a></li>
+<li class="chapter" data-level="35.4" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#density-plot"><i class="fa fa-check"></i><b>35.4</b> Density plot</a></li>
+<li class="chapter" data-level="35.5" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#box-plot"><i class="fa fa-check"></i><b>35.5</b> Box plot</a></li>
+<li class="chapter" data-level="35.6" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#violin-plot"><i class="fa fa-check"></i><b>35.6</b> Violin plot</a></li>
+<li class="chapter" data-level="35.7" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#bar-plot"><i class="fa fa-check"></i><b>35.7</b> Bar plot</a></li>
+<li class="chapter" data-level="35.8" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#lollipop-chart"><i class="fa fa-check"></i><b>35.8</b> Lollipop Chart</a></li>
+<li class="chapter" data-level="35.9" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#cleveland-dot-plot"><i class="fa fa-check"></i><b>35.9</b> Cleveland dot plot</a></li>
+</ul></li>
+<li class="chapter" data-level="36" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html"><i class="fa fa-check"></i><b>36</b> Visualization of geographical maps</a>
+<ul>
+<li class="chapter" data-level="36.0.1" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#what-is-map-visualization"><i class="fa fa-check"></i><b>36.0.1</b> 1. What is map visualization</a></li>
+<li class="chapter" data-level="36.0.2" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#how-to-draw-a-map-in-r"><i class="fa fa-check"></i><b>36.0.2</b> 2. How to draw a map in R</a></li>
+<li class="chapter" data-level="36.0.3" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#tmap"><i class="fa fa-check"></i><b>36.0.3</b> 3. tmap</a></li>
+<li class="chapter" data-level="36.0.4" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#optional-watching-create-your-own-sf-object"><i class="fa fa-check"></i><b>36.0.4</b> 4.Optional watching: create your own sf object</a></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html"><i class="fa fa-check"></i><b>37</b> Health datasets for the final project</a>
+<ul>
+<li class="chapter" data-level="37.1" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#big-cities-health-inventory-data"><i class="fa fa-check"></i><b>37.1</b> Big Cities Health Inventory Data</a></li>
+<li class="chapter" data-level="37.2" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#mhealth-dataset"><i class="fa fa-check"></i><b>37.2</b> MHealth Dataset</a></li>
+<li class="chapter" data-level="37.3" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#human-mortality-database-hmd"><i class="fa fa-check"></i><b>37.3</b> Human Mortality Database (HMD)</a></li>
+<li class="chapter" data-level="37.4" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#seer-cancer-incidence"><i class="fa fa-check"></i><b>37.4</b> SEER Cancer Incidence</a></li>
+<li class="chapter" data-level="37.5" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#unicef-data-warehouse"><i class="fa fa-check"></i><b>37.5</b> UNICEF Data Warehouse</a></li>
+</ul></li>
+<li class="chapter" data-level="38" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><i class="fa fa-check"></i><b>38</b> Laying out multiple plots for Baseplot and ggplot</a>
+<ul>
+<li class="chapter" data-level="38.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#overview-5"><i class="fa fa-check"></i><b>38.1</b> Overview</a></li>
+<li class="chapter" data-level="38.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#most-easy-and-normal-form-par"><i class="fa fa-check"></i><b>38.2</b> Most easy and normal form <code>par()</code></a></li>
+<li class="chapter" data-level="38.3" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#complex-plot-layouts-with-layout"><i class="fa fa-check"></i><b>38.3</b> Complex plot layouts with <code>layout()</code></a></li>
+<li class="chapter" data-level="38.4" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#layout-for-ggplot"><i class="fa fa-check"></i><b>38.4</b> Layout for ggplot</a>
+<ul>
+<li class="chapter" data-level="38.4.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#grid.arrange-in-gridextra"><i class="fa fa-check"></i><b>38.4.1</b> <code>grid.arrange()</code> in <code>gridExtra</code></a></li>
+<li class="chapter" data-level="38.4.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#method-in-grid"><i class="fa fa-check"></i><b>38.4.2</b> method in <code>grid</code></a></li>
+</ul></li>
+<li class="chapter" data-level="38.5" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#reference-2"><i class="fa fa-check"></i><b>38.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="39" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><i class="fa fa-check"></i><b>39</b> A basic Introduction to Markov Chain Monte Carlo Method in R</a>
+<ul>
+<li class="chapter" data-level="39.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#introduction-4"><i class="fa fa-check"></i><b>39.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="39.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#markov-chain-simulation-method"><i class="fa fa-check"></i><b>39.2</b> 2. Markov Chain Simulation Method</a></li>
+<li class="chapter" data-level="39.3" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#acceptance-rejection-sampling"><i class="fa fa-check"></i><b>39.3</b> 3. Acceptance-Rejection Sampling</a></li>
+<li class="chapter" data-level="39.4" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-markov-chain"><i class="fa fa-check"></i><b>39.4</b> 4. Sampling from Markov Chain</a></li>
+<li class="chapter" data-level="39.5" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#mcmc-sampling-method"><i class="fa fa-check"></i><b>39.5</b> 5. MCMC Sampling Method</a></li>
+<li class="chapter" data-level="39.6" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#metropolis-hastings-sampling"><i class="fa fa-check"></i><b>39.6</b> 6. Metropolis-Hastings Sampling</a></li>
+<li class="chapter" data-level="39.7" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#implementation-in-r"><i class="fa fa-check"></i><b>39.7</b> 7. Implementation in R</a>
+<ul>
+<li class="chapter" data-level="39.7.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-an-exponential-distribution"><i class="fa fa-check"></i><b>39.7.1</b> 1. Sampling from an exponential distribution</a></li>
+<li class="chapter" data-level="39.7.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-a-normal-distribution"><i class="fa fa-check"></i><b>39.7.2</b> 2. Sampling from a normal distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="39.8" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#refenence"><i class="fa fa-check"></i><b>39.8</b> 8 Refenence</a></li>
+</ul></li>
+<li class="chapter" data-level="40" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html"><i class="fa fa-check"></i><b>40</b> automate eda with dataexplorer</a>
+<ul>
+<li class="chapter" data-level="40.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overview-6"><i class="fa fa-check"></i><b>40.1</b> Overview</a></li>
+<li class="chapter" data-level="40.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dataexplorer"><i class="fa fa-check"></i><b>40.2</b> DataExplorer</a></li>
+<li class="chapter" data-level="40.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#installation"><i class="fa fa-check"></i><b>40.3</b> Installation</a></li>
+<li class="chapter" data-level="40.4" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>40.4</b> Exploratory data analysis (EDA)</a>
+<ul>
+<li class="chapter" data-level="40.4.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overall-information"><i class="fa fa-check"></i><b>40.4.1</b> Overall Information</a></li>
+<li class="chapter" data-level="40.4.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#distribution"><i class="fa fa-check"></i><b>40.4.2</b> Distribution</a></li>
+<li class="chapter" data-level="40.4.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#correlation-analysis"><i class="fa fa-check"></i><b>40.4.3</b> Correlation Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="40.5" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#feature-engineering"><i class="fa fa-check"></i><b>40.5</b> Feature Engineering</a>
+<ul>
+<li class="chapter" data-level="40.5.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#missing-value"><i class="fa fa-check"></i><b>40.5.1</b> Missing value</a></li>
+<li class="chapter" data-level="40.5.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dummy-variable"><i class="fa fa-check"></i><b>40.5.2</b> Dummy variable</a></li>
+</ul></li>
+<li class="chapter" data-level="40.6" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#data-report"><i class="fa fa-check"></i><b>40.6</b> Data Report</a></li>
+<li class="chapter" data-level="40.7" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#external-resources"><i class="fa fa-check"></i><b>40.7</b> External Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="41" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html"><i class="fa fa-check"></i><b>41</b> Speed up in r programming</a>
+<ul>
+<li class="chapter" data-level="41.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#typical-development-cycle-for-computational-statistics"><i class="fa fa-check"></i><b>41.1</b> Typical development cycle for computational statistics</a></li>
+<li class="chapter" data-level="41.2" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#bytecode-compilation"><i class="fa fa-check"></i><b>41.2</b> Bytecode compilation</a>
+<ul>
+<li class="chapter" data-level="41.2.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#example-summing-a-vector"><i class="fa fa-check"></i><b>41.2.1</b> Example: summing a vector</a></li>
+</ul></li>
+<li class="chapter" data-level="41.3" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#rcpp"><i class="fa fa-check"></i><b>41.3</b> Rcpp</a>
+<ul>
+<li class="chapter" data-level="41.3.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#use-cppfunction"><i class="fa fa-check"></i><b>41.3.1</b> Use <code>cppFunction</code></a></li>
+</ul></li>
+<li class="chapter" data-level="41.4" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#parallel-computing"><i class="fa fa-check"></i><b>41.4</b> Parallel computing</a>
+<ul>
+<li class="chapter" data-level="41.4.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#simulation-example"><i class="fa fa-check"></i><b>41.4.1</b> Simulation example</a></li>
+</ul></li>
+<li class="chapter" data-level="41.5" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#package-development"><i class="fa fa-check"></i><b>41.5</b> Package development</a></li>
+</ul></li>
+<li class="chapter" data-level="42" data-path="data-visualization-in-python-using-different-plotting-packages.html"><a href="data-visualization-in-python-using-different-plotting-packages.html"><i class="fa fa-check"></i><b>42</b> Data Visualization in Python using different plotting packages</a></li>
+<li class="chapter" data-level="43" data-path="final-project-teammate-finder.html"><a href="final-project-teammate-finder.html"><i class="fa fa-check"></i><b>43</b> Final project teammate finder</a></li>
+<li class="chapter" data-level="44" data-path="among-us-player-statistics.html"><a href="among-us-player-statistics.html"><i class="fa fa-check"></i><b>44</b> Among Us Player Statistics</a></li>
+<li class="part"><span><b>IX Appendices</b></span></li>
+<li class="chapter" data-level="45" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>45</b> Github Initial Setup</a></li>
+<li class="chapter" data-level="46" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html"><i class="fa fa-check"></i><b>46</b> Tutorial for Pull Request Mergers</a>
+<ul>
+<li class="chapter" data-level="46.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-branch"><i class="fa fa-check"></i><b>46.1</b> Check branch</a></li>
+<li class="chapter" data-level="46.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#examine-files-that-were-added-or-modified"><i class="fa fa-check"></i><b>46.2</b> Examine files that were added or modified</a></li>
+<li class="chapter" data-level="46.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-filename"><i class="fa fa-check"></i><b>46.3</b> Check <code>.Rmd</code> filename</a></li>
+<li class="chapter" data-level="46.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file-contents"><i class="fa fa-check"></i><b>46.4</b> Check <code>.Rmd</code> file contents</a></li>
+<li class="chapter" data-level="46.5" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#request-changes"><i class="fa fa-check"></i><b>46.5</b> Request changes</a></li>
+<li class="chapter" data-level="46.6" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-the-pull-request"><i class="fa fa-check"></i><b>46.6</b> Merge the pull request</a>
+<ul>
+<li class="chapter" data-level="46.6.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-filename-to-_bookdown.yml-in-prs-branch"><i class="fa fa-check"></i><b>46.6.1</b> Add chapter filename to <code>_bookdown.yml</code> in PR’s <code>branch</code></a></li>
+<li class="chapter" data-level="46.6.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization"><i class="fa fa-check"></i><b>46.6.2</b> Add chapter names to <code>.Rmd</code> for every first article in each chapter (Chapter Organization)</a></li>
+<li class="chapter" data-level="46.6.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-pr-and-leave-a-comment"><i class="fa fa-check"></i><b>46.6.3</b> Merge PR and leave a comment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="47" data-path="chapter-organization.html"><a href="chapter-organization.html"><i class="fa fa-check"></i><b>47</b> Chapter Organization</a>
+<ul>
+<li class="chapter" data-level="47.1" data-path="chapter-organization.html"><a href="chapter-organization.html#process-for-organizing-chapters"><i class="fa fa-check"></i><b>47.1</b> Process for Organizing Chapters</a></li>
+<li class="chapter" data-level="47.2" data-path="chapter-organization.html"><a href="chapter-organization.html#initial-book-parts"><i class="fa fa-check"></i><b>47.2</b> Initial Book Parts</a>
+<ul>
+<li class="chapter" data-level="47.2.1" data-path="chapter-organization.html"><a href="chapter-organization.html#motivation"><i class="fa fa-check"></i><b>47.2.1</b> Motivation</a></li>
+<li class="chapter" data-level="47.2.2" data-path="chapter-organization.html"><a href="chapter-organization.html#additional-categories"><i class="fa fa-check"></i><b>47.2.2</b> Additional Categories</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -322,70 +691,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="greek-translation-of-edav.infohisto" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Greek translation of edav.info/histo</h1>
+<div id="greek-translation-of-edav.infohisto" class="section level1" number="31">
+<h1><span class="header-section-number">Chapter 31</span> Greek translation of edav.info/histo</h1>
 <p>Kassiani Papasotiriou</p>
-<div id="histo" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Διάγραμμα: Ιστόγραμμα</h2>
+<div id="histo" class="section level2" number="31.1">
+<h2><span class="header-section-number">31.1</span> Διάγραμμα: Ιστόγραμμα</h2>
 <p><img src="resources/greek_edav_histogram/banners/banner_histogram.png" /></p>
 </div>
-<div id="επισκόπηση" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Επισκόπηση</h2>
+<div id="επισκόπηση" class="section level2" number="31.2">
+<h2><span class="header-section-number">31.2</span> Επισκόπηση</h2>
 <p>Αυτή η ενότητα καλύπτει τον τρόπο δημιουργίας ιστογραμμάτων.</p>
 </div>
-<div id="σύνοψη" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Σύνοψη</h2>
+<div id="σύνοψη" class="section level2" number="31.3">
+<h2><span class="header-section-number">31.3</span> Σύνοψη</h2>
 <p>Δώσε μου ένα πλήρες παράδειγμα!</p>
 <p>Ορίστε μια εφαρμογή ιστογραμμάτων που εξετάζει το πώς άλλαξαν τα ράμφη των σπίνων των Νησιών Γκαλαπάγκος λόγω εξωτερικών παραγόντων:</p>
-<p><img src="cc20_files/figure-html/tldr-finch-example-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="greek_edav_histogram_files/figure-html/tldr-finch-example-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Και εδώ είναι ο κώδικας:</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="greek-translation-of-edav-infohisto.html#cb133-1"></a><span class="kw">library</span>(Sleuth3) <span class="co"># data</span></span>
-<span id="cb133-2"><a href="greek-translation-of-edav-infohisto.html#cb133-2"></a><span class="kw">library</span>(ggplot2) <span class="co"># plotting</span></span>
-<span id="cb133-3"><a href="greek-translation-of-edav-infohisto.html#cb133-3"></a></span>
-<span id="cb133-4"><a href="greek-translation-of-edav-infohisto.html#cb133-4"></a><span class="co"># load data</span></span>
-<span id="cb133-5"><a href="greek-translation-of-edav-infohisto.html#cb133-5"></a>finches &lt;-<span class="st"> </span>Sleuth3<span class="op">::</span>case0201</span>
-<span id="cb133-6"><a href="greek-translation-of-edav-infohisto.html#cb133-6"></a><span class="co"># finch histograms by year with overlayed density curves</span></span>
-<span id="cb133-7"><a href="greek-translation-of-edav-infohisto.html#cb133-7"></a><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> Depth, <span class="dt">y =</span> ..density..)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb133-8"><a href="greek-translation-of-edav-infohisto.html#cb133-8"></a><span class="st">  </span><span class="co"># plotting</span></span>
-<span id="cb133-9"><a href="greek-translation-of-edav-infohisto.html#cb133-9"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>, <span class="dt">colour =</span> <span class="st">&quot;#80593D&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;#9FC29F&quot;</span>, <span class="dt">boundary =</span> <span class="dv">0</span>) <span class="op">+</span></span>
-<span id="cb133-10"><a href="greek-translation-of-edav-infohisto.html#cb133-10"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color =</span> <span class="st">&quot;#3D6480&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb133-11"><a href="greek-translation-of-edav-infohisto.html#cb133-11"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Year) <span class="op">+</span></span>
-<span id="cb133-12"><a href="greek-translation-of-edav-infohisto.html#cb133-12"></a><span class="st">  </span><span class="co"># formatting</span></span>
-<span id="cb133-13"><a href="greek-translation-of-edav-infohisto.html#cb133-13"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Μεγάλη Ξηρασία Οδήγησε σε Σπίνους με Μεγαλύτερα Ράμφη&quot;</span>,</span>
-<span id="cb133-14"><a href="greek-translation-of-edav-infohisto.html#cb133-14"></a>          <span class="dt">subtitle =</span> <span class="st">&quot;Πυκνότητα Βάθους Ραμφών των Σπίνων των Γκαλαπάγκος ανά Έτος&quot;</span>) <span class="op">+</span></span>
-<span id="cb133-15"><a href="greek-translation-of-edav-infohisto.html#cb133-15"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Βάθος Ράμφους (mm)&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Source: Sleuth3::case0201&quot;</span>) <span class="op">+</span></span>
-<span id="cb133-16"><a href="greek-translation-of-edav-infohisto.html#cb133-16"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="op">+</span></span>
-<span id="cb133-17"><a href="greek-translation-of-edav-infohisto.html#cb133-17"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;grey35&quot;</span>)) <span class="op">+</span></span>
-<span id="cb133-18"><a href="greek-translation-of-edav-infohisto.html#cb133-18"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;grey68&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="greek-translation-of-edav-infohisto.html#cb578-1"></a><span class="kw">library</span>(Sleuth3) <span class="co"># data</span></span>
+<span id="cb578-2"><a href="greek-translation-of-edav-infohisto.html#cb578-2"></a><span class="kw">library</span>(ggplot2) <span class="co"># plotting</span></span>
+<span id="cb578-3"><a href="greek-translation-of-edav-infohisto.html#cb578-3"></a></span>
+<span id="cb578-4"><a href="greek-translation-of-edav-infohisto.html#cb578-4"></a><span class="co"># load data</span></span>
+<span id="cb578-5"><a href="greek-translation-of-edav-infohisto.html#cb578-5"></a>finches &lt;-<span class="st"> </span>Sleuth3<span class="op">::</span>case0201</span>
+<span id="cb578-6"><a href="greek-translation-of-edav-infohisto.html#cb578-6"></a><span class="co"># finch histograms by year with overlayed density curves</span></span>
+<span id="cb578-7"><a href="greek-translation-of-edav-infohisto.html#cb578-7"></a><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> Depth, <span class="dt">y =</span> ..density..)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb578-8"><a href="greek-translation-of-edav-infohisto.html#cb578-8"></a><span class="st">  </span><span class="co"># plotting</span></span>
+<span id="cb578-9"><a href="greek-translation-of-edav-infohisto.html#cb578-9"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>, <span class="dt">colour =</span> <span class="st">&quot;#80593D&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;#9FC29F&quot;</span>, <span class="dt">boundary =</span> <span class="dv">0</span>) <span class="op">+</span></span>
+<span id="cb578-10"><a href="greek-translation-of-edav-infohisto.html#cb578-10"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color =</span> <span class="st">&quot;#3D6480&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb578-11"><a href="greek-translation-of-edav-infohisto.html#cb578-11"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Year) <span class="op">+</span></span>
+<span id="cb578-12"><a href="greek-translation-of-edav-infohisto.html#cb578-12"></a><span class="st">  </span><span class="co"># formatting</span></span>
+<span id="cb578-13"><a href="greek-translation-of-edav-infohisto.html#cb578-13"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Μεγάλη Ξηρασία Οδήγησε σε Σπίνους με Μεγαλύτερα Ράμφη&quot;</span>,</span>
+<span id="cb578-14"><a href="greek-translation-of-edav-infohisto.html#cb578-14"></a>          <span class="dt">subtitle =</span> <span class="st">&quot;Πυκνότητα Βάθους Ραμφών των Σπίνων των Γκαλαπάγκος ανά Έτος&quot;</span>) <span class="op">+</span></span>
+<span id="cb578-15"><a href="greek-translation-of-edav-infohisto.html#cb578-15"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Βάθος Ράμφους (mm)&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Source: Sleuth3::case0201&quot;</span>) <span class="op">+</span></span>
+<span id="cb578-16"><a href="greek-translation-of-edav-infohisto.html#cb578-16"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="op">+</span></span>
+<span id="cb578-17"><a href="greek-translation-of-edav-infohisto.html#cb578-17"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;grey35&quot;</span>)) <span class="op">+</span></span>
+<span id="cb578-18"><a href="greek-translation-of-edav-infohisto.html#cb578-18"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;grey68&quot;</span>))</span></code></pre></div>
 <p>Για περισσότερες πληροφορίες σχετικά με αυτό το σύνολο δεδομένων, γράψτε <code>?Sleuth3::case0201</code> στην κονσόλα.</p>
 </div>
-<div id="simple-examples" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Simple examples</h2>
+<div id="simple-examples" class="section level2" number="31.4">
+<h2><span class="header-section-number">31.4</span> Simple examples</h2>
 <p>Έη, όπα, στάσου! Πολύ απλούστερο παρακαλώ!</p>
 <p>Ας χρησιμοποιήσουμε ένα πολύ απλό σύνολο δεδομένων:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="greek-translation-of-edav-infohisto.html#cb134-1"></a><span class="co"># store data</span></span>
-<span id="cb134-2"><a href="greek-translation-of-edav-infohisto.html#cb134-2"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">65</span>, <span class="dv">68</span>)</span></code></pre></div>
-<div id="ιστόγραμμα-με-χρήση-βασικής-r" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Ιστόγραμμα με χρήση βασικής R</h3>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="greek-translation-of-edav-infohisto.html#cb135-1"></a><span class="co"># plot data</span></span>
-<span id="cb135-2"><a href="greek-translation-of-edav-infohisto.html#cb135-2"></a><span class="kw">hist</span>(x, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Ιστόγραμμα βασικής R για το x&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/base-r-hist-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="greek-translation-of-edav-infohisto.html#cb579-1"></a><span class="co"># store data</span></span>
+<span id="cb579-2"><a href="greek-translation-of-edav-infohisto.html#cb579-2"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">65</span>, <span class="dv">68</span>)</span></code></pre></div>
+<div id="ιστόγραμμα-με-χρήση-βασικής-r" class="section level3" number="31.4.1">
+<h3><span class="header-section-number">31.4.1</span> Ιστόγραμμα με χρήση βασικής R</h3>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="greek-translation-of-edav-infohisto.html#cb580-1"></a><span class="co"># plot data</span></span>
+<span id="cb580-2"><a href="greek-translation-of-edav-infohisto.html#cb580-2"></a><span class="kw">hist</span>(x, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Ιστόγραμμα βασικής R για το x&quot;</span>)</span></code></pre></div>
+<p><img src="greek_edav_histogram_files/figure-html/base-r-hist-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Το πλεονέκτημα του ιστογράμματος βασικής R είναι πως μπορεί να ρυθμιστεί εύκολα. Στην πραγματικότητα, το μόνο που χρειάζεσαι για να απεικονίσεις γραφικά τα συγκεκριμένα δεδομένα <code>x</code> είναι η <code>hist(x)</code>, αλλά συμπεριλάβαμε λίγο χρώμα και έναν τίτλο ώστε να τα κάνουμε πιο ευπαρουσίαστα.</p>
 <p>Πλήρης τεκμηρίωση σχετικά με τη <code>hist()</code> μπορεί να βρεθεί <a href="https://www.rdocumentation.org/packages/graphics/versions/3.5.0/topics/hist" target="_blank">εδώ</a></p>
 </div>
-<div id="ιστόγραμμα-με-χρήση-ggplot2" class="section level3" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Ιστόγραμμα με χρήση ggplot2</h3>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="greek-translation-of-edav-infohisto.html#cb136-1"></a><span class="co"># import ggplot</span></span>
-<span id="cb136-2"><a href="greek-translation-of-edav-infohisto.html#cb136-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb136-3"><a href="greek-translation-of-edav-infohisto.html#cb136-3"></a><span class="co"># must store data as dataframe</span></span>
-<span id="cb136-4"><a href="greek-translation-of-edav-infohisto.html#cb136-4"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x)</span>
-<span id="cb136-5"><a href="greek-translation-of-edav-infohisto.html#cb136-5"></a></span>
-<span id="cb136-6"><a href="greek-translation-of-edav-infohisto.html#cb136-6"></a><span class="co"># plot data</span></span>
-<span id="cb136-7"><a href="greek-translation-of-edav-infohisto.html#cb136-7"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x)) <span class="op">+</span></span>
-<span id="cb136-8"><a href="greek-translation-of-edav-infohisto.html#cb136-8"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightBlue&quot;</span>, </span>
-<span id="cb136-9"><a href="greek-translation-of-edav-infohisto.html#cb136-9"></a>                 <span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">center =</span> <span class="fl">52.5</span>) <span class="op">+</span></span>
-<span id="cb136-10"><a href="greek-translation-of-edav-infohisto.html#cb136-10"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ιστόγραμμα ggplot2 για το x&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/ggplot-hist-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="ιστόγραμμα-με-χρήση-ggplot2" class="section level3" number="31.4.2">
+<h3><span class="header-section-number">31.4.2</span> Ιστόγραμμα με χρήση ggplot2</h3>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="greek-translation-of-edav-infohisto.html#cb581-1"></a><span class="co"># import ggplot</span></span>
+<span id="cb581-2"><a href="greek-translation-of-edav-infohisto.html#cb581-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb581-3"><a href="greek-translation-of-edav-infohisto.html#cb581-3"></a><span class="co"># must store data as dataframe</span></span>
+<span id="cb581-4"><a href="greek-translation-of-edav-infohisto.html#cb581-4"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x)</span>
+<span id="cb581-5"><a href="greek-translation-of-edav-infohisto.html#cb581-5"></a></span>
+<span id="cb581-6"><a href="greek-translation-of-edav-infohisto.html#cb581-6"></a><span class="co"># plot data</span></span>
+<span id="cb581-7"><a href="greek-translation-of-edav-infohisto.html#cb581-7"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x)) <span class="op">+</span></span>
+<span id="cb581-8"><a href="greek-translation-of-edav-infohisto.html#cb581-8"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;lightBlue&quot;</span>, </span>
+<span id="cb581-9"><a href="greek-translation-of-edav-infohisto.html#cb581-9"></a>                 <span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">center =</span> <span class="fl">52.5</span>) <span class="op">+</span></span>
+<span id="cb581-10"><a href="greek-translation-of-edav-infohisto.html#cb581-10"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ιστόγραμμα ggplot2 για το x&quot;</span>)</span></code></pre></div>
+<p><img src="greek_edav_histogram_files/figure-html/ggplot-hist-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Η εκδοχή με ggplot είναι λίγο πιο περίπλοκη φαινομενικά, αλλά ως αποτέλεσμα παίρνεις μεγαλύτερη ισχύ και έλεγχο. <strong>Σημείωση</strong>: Όπως φαίνεται παραπάνω, η ggplot αναμένει ένα πλαίσιο δεδομένων, οπότε εάν λαμβάνεις ένα σφάλμα όπου “η R δεν ξέρει τι να κάνει” όπως αυτό:</p>
 <div class="figure">
 <img src="resources/greek_edav_histogram/ggplot_df_error.png" alt="" />
@@ -394,158 +763,158 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>βεβαιώσου πως χρησιμοποιείς ένα πλαίσιο δεδομένων.</p>
 </div>
 </div>
-<div id="θεωρία" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Θεωρία</h2>
+<div id="θεωρία" class="section level2" number="31.5">
+<h2><span class="header-section-number">31.5</span> Θεωρία</h2>
 <p>Σε γενικές γραμμές, το ιστόγραμμα είναι μία από πολλές επιλογές για την προβολή συνεχών δεδομένων.</p>
 <p>Το ιστόγραμμα μπορεί να δημιουργηθεί εύκολα και γρήγορα. Τα ιστογράμματα είναι λίγο πολύ αυτονόητα: δείχνουν την εμπειρική κατανομή των δεδομένων σου σε ένα σύνολο διαστημάτων. Τα ιστογράμματα μπορούν να χρησιμοποιηθούν σε ανεπεξέργαστα δεδομένα για να δείξουν γρήγορα την κατανομή χωρίς πολλούς χειρισμούς. Χρησιμοποίησε ένα ιστόγραμμα για να πάρεις μια βασική αίσθηση της κατανομής έχοντας ελάχιστες απαιτήσεις για επεξεργασία.</p>
 <ul>
 <li>• Για περισσότερες πληροφορίες σχετικά με τα ιστογράμματα και τις συνεχείς μεταβλητές, δες το <a href="http://www.gradaanwr.net/content/03-examining-continuous-variables/" target="_blank">Κεφάλαιο 3</a> του βιβλίου.</li>
 </ul>
 </div>
-<div id="τύποι-ιστογραμμάτων" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Τύποι ιστογραμμάτων</h2>
+<div id="τύποι-ιστογραμμάτων" class="section level2" number="31.6">
+<h2><span class="header-section-number">31.6</span> Τύποι ιστογραμμάτων</h2>
 <p>Χρησιμοποίησε ένα ιστόγραμμα για να δείξεις την κατανομή μιας συνεχούς μεταβλητής. Η κλίμακα του άξονα y μπορεί να αναπαρασταθεί με διάφορους τρόπους για να εκφράσει διαφορετικά αποτελέσματα:</p>
-<div id="συχνότητα-ή-μέτρηση" class="section level3" number="6.6.1">
-<h3><span class="header-section-number">6.6.1</span> Συχνότητα ή μέτρηση</h3>
+<div id="συχνότητα-ή-μέτρηση" class="section level3" number="31.6.1">
+<h3><span class="header-section-number">31.6.1</span> Συχνότητα ή μέτρηση</h3>
 <p>y = αριθμός τιμών που υπάγονται στην κάθε ζώνη</p>
 </div>
-<div id="ιστόγραμμα-σχετικής-συχνότητας" class="section level3" number="6.6.2">
-<h3><span class="header-section-number">6.6.2</span> Ιστόγραμμα σχετικής συχνότητας</h3>
+<div id="ιστόγραμμα-σχετικής-συχνότητας" class="section level3" number="31.6.2">
+<h3><span class="header-section-number">31.6.2</span> Ιστόγραμμα σχετικής συχνότητας</h3>
 <p>y = αριθμός τιμών που υπάγονται στην κάθε ζώνη / συνολικός αριθμός τιμών</p>
 </div>
-<div id="ιστόγραμμα-συνολικής-συχνότητας" class="section level3" number="6.6.3">
-<h3><span class="header-section-number">6.6.3</span> Ιστόγραμμα συνολικής συχνότητας</h3>
+<div id="ιστόγραμμα-συνολικής-συχνότητας" class="section level3" number="31.6.3">
+<h3><span class="header-section-number">31.6.3</span> Ιστόγραμμα συνολικής συχνότητας</h3>
 <p>y = συνολικός αριθμός τιμών &lt;= (ή &lt;) του άνω ορίου της ζώνης</p>
 </div>
-<div id="πυκνότητα" class="section level3" number="6.6.4">
-<h3><span class="header-section-number">6.6.4</span> Πυκνότητα</h3>
+<div id="πυκνότητα" class="section level3" number="31.6.4">
+<h3><span class="header-section-number">31.6.4</span> Πυκνότητα</h3>
 <p>y = σχετική συχνότητα / εύρος ζώνης</p>
 </div>
 </div>
-<div id="παράμετροι" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Παράμετροι</h2>
-<div id="όρια-ζωνών" class="section level3" number="6.7.1">
-<h3><span class="header-section-number">6.7.1</span> Όρια ζωνών</h3>
+<div id="παράμετροι" class="section level2" number="31.7">
+<h2><span class="header-section-number">31.7</span> Παράμετροι</h2>
+<div id="όρια-ζωνών" class="section level3" number="31.7.1">
+<h3><span class="header-section-number">31.7.1</span> Όρια ζωνών</h3>
 <p>Σκέψου τα όρια των ζωνών και εάν ένα σημείο θα πέσει στην αριστερή ή τη δεξιά ζώνη όταν βρίσκεται πάνω στο όριο.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="greek-translation-of-edav-infohisto.html#cb137-1"></a><span class="co"># format layout</span></span>
-<span id="cb137-2"><a href="greek-translation-of-edav-infohisto.html#cb137-2"></a>op &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">las =</span> <span class="dv">1</span>)</span>
-<span id="cb137-3"><a href="greek-translation-of-edav-infohisto.html#cb137-3"></a></span>
-<span id="cb137-4"><a href="greek-translation-of-edav-infohisto.html#cb137-4"></a><span class="co"># right closed</span></span>
-<span id="cb137-5"><a href="greek-translation-of-edav-infohisto.html#cb137-5"></a><span class="kw">hist</span>(x, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">4</span>),</span>
-<span id="cb137-6"><a href="greek-translation-of-edav-infohisto.html#cb137-6"></a>     <span class="dt">xlab =</span> <span class="st">&quot;δεξί κλειστό (55, 60]&quot;</span>, <span class="dt">font.lab =</span> <span class="dv">2</span>)</span>
-<span id="cb137-7"><a href="greek-translation-of-edav-infohisto.html#cb137-7"></a><span class="co"># right open</span></span>
-<span id="cb137-8"><a href="greek-translation-of-edav-infohisto.html#cb137-8"></a><span class="kw">hist</span>(x, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="dt">right =</span> <span class="ot">FALSE</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">4</span>),</span>
-<span id="cb137-9"><a href="greek-translation-of-edav-infohisto.html#cb137-9"></a>     <span class="dt">xlab =</span> <span class="st">&quot;δεξί ανοιχτό [55, 60)&quot;</span>, <span class="dt">font.lab =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/bin-boundaries-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="greek-translation-of-edav-infohisto.html#cb582-1"></a><span class="co"># format layout</span></span>
+<span id="cb582-2"><a href="greek-translation-of-edav-infohisto.html#cb582-2"></a>op &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">las =</span> <span class="dv">1</span>)</span>
+<span id="cb582-3"><a href="greek-translation-of-edav-infohisto.html#cb582-3"></a></span>
+<span id="cb582-4"><a href="greek-translation-of-edav-infohisto.html#cb582-4"></a><span class="co"># right closed</span></span>
+<span id="cb582-5"><a href="greek-translation-of-edav-infohisto.html#cb582-5"></a><span class="kw">hist</span>(x, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">4</span>),</span>
+<span id="cb582-6"><a href="greek-translation-of-edav-infohisto.html#cb582-6"></a>     <span class="dt">xlab =</span> <span class="st">&quot;δεξί κλειστό (55, 60]&quot;</span>, <span class="dt">font.lab =</span> <span class="dv">2</span>)</span>
+<span id="cb582-7"><a href="greek-translation-of-edav-infohisto.html#cb582-7"></a><span class="co"># right open</span></span>
+<span id="cb582-8"><a href="greek-translation-of-edav-infohisto.html#cb582-8"></a><span class="kw">hist</span>(x, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="dt">right =</span> <span class="ot">FALSE</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">4</span>),</span>
+<span id="cb582-9"><a href="greek-translation-of-edav-infohisto.html#cb582-9"></a>     <span class="dt">xlab =</span> <span class="st">&quot;δεξί ανοιχτό [55, 60)&quot;</span>, <span class="dt">font.lab =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="greek_edav_histogram_files/figure-html/bin-boundaries-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="αριθμός-ζωνών" class="section level3" number="6.7.2">
-<h3><span class="header-section-number">6.7.2</span> Αριθμός ζωνών</h3>
+<div id="αριθμός-ζωνών" class="section level3" number="31.7.2">
+<h3><span class="header-section-number">31.7.2</span> Αριθμός ζωνών</h3>
 <p>Ο προεπιλεγμένος αριθμός των 30 ζωνών στη ggplot2 δεν είναι πάντα ιδανικός, οπότε σκέψου να τον αλλάξεις εάν τα πράγματα φαίνονται περίεργα. Μπορείς να καθορίσεις το εύρος ρητά με το <code>binwidth</code> ή να δώσεις τον επιθυμητό αριθμό ζωνών με το <code>bins</code>.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="greek-translation-of-edav-infohisto.html#cb138-1"></a><span class="co"># default...note the pop-up about default bin number</span></span>
-<span id="cb138-2"><a href="greek-translation-of-edav-infohisto.html#cb138-2"></a><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> Depth)) <span class="op">+</span></span>
-<span id="cb138-3"><a href="greek-translation-of-edav-infohisto.html#cb138-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span></span>
-<span id="cb138-4"><a href="greek-translation-of-edav-infohisto.html#cb138-4"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Προεπιλογή με αναδυόμενο παράθυρο για τον αριθμό ζωνών&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-127-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="greek-translation-of-edav-infohisto.html#cb583-1"></a><span class="co"># default...note the pop-up about default bin number</span></span>
+<span id="cb583-2"><a href="greek-translation-of-edav-infohisto.html#cb583-2"></a><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> Depth)) <span class="op">+</span></span>
+<span id="cb583-3"><a href="greek-translation-of-edav-infohisto.html#cb583-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span></span>
+<span id="cb583-4"><a href="greek-translation-of-edav-infohisto.html#cb583-4"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Προεπιλογή με αναδυόμενο παράθυρο για τον αριθμό ζωνών&quot;</span>)</span></code></pre></div>
+<p><img src="greek_edav_histogram_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Ακολουθούν παραδείγματα αλλαγής των ζωνών με χρήση των δύο τρόπων που περιγράφηκαν παραπάνω:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="greek-translation-of-edav-infohisto.html#cb139-1"></a><span class="co"># using binwidth</span></span>
-<span id="cb139-2"><a href="greek-translation-of-edav-infohisto.html#cb139-2"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> Depth)) <span class="op">+</span></span>
-<span id="cb139-3"><a href="greek-translation-of-edav-infohisto.html#cb139-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.5</span>, <span class="dt">boundary =</span> <span class="dv">6</span>) <span class="op">+</span></span>
-<span id="cb139-4"><a href="greek-translation-of-edav-infohisto.html#cb139-4"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Αλλάχθηκε η τιμή του binwidth&quot;</span>)</span>
-<span id="cb139-5"><a href="greek-translation-of-edav-infohisto.html#cb139-5"></a><span class="co"># using bins</span></span>
-<span id="cb139-6"><a href="greek-translation-of-edav-infohisto.html#cb139-6"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> Depth)) <span class="op">+</span></span>
-<span id="cb139-7"><a href="greek-translation-of-edav-infohisto.html#cb139-7"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">48</span>, <span class="dt">boundary =</span> <span class="dv">6</span>) <span class="op">+</span></span>
-<span id="cb139-8"><a href="greek-translation-of-edav-infohisto.html#cb139-8"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Αλλάχθηκε η τιμή του bins&quot;</span>)</span>
-<span id="cb139-9"><a href="greek-translation-of-edav-infohisto.html#cb139-9"></a></span>
-<span id="cb139-10"><a href="greek-translation-of-edav-infohisto.html#cb139-10"></a><span class="co"># format plot layout</span></span>
-<span id="cb139-11"><a href="greek-translation-of-edav-infohisto.html#cb139-11"></a><span class="kw">library</span>(gridExtra)</span>
-<span id="cb139-12"><a href="greek-translation-of-edav-infohisto.html#cb139-12"></a><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/fixed-histograms-binwidth-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="greek-translation-of-edav-infohisto.html#cb584-1"></a><span class="co"># using binwidth</span></span>
+<span id="cb584-2"><a href="greek-translation-of-edav-infohisto.html#cb584-2"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> Depth)) <span class="op">+</span></span>
+<span id="cb584-3"><a href="greek-translation-of-edav-infohisto.html#cb584-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.5</span>, <span class="dt">boundary =</span> <span class="dv">6</span>) <span class="op">+</span></span>
+<span id="cb584-4"><a href="greek-translation-of-edav-infohisto.html#cb584-4"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Αλλάχθηκε η τιμή του binwidth&quot;</span>)</span>
+<span id="cb584-5"><a href="greek-translation-of-edav-infohisto.html#cb584-5"></a><span class="co"># using bins</span></span>
+<span id="cb584-6"><a href="greek-translation-of-edav-infohisto.html#cb584-6"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> Depth)) <span class="op">+</span></span>
+<span id="cb584-7"><a href="greek-translation-of-edav-infohisto.html#cb584-7"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">48</span>, <span class="dt">boundary =</span> <span class="dv">6</span>) <span class="op">+</span></span>
+<span id="cb584-8"><a href="greek-translation-of-edav-infohisto.html#cb584-8"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Αλλάχθηκε η τιμή του bins&quot;</span>)</span>
+<span id="cb584-9"><a href="greek-translation-of-edav-infohisto.html#cb584-9"></a></span>
+<span id="cb584-10"><a href="greek-translation-of-edav-infohisto.html#cb584-10"></a><span class="co"># format plot layout</span></span>
+<span id="cb584-11"><a href="greek-translation-of-edav-infohisto.html#cb584-11"></a><span class="kw">library</span>(gridExtra)</span>
+<span id="cb584-12"><a href="greek-translation-of-edav-infohisto.html#cb584-12"></a><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="greek_edav_histogram_files/figure-html/fixed-histograms-binwidth-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="ευθυγράμμιση-ζωνών" class="section level3" number="6.7.3">
-<h3><span class="header-section-number">6.7.3</span> Ευθυγράμμιση ζωνών</h3>
+<div id="ευθυγράμμιση-ζωνών" class="section level3" number="31.7.3">
+<h3><span class="header-section-number">31.7.3</span> Ευθυγράμμιση ζωνών</h3>
 <p>Βεβαιώσου ότι οι άξονες αντικατοπτρίζουν τα πραγματικά όρια του ιστογράμματος. Μπορείς να χρησιμοποιήσεις το <code>boundary</code> για να προσδιορίσεις το τέλος οποιασδήποτε ζώνης ή το <code>center</code> για να προσδιορίσεις το κέντρο οποιασδήποτε ζώνης. Η <code>ggplot2</code> θα μπορέσει να υπολογίσει πού να τοποθετήσει τις υπόλοιπες ζώνες. (Επίσης, παρατήρησε πως όταν το όριο άλλαξε, ο αριθμός των ζωνών μειώθηκε κατά μία. Αυτό συμβαίνει επειδή ως προεπιλογή οι ζώνες είναι κεντραρισμένες και υπερκαλύπτουν (πιο κάτω/ παραπάνω) το εύρος των δεδομένων.)</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="greek-translation-of-edav-infohisto.html#cb140-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x)</span>
-<span id="cb140-2"><a href="greek-translation-of-edav-infohisto.html#cb140-2"></a></span>
-<span id="cb140-3"><a href="greek-translation-of-edav-infohisto.html#cb140-3"></a><span class="co"># default alignment</span></span>
-<span id="cb140-4"><a href="greek-translation-of-edav-infohisto.html#cb140-4"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x)) <span class="op">+</span></span>
-<span id="cb140-5"><a href="greek-translation-of-edav-infohisto.html#cb140-5"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>,</span>
-<span id="cb140-6"><a href="greek-translation-of-edav-infohisto.html#cb140-6"></a>                 <span class="dt">fill =</span> <span class="st">&quot;lightBlue&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
-<span id="cb140-7"><a href="greek-translation-of-edav-infohisto.html#cb140-7"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Προεπιλεγμένη Ευθυγράμμιση Ζωνών&quot;</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/unnamed-chunk-128-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="greek-translation-of-edav-infohisto.html#cb141-1"></a><span class="co"># specify alignment with boundary</span></span>
-<span id="cb141-2"><a href="greek-translation-of-edav-infohisto.html#cb141-2"></a>p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x)) <span class="op">+</span></span>
-<span id="cb141-3"><a href="greek-translation-of-edav-infohisto.html#cb141-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">boundary =</span> <span class="dv">60</span>,</span>
-<span id="cb141-4"><a href="greek-translation-of-edav-infohisto.html#cb141-4"></a>                 <span class="dt">fill =</span> <span class="st">&quot;lightBlue&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
-<span id="cb141-5"><a href="greek-translation-of-edav-infohisto.html#cb141-5"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ευθ. Ζωνών με χρήση ορίων&quot;</span>)</span>
-<span id="cb141-6"><a href="greek-translation-of-edav-infohisto.html#cb141-6"></a></span>
-<span id="cb141-7"><a href="greek-translation-of-edav-infohisto.html#cb141-7"></a><span class="co"># specify alignment with center</span></span>
-<span id="cb141-8"><a href="greek-translation-of-edav-infohisto.html#cb141-8"></a>p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x)) <span class="op">+</span></span>
-<span id="cb141-9"><a href="greek-translation-of-edav-infohisto.html#cb141-9"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">center =</span> <span class="fl">67.5</span>,</span>
-<span id="cb141-10"><a href="greek-translation-of-edav-infohisto.html#cb141-10"></a>                 <span class="dt">fill =</span> <span class="st">&quot;lightBlue&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
-<span id="cb141-11"><a href="greek-translation-of-edav-infohisto.html#cb141-11"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ευθ. Ζωνών με χρήση κέντρου&quot;</span>)</span>
-<span id="cb141-12"><a href="greek-translation-of-edav-infohisto.html#cb141-12"></a></span>
-<span id="cb141-13"><a href="greek-translation-of-edav-infohisto.html#cb141-13"></a><span class="co"># format layout</span></span>
-<span id="cb141-14"><a href="greek-translation-of-edav-infohisto.html#cb141-14"></a><span class="kw">library</span>(gridExtra)</span>
-<span id="cb141-15"><a href="greek-translation-of-edav-infohisto.html#cb141-15"></a><span class="kw">grid.arrange</span>(p3, p4, <span class="dt">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="cc20_files/figure-html/alignment-fix-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="greek-translation-of-edav-infohisto.html#cb585-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x)</span>
+<span id="cb585-2"><a href="greek-translation-of-edav-infohisto.html#cb585-2"></a></span>
+<span id="cb585-3"><a href="greek-translation-of-edav-infohisto.html#cb585-3"></a><span class="co"># default alignment</span></span>
+<span id="cb585-4"><a href="greek-translation-of-edav-infohisto.html#cb585-4"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x)) <span class="op">+</span></span>
+<span id="cb585-5"><a href="greek-translation-of-edav-infohisto.html#cb585-5"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>,</span>
+<span id="cb585-6"><a href="greek-translation-of-edav-infohisto.html#cb585-6"></a>                 <span class="dt">fill =</span> <span class="st">&quot;lightBlue&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb585-7"><a href="greek-translation-of-edav-infohisto.html#cb585-7"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Προεπιλεγμένη Ευθυγράμμιση Ζωνών&quot;</span>)</span></code></pre></div>
+<p><img src="greek_edav_histogram_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="greek-translation-of-edav-infohisto.html#cb586-1"></a><span class="co"># specify alignment with boundary</span></span>
+<span id="cb586-2"><a href="greek-translation-of-edav-infohisto.html#cb586-2"></a>p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x)) <span class="op">+</span></span>
+<span id="cb586-3"><a href="greek-translation-of-edav-infohisto.html#cb586-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">boundary =</span> <span class="dv">60</span>,</span>
+<span id="cb586-4"><a href="greek-translation-of-edav-infohisto.html#cb586-4"></a>                 <span class="dt">fill =</span> <span class="st">&quot;lightBlue&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb586-5"><a href="greek-translation-of-edav-infohisto.html#cb586-5"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ευθ. Ζωνών με χρήση ορίων&quot;</span>)</span>
+<span id="cb586-6"><a href="greek-translation-of-edav-infohisto.html#cb586-6"></a></span>
+<span id="cb586-7"><a href="greek-translation-of-edav-infohisto.html#cb586-7"></a><span class="co"># specify alignment with center</span></span>
+<span id="cb586-8"><a href="greek-translation-of-edav-infohisto.html#cb586-8"></a>p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x)) <span class="op">+</span></span>
+<span id="cb586-9"><a href="greek-translation-of-edav-infohisto.html#cb586-9"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">center =</span> <span class="fl">67.5</span>,</span>
+<span id="cb586-10"><a href="greek-translation-of-edav-infohisto.html#cb586-10"></a>                 <span class="dt">fill =</span> <span class="st">&quot;lightBlue&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb586-11"><a href="greek-translation-of-edav-infohisto.html#cb586-11"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Ευθ. Ζωνών με χρήση κέντρου&quot;</span>)</span>
+<span id="cb586-12"><a href="greek-translation-of-edav-infohisto.html#cb586-12"></a></span>
+<span id="cb586-13"><a href="greek-translation-of-edav-infohisto.html#cb586-13"></a><span class="co"># format layout</span></span>
+<span id="cb586-14"><a href="greek-translation-of-edav-infohisto.html#cb586-14"></a><span class="kw">library</span>(gridExtra)</span>
+<span id="cb586-15"><a href="greek-translation-of-edav-infohisto.html#cb586-15"></a><span class="kw">grid.arrange</span>(p3, p4, <span class="dt">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="greek_edav_histogram_files/figure-html/alignment-fix-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>Σημείωση</strong>: Μη χρησιμοποιείς και το <code>boundary</code> <em>και</em> το <code>center</code> για ευθυγράμμιση των ζωνών. Διάλεξε μόνο το ένα.</p>
 </div>
 </div>
-<div id="διαδραστικά-ιστογράμματα-με-το-ggvis" class="section level2" number="6.8">
-<h2><span class="header-section-number">6.8</span> Διαδραστικά ιστογράμματα με το <code>ggvis</code></h2>
+<div id="διαδραστικά-ιστογράμματα-με-το-ggvis" class="section level2" number="31.8">
+<h2><span class="header-section-number">31.8</span> Διαδραστικά ιστογράμματα με το <code>ggvis</code></h2>
 <p>To πακέτο <code>ggvis</code> δεν βρίσκεται σε εξέλιξη επί του παρόντος, αλλά κάνει ορισμένα πράγματα πολύ καλά, όπως η ενεργή προσαρμογή των παραμέτρων ενός ιστογράμματος κατά την συγγραφή του κώδικα.</p>
 <p>Από τη στιγμή που οι εικόνες δε μπορούν να μοιραστούν με knitting (όπως συμβαίνει με άλλα πακέτα, όπως το <code>plotly</code>), παρουσιάζουμε εδώ τον κώδικα, αλλά όχι την έξοδο. Για να τα δοκιμάσεις, αντίγραψε και επικόλλησε σε μια συνεδρία R.</p>
-<div id="διαδραστική-αλλαγή-του-εύρου-ζώνης" class="section level3" number="6.8.1">
-<h3><span class="header-section-number">6.8.1</span> Διαδραστική αλλαγή του εύρου ζώνης</h3>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="greek-translation-of-edav-infohisto.html#cb142-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb142-2"><a href="greek-translation-of-edav-infohisto.html#cb142-2"></a><span class="kw">library</span>(ggvis)</span>
-<span id="cb142-3"><a href="greek-translation-of-edav-infohisto.html#cb142-3"></a>faithful <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>eruptions) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb142-4"><a href="greek-translation-of-edav-infohisto.html#cb142-4"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;lightblue&quot;</span>, </span>
-<span id="cb142-5"><a href="greek-translation-of-edav-infohisto.html#cb142-5"></a>        <span class="dt">width =</span> <span class="kw">input_slider</span>(<span class="fl">0.1</span>, <span class="dv">2</span>, <span class="dt">value =</span> <span class="fl">.1</span>, </span>
-<span id="cb142-6"><a href="greek-translation-of-edav-infohisto.html#cb142-6"></a>                             <span class="dt">step =</span> <span class="fl">.1</span>, <span class="dt">label =</span> <span class="st">&quot;width&quot;</span>))</span></code></pre></div>
+<div id="διαδραστική-αλλαγή-του-εύρου-ζώνης" class="section level3" number="31.8.1">
+<h3><span class="header-section-number">31.8.1</span> Διαδραστική αλλαγή του εύρου ζώνης</h3>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="greek-translation-of-edav-infohisto.html#cb587-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb587-2"><a href="greek-translation-of-edav-infohisto.html#cb587-2"></a><span class="kw">library</span>(ggvis)</span>
+<span id="cb587-3"><a href="greek-translation-of-edav-infohisto.html#cb587-3"></a>faithful <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>eruptions) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb587-4"><a href="greek-translation-of-edav-infohisto.html#cb587-4"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;lightblue&quot;</span>, </span>
+<span id="cb587-5"><a href="greek-translation-of-edav-infohisto.html#cb587-5"></a>        <span class="dt">width =</span> <span class="kw">input_slider</span>(<span class="fl">0.1</span>, <span class="dv">2</span>, <span class="dt">value =</span> <span class="fl">.1</span>, </span>
+<span id="cb587-6"><a href="greek-translation-of-edav-infohisto.html#cb587-6"></a>                             <span class="dt">step =</span> <span class="fl">.1</span>, <span class="dt">label =</span> <span class="st">&quot;width&quot;</span>))</span></code></pre></div>
 </div>
-<div id="παράδειγμα-αεπ" class="section level3" number="6.8.2">
-<h3><span class="header-section-number">6.8.2</span> Παράδειγμα ΑΕΠ</h3>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="greek-translation-of-edav-infohisto.html#cb143-1"></a>df &lt;-<span class="kw">read.csv</span>(<span class="st">&quot;countries2012.csv&quot;</span>)</span>
-<span id="cb143-2"><a href="greek-translation-of-edav-infohisto.html#cb143-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>GDP) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb143-3"><a href="greek-translation-of-edav-infohisto.html#cb143-3"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;green&quot;</span>, </span>
-<span id="cb143-4"><a href="greek-translation-of-edav-infohisto.html#cb143-4"></a>        <span class="dt">width =</span> <span class="kw">input_slider</span>(<span class="dv">500</span>, <span class="dv">10000</span>, <span class="dt">value =</span> <span class="dv">5000</span>, </span>
-<span id="cb143-5"><a href="greek-translation-of-edav-infohisto.html#cb143-5"></a>        <span class="dt">step =</span> <span class="dv">500</span>, <span class="dt">label =</span> <span class="st">&quot;width&quot;</span>))</span></code></pre></div>
+<div id="παράδειγμα-αεπ" class="section level3" number="31.8.2">
+<h3><span class="header-section-number">31.8.2</span> Παράδειγμα ΑΕΠ</h3>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="greek-translation-of-edav-infohisto.html#cb588-1"></a>df &lt;-<span class="kw">read.csv</span>(<span class="st">&quot;countries2012.csv&quot;</span>)</span>
+<span id="cb588-2"><a href="greek-translation-of-edav-infohisto.html#cb588-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>GDP) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb588-3"><a href="greek-translation-of-edav-infohisto.html#cb588-3"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;green&quot;</span>, </span>
+<span id="cb588-4"><a href="greek-translation-of-edav-infohisto.html#cb588-4"></a>        <span class="dt">width =</span> <span class="kw">input_slider</span>(<span class="dv">500</span>, <span class="dv">10000</span>, <span class="dt">value =</span> <span class="dv">5000</span>, </span>
+<span id="cb588-5"><a href="greek-translation-of-edav-infohisto.html#cb588-5"></a>        <span class="dt">step =</span> <span class="dv">500</span>, <span class="dt">label =</span> <span class="st">&quot;width&quot;</span>))</span></code></pre></div>
 </div>
-<div id="διαδραστική-αλλαγή-κέντρου" class="section level3" number="6.8.3">
-<h3><span class="header-section-number">6.8.3</span> Διαδραστική αλλαγή κέντρου</h3>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="greek-translation-of-edav-infohisto.html#cb144-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">65</span>, <span class="dv">68</span>))</span>
-<span id="cb144-2"><a href="greek-translation-of-edav-infohisto.html#cb144-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>x) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb144-3"><a href="greek-translation-of-edav-infohisto.html#cb144-3"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;red&quot;</span>, </span>
-<span id="cb144-4"><a href="greek-translation-of-edav-infohisto.html#cb144-4"></a>        <span class="dt">width =</span> <span class="kw">input_slider</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">value =</span> <span class="dv">5</span>, <span class="dt">step =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;width&quot;</span>),</span>
-<span id="cb144-5"><a href="greek-translation-of-edav-infohisto.html#cb144-5"></a>        <span class="dt">center =</span> <span class="kw">input_slider</span>(<span class="dv">50</span>, <span class="dv">55</span>, <span class="dt">value =</span> <span class="fl">52.5</span>, <span class="dt">step =</span> <span class="fl">.5</span>, <span class="dt">label =</span> <span class="st">&quot;center&quot;</span>))</span></code></pre></div>
+<div id="διαδραστική-αλλαγή-κέντρου" class="section level3" number="31.8.3">
+<h3><span class="header-section-number">31.8.3</span> Διαδραστική αλλαγή κέντρου</h3>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="greek-translation-of-edav-infohisto.html#cb589-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">65</span>, <span class="dv">68</span>))</span>
+<span id="cb589-2"><a href="greek-translation-of-edav-infohisto.html#cb589-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>x) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb589-3"><a href="greek-translation-of-edav-infohisto.html#cb589-3"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;red&quot;</span>, </span>
+<span id="cb589-4"><a href="greek-translation-of-edav-infohisto.html#cb589-4"></a>        <span class="dt">width =</span> <span class="kw">input_slider</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">value =</span> <span class="dv">5</span>, <span class="dt">step =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;width&quot;</span>),</span>
+<span id="cb589-5"><a href="greek-translation-of-edav-infohisto.html#cb589-5"></a>        <span class="dt">center =</span> <span class="kw">input_slider</span>(<span class="dv">50</span>, <span class="dv">55</span>, <span class="dt">value =</span> <span class="fl">52.5</span>, <span class="dt">step =</span> <span class="fl">.5</span>, <span class="dt">label =</span> <span class="st">&quot;center&quot;</span>))</span></code></pre></div>
 </div>
-<div id="αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται" class="section level3" number="6.8.4">
-<h3><span class="header-section-number">6.8.4</span> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</h3>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="greek-translation-of-edav-infohisto.html#cb145-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">65</span>, <span class="dv">68</span>), </span>
-<span id="cb145-2"><a href="greek-translation-of-edav-infohisto.html#cb145-2"></a>                 <span class="dt">y =</span> <span class="kw">c</span>(.<span class="dv">5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">1.5</span>, <span class="fl">.5</span>))</span>
-<span id="cb145-3"><a href="greek-translation-of-edav-infohisto.html#cb145-3"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>x, <span class="op">~</span>y) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb145-4"><a href="greek-translation-of-edav-infohisto.html#cb145-4"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;lightcyan&quot;</span>, <span class="dt">width =</span> <span class="dv">5</span>,</span>
-<span id="cb145-5"><a href="greek-translation-of-edav-infohisto.html#cb145-5"></a>                     <span class="dt">center =</span> <span class="kw">input_slider</span>(<span class="dv">45</span>, <span class="dv">55</span>, <span class="dt">value =</span> <span class="dv">45</span>, </span>
-<span id="cb145-6"><a href="greek-translation-of-edav-infohisto.html#cb145-6"></a>                                           <span class="dt">step =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;center&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb145-7"><a href="greek-translation-of-edav-infohisto.html#cb145-7"></a><span class="st">  </span><span class="kw">layer_points</span>(<span class="dt">fill :=</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">size :=</span> <span class="dv">200</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb145-8"><a href="greek-translation-of-edav-infohisto.html#cb145-8"></a><span class="st">  </span><span class="kw">add_axis</span>(<span class="st">&quot;x&quot;</span>, <span class="dt">properties =</span> <span class="kw">axis_props</span>(<span class="dt">labels =</span> <span class="kw">list</span>(<span class="dt">fontSize =</span> <span class="dv">20</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb145-9"><a href="greek-translation-of-edav-infohisto.html#cb145-9"></a><span class="st">  </span><span class="kw">scale_numeric</span>(<span class="st">&quot;x&quot;</span>, <span class="dt">domain =</span> <span class="kw">c</span>(<span class="dv">46</span>, <span class="dv">72</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb145-10"><a href="greek-translation-of-edav-infohisto.html#cb145-10"></a><span class="st">  </span><span class="kw">add_axis</span>(<span class="st">&quot;y&quot;</span>, <span class="dt">values =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>, </span>
-<span id="cb145-11"><a href="greek-translation-of-edav-infohisto.html#cb145-11"></a>           <span class="dt">properties =</span> <span class="kw">axis_props</span>(<span class="dt">labels =</span> <span class="kw">list</span>(<span class="dt">fontSize =</span> <span class="dv">20</span>)))</span></code></pre></div>
+<div id="αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται" class="section level3" number="31.8.4">
+<h3><span class="header-section-number">31.8.4</span> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</h3>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="greek-translation-of-edav-infohisto.html#cb590-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">65</span>, <span class="dv">68</span>), </span>
+<span id="cb590-2"><a href="greek-translation-of-edav-infohisto.html#cb590-2"></a>                 <span class="dt">y =</span> <span class="kw">c</span>(.<span class="dv">5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">.5</span>, <span class="fl">1.5</span>, <span class="fl">.5</span>))</span>
+<span id="cb590-3"><a href="greek-translation-of-edav-infohisto.html#cb590-3"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>x, <span class="op">~</span>y) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb590-4"><a href="greek-translation-of-edav-infohisto.html#cb590-4"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;lightcyan&quot;</span>, <span class="dt">width =</span> <span class="dv">5</span>,</span>
+<span id="cb590-5"><a href="greek-translation-of-edav-infohisto.html#cb590-5"></a>                     <span class="dt">center =</span> <span class="kw">input_slider</span>(<span class="dv">45</span>, <span class="dv">55</span>, <span class="dt">value =</span> <span class="dv">45</span>, </span>
+<span id="cb590-6"><a href="greek-translation-of-edav-infohisto.html#cb590-6"></a>                                           <span class="dt">step =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;center&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb590-7"><a href="greek-translation-of-edav-infohisto.html#cb590-7"></a><span class="st">  </span><span class="kw">layer_points</span>(<span class="dt">fill :=</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">size :=</span> <span class="dv">200</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb590-8"><a href="greek-translation-of-edav-infohisto.html#cb590-8"></a><span class="st">  </span><span class="kw">add_axis</span>(<span class="st">&quot;x&quot;</span>, <span class="dt">properties =</span> <span class="kw">axis_props</span>(<span class="dt">labels =</span> <span class="kw">list</span>(<span class="dt">fontSize =</span> <span class="dv">20</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb590-9"><a href="greek-translation-of-edav-infohisto.html#cb590-9"></a><span class="st">  </span><span class="kw">scale_numeric</span>(<span class="st">&quot;x&quot;</span>, <span class="dt">domain =</span> <span class="kw">c</span>(<span class="dv">46</span>, <span class="dv">72</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb590-10"><a href="greek-translation-of-edav-infohisto.html#cb590-10"></a><span class="st">  </span><span class="kw">add_axis</span>(<span class="st">&quot;y&quot;</span>, <span class="dt">values =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>, </span>
+<span id="cb590-11"><a href="greek-translation-of-edav-infohisto.html#cb590-11"></a>           <span class="dt">properties =</span> <span class="kw">axis_props</span>(<span class="dt">labels =</span> <span class="kw">list</span>(<span class="dt">fontSize =</span> <span class="dv">20</span>)))</span></code></pre></div>
 </div>
-<div id="διαδραστική-αλλαγή-ορίου" class="section level3" number="6.8.5">
-<h3><span class="header-section-number">6.8.5</span> Διαδραστική αλλαγή ορίου</h3>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="greek-translation-of-edav-infohisto.html#cb146-1"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>x) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb146-2"><a href="greek-translation-of-edav-infohisto.html#cb146-2"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;red&quot;</span>, </span>
-<span id="cb146-3"><a href="greek-translation-of-edav-infohisto.html#cb146-3"></a>        <span class="dt">width =</span> <span class="kw">input_slider</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">value =</span> <span class="dv">5</span>, </span>
-<span id="cb146-4"><a href="greek-translation-of-edav-infohisto.html#cb146-4"></a>                             <span class="dt">step =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;width&quot;</span>),</span>
-<span id="cb146-5"><a href="greek-translation-of-edav-infohisto.html#cb146-5"></a>        <span class="dt">boundary =</span> <span class="kw">input_slider</span>(<span class="fl">47.5</span>, <span class="dv">50</span>, <span class="dt">value =</span> <span class="dv">50</span>,</span>
-<span id="cb146-6"><a href="greek-translation-of-edav-infohisto.html#cb146-6"></a>                                <span class="dt">step =</span> <span class="fl">.5</span>, <span class="dt">label =</span> <span class="st">&quot;boundary&quot;</span>))</span></code></pre></div>
+<div id="διαδραστική-αλλαγή-ορίου" class="section level3" number="31.8.5">
+<h3><span class="header-section-number">31.8.5</span> Διαδραστική αλλαγή ορίου</h3>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="greek-translation-of-edav-infohisto.html#cb591-1"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggvis</span>(<span class="op">~</span>x) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb591-2"><a href="greek-translation-of-edav-infohisto.html#cb591-2"></a><span class="st">    </span><span class="kw">layer_histograms</span>(<span class="dt">fill :=</span> <span class="st">&quot;red&quot;</span>, </span>
+<span id="cb591-3"><a href="greek-translation-of-edav-infohisto.html#cb591-3"></a>        <span class="dt">width =</span> <span class="kw">input_slider</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">value =</span> <span class="dv">5</span>, </span>
+<span id="cb591-4"><a href="greek-translation-of-edav-infohisto.html#cb591-4"></a>                             <span class="dt">step =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="st">&quot;width&quot;</span>),</span>
+<span id="cb591-5"><a href="greek-translation-of-edav-infohisto.html#cb591-5"></a>        <span class="dt">boundary =</span> <span class="kw">input_slider</span>(<span class="fl">47.5</span>, <span class="dv">50</span>, <span class="dt">value =</span> <span class="dv">50</span>,</span>
+<span id="cb591-6"><a href="greek-translation-of-edav-infohisto.html#cb591-6"></a>                                <span class="dt">step =</span> <span class="fl">.5</span>, <span class="dt">label =</span> <span class="st">&quot;boundary&quot;</span>))</span></code></pre></div>
 </div>
 </div>
-<div id="εξωτερικές-πηγές" class="section level2" number="6.9">
-<h2><span class="header-section-number">6.9</span> Εξωτερικές πηγές</h2>
+<div id="εξωτερικές-πηγές" class="section level2" number="31.9">
+<h2><span class="header-section-number">31.9</span> Εξωτερικές πηγές</h2>
 <ul>
 <li><a href="https://www.rdocumentation.org/packages/graphics/versions/3.5.0/topics/hist" target="_blank">Τεκμηρίωση του hist</a>: Σελίδα τεκμηρίωσης ιστογράμματος της βασικής R.</li>
 <li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" target="_blank">Σκονάκι της ggplot2</a>: Πάντα καλό να το έχεις παραδίπλα.</li>
@@ -553,16 +922,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="chinese-translation-of-candela-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tableau-intro-tutorial-explained-with-proset2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="korean-translation-of-scatterplot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -612,6 +978,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
