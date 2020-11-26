@@ -86,6 +86,7 @@ rmd_files: [
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd',
+  'appendix_chapter_organization.Rmd'
 
 ]
 
