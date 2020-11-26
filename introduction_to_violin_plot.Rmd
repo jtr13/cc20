@@ -37,7 +37,7 @@ The ordering of the group shown in the violin plot is also important as the orde
 
 
 ```{r}
-chickdata <- read.csv(file = "/resources/intro_vioplot_data/chick_weights.csv")
+chickdata <- read.csv(file = "/resources/introduction_vioplot_data/chick_weights.csv")
 chickdata$feed <- as.factor(chickdata$feed)
 chickdata$sex <- as.factor(chickdata$sex)
 head(chickdata)
