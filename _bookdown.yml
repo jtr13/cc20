@@ -23,7 +23,8 @@ rmd_files: [
   'tableau_intro_tutorial_demo_with_pset.Rmd',
 
   # Part: Appendices
-  'appendix_initial_setup.Rmd' # contains PART header
+  'appendix_initial_setup.Rmd', # contains PART header
+  'replication_crisis_psychology.Rmd'
 ]
 
 before_chapter_script: "_common.R"
