@@ -22,8 +22,8 @@ Against the backdrop of the upcoming election, the media has given a lot of atte
 The data for the analysis is taken from the MIT Election Lab (https://electionlab.mit.edu/). The data on electoral outcome provide information on the winning candidate/party, as well as the votes received. A separate dataset is available for the turnout. For the purpose of this analysis we look at data from 2000 to 2016, with a focus on the past 3 elections.
 
 ```{r, include=FALSE}
-load(file = "/resources/visualizing_electoral_margins/1976-2016-president.RData"); elect_pres<-x; rm(x) # presidential
-turnout<-read_excel("/resources/visualizing_electoral_margins/turnout.xlsx")
+load(file = "resources/visualizing_electoral_margins/1976-2016-president.RData"); elect_pres<-x; rm(x) # presidential
+turnout<-read_excel("resources/visualizing_electoral_margins/turnout.xlsx")
 ```
 
 ```{r}
