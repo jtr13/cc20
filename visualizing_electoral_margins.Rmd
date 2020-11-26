@@ -1,0 +1,219 @@
+# Visualizing electoral margins in US presidential elections (2008-2016)
+
+Jiyeon Chang and Andus Kong
+
+```{r, message=FALSE}
+#install.packages("mapproj")
+#install.packages("maps")
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(maps)
+library(mapproj)
+library(cowplot)
+library(readxl)
+library(magrittr)
+library(GGally)
+library(parcoords)
+```
+
+Against the backdrop of the upcoming election, the media has given a lot of attention to races that are expected to be particularly competitive. Given the large share of international students in the class, we thought it would be interesting to provide some background as to what the electoral map for the presidential election looks like, and the level of margins observed in past elections.
+
+The data for the analysis is taken from the MIT Election Lab (https://electionlab.mit.edu/). The data on electoral outcome provide information on the winning candidate/party, as well as the votes received. A separate dataset is available for the turnout. For the purpose of this analysis we look at data from 2000 to 2016, with a focus on the past 3 elections.
+
+```{r, include=FALSE}
+load(file = "/resources/visualizing_electoral_margins/1976-2016-president.RData"); elect_pres<-x; rm(x) # presidential
+turnout<-read_excel("/resources/visualizing_electoral_margins/turnout.xlsx")
+```
+
+```{r}
+# create a dataset with electoral margins
+turnout<-turnout %>%
+  select(c("year","state","vep_highest_office")) %>%
+  filter(state!="United States") %>%
+  mutate(state = tolower(state)) %>%
+  rename(turnout = vep_highest_office)
+
+elect_data<-elect_pres %>%
+  select(c("year","state","state_po","candidate","party","totalvotes","candidatevotes"))
+
+pres_top2<- elect_data %>%
+  group_by(state,year) %>%
+  arrange(desc(candidatevotes),.by_group = TRUE) %>%
+  filter(row_number() %in% c(1,2)) %>%
+  mutate(share = candidatevotes/totalvotes) %>%
+  mutate(margin = share-dplyr::lead(share))
+
+pres_winner<- pres_top2 %>%
+  group_by(state,year) %>%
+  filter(row_number() %in% c(1)) %>%
+  mutate(margin_cont = ifelse(party=="republican",margin,-(margin)))
+
+pres_winner[pres_winner$party=="democratic-farmer-labor",]$party<-c("democrat","democrat","democrat")
+
+pres_winner$party<-as.factor(pres_winner$party)
+pres_winner$state <- tolower(pres_winner$state)
+margins<-merge(pres_winner, turnout, by=c("state","year"))
+```
+
+To plot state-level data on a map in R, we use the **maps** package. This package has a dataset with information on longitude and latitude which can be merged by state id to transform the dataframe into a mappable version. The snippet from a data frame shown below shows how the information on longitude and latitude is encoded; for Alabama, for instance, we see several rows with slight variations in the longitude and latitude, covering the area corresponding to the state.
+
+```{r}
+# merge the electoral data with data on the latitude and longitude of each US state.
+us_states <- map_data("state")
+head(us_states)
+names(us_states)[names(us_states) == "region"] <-"state"
+df.margin <- merge(margins, us_states, sort = FALSE, by = "state")
+```
+
+As a starter, let's look at how states voted in the 2016 elections.
+
+```{r fig1, fig.height = 3, fig.width = 12}
+col_party <- c("blue", "red")
+p_all <- ggplot(data = df.margin[df.margin$year %in% c(2008,2012,2016),],
+            aes(x = long, y = lat,
+                group = state, fill = party))
+
+p_all_map<-p_all + geom_polygon(color = "gray90", size = 0.1) + 
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  scale_fill_manual(values=col_party)+
+  labs(title="Figure 1. electoral outcome") +
+  theme_map() +
+  theme(plot.title = element_text(size = 16, face = "bold"),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 6),
+        # panel.spacing.y=unit(0.1, "cm"),
+        # panel.spacing.x=unit(0.1, "cm")
+  )+
+  facet_wrap(~year)
+p_all_map
+```
+
+The above map gives us an idea of which party won the state, but not by what margin. To do this, we need to modify the fill parameter from **party** to **margin**.
+
+```{r fig2, fig.height = 3, fig.width = 12}
+p_margin <- ggplot(data = df.margin[df.margin$year %in% c(2008,2012,2016),],
+            aes(x = long, y = lat,
+                group = state, fill = margin)) # here fill = margin
+
+margin_map<-p_margin + geom_polygon(color = "gray90", size = 0.1) + 
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  labs(title="Figure 2. overall margin by state",fill="percent") +
+  scale_fill_gradient(low="purple",high="white")+
+  theme_map()+
+  theme(plot.title = element_text(size = 16, face = "bold"),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 6))+
+  facet_wrap(~year)
+
+margin_map
+min(df.margin$margin)
+max(df.margin$margin)
+```
+
+The map above gives us a better of idea of how competitive the presidential race was in each state. The darker the shade of purple, the smaller was the margin. This made shows the magnitude of the margin but not which party won the state. So next we break down the margin by the winning party. Specifically, the margin is redefined as ranging from -1 to 1, with negative values referring to Democratic lead, and positive values Republican.
+
+```{r fig3, fig.height = 3, fig.width = 12}
+margin_bin <- ggplot(data = df.margin[df.margin$year %in% c(2008,2012,2016),],
+            aes(x = long, y = lat,
+                group = state, fill = margin_cont))
+
+margin_bin_map<-margin_bin + geom_polygon(color = "gray90", size = 0.1) + 
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  labs(title="Figure 3. state level margin by winning party",fill="percent") +
+  scale_fill_distiller(palette = "RdBu",direction = -1, limits = c(-1, 1))+
+  theme_map()+
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 6))+
+  facet_wrap(~year)
+
+margin_bin_map
+```
+
+Now, the diverging color scheme blends the strengths of Figures 1 and 2, making it possible not only to see which parties won the election in each state, but also by what margin. Note, however, that even with this distinction, the range of margins remains quite large, with the smallest ranging from less than 1 percentage point, to the largest where the Democrats won by a 86 percentage point margin. (Note that the 86 percentage pt correspondents to D.C. but we don't observe a dark blue state because it is too small to be visible on the map)
+
+As a result, we can glean from the color scheme the relative competitiveness of each state, but it's be tough to distinguish between a margin of say, 10% vs 2%. So in an alternative approach, we define the threshold for "a small margin" to be 2%, and highlight only the states that had margins at this level or below.
+
+```{r fig4, fig.height = 3, fig.width = 12}
+df.margin<-df.margin %>%
+  mutate(low_margin = if_else(margin < 0.02,"Low", "High"))
+  
+
+p_LH <- ggplot(data = df.margin[df.margin$year %in% c(2008,2012,2016),],
+            aes(x = long, y = lat,
+                group = state, fill = low_margin))
+
+temp <- df.margin %>% filter(year %in% c(2008, 2012, 2016)) %>%
+  filter(low_margin == "Low") %>%
+  select(state, year, state_po, low_margin) %>% distinct
+
+temp2 <- df.margin %>% filter(year %in% c(2008, 2012, 2016)) %>%
+  filter(low_margin == "Low") %>%
+  select(-long, -lat, -group, -order, -subregion) %>% distinct
+
+temp <- temp %>% mutate(long = if_else(state == "florida", 	-81.760254,
+                               if_else(state == "indiana",-86.126976,
+                                       if_else(state == "michigan", -84.506836,
+                                               if_else(state == "minnesota", -94.636230,
+                                                       if_else(state == "missouri", -92.603760,
+                                                               if_else(state == "new hampshire",-71.500000,
+                                                                       if_else(state == "north carolina", -80.793457,
+                                                                               if_else(state == "pennsylvania", -77.194527,
+                                                                                       if_else(state == "wisconsin", -89.500000, 0))))))))),
+                lat = if_else(state == "florida", 	27.994402,
+                               if_else(state == "indiana",40.273502	,
+                                       if_else(state == "michigan", 44.182205	,
+                                               if_else(state == "minnesota", 46.392410,
+                                                       if_else(state == "missouri", 38.573936,
+                                                               if_else(state == "new hampshire",44.000000,
+                                                                       if_else(state == "north carolina", 35.782169,
+                                                                               if_else(state == "pennsylvania", 41.203323	,
+                                                                                       if_else(state == "wisconsin", 44.500000, 0))))))))))
+
+temp3 <- merge(temp, temp2, by = c("state", "year", "state_po")) %>% rename(low_margin = low_margin.x)
+
+
+LH<-p_LH + geom_polygon(aes(group=group),color = "gray90", size = 0.1) + 
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  labs(title="Figure 4. low margin states (<2%)",fill="margin") +
+  scale_fill_manual(values=c("grey", "yellow"))+
+  theme_map()+
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 6))+
+  geom_text(data= temp3,aes(long,lat,label=state_po),size=2)+
+  facet_wrap(~year)
+LH
+
+```
+
+Based on this map, we see that different states had competitive races in each election. 2016 stands out for having had more states with a small margin, which are identified as Michigan, Wisconsin, Florida, Pennsylvania, Minnesota and New Hampshire. Many of these states that had close races in 2016 are leaning more Democratic in the 2020 election, but a number of other states, namely, Ohio, Iowa, North Carolina and Arizona, have become competitive in their stead.
+
+One aspect of the election that is talked about a lot at the moment is the increase in the cumulative turnout ahead of the election day. Understandably, a lot is at stake in this election; but is there a relationship between how close the race is, and the turnout? What does previous years' data tell us?
+
+```{r}
+df_scatter<-df.margin %>%
+  filter(year %in% c(2008,2012,2016))%>%
+  group_by(state,year) %>%
+  filter(state!="district of columbia")%>%
+  filter(row_number() %in% c(1))
+
+p_scatter<-ggplot(df_scatter, aes(turnout, margin)) +
+        geom_point() +
+  facet_wrap(~year)
+p_scatter
+```
+
+Based on a scatterplot of margin against turnout, it seems that there is a pattern of smaller margin being associated with higher turnout. Note that in the charts displayed below, DC was removed as an outlier as the combination of its high margin and high turnout visually crowded out all other observations into a corner. The pattern is quite clear in 2016 and 2012, but slightly less so in 2008.
+
+Lastly, we produce a parallel coordinate plot, which makes it possible to play with range of margins in each election cycle and see whether states have had more consistent margins, or have changed over time. Feel free to play around with the parameters!
+
+
+```{r}
+temp <- tibble(df.margin) %>% select(state, year, margin) %>% distinct
+temp <- temp %>% pivot_wider(names_from = year, values_from = margin) %>% 
+  relocate("state", "2000", "2004", "2008", "2012", "2016")
+  
+parcoords(temp, brushMode = "1d-axes", reorderable = TRUE, rownames = FALSE)
+```
