@@ -29,7 +29,7 @@ rmd_files: [
   'likert_scale.Rmd',
   'a_simple_way_to_visualize_geographic_data.Rmd',
   'interactive_choropleth_map.Rmd',
-#  'introduction_to_violin_plot.Rmd', # missing data file
+  'introduction_to_violin_plot.Rmd', # missing data file
   'base_r_ggplot_graph.Rmd',
 
   # Part: Results Reporting
