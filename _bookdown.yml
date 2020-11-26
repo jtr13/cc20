@@ -58,6 +58,7 @@ rmd_files: [
   'project_pichon.Rmd',
   'american_history_trivia_night.Rmd',
   'consuming_terrorism_statistics.Rmd',
+  'introduction_to_network_analysis.Rmd',
 
   # Part: Data Visualization
   'label_setting_techniques.Rmd',
@@ -84,7 +85,8 @@ rmd_files: [
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
-  
+  'appendix_pull_request_tutorial.Rmd',
+
 ]
 
 
