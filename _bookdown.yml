@@ -50,6 +50,8 @@ rmd_files: [
   'python_vs_r_cheatsheet.Rmd',
   'likert_data_cheatsheet.Rmd',
   'categorical_cheat_sheet.rmd',
+  'replication_crisis_psychology.Rmd',
+  'tableau_data_story_tutorial.Rmd',
 
   # Part: Live Tutorials
   'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
@@ -58,7 +60,6 @@ rmd_files: [
   'american_history_trivia_night.Rmd',
   'consuming_terrorism_statistics.Rmd',
   'introduction_to_network_analysis.Rmd',
-  'tableau_data_story_tutorial.Rmd',
 
   # Part: Data Visualization
   'label_setting_techniques.Rmd',
