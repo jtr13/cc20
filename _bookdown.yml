@@ -84,6 +84,7 @@ rmd_files: [
   'final_project_teammate_finder.Rmd',
   'among_us_stats.Rmd',
   'ipywidgets_tutorial.Rmd',
+  'linkedin_professional_development_session.Rmd',
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
