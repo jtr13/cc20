@@ -67,6 +67,7 @@ rmd_files: [
   'korean_translation_of_scatterplot.Rmd',
   'rmarkdown_tutorial_chinese_translation.rmd',
   'chinese_tutorial_rvest_httr.Rmd',
+  'website_sharing_whole_class_mosaic_plot_translation.Rmd',
 
   # Part: Other Topics
   'rselenium_tutorial.Rmd',  # contains PART header
