@@ -8,12 +8,7 @@ language:
     chapter_name: "Chapter "
 
 rmd_files: [
-  # Part: Introduction
-  'index.Rmd', # must be first chapter
-  'sample_project.Rmd',
-  'pairs_and_ggpairs.Rmd',
-  # Part: Appendices
-  'appendix_initial_setup.Rmd' # contains PART header
+'tableau_data_story_tutorial.Rmd'
 ]
 
 before_chapter_script: "_common.R"
