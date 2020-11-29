@@ -1,4 +1,3 @@
-
 # Website Sharing Whole Class and 2nd-part of the Website -- Mosaic Plot Translation to Chinese
  
 Hanxiao Zhang & Lei Guo
@@ -45,17 +44,17 @@ We hope this document can effectively jumpstart any user (with limited language 
 3. Finally, we walked through the conditions representation in mosaic plots, multiple variables in mosaic plots, and orders of variables from *Mosaic plots with ggplot2*.
 
 
-## 1. Introduction 介绍 (Mosaic plot 2019)
+## Introduction 介绍 (Mosaic plot 2019)
 
 马赛克图(也称马里梅科图)是一种将两个或两个以上定性变量进行可视化的统计报告图[1]，它是自旋图的多维扩展，自旋图只对一个变量的信息进行展示[2]。它给出数据的整体概况，并让识别变量之间的关系更加简单。例如，当不同类别的方框都具有相同的面积时，表示变量之间是独立的[3]。Hartigan和Kleiner于1981年创建了马赛克图，Friendly于1994年对其进行了扩展[4]。由于马赛克图很像马里梅科印刷品，因此也被称为梅科图。这是非常好的进行定性变量数据可视化的方式之一。
 
 与柱状图和自旋图一样，每个方框的面积，与该类别内的观测值数量成正比[5]。
 
-## 2.Basic Parts of Mosaic Plots
+## Basic Parts of Mosaic Plots
 
 本页是一个正在进行中的工作。我们感谢您的任何意见。如果你想帮助改善这个页面，请考虑向我们的repo贡献。
 
-### 2.1 综概
+### 综概
 
 ```{r}
 library(readr)
@@ -70,21 +69,21 @@ df = read_csv("/Users/hanxiaozhang/Downloads/MusicIcecream.csv")
 * 还要注意的是：所有这些图都是用vcd::mosaic()绘制的，而不是用R里的基本函数包mosaicplot()。
 
 
-### 2.2 数据如下。
+### 数据如下。
 
 ```{r data}
 df
 ```
 
-### 2.3 划分变量
+### 划分变量
 
-#### 2.31 仅按年龄划分。
+#### 仅按年龄划分。
 
 ```{r}
 vcd::mosaic(~Age, df)
 ```
 
-#### 2.32 先按年龄划分，再按照音乐。
+#### 先按年龄划分，再按照音乐。
 
 ```{r}
 vcd::mosaic(Music ~ Age, df)
@@ -92,21 +91,21 @@ vcd::mosaic(Music ~ Age, df)
 
 需要注意的是，第一组在"年轻 "和 "年长”中拆分，第二组拆分则将每个年龄段的人按照"古典 "和 "摇滚"进行再次划分。
 
-#### 2.33 先按年龄划分，再按音乐划分，再按喜爱划分。
+#### 先按年龄划分，再按音乐划分，再按喜爱划分。
 
 ```{r}
 vcd::mosaic(Favorite ~ Age + Music, df)
 ```
 
-### 2.34 划分的方向
+### 划分的方向
 
 请注意，在前面的例子中，分割的方向如下。
 
-#### 2.341 年龄--横向分割
+#### 年龄--横向分割
 
-#### 2.342 音乐--垂直分割
+#### 音乐--垂直分割
 
-#### 2.343 最喜欢的--横向分割
+#### 最喜欢的--横向分割
 
 这是默认的方向模式：交替方向从水平方向开始。因此，我们得到如下同样的图：
 
@@ -125,7 +124,7 @@ vcd::mosaic(Favorite ~ Age + Music,
 需要注意的是，方向向量是按照拆分的顺序（年龄、音乐、喜爱），而不是按照公式中变量出现的顺序。在公式中，最后一个要拆分的变量要在”~”前先列出来。
 
 
-### 2.4 填充颜色
+### 填充颜色
 
 填充颜色的分类是根据最后划分的维度——即因变量（本例中最喜欢的冰淇淋口味）。(如果不能正常运行，请更新到vcd的最新版本。)
 
@@ -135,11 +134,11 @@ vcd::mosaic(Favorite ~ Age + Music,
        df)
 ```
 
-### 2.5 标签
+### 标签
 
 想要看关于标签选项的官方文档，请参见Strucplot框架中关于标签的说明。
 
-#### 2.51 旋转标签
+#### 旋转标签
 
 rot_labels = 向量设置了图形四边的旋转度数--而不是变量分割顺序--这个顺序是：上、右、下、左。(与典型的基本图形顺序不同!)默认是 rot_labels = c(0, 90, 0, 90)。
 
@@ -149,7 +148,7 @@ vcd::mosaic(Favorite ~ Age + Music,
        df)
 ```
 
-#### 2.52 简称标签
+#### 简称标签
 
 标签按照分割的顺序进行缩写（写作direction=）。缩写算法在消除元音后（如果需要的话），会返回return指定的字符数。
 
@@ -161,7 +160,7 @@ vcd::mosaic(Favorite ~ Age + Music,
        df)
 ```
 
-### 2.6 单元间距
+### 单元间距
 
 ```{r}
 vcd::mosaic(Favorite ~ Age + Music,
@@ -171,7 +170,7 @@ vcd::mosaic(Favorite ~ Age + Music,
 
 想看更多细节, 请看 >?vcd::spacings
 
-#### 2.61 使用vcd::doubledecker中的 Mosaic 
+#### 使用vcd::doubledecker中的 Mosaic 
 
 ```{r}
 data(Arthritis, package = "vcd")
@@ -183,31 +182,31 @@ vcd::doubledecker(Music ~ Favorite + Age,
                   xtabs(Freq ~ Age + Music + Favorite, df))
 ```
 
-#### 2.62 使用ggplot中的马赛克图
+#### 使用ggplot中的马赛克图
 
 要在ggplot2框架中创建马赛克图，请使用ggmosaic包中的geom_mosaic()。
 
 https://cran.r-project.org/web/packages/ggmosaic/vignettes/ggmosaic.html
 
-### 2.7 理论
+### 理论
 
-### 2.8 何时使用
+### 何时使用
 
 当您想查看多个分类变量之间的关系时，请注意以下几点
 
-### 2.9 考虑因素
+### 考虑因素
 
-#### 2.91 标签
+#### 标签
 
 在马赛克图中，当有很多维度时，标签的可读性可能会较差。这可以通过以下方法来缓解： - 缩写名称 - 旋转标签。
 
-#### 2.92 纵横比
+#### 纵横比
 
 * 长度比面积更容易判断，所以尽量使用相同宽度或高度的矩形。
 
 * 更高更瘦的矩形判断效果更好（因为我们更擅长区分长度而不是面积）。
 
-#### 2.93 矩形之间的间隙
+#### 矩形之间的间隙
 
 * 无间隙=最高效率
 
@@ -217,7 +216,7 @@ https://cran.r-project.org/web/packages/ggmosaic/vignettes/ggmosaic.html
 
 * 可以在层次结构中改变间隙大小。
 
-#### 2.94 颜色
+#### 颜色
 
 * 对细分小组中的比率有好处
 
@@ -225,14 +224,14 @@ https://cran.r-project.org/web/packages/ggmosaic/vignettes/ggmosaic.html
 
 * 强调特定群体
 
-### 2.10 其他资源
+### 其他资源
 
 安东尼-尤文的《用R进行图形数据分析》第七章
 
 本文第三部分（见以下详细内容）
 
-## 3 Part 3
-### 3.1 ggmosaic的基础知识
+## Part 3
+### ggmosaic的基础知识
 
 * 用于分类数据的可视化。
 
@@ -242,7 +241,7 @@ https://cran.r-project.org/web/packages/ggmosaic/vignettes/ggmosaic.html
 
 * 集成在ggplot2中的geom里，允许分面(facetting)和分层(layering)。
 
-### 3.2 创建gmosaic
+### 创建gmosaic
 
 ggmosaic主要是使用ggproto和productplots包创建的。
 
@@ -252,7 +251,7 @@ ggproto能够让你在自己的包中扩展ggplot2。
 
 * 为了绘制geom，需要计算xmin、xmax、ymin和ymax。
 
-### 3.3 ggplot2的缺陷
+### ggplot2的缺陷
 
 ggplot2不能处理总体数量在变化的变量群。
 
@@ -266,7 +265,7 @@ ggplot2不能处理总体数量在变化的变量群。
 
 这些限制也会导致标签的问题，但这些都可以手动修复。
 
-### 3.4 geom_mosaic：设定规则。
+### geom_mosaic：设定规则。
 
 规则如下：
 
@@ -292,7 +291,7 @@ weight ~ fill + x | conds
 ```
 
 
-#### 3.41 从规则到代码#
+#### 从规则到代码#
 
 如何写成代码
 
@@ -306,7 +305,7 @@ weight ~ fill + x | conds
 
 * 这些美学设置了分配的公式。
 
-#### 3.42 1 ~ X
+#### 1 ~ X
 
 ```{r}
 library(ggplot2)
@@ -317,7 +316,7 @@ library(gridExtra)
    labs(x="Is it rude recline? ", title='f(RudeToRecline)') 
 ```
 
-#### 3.43 1 ~ Y + X
+#### 1 ~ Y + X
 
 ```{r}
 ggplot(data = fly) +
@@ -325,14 +324,14 @@ ggplot(data = fly) +
   labs(x = "Is it rude recline? ", title='f(DoYouRecline | RudeToRecline) f(RudeToRecline)')
 ```
 
-#### 3.44 1 ~ X + Y / Z
+#### 1 ~ X + Y / Z
 
 ```{r}
 ggplot(data = fly) +
    geom_mosaic(aes(x = product(DoYouRecline, RudeToRecline), fill=DoYouRecline, conds=product(Gender)), na.rm=TRUE, divider=mosaic("v")) +  labs(x = "Is it rude recline? ", title='f(DoYouRecline, RudeToRecline| Gender)')
 ```
 
-#### 3.45 Alternative to conditioning: facetting
+#### Alternative to conditioning: facetting
 
 ```{r}
 ggplot(data = fly) +
@@ -340,7 +339,7 @@ ggplot(data = fly) +
 ```
 
 
-### 3.5 Importance of ordering
+### Importance of ordering
 
 ```{r}
  ggplot(data = fly) +
@@ -355,14 +354,14 @@ par(mfrow=c(2,1))
 
 
 
-### 3.6 geom_mosaic的其他特征
+### geom_mosaic的其他特征
 
 geom_mosaic独有的参数。
 
 * divider: 用于声明要使用的分区的类型。
 * offset：设置第一条spine之间的空间。
 
-### 3.7 Divider function。分割类型。
+### Divider function。分割类型。
 每个部分有四个选项。
 
 * vspine：宽度不变，高度可变。
@@ -391,7 +390,7 @@ vbar
 vspine
 ```
 
-### 3.8 使用一个或多个变量进行分区
+### 使用一个或多个变量进行分区
 
 * mosaic()
  + 默认
@@ -456,14 +455,14 @@ mosaic7
 ```
 
 
-### 3.9 geom_mosaic: offset
+### geom_mosaic: offset
 
 offset。设置第一条spine之间的空间大小
 
 * 默认值default=0.01
 * 分区之间的空间会随着层数的增加而减小。
 
-### 3.10 调整offset
+### 调整offset
 
 ```{r}
 offset1 <- ggplot(data = fly) +
@@ -481,7 +480,7 @@ offset2
 ```
 
 
-### 3.11 Plotly
+### Plotly
 
 ```{r}
 library(plotly)
@@ -492,7 +491,7 @@ ggplotly(gg)
 
 
 
-## 4 参考文献
+## 参考文献
 
 1. Sandra D. Schlotzhauer (1 April 2007). Elementary Statistics Using JMP. SAS Institute. p. 407. ISBN 978-1-59994-428-9.
 
