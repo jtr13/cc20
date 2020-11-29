@@ -3,4 +3,7 @@
 .Rproj.user
 *.Rproj
 .DS_Store
-/_bookdown_files/
+_bookdown_files/
+*.md
+*_cache/
+docs/*.md
