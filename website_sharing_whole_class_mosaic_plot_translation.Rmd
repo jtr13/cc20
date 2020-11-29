@@ -361,7 +361,7 @@ geom_mosaic独有的参数。
 * divider: 用于声明要使用的分区的类型。
 * offset：设置第一条spine之间的空间。
 
-### Divider function。分割类型。
+### Divider function. 分割类型。
 每个部分有四个选项。
 
 * vspine：宽度不变，高度可变。
