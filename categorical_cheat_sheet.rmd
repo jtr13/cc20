@@ -1,0 +1,6 @@
+# Categorical Data Visualization Cheat Sheet
+
+Miranda Zhou and Neha Pusarla
+
+Cheat Sheet showing different categorical data visualization tools. Has some examples, benefits and detriments, and tips for each one.
+link to pdf: https://github.com/jtr13/cc20/blob/master/resources/categorical_cheat_sheet/categorical_cheat_sheet.pdf
