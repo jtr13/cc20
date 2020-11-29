@@ -66,6 +66,7 @@ rmd_files: [
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
   'rmarkdown_tutorial_chinese_translation.rmd',
+  'chinese_tutorial_rvest_httr.Rmd',
 
   # Part: Other Topics
   'rselenium_tutorial.Rmd',  # contains PART header
