@@ -1,5 +1,6 @@
 book_filename: "cc20"
 output_dir: docs
+new_session: yes
 delete_merged_file: true
 edit: https://github.com/jtr13/cc20/edit/master/%s
 view: https://github.com/jtr13/cc20/blob/master/%s
@@ -7,9 +8,86 @@ language:
   ui:
     chapter_name: "Chapter "
 
+
+# Chapter ordering
 rmd_files: [
-'website_sharing_whole_class_mosaic_plot_translation.Rmd'
+  # Part: Introduction
+  'index.Rmd', # must be first chapter
+  'sample_project.Rmd',
+
+  # Part 2: Data Processing and Wrangling
+  'r_data_transformation.Rmd', # contains PART header
+  'data_preprocessing_tutorial.Rmd',
+  'apply_family.Rmd',
+  'using_sql_in_r.Rmd',
+
+  # Part 3: Data Visualization
+  'pairs_and_ggpairs.Rmd', # contains PART header
+  'a_brief_introduction_to_seaborn.Rmd',
+  'geommlbstadiums.rmd',
+  'radar_chart.Rmd',
+  'likert_scale.Rmd',
+  'a_simple_way_to_visualize_geographic_data.Rmd',
+  'interactive_choropleth_map.Rmd',
+  'introduction_to_violin_plot.Rmd', # missing data file
+  'base_r_ggplot_graph.Rmd',
+
+  # Part: Results Reporting
+  'visualization_tools_in_real_work.Rmd',  # contains PART header
+  'color_in_r.Rmd',
+  #'visualization_nyc_covid19_rshiny.Rmd', #shiny doesn't work
+  'illustrate_graphs_in_r.Rmd',
+
+  # Part: Complete Analyses
+  'china_choropleth_map.Rmd', # contains PART header
+  'benfords_law.Rmd',
+  'visualizing_electoral_margins.Rmd',
+
+  # Part: Cheatsheets and Video Tutorials
+  'mosaic_plot_cheatsheet.Rmd',  # contains PART header
+  'add_ts_cheatsheet.Rmd',
+  'python_vs_r_cheatsheet.Rmd',
+  'likert_data_cheatsheet.Rmd',
+  'categorical_cheat_sheet.rmd',
+
+  # Part: Live Tutorials
+  'tableau_intro_tutorial_demo_with_pset.Rmd', # contains PART header
+  'datapipeline_design.Rmd',
+  'project_pichon.Rmd',
+  'american_history_trivia_night.Rmd',
+  'consuming_terrorism_statistics.Rmd',
+  'introduction_to_network_analysis.Rmd',
+
+  # Part: Data Visualization
+  'label_setting_techniques.Rmd',
+
+  # Part: Translations
+  'chinese_translation_of_candela_package.Rmd', # contains PART header
+  'greek_edav_histogram.Rmd',
+  'korean_translation_of_scatterplot.Rmd',
+  'rmarkdown_tutorial_chinese_translation.rmd',
+  'chinese_tutorial_rvest_httr.Rmd',
+  'website_sharing_whole_class_mosaic_plot_translation.Rmd',
+
+  # Part: Other Topics
+  'rselenium_tutorial.Rmd',  # contains PART header
+  'ggpubr_package.Rmd',
+  'geographical_map_packages.Rmd',
+  'health_datasets_for_the_final_project.Rmd',
+  'layout_for_baseplot_and_ggpplot.Rmd',
+  'a_basic_introduction_to_mcmc_in_r.Rmd',
+  'automate_eda_with_dataexplorer.Rmd',
+  'speed_up_in_r_programming.Rmd',
+  'data_visualization_in_python.Rmd',
+  'final_project_teammate_finder.Rmd',
+  'among_us_stats.Rmd',
+  'ipywidgets_tutorial.Rmd',
+
+  # Part: Appendices
+  'appendix_initial_setup.Rmd', # contains PART header
+  'appendix_pull_request_tutorial.Rmd',
+  'appendix_chapter_organization.Rmd'
 ]
 
-before_chapter_script: "_common.R"
 
+before_chapter_script: "_common.R"
