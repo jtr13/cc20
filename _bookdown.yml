@@ -66,6 +66,7 @@ rmd_files: [
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
   'rmarkdown_tutorial_chinese_translation.rmd',
+  'ggplot2_tutorial_translated.Rmd',
   'chinese_tutorial_rvest_httr.Rmd',
   'website_sharing_whole_class_mosaic_plot_translation.Rmd',
 
@@ -88,6 +89,5 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd',
   'appendix_chapter_organization.Rmd'
 ]
-
 
 before_chapter_script: "_common.R"
