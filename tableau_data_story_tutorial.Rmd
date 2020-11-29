@@ -1,0 +1,20 @@
+# A Video Tutorial for Creating a Data Story in Tableau
+
+Xinyi Liu
+
+## Introduction
+
+Tableau is a powerful tool for data visualization. This part uses the topic of "An Analysis of Different Movie Filming Locations in New York City" as an example to provide you with a 26-minute video tutorial for using Tableau. After following the steps of this video tutorial, you will learn the right procedures for designing and creating a data story. Specifically, you will learn the following things.
+
+1. How to draw different kinds of plots in sheets.
+2. How to realize interactivity by using Tableau.
+3. How to combine multiple sheets in one dashboard.
+4. How to create a data story with multiple dashboards.
+
+The link to this tutorial is as follows: https://youtu.be/TZ2fYeDGJHk
+
+## Data Source
+
+You can find the data from the following link: https://data.cityofnewyork.us/Business/Filming-Locations-Scenes-from-the-City-/qb3k-n8mm
+You can also use the file in the resources folder directly:
+resources/tableau_data_story_tutorial/Interactive_Map_Data.xml
