@@ -8,22 +8,7 @@ language:
     chapter_name: "Chapter "
 
 rmd_files: [
-  # Part: Introduction
-  'index.Rmd', # must be first chapter
-  'sample_project.Rmd',
-  'pairs_and_ggpairs.Rmd',
-  'china_choropleth_map.Rmd',
-
-  # Part: Translations
-  'chinese_translation_of_candela_package.Rmd',
-  'greek_edav_histogram.Rmd',
-  'korean_translation_of_scatterplot.Rmd',
-
-  # Part: Video Tutorial
-  'tableau_intro_tutorial_demo_with_pset.Rmd',
-
-  # Part: Appendices
-  'appendix_initial_setup.Rmd' # contains PART header
+'survial_analysis.Rmd'
 ]
 
 before_chapter_script: "_common.R"
