@@ -14,9 +14,6 @@ rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
   'sample_project.Rmd',
-  'pairs_and_ggpairs.Rmd',
-  'china_choropleth_map.Rmd',
-  'illustrate_graphs_in_r.Rmd',
 
   # Part 2: Data Processing and Wrangling
   'r_data_transformation.Rmd', # contains PART header
@@ -31,17 +28,20 @@ rmd_files: [
   'radar_chart.Rmd',
   'likert_scale.Rmd',
   'a_simple_way_to_visualize_geographic_data.Rmd',
-#  'introduction_to_violin_plot.Rmd', # missing data file
+  'interactive_choropleth_map.Rmd',
+  'introduction_to_violin_plot.Rmd', # missing data file
   'base_r_ggplot_graph.Rmd',
 
   # Part: Results Reporting
   'visualization_tools_in_real_work.Rmd',  # contains PART header
   'color_in_r.Rmd',
   #'visualization_nyc_covid19_rshiny.Rmd', #shiny doesn't work
+  'illustrate_graphs_in_r.Rmd',
 
   # Part: Complete Analyses
   'china_choropleth_map.Rmd', # contains PART header
   'benfords_law.Rmd',
+  'visualizing_electoral_margins.Rmd',
 
   # Part: Cheatsheets and Video Tutorials
   'mosaic_plot_cheatsheet.Rmd',  # contains PART header
@@ -56,6 +56,7 @@ rmd_files: [
   'project_pichon.Rmd',
   'american_history_trivia_night.Rmd',
   'consuming_terrorism_statistics.Rmd',
+  'introduction_to_network_analysis.Rmd',
 
   # Part: Data Visualization
   'label_setting_techniques.Rmd',
@@ -66,6 +67,8 @@ rmd_files: [
   'korean_translation_of_scatterplot.Rmd',
   'rmarkdown_tutorial_chinese_translation.rmd',
   'ggplot2_tutorial_translated.Rmd',
+  'chinese_tutorial_rvest_httr.Rmd',
+  'website_sharing_whole_class_mosaic_plot_translation.Rmd',
 
   # Part: Other Topics
   'rselenium_tutorial.Rmd',  # contains PART header
@@ -79,14 +82,12 @@ rmd_files: [
   'data_visualization_in_python.Rmd',
   'final_project_teammate_finder.Rmd',
   'among_us_stats.Rmd',
-
-
+  'ipywidgets_tutorial.Rmd',
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
   'appendix_pull_request_tutorial.Rmd',
-  'appendix_chapter_organization.Rmd']
-
+  'appendix_chapter_organization.Rmd'
+]
 
 before_chapter_script: "_common.R"
-

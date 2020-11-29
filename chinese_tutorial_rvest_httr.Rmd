@@ -1,0 +1,484 @@
+# Chinese Web scraping using R package: rvest & httr tutorial
+
+Huiqian Yu
+
+```{r global_options, include=FALSE}
+library("rvest")
+library("httr")
+```
+
+## Summary:
+
+This is a tutorial in Chinese shows how to implement  `rvest` and `httr` package for web scraping. 
+
+This note covers fundamental package description, four examples on web scraping: 1. scrap R package infomation on CRAN, 2. scrap R related question on stack overflow  using `rvest` package and scrap top 250 movies from dynamic website using  `httr` package, which users could simply practice and start their own scrapper. I choose not to repeat html, css and xpath in this note since there are former work cover these. 
+
+
+
+## 使用 rvest 包抓取数据
+
+rvest 包是 Rcurl 的轻量级版本，其中的函数非常容易记忆，并且已经足够胜任大部分爬取工作，据 Hadley 大神说，rvest 包的开发，是受到了 Python 的爬虫库`BeautifulSoup`的启发。
+
+### 常用函数
+
+- rvest 包中常用函数一览：
+
+  | Function Name       | Meaning                                          | meaningChinese                     |
+  | ------------------- | ------------------------------------------------ | ---------------------------------- |
+  | `back`              | History navigation tools                         | 导航工具                           |
+  | `encoding`          | Guess and repair faulty character encoding.      | 猜测并修复错误的字符编码。         |
+  | `follow_link`       | Navigate to a new url.                           | 导航到一个新的url。                |
+  | `google_form`       | Make link to google form given id                | 使链接到谷歌形式给定的id           |
+  | `guess_encoding`    | Guess and repair faulty character encoding.      | 猜测并修复错误的字符编码。         |
+  | `html`              | Parse an HTML page.                              | 解析HTML页面。                     |
+  | `html_attr`         | Extract attributes, text and tag name from html. | 从html中提取属性、文本和标记名称。 |
+  | `html_attrs`        | Extract attributes, text and tag name from html. | 从html中提取属性、文本和标记名称。 |
+  | `html_children`     | Extract attributes, text and tag name from html. | 从html中提取属性、文本和标记名称。 |
+  | `html_form`         | Parse forms in a page.                           | 解析页面中的表单。                 |
+  | `html_name`         | Extract attributes, text and tag name from html. | 从html中提取属性、文本和标记名称。 |
+  | `html_node`         | Select nodes from an HTML document               | 从HTML文档中选择节点               |
+  | `html_nodes`        | Select nodes from an HTML document               | 从HTML文档中选择节点               |
+  | `html_session`      | Simulate a session in an html browser.           | 在html浏览器中模拟会话。           |
+  | `html_table`        | Parse an html table into a data frame.           | 将html表解析为数据帧。             |
+  | `html_text`         | Extract attributes, text and tag name from html. | 从html中提取属性、文本和标记名称。 |
+  | `is.session`        | Simulate a session in an html browser.           | 在html浏览器中模拟会话。           |
+  | `jump_to`           | Navigate to a new url.                           | 导航到一个新的url。                |
+  | `pluck`             | Extract elements of a list by position.          | 按位置提取列表的元素。             |
+  | `read_xml.response` | Parse an HTML page.                              | 解析HTML页面。                     |
+  | `read_xml.session`  | Parse an HTML page.                              | 解析HTML页面。                     |
+  | `repair_encoding`   | Guess and repair faulty character encoding.      | 猜测并修复错误的字符编码。         |
+  | `session_history`   | History navigation tools                         | 历史记录导航工具                   |
+  | `set_values`        | Set values in a form.                            | 在表单中设置值。                   |
+  | `submit_form`       | Submit a form back to the server.                | 将表单提交回服务器。               |
+
+### 节点定位方法
+
+- css 选择器与 xpath 用法对比
+
+css 选择器和 xpath 方法都是用来定位 DOM 树的标签，只不过两者的定位表示形式上存在一些差别：
+
+| 目标                                  | 匹配节点                   | CSS 3            | XPath                         |
+| :------------------------------------ | :------------------------- | :--------------- | :---------------------------- |
+| 所有节点                              | `~`                        | `*`              | `//*`                         |
+| 查找一级、二级、三级标题节点          | `<h1>`,`<h2>`,`<h3>`       | `h1`,`h2`,`h3`   | `//h1`,`//h2`,`//h3`          |
+| 所有的 P 节点                         | `<p>`                      | `p`              | `//p`                         |
+| p 节点的所有子节点                    | `<p>`标签下的所有节点      | `p > *`          | `//p/*`                       |
+| 查找所有包含 attr 属性的 li 标签      | `<li attr="~">`            | `li[attr]`       | `li[@attr]`                   |
+| 查找所有 attr 值为 value 的 li 标签   | `<li attr="value">`        | `li[attr=value]` | `//li[@attr='value']`         |
+| 查找 id 值为 item 的所有 div 节点     | `<div id="item">`          | `div#item`       | `//div[@id='item']`           |
+| 查找 class 值中包含 foo 的所有标签    | `<* class="foo blahblah">` | `.foo`           | `//*[contains(@class,'foo')]` |
+| 第一个 P 节点                         | 所有`<p>`中的第一个 `<p>`  | `p:first-child`  | `//p[1]`                      |
+| 第 n 个 P 节点                        | 所有`<p>`中的第 n 个 `<p>` | `p:nth-child(n)` | `//p[n]`                      |
+| 拥有子节点 a 的所有 P 节点            | `<p><a></p>`               | css 无法实现     | `//p[a]`                      |
+| 查找文本内容是“Web Scraping”的 p 节点 | ``<p>`Web Scraping`</p>``  | css 无法实现     | `//p[text()="Web Scraping"]`  |
+
+关于html, css, xpath详细内容可以参考https://www.w3schools.com/html/default.asp， 在此不再赘述。
+
+### 案例一：抓取 CRAN 上所有 R 包的信息
+
+链接：https://cran.rstudio.com/web/packages/available_packages_by_name.html
+
+要求：获取 CRAN 上所有 R 包的信息（名称、简介）
+
+1. 分析网页结构
+2. 抓取网页数据
+
+```R
+u <- "https://cran.rstudio.com/web/packages/available_packages_by_name.html"
+page <- u %>% read_html()
+pkg_table <- page %>% html_node('table') %>% html_table(fill=TRUE) 
+str(pkg_table)
+```
+
+```R
+## 'data.frame':    11063 obs. of  2 variables:
+##  $ X1: chr  "" "A3" "abbyyR" "abc" ...
+##  $ X2: chr  NA "Accurate, Adaptable, and Accessible Error Metrics for Predictive\nModels" "Access to Abbyy Optical Character Recognition (OCR) API" "Tools for Approximate Bayesian Computation (ABC)" ...
+#View(pkg_table)
+```
+
+3. 数据的变形、清洗
+
+前面我们已经看到表格的第一行存在缺失值，那么我们接下来就要对表格进行数据清洗:
+
+```R
+# 删除缺失值
+pkg_table <- pkg_table[complete.cases(pkg_table),]
+# 定义表头
+colnames(pkg_table) <- c("name","title")
+head(pkg_table,3)
+```
+
+```R
+##     name
+## 2     A3
+## 3 abbyyR
+## 4    abc
+##                                                                      title
+## 2 Accurate, Adaptable, and Accessible Error Metrics for Predictive\nModels
+## 3                  Access to Abbyy Optical Character Recognition (OCR) API
+## 4                         Tools for Approximate Bayesian Computation (ABC)
+```
+
+4. 数据的存储
+
+数据量较小，可以直接写入本地文件。
+
+```R
+# 1. 直接存为 Rdata
+save(pkg_table,file="pkg_table.Rdata")
+# 2. 存为 CSV 文件
+write.table(pkg_table, file = "pkg_table.csv", quote = FALSE,
+            row.names = FALSE, col.names = TRUE, sep=",")
+```
+
+### 案例二：抓取 stackoverflow 上关于 R 的问题
+
+链接：http://stackoverflow.com/questions/tagged/r?page=1&sort=votes&pageSize=15
+
+要求：给定想爬取的总页数，得到每个问题的标题、票数、回答数、查看数，并把这些问题的信息拼接成一个数据框
+
+1. 分析页面结构
+2. 抓取网页数据
+
+```R
+u <- "http://stackoverflow.com/questions/tagged/r?page=1&sort=votes&pageSize=50"
+page <- u %>% read_html()
+title <- page %>% html_nodes("div.summary > h3") %>% html_text()
+vote <- page %>% html_nodes("span.vote-count-post > strong") %>% html_text()
+answer <- page %>% html_nodes("div.status > strong") %>% html_text
+view <- page %>% html_nodes("div.views") %>% html_attr("title")
+df <- data.frame(title=title, vote=vote,
+                 answer=answer, view=view, stringsAsFactors = FALSE)
+```
+
+1. 数据的变形、清洗
+
+3. 数据的变形、清洗
+
+我们已经得到了原始数据，但数据的类型却不是我们想要的，我们要对这些数据作分析的话，需要令`vote`、`answer`、`view`为数值型的。
+
+```R
+str(df)
+```
+
+```R
+## 'data.frame':    50 obs. of  4 variables:
+##  $ title : chr  "How to make a great R reproducible example?" "How to sort a dataframe by column(s)?" "R Grouping functions: sapply vs. lapply vs. apply. vs. tapply vs. by vs. aggregate" "How to join (merge) data frames (inner, outer, left, right)?" ...
+##  $ vote  : chr  "1870" "926" "780" "727" ...
+##  $ answer: chr  "22" "16" "9" "11" ...
+##  $ view  : chr  "158,341 views" "856,797 views" "296,448 views" "513,210 views" ...
+```
+
+```R
+df$vote <- df$vote %>% as.numeric()
+df$answer <- df$answer %>% as.numeric()
+df$view <- df$view %>% str_replace_all(pattern = "[,a-z ]+",
+                                         replacement = "") %>% as.numeric
+str(df)
+```
+
+```R
+## 'data.frame':    50 obs. of  4 variables:
+##  $ title : chr  "How to make a great R reproducible example?" "How to sort a dataframe by column(s)?" "R Grouping functions: sapply vs. lapply vs. apply. vs. tapply vs. by vs. aggregate" "How to join (merge) data frames (inner, outer, left, right)?" ...
+##  $ vote  : num  1870 926 780 727 532 526 479 425 411 404 ...
+##  $ answer: num  22 16 9 11 7 17 12 4 6 17 ...
+##  $ view  : num  158341 856797 296448 513210 60681 ...
+```
+
+在抓取数据时，可以同时完成这些简单的数据处理。
+
+1. 存储数据
+
+```R
+save(df,file="stackoverflow[r].Rdata")
+#write.table(df,file = "stackoverflow[r].csv", sep = ",", quote = FALSE,
+#            row.names = FALSE, col.names = TRUE)
+```
+
+- 实现自动翻页功能
+
+```R
+get_qInfo <- function(i){
+        require(rvest)
+        u <- sprintf("http://stackoverflow.com/questions/tagged/r?page=%d&sort=votes&pageSize=15",i)
+        page <- u %>% read_html()
+        title <- page %>% html_nodes("div.summary > h3") %>% html_text()
+        vote <- page %>% html_nodes("span.vote-count-post > strong") %>% 
+                html_text() %>% as.numeric
+        answer <- page %>% html_nodes("div.status > strong") %>% 
+                html_text %>% as.numeric
+        view <- page %>% html_nodes("div.views") %>% html_attr("title") %>%
+                str_replace_all(pattern = "[,a-z ]+", 
+                                replacement = "") %>% as.numeric
+        df <- data.frame(title=title, vote=vote,
+                 answer=answer, view=view, stringsAsFactors = FALSE)
+        return(df)
+}
+
+total <- 3
+total_info <- lapply(1:total, get_qInfo) %>% Reduce(rbind,.)
+
+save(total_info, file="stackoverflow[r].Rdata")
+```
+
+
+
+## 使用 httr 包抓取数据
+
+在实际R爬虫过程中，针对不同的网页，采取的爬虫方法也会有所不同。对于静态网页，rvest`包足够了`。但是对于网页动态加载的数据，继续使用`rvest`可能就不合适了。这时候需要`RCurl`或`httr`这类能提供丰富请求参数的R包，才能实现对这类动态网页的抓取。这里主要介绍`httr`，虽然说`httr`包已经比`RCurl`精简很多，但涉及到的函数也很多，但是常规爬虫中用的比较多的还是`GET`和`POST`这两个函数。
+
+### httr 中的常用函数
+
+请求方式包括`GET`,`POST`,`PUT`,`DELETE`,`PATCH`。常用的是`GET`,`POST`方法，因此本文仅对`GET`,`POST`这两种方法所对应的 httr 包中的函数进行介绍。
+
+- `GET( )`
+
+`GET( )`函数使用的是`GET`请求方法。
+
+```R
+u <- "https://movie.douban.com/j/search_subjects?type=movie&tag=热门&page_limit=40&page_start=0"
+r <- GET(u,verbose())
+r$status_code
+```
+
+- `POST( )`
+
+在POST方法中，这三个部分：`status_line`,`headers`,`body`，都比较重要。
+
+我们对`status_line`中的`status_code`最感兴趣，因为它反映了我们的请求是否被接受，不被接受的话，又是因为什么而拒绝我们的请求。
+
+`POST()`函数向服务器以 POST 方式发起请求。我们使用`add_headers()`往请求中构造请求,在这里，主要讲解怎么在`POST( )`中构造`body`。
+
+```R
+url <- "http://httpbin.org/post"
+body <- list(a=1,b=2,c=3)
+r <- POST(url,body=body,encode="form",verbose())
+```
+
+**注释**：只有当`body`是**命名列表**时，我们才可以指定`encode`参数，并且`encode`参数的值又随`content-type`的值而有所不同。
+
+具体使用哪个函数发起请求，要依目标链接的请求方式而定。
+
+- `add_headers()`
+
+`add_headers()`可以在前面讲过的`GET()`、`POST()`请求中构造请求头。
+
+Q：为什么要构造请求头？
+
+A：反反爬策略之一。让你的请求成功通过，从而拿到你想要的数据。
+
+往请求标头里增加属性，我们使用函数`add_headers(name1=val1，name2=val2,...)`。
+
+```R
+u <- "https://movie.douban.com/j/search_subjects?type=movie&tag=热门&page_limit=40&page_start=0"
+
+headers <- c("User-Agent"="Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0",
+             "X-Requested-With"="XMLHttpRequest",
+             "Cookie"='ll="108300"; bid=lVscia-_MWA; _pk_ref.100001.4cf6=%5B%22%22%2C%22%22%2C1499860968%2C%22https%3A%2F%2Fwww.baidu.com%2Fbaidu%3Fwd%3D%25E8%25B1%2586%25E7%2593%25A3%26tn%3Dmonline_4_dg%26ie%3Dutf-8%22%5D; _pk_id.100001.4cf6=c1f0706d81e95c0b.1488797655.52.1499860968.1499858546.; __utma=30149280.647508500.1488797657.1499856903.1499860968.52; __utmz=30149280.1499418495.32.17.utmcsr=douban.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utma=223695111.2135525097.1488797657.1499856903.1499860968.52; __utmz=223695111.1499860968.52.24.utmcsr=baidu|utmccn=(organic)|utmcmd=organic|utmctr=%E8%B1%86%E7%93%A3; _vwo_uuid_v2=E6655FD962C6D1103E3FF2A4F47436B5|9fe9945dedabcf10658c10bb20c79bd9; viewed="3283973"; gr_user_id=39d25c13-cc3d-4203-90b3-998f5d747d38; __yadk_uid=BYBkYyvVzLcrrN3BgQhaxvVdx4tJVLvt; ue="1329262214@qq.com"; __utmv=30149280.14318; ps=y; push_noty_num=0; push_doumail_num=0; ap=1; __utmc=30149280; __utmc=223695111; as="https://movie.douban.com/"; _pk_ses.100001.4cf6=*; __utmb=30149280.0.10.1499860968; __utmb=223695111.0.10.1499860968',
+             "Cache-Control"="max-age=0")
+
+r <- u %>% GET(add_headers(headers),verbose())
+
+bodyData <- r %>% content()
+```
+
+- `use_proxy()`
+
+`use_proxy(ip, port)`是用来为请求添加代理 ip 的。
+
+Q：为什么要添加代理 ip？
+
+A：反反爬策略之一。
+
+- `content()`
+
+`content()`用来获取响应的正文，即响应中的`body`部分。`body`中的内容可以是一个静态网页的 HTML 源码，也可以是在动态网页利用 AJAX 技术（异步加载）完成请求后，让后台返回的 JSON 格式数据。
+
+```R
+u <- "https://movie.douban.com/"
+
+# 返回静态网页 HTML 源码
+r <- u %>% GET(verbose())
+
+r %>% content() # 接下来可以用 rvest 包完成节点定位，获取数据的工作
+```
+
+```R
+## {xml_document}
+## <html lang="zh-cmn-Hans" class="">
+## [1] <head>\n<meta http-equiv="Content-Type" content="text/html; charset= ...
+## [2] <body>\n  \n    <script type="text/javascript">var _body_start = new ...
+```
+
+
+
+### 捕获错误机制
+
+```R
+# 各链接分别对应电影：触不可及、当幸福来敲门、搏击俱乐部、无间道
+u <- c("https://movie.douban.com/subject/6786002/",
+       "https://movie.douban.com/subject/1849031/",
+       "https://movie.douban.com/subject/1292000/",
+       "https://movie.douban.com/subject/1307914/")
+
+get_rate <- function(u){
+        require(httr)
+        require(rvest)
+        page <- u %>% GET %>% content()
+        rate <- page %>% html_nodes(".rating_self > strong") %>%
+                html_text %>% as.numeric
+        df <- data.frame(0,rate,10)
+        return(df[,2])
+}
+
+lapply(u,get_rate)
+#Error in data.frame(0, rate, 10) : 参数值意味着不同的行数: 1, 0
+```
+
+在爬取数据时，捕获错误是必要的，监控错误。
+
+- `tryCatch()`
+
+```R
+u <- "https://movie.douban.com/subject/1292000/"
+tryCatch(
+        {r <- u %>% GET()
+        stop_for_status(r)
+        cat("请求成功！\n")},
+        error=function(e){
+                cat("请求失败:",conditionMessage(e),"\n")
+        },
+        finally=cat("已经到了最后了")
+        )
+```
+
+```R
+## 请求失败: Not Found (HTTP 404). 
+## 已经到了最后了
+```
+
+`finally`语句不是必须的，在封装函数时，一般都会忽略`tryCatch()`里的`finally`语句。
+
+试着捕获上面的出错语句：
+
+```R
+u <- c("https://movie.douban.com/subject/6786002/",
+       "https://movie.douban.com/subject/1849031/",
+       "https://movie.douban.com/subject/1292000/",
+       "https://movie.douban.com/subject/1307914/")
+
+get_rate <- function(u){
+        require(httr)
+        require(rvest)
+        page <- u %>% GET %>% content()
+        rate <- page %>% html_nodes(".rating_self > strong") %>%
+                html_text %>% as.numeric
+        tryCatch(
+                {df <- data.frame(0,rate,10)
+                return(df[,2])},
+                 error=function(e){
+                         cat("Error:",conditionMessage(e),"\n")
+                         return(NULL)})
+}
+
+lapply(u,get_rate)
+```
+
+```R
+## Error: arguments imply differing number of rows: 1, 0
+```
+
+```R
+## [[1]]
+## [1] 9.1
+## 
+## [[2]]
+## [1] 8.9
+## 
+## [[3]]
+## NULL
+## 
+## [[4]]
+## [1] 9
+```
+
+
+
+### 案例三：抓取豆瓣电影 top250
+
+链接：https://movie.douban.com/top250
+
+要求：获取豆瓣电影 top250 列表
+
+```R
+get_top250 <- function(i,getLink=FALSE){
+        require(httr)
+        u <- sprintf("https://movie.douban.com/top250?start=%d&filter=",i)
+        page <- u %>% GET() %>% content
+        title <- page %>% html_nodes(".title:nth-child(1)") %>% html_text()
+        if(getLink){
+                detail_link <- page %>% html_nodes("div.hd > a") %>% html_attr("href")
+                df <- data.frame(title=title,
+                                 detail_link=detail_link,
+                                 stringsAsFactors = FALSE)
+                return(df)
+        }else return(title)
+}
+
+# 不需要得到电影详情页面链接
+top250 <- lapply(seq(0,225,by=25), get_top250)
+
+top250_vec <- top250 %>% unlist
+
+save(top250_vec, file="top250_vec.Rdata")
+
+# 需要得到电影详情页面链接
+top250_withLink <- lapply(seq(0,225,by=25),
+                          get_top250, getLink=TRUE)
+
+top250_df <- top250_withLink %>% Reduce(rbind,.)
+
+save(top250_df, file="top250_df.Rdata")
+```
+
+
+
+### 案例四：抓取豆瓣热门电影「动态页面的抓取」
+
+链接：https://movie.douban.com/
+
+要求：获取豆瓣电影首页展示出来的热门电影列表
+
+```R
+library(httr)
+library(jsonlite)
+
+u <- "https://movie.douban.com/j/search_subjects?type=movie&tag=热门&page_limit=40&page_start=0"
+
+## 一、发起 GET 请求获取数据
+headers <- c("User-Agent"="Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0",
+             "X-Requested-With"="XMLHttpRequest",
+             "Cookie"='ll="108300"; bid=lVscia-_MWA; _pk_ref.100001.4cf6=%5B%22%22%2C%22%22%2C1499860968%2C%22https%3A%2F%2Fwww.baidu.com%2Fbaidu%3Fwd%3D%25E8%25B1%2586%25E7%2593%25A3%26tn%3Dmonline_4_dg%26ie%3Dutf-8%22%5D; _pk_id.100001.4cf6=c1f0706d81e95c0b.1488797655.52.1499860968.1499858546.; __utma=30149280.647508500.1488797657.1499856903.1499860968.52; __utmz=30149280.1499418495.32.17.utmcsr=douban.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utma=223695111.2135525097.1488797657.1499856903.1499860968.52; __utmz=223695111.1499860968.52.24.utmcsr=baidu|utmccn=(organic)|utmcmd=organic|utmctr=%E8%B1%86%E7%93%A3; _vwo_uuid_v2=E6655FD962C6D1103E3FF2A4F47436B5|9fe9945dedabcf10658c10bb20c79bd9; viewed="3283973"; gr_user_id=39d25c13-cc3d-4203-90b3-998f5d747d38; __yadk_uid=BYBkYyvVzLcrrN3BgQhaxvVdx4tJVLvt; ue="1329262214@qq.com"; __utmv=30149280.14318; ps=y; push_noty_num=0; push_doumail_num=0; ap=1; __utmc=30149280; __utmc=223695111; as="https://movie.douban.com/"; _pk_ses.100001.4cf6=*; __utmb=30149280.0.10.1499860968; __utmb=223695111.0.10.1499860968',
+             "Cache-Control"="max-age=0")
+
+r <- u %>% GET(add_headers(headers),verbose())
+
+bodyData <- r %>% content()
+
+### 1.第一种方法
+Shaped_body <- bodyData %>% toJSON() %>% fromJSON() %>% as.data.frame(stringsAsFactors=FALSE)
+
+str(Shaped_body)
+
+### 2.第二种方法
+cleaned_body <- lapply(bodyData[[1]],function(x){
+        data.frame(title=x$title,rate=x$rate %>% as.numeric,source_url=x$url,
+                   stringsAsFactors = FALSE)
+})  %>% Reduce(rbind,.)
+
+str(cleaned_body)
+
+## 二、直接用 fromJSON 获取页面的 JSON 格式数据
+parsed_data <- u %>% fromJSON() # 请求不稳定，经常会失败，非常不建议这样做
+```
