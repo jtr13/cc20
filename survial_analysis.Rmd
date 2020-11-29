@@ -2,10 +2,6 @@
 
 Haoxiong Su and Tianchun Huang
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ```{r message=FALSE}
 library(survival)
 library(survminer)
