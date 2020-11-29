@@ -1,0 +1,388 @@
+# (PART) Data Processing and Wrangling {-}
+
+# Data transformation in R
+
+Jiongxin Ye and Zhuoyan Ma
+
+## Introduction
+
+Data visualizations are nice and insightful, but we usually spend more time formatting, cleaning and wrangling the data. Sometimes, we need to transform the data to perform a better visualization, or maybe we just want to rename the variables and get summaries. No matter for detect factual information or implicit relationships, data transformation plays an important role, helping us to dig deeper and wider and thus telling a better story from data. 
+
+As a result, we want share some useful methods of data transformation to let you play with data more efficiently. Specifically, we want to provide a detailed instruction of package **dplyr**. We hope that you can know the various methods in changing the data frame and function in selecting the data which you want after reading this article.
+
+
+## Basics
+
+As said before, we will mainly use **dplyr** package, which will be automatically installed if you install the tidyverse. 
+
+  + filter: select observations by their values
+  + arrange: reorder observations
+  + select: pick variables by their names
+  + mutate: create or rename variables
+  + summarize: aggregate observations
+  + group_by: group observations by variables
+  
+All dplyr "verbs" are functions that take a data frame and return a data frame after the operation
+
+To explore the basic data manipulation of dplur, we will demonstrate using nycflights13::flights. It's a dataset which contains information of 336,776 flights that departed from New York City in 2013. You can access it by installing the packages 'nycflights13'.
+
+```{r warning=FALSE,message=FALSE}
+library(tidyverse)
+library(nycflights13)
+nycflights13::flights
+```
+
+## Function Usage
+
+### 1. Filter( )
+To select observations we can use filter:
+
+filter (.data, condition1, condition2, ..., conditionN)
+    
+where each condition evaluates to a logical vector and only **TRUE** entries are kept.
+
+**Example: **
+
+* we want to focus on the flight whose **carrier is UA**. 
+```{r}
+UA_flight <- filter(flights,carrier=='UA')
+head(UA_flight)
+UA_num = nrow(UA_flight)
+```
+
+***What we found:***
+
+There are `UA_num`, 58665, flights whose carrier is UA in nycflights13 dataset. 
+
+
+* We also can use filter to remove rows that associated with **NA** values of certain variables like dep_time. 
+```{r}
+Tidy_flight<-filter(flights,!is.na(dep_time))
+dep_num = nrow(Tidy_flight)
+```
+
+***What we found:***
+
+we remove over 8,000 rows whose dep_time is NA. The total number of observations after removing the NA objects in dep_time is `dep_num`, which is 328521.
+
+
+* More importantly, we can cooperate with logical operators ! (not), | (or), & (and) and some statistical rules such as De Morgan's Law, to add more conditions in the filter function in a way you like. 
+
+Below three approaches are equivalent to find flights in **January and Feburary**.
+```{r}
+filter(flights, month == 1 | month == 2)
+filter(flights, month %in% c(1, 2))
+filter(flights, month <=2 )
+```
+
+#### More exercises:
+Find flights that:
+
+  + Were delayed by at least an hour, but made up over 30 minutes in flight
+  
+```{r}
+filter(flights, dep_delay > 60, dep_delay - arr_delay >= 30)
+```
+
+ + Flew to Boston operated by United, American or Delta in Summer (June to August)
+```{r}
+filter(flights, dest == "BOS",
+carrier == "UA" | carrier == "AA" | carrier == "DL",
+month %in% c(6, 7, 8))
+```
+
+### 2. Arrange( )
+Arrange( ) function lets us to reorder the rows in a order that we want:
+
+  arrange (.data, variable1, variable2,..., .by_group = FALSE)
+
+It's default in increasing order. To reorder decreasingly, use `desc`. You can also reorder the rows by group, using `.by_group`.
+
+**Example: **
+
+* we can reorder the flight by the delay in departure in a increasing order.
+```{r}
+arrange(flights, dep_delay)
+```
+
+***What we found:***
+
+The data has been reorder by dep_delay value from small to large.
+
+* we can reorder the flight by the delay in departure in a decreasing order.
+```{r}
+arrange(flights, desc(dep_delay))
+```
+
+***What we found:***
+
+The data has been reorder by dep_delay value from large to small.
+
+* we can reorder the flight by the month and day.
+```{r}
+arrange(flights, month, day)
+```
+
+***What we found:***
+
+The data has been reorder by 2 variables: month and day. For the object with same month, they are reordering by day. 
+
+* we can reorder the flight by the delay in departure in a decreasing order group by carrier.
+```{r}
+flights%>%group_by(carrier)%>%arrange(desc(dep_delay),.by_group = TRUE)
+```
+
+***What we found:***
+
+The data has been reorder by grouping the carrier and then order by dep_delay value from large to small. Since the carrier is nominal variable, the carrier order is default. ***Attention:*** If we don't use the `.by_group` in arrange( ), the data will be reorder just by dep_delay value although we have group_by the data in previous.
+
+
+### 3. Select( )
+It subsets a dataset containing only selected variables.
+
+  select (.data, variable_expression)
+
+Some helper functions:
+
+  + Negative indices remove variables from the selection.
+  + A:B, from column A to column B
+  + starts_with("abc"): matches names starting with "abc"
+  + ends_with("xyz"): matches names ending with "xyz"
+  + contains("ijk"): matches names containing "ijk"
+  + num_range("x", 1:3): matches x1, x2, x3
+
+We can use the operators in selecting the variables easily and use c( ) to combine selections.
+
+**Example:**
+
+* Select year, month, day, destination columns from flights.
+```{r}
+select(flights, year:day, dest)
+```
+
+we can also use the columns number to represent the columns name.
+```{r}
+select(flights, 1:3, 14)
+```
+
+we can also use | to union the variable set.
+```{r}
+select(flights, 1:3|14)
+```
+
+* Select all columns except year, month, day, destination from flights.
+```{r}
+select(flights, !year:day, !dest)
+```
+
+* We can also use the c( ) to combine the variables.
+```{r}
+select(flights, !c(year:day,dest))
+```
+
+* Select columns end with 'times'.
+```{r}
+select(flights, ends_with("time"))
+```
+
+* Select columns end with 'times' but without the one starting with 'sched'.
+```{r}
+select(flights, ends_with("time"), -starts_with("sched"))
+```
+
+* Select columns contains 'dep'.
+```{r}
+select(flights, contains("dep"))
+```
+
+* Select year, month, day, destination columns from flights. Also columns end with 'times' but without the one starting with 'sched'.
+```{r}
+select(flights, year:day, dest, ends_with("time"), -starts_with("sched"))
+```
+
+***Attention: *** For without condition, we can also use `!` to replace the `-`.
+
+* We can also use `& ` to intersect the variables set together, which is equivalent with the previous method.
+```{r}
+select(flights, year:day, dest, ends_with("time")& -starts_with("sched"))
+```
+
+* This is an example of using operations in select( ). It also approaches to the same result as before. 
+```{r}
+select(flights, year:day|dest|ends_with("time")&!starts_with("sched"))
+```
+
+
+### 4. Mutate( )
+It changes variables to the format that we want. If we want to only keep the variables that we create, we should use transmute( )
+
+  mutate (.data,..., .keep = c("all", "used", "unused", "none"), .before = NULL, .after = NULL)
+
+Some helper functions：
+  
+  + Arithmetic operators: +, -, *, /, ^, %/% (integer division), and %% (remainder)
+  + Mathematical functions such as log, exp, sin, cos, and others
+  + Logical operators, e.g. !=, |, as we saw when discussing filter
+  + Offsets: lead and lag, e.g., to compute running difference x - lag(x)
+  + Aggregators: mean, sum, min, max and their respective cummulators cummean, cumsum, cummin, cummax
+  
+
+**Example:**
+
+* We create three variables here: gain which measures in-flight time gain, duration which is flight duration in hours and speed which equals to distance divided by duration. 
+```{r}
+mutate(flights,gain = dep_delay - arr_delay, 
+        duration = air_time / 60,
+        speed = distance / duration)
+```
+
+***Attention:*** Since the default value of `.keep` = "all", we will get a new data frame with all variables and new variables.
+
+* we can also use `.keep` = "used" to get the data frame contain the new variables and variables we used in generate the new variables.
+```{r}
+mutate(flights,gain = dep_delay - arr_delay, 
+        duration = air_time / 60,
+        speed = distance / duration,
+        .keep = "used")
+```
+
+* we can also use `.keep` = "unused" to get the data frame contain the new variables and all variables which don't used in calulate the new variables. This transform is equal to replace the variables using new variable related to it in this data frame. 
+```{r}
+mutate(flights,gain = dep_delay - arr_delay, 
+        duration = air_time / 60,
+        speed = distance / duration,
+       .keep = "unused")
+```
+
+* we can also use `.keep` = "none" to get the data frame only contain the new variables. This transform is same as using default transmute. 
+```{r}
+mutate(flights,gain = dep_delay - arr_delay, 
+        duration = air_time / 60,
+        speed = distance / duration,
+        .keep = "none")
+```
+
+```{r}
+transmute(flights,gain = dep_delay - arr_delay, 
+        duration = air_time / 60,
+        speed = distance / duration)
+```
+
+ 
+***Attention: *** The difference between Mutate( ) and Transmute( ) is that: the default return from Mutate( ) are all variables with new variables. However, the default return from transmute( ) is only the new variables. We can change the parameter in each functions and get the same result. 
+
+* We create a new boolean variable as_scheduled which indicates whether the flight delays in arrival time or departure time. And we use transmute here to only keep three variables, including the one we just created. 
+```{r}
+flights %>% transmute(arr_delay, dep_delay,
+          as_scheduled = arr_delay < 0 & dep_delay < 0)
+```
+
+* We use `.before` and `.after` to determine the position of new variables. Create three variables here: gain which measures in-flight time gain, duration which is flight duration in hours and speed which equals to distance divided by duration. Then we want to place the variables in front of dep_time.
+```{r}
+mutate(flights,gain = dep_delay - arr_delay, 
+        duration = air_time / 60,
+        speed = distance / duration,
+        .before = dep_time)
+```
+
+* We create three variables here: gain which measures in-flight time gain, duration which is flight duration in hours and speed which equals to distance divided by duration. Then we want to place the variables in after of dep_time.
+```{r}
+mutate(flights,gain = dep_delay - arr_delay, 
+        duration = air_time / 60,
+        speed = distance / duration,
+        .after = dep_time)
+```
+
+### 5. Group_by( ) and Summarize( )
+
+Summarize( ) is used to aggregated data. We usually use it after grouping the observations with group_by. In other words, when we want to know counts of certain combinations of variables, we can take advantage of group_by and summarize. (Hint: summarise () is the same as summarize( )).
+
+**Examples:**
+
+* For each original airports, find their median delay time and associated counts. 
+`na.rm` = TRUE: remove missing values
+```{r}
+summarize(group_by(flights, origin),median_delay = median(arr_delay, na.rm = TRUE), count = n())
+```
+
+* For each original airports and each carriers, find the proportion of flights that had a delayed departure, but by no longer than 30 minutes.
+```{r}
+summarize(group_by(flights, origin, carrier),
+          prop_delayed = mean(between(dep_delay, 0, 30), na.rm = TRUE))
+```
+
+* We can also use `group_by` in front of summarize.
+
+```{r}
+flights %>% 
+  group_by(origin, carrier) %>% summarize(prop_delayed = mean(between(dep_delay, 0, 30), na.rm = TRUE))
+```
+
+
+## Quick EDA: median arrival delays
+
+Here, we utilize the tools of **dyplr** to conduct a quick exploratory data analysis of median arrival delays of flights. 
+
+First, we clean the dataset a little bit by filtering out the flights whose arr_delay and dep_delay is NA. Therefore, we can find flights that are not cancelled and then it's meaningful to analyze their arrival delay. 
+
+```{r}
+not_canceled <- flights %>% filter(!is.na(arr_delay), !is.na(dep_delay))
+```
+
+Then, we want to see if the arrival delays of flights are different at each airport, so we use group_by( ) and summarise( ) to get a basic statistics summary of arrival delays.Here, we display counts, min, 25th quantile, median, 75th quantile and max of arrival delays. 
+```{r message=FALSE}
+not_canceled %>% group_by(origin) %>% 
+  summarize(count = n(),min_delay = min(arr_delay),
+            q1_delay = quantile(arr_delay, .25), # first quartile 
+            median_delay = median(arr_delay),
+            q3_delay = quantile(arr_delay, .75), # third quartile 
+            max_delay = max(arr_delay))
+```
+Through the summary, we discover that the flights distributes pretty evenly in three airports, which avoids selection bias affecting our analysis negatively. Also, EWR has highest median delay and LGA has the lowest one. But, we have to say that the differences of median delay at three airpots don't seem to be very significant, which suggests that the arrival delay may not depend on the airports.
+
+Then, we want to see if the arrival delay depends on the flight. Thus, let us plot histogram median arrival delay for each flight:
+```{r message=FALSE}
+ plot_theme<-theme(panel.grid.major.y = element_line(),
+        panel.grid.major.x = element_line(),
+        panel.grid.minor = element_line(),
+        plot.background = element_rect(fill='#FAFAFA'),
+        axis.line = element_line(color='black'),
+        plot.title = element_text(hjust=0.25))
+
+not_canceled %>% group_by(flight) %>% 
+  summarize(delay = median(arr_delay)) %>% 
+  ggplot(aes(x=delay)) + 
+  geom_histogram()+
+  labs(x='Median Arrival Delay', y='Frequency', title='Histogram of Median Arrival Delay of each flight')+
+  plot_theme
+```
+
+We discover that most flights' median arrival delay is around 10,while only a very few number of flights have median arrival delay around 75 to 90 minutes.And one or two flights even have median delay over 200 miniutes.  
+
+Now let's plot median arrival delay against number of trips for flight:
+```{r message=FALSE}
+not_canceled %>% group_by(flight) %>%
+  summarize(count = n(), delay = median(arr_delay)) %>% 
+  ggplot(aes(x = count, y = delay)) + 
+  geom_point(alpha = 0.1)+
+  labs(x='Number of trips',y='median arrival delay',title='Median Arrival Delay V.s Number of trips')+
+  plot_theme
+```
+
+Like the previous plot, we notice that the "outliers" seem to be due to flights with small number of trips. Probably, we should remove them and take a closer look at ones that have more than 25 trips. We also add a regression line with a smoother, hoping to indicate something about relationship between median arrival delay and number of trips of flights.
+```{r}
+not_canceled %>% group_by(flight) %>%
+  summarize(count = n(), delay = median(arr_delay)) %>%
+  filter(count > 25) %>%
+  ggplot(aes(x = count, y = delay)) +
+  geom_point(alpha = .1) + 
+  geom_smooth()+
+  plot_theme
+```
+
+In the plot, we find a very weak negative relationship between number of trips and median arrival delay.
+
+## External Resource
+
+* <a href="https://dplyr.tidyverse.org/">dplyr</a>: Excellent resource about the overview of dplyr package.
+* <a href="https://stackoverflow.com/questions/25024224/linking-to-url-with-rmarkdown-using-knit-word-in-rstudio">Linking to URL in markdown</a> and <a href="https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf">R markdown Cheatsheet</a>: Tools to typeset in markdown. 
