@@ -59,7 +59,7 @@ We hope this document can effectively jumpstart any user (with limited language 
 ```{r}
 library(readr)
 library(vcd)
-df = read_csv("/Users/hanxiaozhang/Downloads/MusicIcecream.csv")
+df = read_csv("resources/website_sharing_whole_class_mosaic_plot_translation/MusicIcecream.csv")
 ```
 
 马赛克图需要一些时间来学习如何进行正确的阅读和绘制。特别是在刚开始的时候，我们建议循序渐进的学习绘制：先从划分一个变量开始，然后每次添加一个其他的变量。完整的马赛克图会对每个变量都进行一次拆分。
