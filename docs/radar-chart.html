@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-12-01" />
+<meta name="date" content="2020-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -813,9 +813,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb342-3"><a href="radar-chart.html#cb342-3"></a>                       <span class="st">&quot;Investigator&quot;</span>, <span class="st">&quot;Loyalist&quot;</span>, <span class="st">&quot;Enthusiast&quot;</span>, <span class="st">&quot;Challenger&quot;</span>, <span class="st">&quot;Peacemaker&quot;</span>)</span>
 <span id="cb342-4"><a href="radar-chart.html#cb342-4"></a>personA</span></code></pre></div>
 <pre><code>##   Reformer Helper Achiever Individual Investigator Loyalist Enthusiast
-## 1        5      4        5          7            3        9          8
+## 1        9      6        5          8            9        8          7
 ##   Challenger Peacemaker
-## 1          9          8</code></pre>
+## 1          3          9</code></pre>
 <ul>
 <li>set the min and max of each personality to show on the plot</li>
 </ul>
@@ -883,9 +883,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb348-4"><a href="radar-chart.html#cb348-4"></a><span class="kw">rownames</span>(ds_data) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;data scientist&quot;</span> , letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] , <span class="dt">sep=</span><span class="st">&quot;-&quot;</span>)</span>
 <span id="cb348-5"><a href="radar-chart.html#cb348-5"></a>ds_data</span></code></pre></div>
 <pre><code>##                  Programming ML Visulization Big Data Communication
-## data scientist-a           7  4           16        2             9
-## data scientist-b          20 15            5       14            19
-## data scientist-c          12  1           17        6            18</code></pre>
+## data scientist-a          11  2           13        6            10
+## data scientist-b          14  7           12        5             8
+## data scientist-c          20  4           17       19             3</code></pre>
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="radar-chart.html#cb350-1"></a>ds_bind &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">rep</span>(<span class="dv">20</span>,<span class="dv">5</span>) , <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">5</span>) , ds_data)</span>
 <span id="cb350-2"><a href="radar-chart.html#cb350-2"></a> </span>
 <span id="cb350-3"><a href="radar-chart.html#cb350-3"></a><span class="co">## plot with default options:</span></span>

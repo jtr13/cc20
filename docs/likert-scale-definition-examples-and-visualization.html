@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-12-01" />
+<meta name="date" content="2020-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -940,7 +940,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb366-32"><a href="likert-scale-definition-examples-and-visualization.html#cb366-32"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels =</span> q_lab) <span class="op">+</span></span>
 <span id="cb366-33"><a href="likert-scale-definition-examples-and-visualization.html#cb366-33"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;U.S. Adults Opinions on Climate Change-Relevant Regulations&quot;</span>,</span>
 <span id="cb366-34"><a href="likert-scale-definition-examples-and-visualization.html#cb366-34"></a>          <span class="dt">subtitle =</span> <span class="st">&#39;% (Attitude) on &quot;The government should __&quot;&#39;</span>)</span></code></pre></div>
-<p><img src="likert_scale_files/figure-html/stacked%20bar%20with%20refuse-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="likert_scale_files/figure-html/stacked%20bar%20with%20refuse-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="likert-scale-definition-examples-and-visualization.html#cb367-1"></a><span class="co"># ggplot2 stacked bar chart with refused removed</span></span>
 <span id="cb367-2"><a href="likert-scale-definition-examples-and-visualization.html#cb367-2"></a></span>
 <span id="cb367-3"><a href="likert-scale-definition-examples-and-visualization.html#cb367-3"></a>CCAM_rmrf &lt;-<span class="st"> </span>CCAM_tidy[CCAM_tidy<span class="op">$</span>Response<span class="op">!=</span><span class="st">&quot;Refused&quot;</span>,]</span>
@@ -961,7 +961,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb367-18"><a href="likert-scale-definition-examples-and-visualization.html#cb367-18"></a><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></span>
 <span id="cb367-19"><a href="likert-scale-definition-examples-and-visualization.html#cb367-19"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;U.S. Adults Opinions on Climate Change-Relevant Regulations&quot;</span>,</span>
 <span id="cb367-20"><a href="likert-scale-definition-examples-and-visualization.html#cb367-20"></a>          <span class="dt">subtitle =</span> <span class="st">&#39;% (Attitude) on &quot;The government should __&quot;, with &quot;Refused&quot; removed&#39;</span>)</span></code></pre></div>
-<p><img src="likert_scale_files/figure-html/stacked%20bar%20with%20refuse%20removed-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="likert_scale_files/figure-html/stacked%20bar%20with%20refuse%20removed-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>From the above plots, one may observe that, though stacked bar charts are easily created, the major disadvantage is that the comparison of non-polar responses are not straightforward. The comparison of response “Strongly Disagree” and “Strongly Agree” are obvious between questions but not for “Somewhat Disagree” and “Somewhat Agree”. Thus, it is usually practical to include percentage labels for each bar to overcome this problem, like what’s done in both charts.</p>
 </div>
 <div id="faceted-bar-charts" class="section level3" number="11.3.3">
@@ -983,7 +983,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb368-14"><a href="likert-scale-definition-examples-and-visualization.html#cb368-14"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">type =</span> <span class="st">&quot;div&quot;</span>) <span class="op">+</span></span>
 <span id="cb368-15"><a href="likert-scale-definition-examples-and-visualization.html#cb368-15"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;U.S. Adults Opinions on Climate Change-Relevant Regulations&quot;</span>,</span>
 <span id="cb368-16"><a href="likert-scale-definition-examples-and-visualization.html#cb368-16"></a>          <span class="dt">subtitle =</span> <span class="st">&#39;% (Attitude) on &quot;The government should __&quot;&#39;</span>)</span></code></pre></div>
-<p><img src="likert_scale_files/figure-html/faceted%20with%20refused-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="likert_scale_files/figure-html/faceted%20with%20refused-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>One can also have the “Refused / Neutral” response option removed if including the choice doesn’t have too much meaning. In our case, the percentage of “Refused” is relatively little and is the same for each question, so we feel comfortable to remove the “Refused” result for all questions. Below is the graph without the “Refused”.</p>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="likert-scale-definition-examples-and-visualization.html#cb369-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> CCAM_rmrf_summary) <span class="op">+</span></span>
 <span id="cb369-2"><a href="likert-scale-definition-examples-and-visualization.html#cb369-2"></a><span class="st">  </span>likert_theme <span class="op">+</span></span>
@@ -1001,7 +1001,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb369-14"><a href="likert-scale-definition-examples-and-visualization.html#cb369-14"></a><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></span>
 <span id="cb369-15"><a href="likert-scale-definition-examples-and-visualization.html#cb369-15"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;U.S. Adults Opinions on Climate Change-Relevant Regulations&quot;</span>,</span>
 <span id="cb369-16"><a href="likert-scale-definition-examples-and-visualization.html#cb369-16"></a>          <span class="dt">subtitle =</span> <span class="st">&#39;% (Attitude) on &quot;The government should __&quot;, with &quot;Refused&quot; removed&#39;</span>)</span></code></pre></div>
-<p><img src="likert_scale_files/figure-html/facet%20with%20refused%20removed-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="likert_scale_files/figure-html/facet%20with%20refused%20removed-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="diverging-stacked-bar-chart" class="section level3" number="11.3.4">
 <h3><span class="header-section-number">11.3.4</span> Diverging Stacked Bar Chart</h3>
@@ -1017,7 +1017,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb370-8"><a href="likert-scale-definition-examples-and-visualization.html#cb370-8"></a>       <span class="dt">main =</span> <span class="st">&quot;U.S. Adults Opinions on Climate Change-Relevant Regulations&quot;</span>,</span>
 <span id="cb370-9"><a href="likert-scale-definition-examples-and-visualization.html#cb370-9"></a>       <span class="dt">ReferenceZero =</span> <span class="dv">3</span>,</span>
 <span id="cb370-10"><a href="likert-scale-definition-examples-and-visualization.html#cb370-10"></a>       <span class="dt">ylab =</span> <span class="ot">NULL</span>) </span></code></pre></div>
-<p><img src="likert_scale_files/figure-html/likert%20diverged-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="likert_scale_files/figure-html/likert%20diverged-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Similarly, one can have “Refused” removed if it doesn’t have too much meaning to the visualization.</p>
 <div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="likert-scale-definition-examples-and-visualization.html#cb371-1"></a>summary_freq &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(summary_q)  <span class="co"># likert function uses a summary table</span></span>
 <span id="cb371-2"><a href="likert-scale-definition-examples-and-visualization.html#cb371-2"></a>summary_freq &lt;-<span class="st"> </span><span class="kw">rownames_to_column</span>(summary_freq, <span class="st">&quot;Question&quot;</span>)</span>
@@ -1029,13 +1029,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb371-8"><a href="likert-scale-definition-examples-and-visualization.html#cb371-8"></a><span class="kw">likert</span>(Question <span class="op">~</span>., <span class="dt">data =</span> summary_freq_rmrf, <span class="dt">as.percent =</span> <span class="st">&quot;noRightAxis&quot;</span>, </span>
 <span id="cb371-9"><a href="likert-scale-definition-examples-and-visualization.html#cb371-9"></a>       <span class="dt">main =</span> <span class="st">&quot;U.S. Adults Opinions on Climate Change-Relevant Regulations&quot;</span>,</span>
 <span id="cb371-10"><a href="likert-scale-definition-examples-and-visualization.html#cb371-10"></a>       <span class="dt">ylab =</span> <span class="ot">NULL</span>) </span></code></pre></div>
-<p><img src="likert_scale_files/figure-html/likert%20diverged%20with%20refused%20removed-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="likert_scale_files/figure-html/likert%20diverged%20with%20refused%20removed-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>The <code>likert</code> function also allows to order from the most positive by adjusting one of its variables.</p>
 <div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="likert-scale-definition-examples-and-visualization.html#cb372-1"></a><span class="co"># setting the positive.order to TRUE</span></span>
 <span id="cb372-2"><a href="likert-scale-definition-examples-and-visualization.html#cb372-2"></a><span class="kw">likert</span>(Question <span class="op">~</span>., <span class="dt">data =</span> summary_freq_rmrf, <span class="dt">as.percent =</span> <span class="st">&quot;noRightAxis&quot;</span>, </span>
 <span id="cb372-3"><a href="likert-scale-definition-examples-and-visualization.html#cb372-3"></a>       <span class="dt">main =</span> <span class="st">&quot;U.S. Adults Opinions on Climate Change-Relevant Regulations&quot;</span>,</span>
 <span id="cb372-4"><a href="likert-scale-definition-examples-and-visualization.html#cb372-4"></a>       <span class="dt">ylab =</span> <span class="ot">NULL</span>, <span class="dt">positive.order =</span> <span class="ot">TRUE</span>) </span></code></pre></div>
-<p><img src="likert_scale_files/figure-html/most%20positive-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="likert_scale_files/figure-html/most%20positive-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Again, the diverging stacked bar chart makes it really easy to compare the positive against the negative on each question and compare the positive and negative across different questions. The cons, however, is that it doesn’t do a good job in showing the comparison of each individual response option. For instance, it is not straightforward to tell whether more people strongly support the government to regulate CO2 or to require producing at least 20% of electricity from clean energy.</p>
 </div>
 </div>
