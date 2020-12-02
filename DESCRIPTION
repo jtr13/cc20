@@ -18,7 +18,6 @@ Imports:
     AER,
     alr4,
     base,
-    candela,
     car,
     carData,
     caret,
@@ -104,3 +103,5 @@ Imports:
     TH.data,
     tibble,
     tidyr
+Remotes:  
+    Kitware/candela/tree/master/R/candela
