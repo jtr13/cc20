@@ -37,7 +37,7 @@ Imports:
     forcats,
     foreign,
     GDAdata,
-    GeomMLBStadiums,
+    GeomMLBStadiums (>= 0.0.0.9000),
     GGally,
     ggExtra,
     ggforce,
@@ -45,7 +45,7 @@ Imports:
     ggplot2,
     ggplot2movies,
     ggpubr,
-    ggradar,
+    ggradar (>= 0.2),
     ggrepel,
     ggthemes,
     graphics,
@@ -104,4 +104,6 @@ Imports:
     tibble,
     tidyr
 Remotes:  
-    Kitware/candela/tree/master/R/candela
+    Kitware/candela/tree/master/R/candela,
+    bdilday/GeomMLBStadiums,
+    ricardo-bion/ggradar
