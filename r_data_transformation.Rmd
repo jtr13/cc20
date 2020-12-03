@@ -27,7 +27,8 @@ All dplyr "verbs" are functions that take a data frame and return a data frame a
 To explore the basic data manipulation of dplur, we will demonstrate using nycflights13::flights. It's a dataset which contains information of 336,776 flights that departed from New York City in 2013. You can access it by installing the packages 'nycflights13'.
 
 ```{r warning=FALSE,message=FALSE}
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(nycflights13)
 nycflights13::flights
 ```

@@ -198,12 +198,23 @@ legend(x=0.7, y=1, legend = rownames(ds_bind[-c(1,2),]), bty = "n", pch=20 , col
 
 ### Radar vs. Bar Chart
 
+```{r}
+#devtools::install_github("ricardo-bion/ggradar", 
+#                          dependencies = TRUE)
+```
 
 
 ```{r}
 library(ggplot2)
-library(tidyverse)
 library(dplyr)
+library(ggradar)
+library(tidyr)
+library(scales)
+library(tibble)
+```
+
+```{r}
+data(USArrests)
 tidy_ds <- ds_data %>% 
   tibble::rownames_to_column( "scientist")
 tidy_ds <- pivot_longer(tidy_ds,!c("scientist"  ), names_to = "skill", values_to = "score") 
@@ -219,18 +230,6 @@ ggplot(tidy_ds, aes(x = skill, y = score, fill = scientist)) +
 
 ### Using package 'ggradar'
 
-```{r}
-devtools::install_github("ricardo-bion/ggradar", 
-                          dependencies = TRUE)
-```
-```{r}
-library(ggradar)
-library(dplyr)
-library(scales)
-library(tibble)
-
-data(USArrests)
-```
 
 
 ```{r}
