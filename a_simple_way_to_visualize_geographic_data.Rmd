@@ -55,7 +55,6 @@ Now we understand how to use this library, let us try an example to see how plot
 
 ```{r, warning=FALSE, message=FALSE}
 library(forcats)
-library(tidyverse)
 library(rvest)
 url <- read_html(
   "https://worldpopulationreview.com/state-rankings/median-home-price-by-state"

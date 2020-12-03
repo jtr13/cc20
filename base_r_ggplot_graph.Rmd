@@ -2,10 +2,13 @@
 
 Winnie Gao
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
+```{r}
+library(ggplot2)
+library(tibble)
+library(tidyr)
+library(dplyr)
 ```
+
 
 One of the biggest reasons why more and more people choose to use R nowadays is due to a extremely powerful package called ggplot2 perfectly integrated in R for producing pretty plots with relatively short codes. A lot of people apply ggplot2 in their code to conveniently create exploratory plots. However, sometimes complains are also heard about ggplot2, such as being enforced to create data frame before plotting, a number of graph types unable to be neatly fitted in ggplot2, etc. At the same time, R itself can produce plots without installing packages. Since R basics has fewer restrictions for producing plots, people can create various plots according to their own needs. But for the same reason, its shortcomings are also due to the lack of ready frameworks, so R basics usually requires more code to adjust if people want to draw plots as good-looking as ggplot2. On this page, let us discuss if R basics can also complete what ggplot2 do for some types of graphs that is not that common in our daily practice: Cleveland Dot plot, Parallel Coordinate plot and Mosaic plot.
 
