@@ -24,7 +24,6 @@ Imports:
     colorspace,
     cowplot,
     data.table,
-    DataExplorer,
     datasets,
     DBI,
     dichromat,
@@ -106,4 +105,5 @@ Imports:
 Remotes:  
     Kitware/candela/tree/master/R/candela,
     bdilday/GeomMLBStadiums,
-    ricardo-bion/ggradar
+    ricardo-bion/ggradar,
+    boxuancui/DataExplorer
