@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r, results="hide"}
 library(jsonlite)
-library(tidyverse)
 library(hash)
+library(dplyr)
 library(ggplot2)
 library(maptools)
 library(tidyr)

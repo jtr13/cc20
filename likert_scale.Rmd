@@ -8,9 +8,12 @@ Jingyi An, Tingyi Lu
 ```{r libraries}
 library(foreign) # use `foreign` to import SPSS files
 library(likert)
-library(tidyverse)
 library(ggthemes)
 library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(forcats)
 library(HH)
 ```
 
