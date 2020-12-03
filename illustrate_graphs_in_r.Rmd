@@ -10,7 +10,6 @@ Annai Wang and Jinyan Lyu
 library(ucidata) #must be installed from source
 library(ggplot2)
 library(vcd)
-library(tidyverse)
 library(dplyr)
 library(plotly)
 library(ggExtra)

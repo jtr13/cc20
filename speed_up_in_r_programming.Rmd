@@ -8,7 +8,7 @@ options(width = 120)
 ```
 ```{r}
 library(ggplot2)
-library(tidyverse)
+library(dplyr)
 library(microbenchmark)
 library(compiler)
 library(Rcpp)
@@ -91,7 +91,6 @@ microbenchmark(sum_r(x))
 
 Let's compile the function into bytecode `sum_rc` and benchmark again:
 ```{r}
-library(compiler)
 sum_rc <- cmpfun(sum_r)
 sum_rc
 ```
@@ -102,7 +101,6 @@ microbenchmark(sum_r(x), sum_rc(x))
 ```
 
 ```{r include=FALSE}
-library(tidyverse)
 t <- microbenchmark(sum_r(x), sum_rc(x))
 t %>% group_by(expr) %>% mutate(q1 = quantile(time, 0.25)/(10^6), q3 = quantile(time, 0.75)/(10^6)) %>% select(expr,q1,q3) %>% unique() -> t
 t1 <- as.double(t[2,2])

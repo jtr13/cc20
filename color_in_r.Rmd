@@ -9,8 +9,8 @@ Xiaoyu Su
 
 ```{r, results="hide"}
 library(ggplot2)
+library(dplyr)
 library(ggplot2movies)
-library(tidyverse)
 library(RColorBrewer)
 library(viridis)
 library(ggplot2)
