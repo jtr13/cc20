@@ -49,6 +49,8 @@ jobs:
           
       - name: Install system dependencies
         run: |
+          sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+          sudo apt update
           sudo apt install \
             libgdal-dev \
             libproj-dev 
