@@ -104,7 +104,8 @@ Imports:
     tidyr,
     VIM,
     dbplyr,
-    usmap
+    usmap,
+    vioplot
 Remotes: 
     Kitware/candela/tree/master/R/candela,
     bdilday/GeomMLBStadiums,
