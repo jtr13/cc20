@@ -102,7 +102,8 @@ Imports:
     TH.data,
     tibble,
     tidyr,
-    VIM
+    VIM,
+    dbplyr
 Remotes: 
     Kitware/candela/tree/master/R/candela,
     bdilday/GeomMLBStadiums,
