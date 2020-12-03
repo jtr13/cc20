@@ -103,7 +103,8 @@ Imports:
     tibble,
     tidyr,
     VIM,
-    dbplyr
+    dbplyr,
+    usmap
 Remotes: 
     Kitware/candela/tree/master/R/candela,
     bdilday/GeomMLBStadiums,
