@@ -36,7 +36,6 @@ Imports:
     forcats,
     foreign,
     GDAdata,
-    GeomMLBStadiums (>= 0.0.0.9000),
     GGally,
     ggExtra,
     ggforce,
@@ -44,7 +43,6 @@ Imports:
     ggplot2,
     ggplot2movies,
     ggpubr,
-    ggradar (>= 0.2),
     ggrepel,
     ggthemes,
     graphics,
@@ -106,8 +104,9 @@ Imports:
     dbplyr,
     usmap,
     vioplot
-Remotes: 
+Remotes:  
     Kitware/candela/tree/master/R/candela,
     bdilday/GeomMLBStadiums,
     ricardo-bion/ggradar,
-    boxuancui/DataExplorer
+    boxuancui/DataExplorer,
+    coatless/ucidata
