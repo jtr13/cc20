@@ -47,14 +47,11 @@ jobs:
           R -e 'install.packages("renv")'
           R -e 'renv::restore()'
           
-      - name: Install system dependencies
+      - name: Install MacOS system dependencies
         run: |
-          sudo apt update
-          sudo apt install \
-            libgdal-dev \
-            libproj-dev \
-            libmpfr6 \
-            libmpfr-dev
+          brew install gdal
+          brew install proj
+          brew install mpfr
       
       - name: Install pak	
         run: |	
