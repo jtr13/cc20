@@ -109,9 +109,9 @@ Imports:
     ggradar,
     DataExplorer,
     ucidata
-Remotes:  
+Remotes: 
     bdilday/GeomMLBStadiums,
     ricardo-bion/ggradar,
     boxuancui/DataExplorer,
     coatless/ucidata,
-    Kitware/candela
+    Kitware/candela/R/candela
