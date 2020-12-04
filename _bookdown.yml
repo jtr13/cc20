@@ -23,7 +23,7 @@ rmd_files: [
   # Part 3: Data Visualization
   'pairs_and_ggpairs.Rmd', # contains PART header
   'a_brief_introduction_to_seaborn.Rmd',
-  'geommlbstadiums.rmd',
+  'geommlbstadiums.Rmd',
   'radar_chart.Rmd',
   'likert_scale.Rmd',
   'a_simple_way_to_visualize_geographic_data.Rmd',
@@ -49,7 +49,7 @@ rmd_files: [
   'add_ts_cheatsheet.Rmd',
   'python_vs_r_cheatsheet.Rmd',
   'likert_data_cheatsheet.Rmd',
-  'categorical_cheat_sheet.rmd',
+  'categorical_cheat_sheet.Rmd',
   'replication_crisis_psychology.Rmd',
   'tableau_data_story_tutorial.Rmd',
 
@@ -68,7 +68,7 @@ rmd_files: [
   'chinese_translation_of_candela_package.Rmd', # contains PART header
   'greek_edav_histogram.Rmd',
   'korean_translation_of_scatterplot.Rmd',
-  'rmarkdown_tutorial_chinese_translation.rmd',
+  'rmarkdown_tutorial_chinese_translation.Rmd',
   'ggplot2_tutorial_translated.Rmd',
   'chinese_tutorial_rvest_httr.Rmd',
   'website_sharing_whole_class_mosaic_plot_translation.Rmd',

@@ -12,7 +12,6 @@ install.packages("RSelenium")
 
 ```{r global_options, include=FALSE}
 library("rvest")
-library("tidyverse")
 library("RSelenium")
 ```
 
