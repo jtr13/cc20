@@ -103,8 +103,13 @@ Imports:
     VIM,
     dbplyr,
     usmap,
-    vioplot
-Remotes:  
+    vioplot,
+    candela,
+    GeomMLBStadiums,
+    ggradar,
+    DataExplorer,
+    ucidata
+Remotes: 
     Kitware/candela/tree/master/R/candela,
     bdilday/GeomMLBStadiums,
     ricardo-bion/ggradar,
