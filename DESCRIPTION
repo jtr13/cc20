@@ -97,6 +97,7 @@ Imports:
     stats,
     stringr,
     survival,
+    survminer,
     TH.data,
     tibble,
     tidyr,
