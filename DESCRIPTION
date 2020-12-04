@@ -35,6 +35,7 @@ Imports:
     fmsb,
     forcats,
     foreign,
+    formatR,
     GDAdata,
     GGally,
     ggExtra,
