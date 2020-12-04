@@ -104,14 +104,14 @@ Imports:
     dbplyr,
     usmap,
     vioplot,
-    candela,
+    candela (>= 0.2.0),
     GeomMLBStadiums,
     ggradar,
     DataExplorer,
     ucidata
-Remotes: 
-    Kitware/candela/tree/master/R/candela,
+Remotes:  
     bdilday/GeomMLBStadiums,
     ricardo-bion/ggradar,
     boxuancui/DataExplorer,
-    coatless/ucidata
+    coatless/ucidata,
+    Kitware/candela
