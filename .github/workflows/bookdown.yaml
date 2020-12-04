@@ -8,7 +8,7 @@ name: bookdown
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: MacOS-latest
     env:
       EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
       GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
