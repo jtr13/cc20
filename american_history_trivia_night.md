@@ -1,0 +1,7 @@
+# American History Trivia Night 
+
+Jingwen Du
+
+For my community contribution project, I hosted a trivia night on October 30, 2020. It was both a chance to get to know fellow classmates better in a social setting as well as a learning opportunity for international students to make sense of the election process. I created a presentation with a brief overview of American history and political system. It also included 40+ questions of ranging difficulty levels.  Each question was color coded by difficulty level with green being easy worth 1 point and red being difficult worth 3 points. Each person kept their own scores in a honor system. Couple students joined the event and had a great time.  
+
+I've included my presentation with the trivia questions in this link https://github.com/jingwendu/CC2020_Resources/blob/main/Trivia%20Night.pdf

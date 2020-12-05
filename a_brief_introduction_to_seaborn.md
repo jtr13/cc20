@@ -1,0 +1,11 @@
+# A brief introduction to seaborn
+
+Rui Qin
+
+In the class, we learned how to create graphs of data by ggplot2, a data visualization package in R. Likewise, there are some libraries in Python able to do the same job as ggplot2. Seaborn is a data visualization tool based on Python library, matplotlib. Like ggplot2 in R, seaborn can create multiple kinds of statistical graphs for exploratory and explanatory purpose. In this file I will show some examples of graphs that we have learned in class and I will use three languages, English, Chinese, and Japanese, to briefly explain them.
+
+课上，我们学习并掌握了R语言中通过ggplot2绘制统计图表。Python中也有同样的数据可视化库包括matplotlib和seaborn。他们均可以将数据框中的数据以图标的形式表现出来，以此达到数据分析的目的。这里我将用seaborn展示几组课上学过的常用图表绘制方法。
+
+クラスでggplot2とRを利用し、統計グラフを作るのが勉強しました。同様に、Pythonのデータ可視化ライブラリもあります。よく使われるのはmatplotlibとseabornです。ggplot2のように、seabornは色々な統計グラフを作れます。これから、私はseabornの使い方を説明したいと思います。
+
+[Here is the link!](https://r3qin.github.io/Community_Contribution/A-brief-introduction-to-seaborn.html)

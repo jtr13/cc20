@@ -1,0 +1,5 @@
+# LinkedIn professional development session
+
+Eugenio Andres Beaufrand
+
+Hosted a LinkedIn professional development session in which I spoke about my experiences using LinkedIn, and how they have helped me in my job finding process. I went through the sections of my LinkedIn profile, spoke of my thought process in deciding what professional experiences and accomplishments to include, and related how those decisions have served me as a useful way to communicate with potential employers. At the end of the session I took questions from the attendees.

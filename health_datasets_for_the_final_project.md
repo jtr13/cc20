@@ -1,0 +1,73 @@
+# Health datasets for the final project
+
+Natasha McLeod
+
+*With the onset of COVID earlier this spring, there may be interest in the use public health datasets for the final project. If so, below is a summary of five datasets that can be used and background on each dataset.* 
+
+
+## Big Cities Health Inventory Data
+* An open data platform that provides a "snapshot" of health of the state of health in 30 of largest cities in the United States accross the country. 
+
+* Data is collected at the state, county and city levels as well as through several federal surveys. 
+
+* Drawbacks: most of data is only disaggregated at the the state or country level, not city level data. 
+
+* The indicators encompass 10 categories: 1) Behavioral Health and Substance Abuse; 2) Cancer; 3) Chronic Disease; 4) Environmental Health; 5) Food Safety; HIV/AIDs; 6) Infectious Disease; 7) Injury and Violence; 8) Maternal and Child Health; 9) demographics; and 10) life expectancy/overall death rate.
+
+
+```r
+bigcities_df <- read.csv("https://bchi.bigcitieshealth.org/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBPUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d420076690399fd28de697fa5a876e8b1d3188ac/BCHI-dataset_2019-03-04.csv?disposition=attachment")
+```
+
+## MHealth Dataset
+* Dataset comprising of bodymotion and vital signs for 10 volunteers of divese demographic backgrounds performing several physical activites. Sensors were placed on the subject's chest, right wrist, and left ankle.
+
+* Activities measued: L1: Standing still (1 min); L2: Sitting and relaxing (1 min); L3: Lying down (1 min); L4: Walking (1 min); L5: Climbing stairs (1 min);L6: Waist bends forward (20x);L7: Frontal elevation of arms (20x); L8: Knees bending (crouching) (20x); L9: Cycling (1 min); L10: Jogging (1 min); L11: Running (1 min); L12: Jump front & back (20x)
+  
+* Be sure to reference the following sources which were used to build the dataset: 1) *Banos, O., Garcia, R., Holgado, J. A., Damas, M., Pomares, H., Rojas, I., Saez, A., Villalonga, C. mHealthDroid: a novel framework for agile development of mobile health applications.* Proceedings of the 6th International Work-conference on Ambient Assisted Living an Active Ageing (IWAAL 2014), Belfast, Northern Ireland, December 2-5, (2014). 2) *Banos, O., Villalonga, C., Garcia, R., Saez, A., Damas, M., Holgado, J. A., Lee, S., Pomares, H., Rojas, I. Design, implementation and validation of a novel open framework for agile development of mobile health applications.* BioMedical Engineering OnLine, vol. 14, no. S2:S6, pp. 1-20 (2015).
+
+* The data can be found as zipfile here: (https://archive.ics.uci.edu/ml/machine-learning-databases/00319/)
+
+
+## Human Mortality Database (HMD)
+
+* The team behind this database has created a COVID database of Short-term Mortality Fluctuations (STMF) data series. This data base includes weekly death counts for 36 countries: Austria, Belgium, Bulgaria, Chile, Canada, Croatia, Czech Republic, Denmark, England and Wales, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Israel, Italy, Latvia, Lithuania, Luxembourg, Netherlands, New Zealand, Northern Ireland, Norway, Poland, Portugal, Republic of Korea, Russia, Scotland, Slovenia, Slovakia, Spain, Sweden, Switzerland and the USA.
+
+* Beware: As you may know, classifying a death as 'COVID related' varies by country. Something to considering during exploratory analysis. 
+
+* You can go to the follwoing link to find out more information about the data format and methods: (https://www.mortality.org/Public/STMF_DOC/STMFNote.pdf)
+
+* Download the xlsx dataset here:(https://www.mortality.org/Public/STMF/Outputs/stmf.xlsx)
+
+## SEER Cancer Incidence
+
+* U.S. government data about cancer incidence segmented by age, race, gender, year and other factors. 
+
+* Data source: National Cancer Institute's Surveillance, Epidemiology, and End Results Program."
+
+* Data goes back to 1975 with 18 databases. 
+
+* Link to SEER Explorer where you can download data:
+(https://seer.cancer.gov/explorer/application.html?site=1&data_type=1&graph_type=2&compareBy=sex&chk_sex_3=3&chk_sex_2=2&race=1&age_range=1&hdn_stage=101&rate_type=2&advopt_precision=1&advopt_display=2)
+
+* *NB*: For background information on the cancer data checkout the state cancer profiles at the National Cancer Institute: (https://statecancerprofiles.cancer.gov)
+
+
+
+## UNICEF Data Warehouse
+
+* UNICEF Data Warehouse is the place to go for internationl health data.
+
+*  There are too many datasets to name here, but I have summarized a few below. For more information on the available datasets go to this link: 
+(https://data.unicef.org/dv_index/)
+
+* Datasets to look at: 
+
+    *Child mortality*: (https://data.unicef.org/resources/data_explorer/unicef_f/?ag=UNICEF&df=GLOBAL_DATAFLOW&ver=1.0&dq=.PV_LEVEL..&startPeriod=2008&endPeriod=2018)
+
+    *Youth Literacy*: 
+(https://data.unicef.org/resources/data_explorer/unicef_f/?ag=UNICEF&df=GLOBAL_DATAFLOW&ver=1.0&dq=.ED_15-24_LR..&startPeriod=2008&endPeriod=2018)
+
+    *Asylum seekers, by country*: (https://data.unicef.org/resources/data_explorer/unicef_f/?ag=UNICEF&df=GLOBAL_DATAFLOW&ver=1.0&dq=.MG_ASYLM_CNTRY_ASYLM..&startPeriod=2007&endPeriod=2017)
+
+  *Asylum seekers, by country of destination* :(https://data.unicef.org/resources/data_explorer/unicef_f/?ag=UNICEF&df=GLOBAL_DATAFLOW&ver=1.0&dq=.MG_ASYLM_CNTRY_DEST..&startPeriod=2007&endPeriod=2017)

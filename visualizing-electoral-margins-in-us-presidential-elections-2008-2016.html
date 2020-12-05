@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 22 Visualizing electoral margins in US presidential elections (2008-2016) | Fall 2020 EDAV Community Contributions</title>
+  <meta name="description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 22 Visualizing electoral margins in US presidential elections (2008-2016) | Fall 2020 EDAV Community Contributions" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  <meta name="github-repo" content="jtr13/cc20" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 22 Visualizing electoral margins in US presidential elections (2008-2016) | Fall 2020 EDAV Community Contributions" />
+  
+  <meta name="twitter:description" content="This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University" />
+  
+
+
+
+<meta name="date" content="2020-12-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="benfords-law-analysis-of-2020-election.html"/>
+<link rel="next" href="survival-analysis-examples.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<script src="libs/hchinamap-7.0.3/highmaps.js"></script>
+<script src="libs/hchinamap-7.0.3/hebei.js"></script>
+<script src="libs/hchinamap-7.0.3/anhui.js"></script>
+<script src="libs/hchinamap-7.0.3/aomen.js"></script>
+<script src="libs/hchinamap-7.0.3/beijing.js"></script>
+<script src="libs/hchinamap-7.0.3/china.js"></script>
+<script src="libs/hchinamap-7.0.3/chongqing.js"></script>
+<script src="libs/hchinamap-7.0.3/fujian.js"></script>
+<script src="libs/hchinamap-7.0.3/gansu.js"></script>
+<script src="libs/hchinamap-7.0.3/guangdong.js"></script>
+<script src="libs/hchinamap-7.0.3/guangxi.js"></script>
+<script src="libs/hchinamap-7.0.3/guizhou.js"></script>
+<script src="libs/hchinamap-7.0.3/hainan.js"></script>
+<script src="libs/hchinamap-7.0.3/heilongjiang.js"></script>
+<script src="libs/hchinamap-7.0.3/henan.js"></script>
+<script src="libs/hchinamap-7.0.3/hubei.js"></script>
+<script src="libs/hchinamap-7.0.3/hunan.js"></script>
+<script src="libs/hchinamap-7.0.3/jiangsu.js"></script>
+<script src="libs/hchinamap-7.0.3/jiangxi.js"></script>
+<script src="libs/hchinamap-7.0.3/jilin.js"></script>
+<script src="libs/hchinamap-7.0.3/liaoning.js"></script>
+<script src="libs/hchinamap-7.0.3/neimenggu.js"></script>
+<script src="libs/hchinamap-7.0.3/ningxia.js"></script>
+<script src="libs/hchinamap-7.0.3/qinghai.js"></script>
+<script src="libs/hchinamap-7.0.3/shandong.js"></script>
+<script src="libs/hchinamap-7.0.3/shanghai.js"></script>
+<script src="libs/hchinamap-7.0.3/shanxi.js"></script>
+<script src="libs/hchinamap-7.0.3/shanxi2.js"></script>
+<script src="libs/hchinamap-7.0.3/sichuan.js"></script>
+<script src="libs/hchinamap-7.0.3/tianjin.js"></script>
+<script src="libs/hchinamap-7.0.3/xianggang.js"></script>
+<script src="libs/hchinamap-7.0.3/xinjiang.js"></script>
+<script src="libs/hchinamap-7.0.3/xizang.js"></script>
+<script src="libs/hchinamap-7.0.3/yunnan.js"></script>
+<script src="libs/hchinamap-7.0.3/zhejiang.js"></script>
+<script src="libs/hchinamap-binding-0.1.0/hchinamap.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<link href="libs/parallel-coordinates-2.1.8/parcoords.css" rel="stylesheet" />
+<script src="libs/parcoords-binding-1.0.0/parcoords.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">cc for EDAV 2020</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#background"><i class="fa fa-check"></i><b>1.1</b> Background</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#preparing-your-.rmd-file"><i class="fa fa-check"></i><b>1.2</b> Preparing your <code>.Rmd</code> file</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#submission-steps"><i class="fa fa-check"></i><b>1.3</b> Submission steps</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#optional-tweaks"><i class="fa fa-check"></i><b>1.4</b> Optional tweaks</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#faq"><i class="fa fa-check"></i><b>1.5</b> FAQ</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#what-should-i-expect-after-creating-a-pull-request"><i class="fa fa-check"></i><b>1.5.1</b> What should I expect after creating a pull request?</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-before-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.2</b> What if I catch mistakes before my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#what-if-i-catch-mistakes-after-my-pull-request-is-merged"><i class="fa fa-check"></i><b>1.5.3</b> What if I catch mistakes after my pull request is merged?</a></li>
+<li class="chapter" data-level="1.5.4" data-path="index.html"><a href="index.html#other-questions"><i class="fa fa-check"></i><b>1.5.4</b> Other questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-project.html"><a href="sample-project.html"><i class="fa fa-check"></i><b>2</b> Sample project</a></li>
+<li class="part"><span><b>I Data Processing and Wrangling</b></span></li>
+<li class="chapter" data-level="3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html"><i class="fa fa-check"></i><b>3</b> Data transformation in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#basics"><i class="fa fa-check"></i><b>3.2</b> Basics</a></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#function-usage"><i class="fa fa-check"></i><b>3.3</b> Function Usage</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#filter"><i class="fa fa-check"></i><b>3.3.1</b> 1. Filter( )</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#arrange"><i class="fa fa-check"></i><b>3.3.2</b> 2. Arrange( )</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#select"><i class="fa fa-check"></i><b>3.3.3</b> 3. Select( )</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#mutate"><i class="fa fa-check"></i><b>3.3.4</b> 4. Mutate( )</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#group_by-and-summarize"><i class="fa fa-check"></i><b>3.3.5</b> 5. Group_by( ) and Summarize( )</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#quick-eda-median-arrival-delays"><i class="fa fa-check"></i><b>3.4</b> Quick EDA: median arrival delays</a></li>
+<li class="chapter" data-level="3.5" data-path="data-transformation-in-r.html"><a href="data-transformation-in-r.html#external-resource"><i class="fa fa-check"></i><b>3.5</b> External Resource</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html"><i class="fa fa-check"></i><b>4</b> Data Preprocessing and Feature Engineering in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#overview"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
+<li class="chapter" data-level="4.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#missing-values"><i class="fa fa-check"></i><b>4.2</b> Missing Values</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#exploring-the-dataset"><i class="fa fa-check"></i><b>4.2.1</b> Exploring the dataset</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#handling-missing-values-and-imputation"><i class="fa fa-check"></i><b>4.2.2</b> Handling Missing Values and Imputation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#feature-selection"><i class="fa fa-check"></i><b>4.3</b> Feature Selection</a></li>
+<li class="chapter" data-level="4.4" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#dimentionality-reduction"><i class="fa fa-check"></i><b>4.4</b> Dimentionality Reduction</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-preprocessing-and-feature-engineering-in-r.html"><a href="data-preprocessing-and-feature-engineering-in-r.html#principal-component-analysis-pca"><i class="fa fa-check"></i><b>4.4.1</b> Principal Component Analysis (PCA)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="apply-family.html"><a href="apply-family.html"><i class="fa fa-check"></i><b>5</b> Apply family</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="apply-family.html"><a href="apply-family.html#apply"><i class="fa fa-check"></i><b>5.0.1</b> apply</a></li>
+<li class="chapter" data-level="5.0.2" data-path="apply-family.html"><a href="apply-family.html#lapply"><i class="fa fa-check"></i><b>5.0.2</b> Lapply</a></li>
+<li class="chapter" data-level="5.0.3" data-path="apply-family.html"><a href="apply-family.html#sapply"><i class="fa fa-check"></i><b>5.0.3</b> Sapply</a></li>
+<li class="chapter" data-level="5.0.4" data-path="apply-family.html"><a href="apply-family.html#tapply"><i class="fa fa-check"></i><b>5.0.4</b> tapply</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html"><i class="fa fa-check"></i><b>6</b> Writing SQL in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#introduction-1"><i class="fa fa-check"></i><b>6.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#what-is-sql"><i class="fa fa-check"></i><b>6.2</b> 2. What is SQL?</a></li>
+<li class="chapter" data-level="6.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#r-packages"><i class="fa fa-check"></i><b>6.3</b> 3. R Packages</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#load-packages"><i class="fa fa-check"></i><b>6.3.1</b> Load packages</a></li>
+<li class="chapter" data-level="6.3.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dataset"><i class="fa fa-check"></i><b>6.3.2</b> Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sqldf"><i class="fa fa-check"></i><b>6.4</b> sqldf</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sql-queries"><i class="fa fa-check"></i><b>6.4.1</b> SQL Queries</a></li>
+<li class="chapter" data-level="6.4.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#whereandor"><i class="fa fa-check"></i><b>6.4.2</b> Where/And/Or</a></li>
+<li class="chapter" data-level="6.4.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#more-sqldf-examples"><i class="fa fa-check"></i><b>6.4.3</b> More sqldf Examples</a></li>
+<li class="chapter" data-level="6.4.4" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#sqldf-summary"><i class="fa fa-check"></i><b>6.4.4</b> sqldf Summary:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr"><i class="fa fa-check"></i><b>6.5</b> DPLYR</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr-queries"><i class="fa fa-check"></i><b>6.5.1</b> DPLYR Queries</a></li>
+<li class="chapter" data-level="6.5.2" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#more-examples"><i class="fa fa-check"></i><b>6.5.2</b> More Examples</a></li>
+<li class="chapter" data-level="6.5.3" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dplyr-summary"><i class="fa fa-check"></i><b>6.5.3</b> DPLYR Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dbi"><i class="fa fa-check"></i><b>6.6</b> DBI</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#dbi-queries"><i class="fa fa-check"></i><b>6.6.1</b> DBI Queries:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#conclusion"><i class="fa fa-check"></i><b>6.7</b> Conclusion</a></li>
+<li class="chapter" data-level="6.8" data-path="writing-sql-in-r.html"><a href="writing-sql-in-r.html#work-cited"><i class="fa fa-check"></i><b>6.8</b> Work Cited:</a></li>
+</ul></li>
+<li class="part"><span><b>II Data Visualization</b></span></li>
+<li class="chapter" data-level="7" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html"><i class="fa fa-check"></i><b>7</b> Customized Plot Matrix: pairs and ggpairs</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#overview-things-we-can-do-with-pairs-and-ggpairs"><i class="fa fa-check"></i><b>7.1</b> Overview: Things we can do with pairs() and ggpairs()</a></li>
+<li class="chapter" data-level="7.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#scatterplot-matrix-for-continuous-variables"><i class="fa fa-check"></i><b>7.2</b> Scatterplot matrix for continuous variables</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-pairs"><i class="fa fa-check"></i><b>7.2.1</b> Plot with pairs()</a></li>
+<li class="chapter" data-level="7.2.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#plot-with-ggpairs-from-ggally-package"><i class="fa fa-check"></i><b>7.2.2</b> Plot with ggpairs() from <code>GGally</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#categorical-variables"><i class="fa fa-check"></i><b>7.3</b> Categorical variables</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#pairs-plot-for-categorical-variables"><i class="fa fa-check"></i><b>7.3.1</b> pairs() plot for categorical variables</a></li>
+<li class="chapter" data-level="7.3.2" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#highlight-correlations-with-shade-colors"><i class="fa fa-check"></i><b>7.3.2</b> Highlight correlations with shade colors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="customized-plot-matrix-pairs-and-ggpairs.html"><a href="customized-plot-matrix-pairs-and-ggpairs.html#outside-sources"><i class="fa fa-check"></i><b>7.4</b> Outside sources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="a-brief-introduction-to-seaborn.html"><a href="a-brief-introduction-to-seaborn.html"><i class="fa fa-check"></i><b>8</b> A brief introduction to seaborn</a></li>
+<li class="chapter" data-level="9" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html"><i class="fa fa-check"></i><b>9</b> GeomMLBStadiums</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#overview-1"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#setup"><i class="fa fa-check"></i><b>9.2</b> Setup</a></li>
+<li class="chapter" data-level="9.3" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#geom_mlb_stadium"><i class="fa fa-check"></i><b>9.3</b> <code>geom_mlb_stadium</code></a></li>
+<li class="chapter" data-level="9.4" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#geom_spraychart"><i class="fa fa-check"></i><b>9.4</b> <code>geom_spraychart</code></a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#mlbam_xy_transformation"><i class="fa fa-check"></i><b>9.4.1</b> <code>mlbam_xy_transformation</code></a></li>
+<li class="chapter" data-level="9.4.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#spraycharts"><i class="fa fa-check"></i><b>9.4.2</b> Spraycharts</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#other-types-of-visualizations-with-geommlbstadiums"><i class="fa fa-check"></i><b>9.5</b> Other types of Visualizations with <code>GeomMLBStadiums</code></a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#heatmaps-with-geommlbstadiums"><i class="fa fa-check"></i><b>9.5.1</b> Heatmaps with <code>GeomMLBStadiums</code></a></li>
+<li class="chapter" data-level="9.5.2" data-path="geommlbstadiums.html"><a href="geommlbstadiums.html#stat_summary_hex-with-geommlbstadiums"><i class="fa fa-check"></i><b>9.5.2</b> <code>stat_summary_hex</code> with <code>GeomMLBStadiums</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="radar-chart.html"><a href="radar-chart.html"><i class="fa fa-check"></i><b>10</b> Radar Chart</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="radar-chart.html"><a href="radar-chart.html#introduction-of-radar-chart"><i class="fa fa-check"></i><b>10.1</b> Introduction of Radar Chart</a></li>
+<li class="chapter" data-level="10.2" data-path="radar-chart.html"><a href="radar-chart.html#basic-radar-chart"><i class="fa fa-check"></i><b>10.2</b> Basic Radar Chart</a></li>
+<li class="chapter" data-level="10.3" data-path="radar-chart.html"><a href="radar-chart.html#customize-radar-chart"><i class="fa fa-check"></i><b>10.3</b> Customize Radar Chart</a></li>
+<li class="chapter" data-level="10.4" data-path="radar-chart.html"><a href="radar-chart.html#radar-chart-with-several-individuals"><i class="fa fa-check"></i><b>10.4</b> Radar Chart with several individuals</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="radar-chart.html"><a href="radar-chart.html#basic-plot"><i class="fa fa-check"></i><b>10.4.1</b> basic plot</a></li>
+<li class="chapter" data-level="10.4.2" data-path="radar-chart.html"><a href="radar-chart.html#customize"><i class="fa fa-check"></i><b>10.4.2</b> customize</a></li>
+<li class="chapter" data-level="10.4.3" data-path="radar-chart.html"><a href="radar-chart.html#radar-vs.-bar-chart"><i class="fa fa-check"></i><b>10.4.3</b> Radar vs. Bar Chart</a></li>
+<li class="chapter" data-level="10.4.4" data-path="radar-chart.html"><a href="radar-chart.html#using-package-ggradar"><i class="fa fa-check"></i><b>10.4.4</b> Using package ‘ggradar’</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="radar-chart.html"><a href="radar-chart.html#reference"><i class="fa fa-check"></i><b>10.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html"><i class="fa fa-check"></i><b>11</b> Likert Scale: Definition, Examples, and Visualization</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#what-is-likert-scale"><i class="fa fa-check"></i><b>11.1</b> What is Likert Scale?</a></li>
+<li class="chapter" data-level="11.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#test-your-understanding-of-likert-scale"><i class="fa fa-check"></i><b>11.2</b> Test Your Understanding of Likert Scale</a></li>
+<li class="chapter" data-level="11.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#visualization-of-a-sample-likert-scale-data-explore-climate-change-in-the-american-mind"><i class="fa fa-check"></i><b>11.3</b> Visualization of a Sample Likert Scale Data: Explore Climate Change in the American Mind</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#overview-of-the-data"><i class="fa fa-check"></i><b>11.3.1</b> Overview of the Data</a></li>
+<li class="chapter" data-level="11.3.2" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#stacked-bar-chart"><i class="fa fa-check"></i><b>11.3.2</b> Stacked Bar Chart</a></li>
+<li class="chapter" data-level="11.3.3" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#faceted-bar-charts"><i class="fa fa-check"></i><b>11.3.3</b> Faceted Bar Charts</a></li>
+<li class="chapter" data-level="11.3.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#diverging-stacked-bar-chart"><i class="fa fa-check"></i><b>11.3.4</b> Diverging Stacked Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#arguments-on-each-type-of-charts"><i class="fa fa-check"></i><b>11.4</b> Arguments on each type of charts</a></li>
+<li class="chapter" data-level="11.5" data-path="likert-scale-definition-examples-and-visualization.html"><a href="likert-scale-definition-examples-and-visualization.html#reference-1"><i class="fa fa-check"></i><b>11.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html"><i class="fa fa-check"></i><b>12</b> A simple way to visualize geographic data</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#overview-2"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
+<li class="chapter" data-level="12.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#introduction-2"><i class="fa fa-check"></i><b>12.2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#load-packages-1"><i class="fa fa-check"></i><b>12.2.1</b> Load Packages</a></li>
+<li class="chapter" data-level="12.2.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarder-visualization"><i class="fa fa-check"></i><b>12.2.2</b> Boarder Visualization</a></li>
+<li class="chapter" data-level="12.2.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#boarders"><i class="fa fa-check"></i><b>12.2.3</b> Boarders</a></li>
+<li class="chapter" data-level="12.2.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#parts-of-the-map"><i class="fa fa-check"></i><b>12.2.4</b> Parts of the Map</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#application"><i class="fa fa-check"></i><b>12.3</b> Application</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#data-collection"><i class="fa fa-check"></i><b>12.3.1</b> Data Collection</a></li>
+<li class="chapter" data-level="12.3.2" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#comparison"><i class="fa fa-check"></i><b>12.3.2</b> Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="a-simple-way-to-visualize-geographic-data.html"><a href="a-simple-way-to-visualize-geographic-data.html#conclusion-1"><i class="fa fa-check"></i><b>12.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="d3-js-intereactive-choropleth-map.html"><a href="d3-js-intereactive-choropleth-map.html"><i class="fa fa-check"></i><b>13</b> d3.js Intereactive Choropleth Map</a></li>
+<li class="chapter" data-level="14" data-path="introduction-to-violin-plots.html"><a href="introduction-to-violin-plots.html"><i class="fa fa-check"></i><b>14</b> Introduction to violin plots</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="introduction-to-violin-plots.html"><a href="introduction-to-violin-plots.html#overview-3"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.2" data-path="introduction-to-violin-plots.html"><a href="introduction-to-violin-plots.html#theory"><i class="fa fa-check"></i><b>14.2</b> Theory</a></li>
+<li class="chapter" data-level="14.3" data-path="introduction-to-violin-plots.html"><a href="introduction-to-violin-plots.html#basic-violin-plot"><i class="fa fa-check"></i><b>14.3</b> Basic violin plot</a></li>
+<li class="chapter" data-level="14.4" data-path="introduction-to-violin-plots.html"><a href="introduction-to-violin-plots.html#grouped-violin-plot"><i class="fa fa-check"></i><b>14.4</b> Grouped violin plot</a></li>
+<li class="chapter" data-level="14.5" data-path="introduction-to-violin-plots.html"><a href="introduction-to-violin-plots.html#grouped-violin-plot-with-split-violins"><i class="fa fa-check"></i><b>14.5</b> Grouped violin plot with split violins</a></li>
+<li class="chapter" data-level="14.6" data-path="introduction-to-violin-plots.html"><a href="introduction-to-violin-plots.html#violin-plot-versus-box-plot"><i class="fa fa-check"></i><b>14.6</b> violin plot versus box plot</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="base-r-vs-ggplot2.html"><a href="base-r-vs-ggplot2.html"><i class="fa fa-check"></i><b>15</b> Base R vs. ggplot2</a></li>
+<li class="part"><span><b>III Results Reporting</b></span></li>
+<li class="chapter" data-level="16" data-path="visualiztion-tools-in-real-work.html"><a href="visualiztion-tools-in-real-work.html"><i class="fa fa-check"></i><b>16</b> Visualiztion tools in real work</a></li>
+<li class="chapter" data-level="17" data-path="color-in-r.html"><a href="color-in-r.html"><i class="fa fa-check"></i><b>17</b> Color in R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="color-in-r.html"><a href="color-in-r.html#overview-4"><i class="fa fa-check"></i><b>17.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="color-in-r.html"><a href="color-in-r.html#sections"><i class="fa fa-check"></i><b>17.1.1</b> Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="color-in-r.html"><a href="color-in-r.html#discrete-colors"><i class="fa fa-check"></i><b>17.2</b> Discrete Colors</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="color-in-r.html"><a href="color-in-r.html#basics-1"><i class="fa fa-check"></i><b>17.2.1</b> Basics</a></li>
+<li class="chapter" data-level="17.2.2" data-path="color-in-r.html"><a href="color-in-r.html#rcolorbrewer"><i class="fa fa-check"></i><b>17.2.2</b> RColorBrewer</a></li>
+<li class="chapter" data-level="17.2.3" data-path="color-in-r.html"><a href="color-in-r.html#viridis"><i class="fa fa-check"></i><b>17.2.3</b> Viridis</a></li>
+<li class="chapter" data-level="17.2.4" data-path="color-in-r.html"><a href="color-in-r.html#color-picker"><i class="fa fa-check"></i><b>17.2.4</b> Color Picker</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="color-in-r.html"><a href="color-in-r.html#continuous-colors"><i class="fa fa-check"></i><b>17.3</b> Continuous Colors</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="color-in-r.html"><a href="color-in-r.html#barplot"><i class="fa fa-check"></i><b>17.3.1</b> Barplot</a></li>
+<li class="chapter" data-level="17.3.2" data-path="color-in-r.html"><a href="color-in-r.html#heatmap"><i class="fa fa-check"></i><b>17.3.2</b> Heatmap</a></li>
+<li class="chapter" data-level="17.3.3" data-path="color-in-r.html"><a href="color-in-r.html#diverging-scales"><i class="fa fa-check"></i><b>17.3.3</b> Diverging Scales</a></li>
+<li class="chapter" data-level="17.3.4" data-path="color-in-r.html"><a href="color-in-r.html#colorblind"><i class="fa fa-check"></i><b>17.3.4</b> ColorBlind</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="color-in-r.html"><a href="color-in-r.html#resources"><i class="fa fa-check"></i><b>17.4</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html"><i class="fa fa-check"></i><b>18</b> Illustrate commonly used graphs in R</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html#numerical-variables-with-abalone-and-mtcars"><i class="fa fa-check"></i><b>18.1</b> Numerical Variables with Abalone and Mtcars</a></li>
+<li class="chapter" data-level="18.2" data-path="illustrate-commonly-used-graphs-in-r.html"><a href="illustrate-commonly-used-graphs-in-r.html#categorical-graphs-with-arthritis-data"><i class="fa fa-check"></i><b>18.2</b> Categorical Graphs with Arthritis Data</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="plotting-interactive-graphs-with-shiny.html"><a href="plotting-interactive-graphs-with-shiny.html"><i class="fa fa-check"></i><b>19</b> Plotting interactive graphs with Shiny</a></li>
+<li class="part"><span><b>IV Complete Analyses</b></span></li>
+<li class="chapter" data-level="20" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html"><i class="fa fa-check"></i><b>20</b> China choropleth map</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#overview-5"><i class="fa fa-check"></i><b>20.1</b> Overview</a></li>
+<li class="chapter" data-level="20.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#data-collection-1"><i class="fa fa-check"></i><b>20.2</b> Data Collection</a></li>
+<li class="chapter" data-level="20.3" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#static-map-with-ggplot"><i class="fa fa-check"></i><b>20.3</b> Static Map with ggplot</a>
+<ul>
+<li class="chapter" data-level="20.3.1" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#prepare-the-shape-data-of-china"><i class="fa fa-check"></i><b>20.3.1</b> Prepare the shape data of China</a></li>
+<li class="chapter" data-level="20.3.2" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#plot"><i class="fa fa-check"></i><b>20.3.2</b> Plot:</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-hchinamap"><i class="fa fa-check"></i><b>20.4</b> Interactive Map with hchinamap</a></li>
+<li class="chapter" data-level="20.5" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#interactive-map-with-leafletcn"><i class="fa fa-check"></i><b>20.5</b> Interactive Map with leafletCN</a></li>
+<li class="chapter" data-level="20.6" data-path="china-choropleth-map.html"><a href="china-choropleth-map.html#conclusion-2"><i class="fa fa-check"></i><b>20.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="benfords-law-analysis-of-2020-election.html"><a href="benfords-law-analysis-of-2020-election.html"><i class="fa fa-check"></i><b>21</b> Benford’s Law Analysis of 2020 Election</a></li>
+<li class="chapter" data-level="22" data-path="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html"><i class="fa fa-check"></i><b>22</b> Visualizing electoral margins in US presidential elections (2008-2016)</a></li>
+<li class="chapter" data-level="23" data-path="survival-analysis-examples.html"><a href="survival-analysis-examples.html"><i class="fa fa-check"></i><b>23</b> Survival analysis examples</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="survival-analysis-examples.html"><a href="survival-analysis-examples.html#introduction-3"><i class="fa fa-check"></i><b>23.1</b> Introduction</a></li>
+<li class="chapter" data-level="23.2" data-path="survival-analysis-examples.html"><a href="survival-analysis-examples.html#basic-concepts"><i class="fa fa-check"></i><b>23.2</b> Basic Concepts</a></li>
+<li class="chapter" data-level="23.3" data-path="survival-analysis-examples.html"><a href="survival-analysis-examples.html#examples"><i class="fa fa-check"></i><b>23.3</b> Examples</a>
+<ul>
+<li class="chapter" data-level="23.3.1" data-path="survival-analysis-examples.html"><a href="survival-analysis-examples.html#preparation"><i class="fa fa-check"></i><b>23.3.1</b> Preparation</a></li>
+<li class="chapter" data-level="23.3.2" data-path="survival-analysis-examples.html"><a href="survival-analysis-examples.html#overall-survival-analysis"><i class="fa fa-check"></i><b>23.3.2</b> Overall Survival analysis</a></li>
+<li class="chapter" data-level="23.3.3" data-path="survival-analysis-examples.html"><a href="survival-analysis-examples.html#survival-analysis-between-groups"><i class="fa fa-check"></i><b>23.3.3</b> Survival analysis between groups</a></li>
+<li class="chapter" data-level="23.3.4" data-path="survival-analysis-examples.html"><a href="survival-analysis-examples.html#log-rank-test"><i class="fa fa-check"></i><b>23.3.4</b> Log-rank test</a></li>
+<li class="chapter" data-level="23.3.5" data-path="survival-analysis-examples.html"><a href="survival-analysis-examples.html#cox-model"><i class="fa fa-check"></i><b>23.3.5</b> Cox model</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Cheatsheets and Video Tutorials</b></span></li>
+<li class="chapter" data-level="24" data-path="mosaic-plot-cheatsheet.html"><a href="mosaic-plot-cheatsheet.html"><i class="fa fa-check"></i><b>24</b> Mosaic plot cheatsheet</a></li>
+<li class="chapter" data-level="25" data-path="time-series-cheatsheet.html"><a href="time-series-cheatsheet.html"><i class="fa fa-check"></i><b>25</b> Time Series Cheatsheet</a></li>
+<li class="chapter" data-level="26" data-path="python-vs-r-cheatsheet.html"><a href="python-vs-r-cheatsheet.html"><i class="fa fa-check"></i><b>26</b> Python vs. R Cheatsheet</a></li>
+<li class="chapter" data-level="27" data-path="likert-data-cheat-sheet.html"><a href="likert-data-cheat-sheet.html"><i class="fa fa-check"></i><b>27</b> likert data cheat sheet</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="likert-data-cheat-sheet.html"><a href="likert-data-cheat-sheet.html#link-is-below"><i class="fa fa-check"></i><b>27.1</b> link is below</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="categorical-data-visualization-cheat-sheet.html"><a href="categorical-data-visualization-cheat-sheet.html"><i class="fa fa-check"></i><b>28</b> Categorical Data Visualization Cheat Sheet</a></li>
+<li class="chapter" data-level="29" data-path="video-introduction-to-the-replication-crisis-in-psychology.html"><a href="video-introduction-to-the-replication-crisis-in-psychology.html"><i class="fa fa-check"></i><b>29</b> Video Introduction to the Replication Crisis in Psychology</a></li>
+<li class="chapter" data-level="30" data-path="a-video-tutorial-for-creating-a-data-story-in-tableau.html"><a href="a-video-tutorial-for-creating-a-data-story-in-tableau.html"><i class="fa fa-check"></i><b>30</b> A Video Tutorial for Creating a Data Story in Tableau</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="a-video-tutorial-for-creating-a-data-story-in-tableau.html"><a href="a-video-tutorial-for-creating-a-data-story-in-tableau.html#introduction-4"><i class="fa fa-check"></i><b>30.1</b> Introduction</a></li>
+<li class="chapter" data-level="30.2" data-path="a-video-tutorial-for-creating-a-data-story-in-tableau.html"><a href="a-video-tutorial-for-creating-a-data-story-in-tableau.html#data-source"><i class="fa fa-check"></i><b>30.2</b> Data Source</a></li>
+</ul></li>
+<li class="part"><span><b>VI Live Tutorials</b></span></li>
+<li class="chapter" data-level="31" data-path="tableau-intro-tutorial-explained-with-proset2.html"><a href="tableau-intro-tutorial-explained-with-proset2.html"><i class="fa fa-check"></i><b>31</b> Tableau intro tutorial explained with proset2</a></li>
+<li class="chapter" data-level="32" data-path="solutioning-a-data-pipeline-for-visualization.html"><a href="solutioning-a-data-pipeline-for-visualization.html"><i class="fa fa-check"></i><b>32</b> Solutioning a Data pipeline for visualization</a></li>
+<li class="chapter" data-level="33" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html"><i class="fa fa-check"></i><b>33</b> Visualization Research in Biomedical Informatics</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#community-contribution-zoom-session"><i class="fa fa-check"></i><b>33.1</b> Community Contribution Zoom Session</a>
+<ul>
+<li class="chapter" data-level="33.1.1" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#designing-an-interactive-visualization-tool-for-understanding-caring-for-a-complex-chronic-condition"><i class="fa fa-check"></i><b>33.1.1</b> Designing an Interactive Visualization Tool for Understanding &amp; Caring for a Complex Chronic Condition</a></li>
+<li class="chapter" data-level="33.1.2" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#phendo-app-prototype-of-interactive-visualization"><i class="fa fa-check"></i><b>33.1.2</b> Phendo App &amp; Prototype of Interactive Visualization</a></li>
+<li class="chapter" data-level="33.1.3" data-path="visualization-research-in-biomedical-informatics.html"><a href="visualization-research-in-biomedical-informatics.html#resources-for-human-centered-visualization-computing"><i class="fa fa-check"></i><b>33.1.3</b> Resources for Human-Centered Visualization &amp; Computing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="american-history-trivia-night.html"><a href="american-history-trivia-night.html"><i class="fa fa-check"></i><b>34</b> American History Trivia Night</a></li>
+<li class="chapter" data-level="35" data-path="consuming-terrorism-statistics.html"><a href="consuming-terrorism-statistics.html"><i class="fa fa-check"></i><b>35</b> Consuming terrorism statistics</a></li>
+<li class="chapter" data-level="36" data-path="introduction-to-network-analysis.html"><a href="introduction-to-network-analysis.html"><i class="fa fa-check"></i><b>36</b> Introduction to network analysis</a></li>
+<li class="chapter" data-level="37" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html"><i class="fa fa-check"></i><b>37</b> Some techniques for label setting</a>
+<ul>
+<li class="chapter" data-level="37.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#label-placement"><i class="fa fa-check"></i><b>37.1</b> 1. Label placement</a>
+<ul>
+<li class="chapter" data-level="37.1.1" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-1-adjusting-parameters-in-geom_text-like-hjust-vjust-nudge_x-and-nudge_y"><i class="fa fa-check"></i><b>37.1.1</b> Tip 1: Adjusting parameters in geom_text like hjust, vjust, nudge_x and nudge_y</a></li>
+<li class="chapter" data-level="37.1.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-2-ggrepel"><i class="fa fa-check"></i><b>37.1.2</b> Tip 2: ggrepel</a></li>
+<li class="chapter" data-level="37.1.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#tip-3-directlabels"><i class="fa fa-check"></i><b>37.1.3</b> Tip 3: directlabels</a></li>
+</ul></li>
+<li class="chapter" data-level="37.2" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#auto-wrapping-of-long-labels-on-axis"><i class="fa fa-check"></i><b>37.2</b> 2. Auto wrapping of long labels on axis</a></li>
+<li class="chapter" data-level="37.3" data-path="some-techniques-for-label-setting.html"><a href="some-techniques-for-label-setting.html#add-shadow-effect-to-labels"><i class="fa fa-check"></i><b>37.3</b> 3. Add shadow effect to labels</a></li>
+</ul></li>
+<li class="part"><span><b>VII Translations</b></span></li>
+<li class="chapter" data-level="38" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html"><i class="fa fa-check"></i><b>38</b> Chinese Translation of Candela Package</a>
+<ul>
+<li class="chapter" data-level="38.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela"><i class="fa fa-check"></i><b>38.1</b> Candela</a>
+<ul>
+<li class="chapter" data-level="38.1.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开始"><i class="fa fa-check"></i><b>38.1.1</b> 开始</a></li>
+</ul></li>
+<li class="chapter" data-level="38.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-包使用"><i class="fa fa-check"></i><b>38.2</b> Candela 包使用</a>
+<ul>
+<li class="chapter" data-level="38.2.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#安装"><i class="fa fa-check"></i><b>38.2.1</b> 安装</a></li>
+<li class="chapter" data-level="38.2.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#版本控制"><i class="fa fa-check"></i><b>38.2.2</b> 版本控制</a></li>
+</ul></li>
+<li class="chapter" data-level="38.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#组件"><i class="fa fa-check"></i><b>38.3</b> 组件</a>
+<ul>
+<li class="chapter" data-level="38.3.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#条形图-barchart"><i class="fa fa-check"></i><b>38.3.1</b> 条形图 (BarChart)</a></li>
+<li class="chapter" data-level="38.3.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#箱线图-boxplot"><i class="fa fa-check"></i><b>38.3.2</b> 箱线图 (BoxPlot)</a></li>
+<li class="chapter" data-level="38.3.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#甘特图-ganttchart"><i class="fa fa-check"></i><b>38.3.3</b> 甘特图 (GanttChart)</a></li>
+<li class="chapter" data-level="38.3.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理空间图-geo"><i class="fa fa-check"></i><b>38.3.4</b> 地理空间图 (Geo)</a></li>
+<li class="chapter" data-level="38.3.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#地理点图geodots"><i class="fa fa-check"></i><b>38.3.5</b> 地理点图(GeoDots)</a></li>
+<li class="chapter" data-level="38.3.6" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#图级操作-glo---graph-level-operations"><i class="fa fa-check"></i><b>38.3.6</b> 图级操作 (GLO - Graph-Level Operations)</a></li>
+<li class="chapter" data-level="38.3.7" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#直方图-histogram"><i class="fa fa-check"></i><b>38.3.7</b> 直方图 (Histogram)</a></li>
+<li class="chapter" data-level="38.3.8" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#折线图-linechart"><i class="fa fa-check"></i><b>38.3.8</b> 折线图 (LineChart)</a></li>
+<li class="chapter" data-level="38.3.9" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#排序图lineup"><i class="fa fa-check"></i><b>38.3.9</b> 排序图(Lineup)</a></li>
+<li class="chapter" data-level="38.3.10" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#onset组件-onset"><i class="fa fa-check"></i><b>38.3.10</b> OnSet组件 (OnSet)</a></li>
+<li class="chapter" data-level="38.3.11" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图-scatterplot"><i class="fa fa-check"></i><b>38.3.11</b> 散点图 (ScatterPlot)</a></li>
+<li class="chapter" data-level="38.3.12" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#散点图矩阵-scatterplotmatrix"><i class="fa fa-check"></i><b>38.3.12</b> 散点图矩阵 (ScatterPlotMatrix)</a></li>
+<li class="chapter" data-level="38.3.13" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#词树-sententree"><i class="fa fa-check"></i><b>38.3.13</b> 词树 (SentenTree)</a></li>
+<li class="chapter" data-level="38.3.14" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#相似图-similaritygraph"><i class="fa fa-check"></i><b>38.3.14</b> 相似图 (SimilarityGraph)</a></li>
+<li class="chapter" data-level="38.3.15" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#树状图tree-heatmap"><i class="fa fa-check"></i><b>38.3.15</b> 树状图(Tree Heatmap)</a></li>
+<li class="chapter" data-level="38.3.16" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#集合可视化-upset"><i class="fa fa-check"></i><b>38.3.16</b> 集合可视化 (UpSet)</a></li>
+</ul></li>
+<li class="chapter" data-level="38.4" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#api文件"><i class="fa fa-check"></i><b>38.4</b> API文件</a>
+<ul>
+<li class="chapter" data-level="38.4.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-javascript-api"><i class="fa fa-check"></i><b>38.4.1</b> Candela JavaScript API</a></li>
+<li class="chapter" data-level="38.4.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-python-api"><i class="fa fa-check"></i><b>38.4.2</b> Candela Python API</a></li>
+<li class="chapter" data-level="38.4.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#candela-r-api"><i class="fa fa-check"></i><b>38.4.3</b> Candela R API</a></li>
+</ul></li>
+<li class="chapter" data-level="38.5" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#开发人员文件"><i class="fa fa-check"></i><b>38.5</b> 开发人员文件</a>
+<ul>
+<li class="chapter" data-level="38.5.1" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#编码规范指南"><i class="fa fa-check"></i><b>38.5.1</b> 编码规范指南</a></li>
+<li class="chapter" data-level="38.5.2" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#创建candela代码发布"><i class="fa fa-check"></i><b>38.5.2</b> 创建Candela代码发布</a></li>
+<li class="chapter" data-level="38.5.3" data-path="chinese-translation-of-candela-package.html"><a href="chinese-translation-of-candela-package.html#测试"><i class="fa fa-check"></i><b>38.5.3</b> 测试</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="39" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html"><i class="fa fa-check"></i><b>39</b> Greek translation of edav.info/histo</a>
+<ul>
+<li class="chapter" data-level="39.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#histo"><i class="fa fa-check"></i><b>39.1</b> Διάγραμμα: Ιστόγραμμα</a></li>
+<li class="chapter" data-level="39.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#επισκόπηση"><i class="fa fa-check"></i><b>39.2</b> Επισκόπηση</a></li>
+<li class="chapter" data-level="39.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#σύνοψη"><i class="fa fa-check"></i><b>39.3</b> Σύνοψη</a></li>
+<li class="chapter" data-level="39.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#simple-examples"><i class="fa fa-check"></i><b>39.4</b> Simple examples</a>
+<ul>
+<li class="chapter" data-level="39.4.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-βασικής-r"><i class="fa fa-check"></i><b>39.4.1</b> Ιστόγραμμα με χρήση βασικής R</a></li>
+<li class="chapter" data-level="39.4.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-με-χρήση-ggplot2"><i class="fa fa-check"></i><b>39.4.2</b> Ιστόγραμμα με χρήση ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="39.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#θεωρία"><i class="fa fa-check"></i><b>39.5</b> Θεωρία</a></li>
+<li class="chapter" data-level="39.6" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#τύποι-ιστογραμμάτων"><i class="fa fa-check"></i><b>39.6</b> Τύποι ιστογραμμάτων</a>
+<ul>
+<li class="chapter" data-level="39.6.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#συχνότητα-ή-μέτρηση"><i class="fa fa-check"></i><b>39.6.1</b> Συχνότητα ή μέτρηση</a></li>
+<li class="chapter" data-level="39.6.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-σχετικής-συχνότητας"><i class="fa fa-check"></i><b>39.6.2</b> Ιστόγραμμα σχετικής συχνότητας</a></li>
+<li class="chapter" data-level="39.6.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ιστόγραμμα-συνολικής-συχνότητας"><i class="fa fa-check"></i><b>39.6.3</b> Ιστόγραμμα συνολικής συχνότητας</a></li>
+<li class="chapter" data-level="39.6.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#πυκνότητα"><i class="fa fa-check"></i><b>39.6.4</b> Πυκνότητα</a></li>
+</ul></li>
+<li class="chapter" data-level="39.7" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράμετροι"><i class="fa fa-check"></i><b>39.7</b> Παράμετροι</a>
+<ul>
+<li class="chapter" data-level="39.7.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#όρια-ζωνών"><i class="fa fa-check"></i><b>39.7.1</b> Όρια ζωνών</a></li>
+<li class="chapter" data-level="39.7.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αριθμός-ζωνών"><i class="fa fa-check"></i><b>39.7.2</b> Αριθμός ζωνών</a></li>
+<li class="chapter" data-level="39.7.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#ευθυγράμμιση-ζωνών"><i class="fa fa-check"></i><b>39.7.3</b> Ευθυγράμμιση ζωνών</a></li>
+</ul></li>
+<li class="chapter" data-level="39.8" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστικά-ιστογράμματα-με-το-ggvis"><i class="fa fa-check"></i><b>39.8</b> Διαδραστικά ιστογράμματα με το <code>ggvis</code></a>
+<ul>
+<li class="chapter" data-level="39.8.1" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-του-εύρου-ζώνης"><i class="fa fa-check"></i><b>39.8.1</b> Διαδραστική αλλαγή του εύρου ζώνης</a></li>
+<li class="chapter" data-level="39.8.2" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#παράδειγμα-αεπ"><i class="fa fa-check"></i><b>39.8.2</b> Παράδειγμα ΑΕΠ</a></li>
+<li class="chapter" data-level="39.8.3" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-κέντρου"><i class="fa fa-check"></i><b>39.8.3</b> Διαδραστική αλλαγή κέντρου</a></li>
+<li class="chapter" data-level="39.8.4" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#αλλαγή-κέντρου-με-τις-τιμές-δεδομένων-που-εμφανίζονται"><i class="fa fa-check"></i><b>39.8.4</b> Αλλαγή κέντρου (με τις τιμές δεδομένων που εμφανίζονται)</a></li>
+<li class="chapter" data-level="39.8.5" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#διαδραστική-αλλαγή-ορίου"><i class="fa fa-check"></i><b>39.8.5</b> Διαδραστική αλλαγή ορίου</a></li>
+</ul></li>
+<li class="chapter" data-level="39.9" data-path="greek-translation-of-edav-infohisto.html"><a href="greek-translation-of-edav-infohisto.html#εξωτερικές-πηγές"><i class="fa fa-check"></i><b>39.9</b> Εξωτερικές πηγές</a></li>
+</ul></li>
+<li class="chapter" data-level="40" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html"><i class="fa fa-check"></i><b>40</b> Korean translation of scatterplot</a>
+<ul>
+<li class="chapter" data-level="40.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#개요"><i class="fa fa-check"></i><b>40.1</b> 개요</a></li>
+<li class="chapter" data-level="40.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#요약"><i class="fa fa-check"></i><b>40.2</b> 요약</a></li>
+<li class="chapter" data-level="40.3" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#간단한-예시"><i class="fa fa-check"></i><b>40.3</b> 간단한 예시</a>
+<ul>
+<li class="chapter" data-level="40.3.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#base-r을-이용한-산점도"><i class="fa fa-check"></i><b>40.3.1</b> base R을 이용한 산점도</a></li>
+<li class="chapter" data-level="40.3.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#ggplot2를-이용한-산점도"><i class="fa fa-check"></i><b>40.3.2</b> ggplot2를 이용한 산점도</a></li>
+</ul></li>
+<li class="chapter" data-level="40.4" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#이론"><i class="fa fa-check"></i><b>40.4</b> 이론</a></li>
+<li class="chapter" data-level="40.5" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#사용-시기"><i class="fa fa-check"></i><b>40.5</b> 사용 시기</a></li>
+<li class="chapter" data-level="40.6" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#고려-사항"><i class="fa fa-check"></i><b>40.6</b> 고려 사항</a>
+<ul>
+<li class="chapter" data-level="40.6.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#겹치는-데이터"><i class="fa fa-check"></i><b>40.6.1</b> 겹치는 데이터</a></li>
+<li class="chapter" data-level="40.6.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#스케일링"><i class="fa fa-check"></i><b>40.6.2</b> 스케일링</a></li>
+</ul></li>
+<li class="chapter" data-level="40.7" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#변경"><i class="fa fa-check"></i><b>40.7</b> 변경</a>
+<ul>
+<li class="chapter" data-level="40.7.1" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#등고선"><i class="fa fa-check"></i><b>40.7.1</b> 등고선</a></li>
+<li class="chapter" data-level="40.7.2" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#산점도-행렬"><i class="fa fa-check"></i><b>40.7.2</b> 산점도 행렬</a></li>
+</ul></li>
+<li class="chapter" data-level="40.8" data-path="korean-translation-of-scatterplot.html"><a href="korean-translation-of-scatterplot.html#추가-자료"><i class="fa fa-check"></i><b>40.8</b> 추가 자료</a></li>
+</ul></li>
+<li class="chapter" data-level="41" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><i class="fa fa-check"></i><b>41</b> Rmarkdown tutorial Chinese translation: Rmarkdown 中文版指南</a>
+<ul>
+<li class="chapter" data-level="41.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#概述"><i class="fa fa-check"></i><b>41.1</b> 1. 概述</a>
+<ul>
+<li><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#什么是r-markdown"><span class="toc-section-number">41.1.1</span> 1.1 什么是R Markdown？<br />
+</a></li>
+<li class="chapter" data-level="41.1.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#工作流程"><i class="fa fa-check"></i><b>41.1.2</b> 1.2 工作流程</a></li>
+</ul></li>
+<li class="chapter" data-level="41.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#入门"><i class="fa fa-check"></i><b>41.2</b> 2. 入门</a>
+<ul>
+<li class="chapter" data-level="41.2.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#安装套件"><i class="fa fa-check"></i><b>41.2.1</b> 2.1. 安装套件</a></li>
+<li class="chapter" data-level="41.2.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#打开文件"><i class="fa fa-check"></i><b>41.2.2</b> 2.2.打开文件</a></li>
+<li class="chapter" data-level="41.2.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#输出格式"><i class="fa fa-check"></i><b>41.2.3</b> 2.3. 输出格式</a></li>
+</ul></li>
+<li class="chapter" data-level="41.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#markdown语法"><i class="fa fa-check"></i><b>41.3</b> 3. Markdown语法</a></li>
+<li class="chapter" data-level="41.4" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#嵌入代码"><i class="fa fa-check"></i><b>41.4</b> 4. 嵌入代码</a>
+<ul>
+<li class="chapter" data-level="41.4.1" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#内联代码"><i class="fa fa-check"></i><b>41.4.1</b> 4.1. 内联代码</a></li>
+<li class="chapter" data-level="41.4.2" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#代码块"><i class="fa fa-check"></i><b>41.4.2</b> 4.2. 代码块</a></li>
+<li class="chapter" data-level="41.4.3" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#显示选项"><i class="fa fa-check"></i><b>41.4.3</b> 4.3. 显示选项</a></li>
+</ul></li>
+<li class="chapter" data-level="41.5" data-path="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html"><a href="rmarkdown-tutorial-chinese-translation-rmarkdown-中文版指南.html#渲染"><i class="fa fa-check"></i><b>41.5</b> 5. 渲染</a></li>
+</ul></li>
+<li class="chapter" data-level="42" data-path="beautiful-visualization-with-ggplot2.html"><a href="beautiful-visualization-with-ggplot2.html"><i class="fa fa-check"></i><b>42</b> Beautiful visualization with ggplot2</a></li>
+<li class="chapter" data-level="43" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><i class="fa fa-check"></i><b>43</b> Chinese Web scraping using R package: rvest &amp; httr tutorial</a>
+<ul>
+<li class="chapter" data-level="43.1" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#summary"><i class="fa fa-check"></i><b>43.1</b> Summary:</a></li>
+<li class="chapter" data-level="43.2" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#使用-rvest-包抓取数据"><i class="fa fa-check"></i><b>43.2</b> 使用 rvest 包抓取数据</a>
+<ul>
+<li class="chapter" data-level="43.2.1" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#常用函数"><i class="fa fa-check"></i><b>43.2.1</b> 常用函数</a></li>
+<li class="chapter" data-level="43.2.2" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#节点定位方法"><i class="fa fa-check"></i><b>43.2.2</b> 节点定位方法</a></li>
+<li class="chapter" data-level="43.2.3" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#案例一抓取-cran-上所有-r-包的信息"><i class="fa fa-check"></i><b>43.2.3</b> 案例一：抓取 CRAN 上所有 R 包的信息</a></li>
+<li class="chapter" data-level="43.2.4" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#案例二抓取-stackoverflow-上关于-r-的问题"><i class="fa fa-check"></i><b>43.2.4</b> 案例二：抓取 stackoverflow 上关于 R 的问题</a></li>
+</ul></li>
+<li class="chapter" data-level="43.3" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#使用-httr-包抓取数据"><i class="fa fa-check"></i><b>43.3</b> 使用 httr 包抓取数据</a>
+<ul>
+<li class="chapter" data-level="43.3.1" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#httr-中的常用函数"><i class="fa fa-check"></i><b>43.3.1</b> httr 中的常用函数</a></li>
+<li class="chapter" data-level="43.3.2" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#捕获错误机制"><i class="fa fa-check"></i><b>43.3.2</b> 捕获错误机制</a></li>
+<li class="chapter" data-level="43.3.3" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#案例三抓取豆瓣电影-top250"><i class="fa fa-check"></i><b>43.3.3</b> 案例三：抓取豆瓣电影 top250</a></li>
+<li class="chapter" data-level="43.3.4" data-path="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html"><a href="chinese-web-scraping-using-r-package-rvest-httr-tutorial.html#案例四抓取豆瓣热门电影动态页面的抓取"><i class="fa fa-check"></i><b>43.3.4</b> 案例四：抓取豆瓣热门电影「动态页面的抓取」</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="44" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><i class="fa fa-check"></i><b>44</b> Website Sharing Whole Class and 2nd-part of the Website – Mosaic Plot Translation to Chinese</a>
+<ul>
+<li class="chapter" data-level="44.1" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html#three-parts-of-our-website"><i class="fa fa-check"></i><b>44.1</b> Three Parts of Our Website</a></li>
+<li class="chapter" data-level="44.2" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html#links-of-all-parts-of-website"><i class="fa fa-check"></i><b>44.2</b> Links of All Parts of Website</a></li>
+<li class="chapter" data-level="44.3" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html#codes-of-2nd-part-of-website"><i class="fa fa-check"></i><b>44.3</b> Codes of 2nd-part of Website</a>
+<ul>
+<li class="chapter" data-level="44.3.1" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html#note-for-the-available-code"><i class="fa fa-check"></i><b>44.3.1</b> Note for the Available Code</a></li>
+<li class="chapter" data-level="44.3.2" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html#this-document-is-outlined-as-follows"><i class="fa fa-check"></i><b>44.3.2</b> This document is outlined as follows:</a></li>
+<li class="chapter" data-level="44.3.3" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html#introduction-介绍-mosaic-plot-2019"><i class="fa fa-check"></i><b>44.3.3</b> Introduction 介绍 (Mosaic plot 2019)</a></li>
+<li class="chapter" data-level="44.3.4" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html#basic-parts-of-mosaic-plots"><i class="fa fa-check"></i><b>44.3.4</b> Basic Parts of Mosaic Plots</a></li>
+<li class="chapter" data-level="44.3.5" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html#part-3"><i class="fa fa-check"></i><b>44.3.5</b> Part 3</a></li>
+<li class="chapter" data-level="44.3.6" data-path="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html"><a href="website-sharing-whole-class-and-2nd-part-of-the-website-mosaic-plot-translation-to-chinese.html#参考文献"><i class="fa fa-check"></i><b>44.3.6</b> 参考文献</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="45" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><i class="fa fa-check"></i><b>45</b> How to plot grouped data for multivariate (in Chinese)</a>
+<ul>
+<li class="chapter" data-level="45.1" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#数据准备"><i class="fa fa-check"></i><b>45.1</b> 数据准备</a></li>
+<li class="chapter" data-level="45.2" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#分类变量分组制图"><i class="fa fa-check"></i><b>45.2</b> 分类变量分组制图</a>
+<ul>
+<li class="chapter" data-level="45.2.1" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#筛选特定分组数据及计算频率"><i class="fa fa-check"></i><b>45.2.1</b> 筛选特定分组数据及计算频率</a></li>
+<li class="chapter" data-level="45.2.2" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#分组频率柱状图"><i class="fa fa-check"></i><b>45.2.2</b> 分组频率柱状图</a></li>
+<li class="chapter" data-level="45.2.3" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#加入数据标签并列柱状图"><i class="fa fa-check"></i><b>45.2.3</b> 加入数据标签（并列柱状图）</a></li>
+<li class="chapter" data-level="45.2.4" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#加入数据标签堆积柱状图"><i class="fa fa-check"></i><b>45.2.4</b> 加入数据标签（堆积柱状图）</a></li>
+<li class="chapter" data-level="45.2.5" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#其他类型柱状图"><i class="fa fa-check"></i><b>45.2.5</b> 其他类型柱状图</a></li>
+</ul></li>
+<li class="chapter" data-level="45.3" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#连续变量分组制图"><i class="fa fa-check"></i><b>45.3</b> 连续变量分组制图</a>
+<ul>
+<li class="chapter" data-level="45.3.1" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#数据格式"><i class="fa fa-check"></i><b>45.3.1</b> 数据格式</a></li>
+<li class="chapter" data-level="45.3.2" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#箱型图"><i class="fa fa-check"></i><b>45.3.2</b> 箱型图</a></li>
+<li class="chapter" data-level="45.3.3" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#小提琴图"><i class="fa fa-check"></i><b>45.3.3</b> 小提琴图</a></li>
+<li class="chapter" data-level="45.3.4" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#点图"><i class="fa fa-check"></i><b>45.3.4</b> 点图</a></li>
+<li class="chapter" data-level="45.3.5" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#带状图"><i class="fa fa-check"></i><b>45.3.5</b> 带状图</a></li>
+<li class="chapter" data-level="45.3.6" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#sina图"><i class="fa fa-check"></i><b>45.3.6</b> Sina图</a></li>
+<li class="chapter" data-level="45.3.7" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#带有误差线的均值和中位数图"><i class="fa fa-check"></i><b>45.3.7</b> 带有误差线的均值和中位数图</a></li>
+</ul></li>
+<li class="chapter" data-level="45.4" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#总结"><i class="fa fa-check"></i><b>45.4</b> 总结</a>
+<ul>
+<li class="chapter" data-level="45.4.1" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#可视化已分组的连续变量的分布"><i class="fa fa-check"></i><b>45.4.1</b> 可视化已分组的连续变量的分布</a></li>
+<li class="chapter" data-level="45.4.2" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#创建带有误差线的均值和中位数图"><i class="fa fa-check"></i><b>45.4.2</b> 创建带有误差线的均值和中位数图</a></li>
+<li class="chapter" data-level="45.4.3" data-path="how-to-plot-grouped-data-for-multivariate-in-chinese.html"><a href="how-to-plot-grouped-data-for-multivariate-in-chinese.html#将误差线与小提琴图点图线形图和条形图结合起来"><i class="fa fa-check"></i><b>45.4.3</b> 将误差线与小提琴图，点图，线形图和条形图结合起来</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>VIII Other Topics</b></span></li>
+<li class="chapter" data-level="46" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html"><i class="fa fa-check"></i><b>46</b> Webscraping Dynamic Content: Rselenium Tutorial</a>
+<ul>
+<li class="chapter" data-level="46.1" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#introduction-and-setup"><i class="fa fa-check"></i><b>46.1</b> Introduction and Setup</a></li>
+<li class="chapter" data-level="46.2" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#simple-illustrations-with-websites"><i class="fa fa-check"></i><b>46.2</b> Simple Illustrations with Websites</a></li>
+<li class="chapter" data-level="46.3" data-path="webscraping-dynamic-content-rselenium-tutorial.html"><a href="webscraping-dynamic-content-rselenium-tutorial.html#other-features"><i class="fa fa-check"></i><b>46.3</b> Other Features</a></li>
+</ul></li>
+<li class="chapter" data-level="47" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html"><i class="fa fa-check"></i><b>47</b> Brief Introduction and Tutorial of ggpubr Package</a>
+<ul>
+<li class="chapter" data-level="47.1" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#installation-and-loading"><i class="fa fa-check"></i><b>47.1</b> Installation and loading</a></li>
+<li class="chapter" data-level="47.2" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#introduction-5"><i class="fa fa-check"></i><b>47.2</b> Introduction</a></li>
+<li class="chapter" data-level="47.3" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#histogram"><i class="fa fa-check"></i><b>47.3</b> Histogram</a></li>
+<li class="chapter" data-level="47.4" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#density-plot"><i class="fa fa-check"></i><b>47.4</b> Density plot</a></li>
+<li class="chapter" data-level="47.5" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#box-plot"><i class="fa fa-check"></i><b>47.5</b> Box plot</a></li>
+<li class="chapter" data-level="47.6" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#violin-plot"><i class="fa fa-check"></i><b>47.6</b> Violin plot</a></li>
+<li class="chapter" data-level="47.7" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#bar-plot"><i class="fa fa-check"></i><b>47.7</b> Bar plot</a></li>
+<li class="chapter" data-level="47.8" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#lollipop-chart"><i class="fa fa-check"></i><b>47.8</b> Lollipop Chart</a></li>
+<li class="chapter" data-level="47.9" data-path="brief-introduction-and-tutorial-of-ggpubr-package.html"><a href="brief-introduction-and-tutorial-of-ggpubr-package.html#cleveland-dot-plot"><i class="fa fa-check"></i><b>47.9</b> Cleveland dot plot</a></li>
+</ul></li>
+<li class="chapter" data-level="48" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html"><i class="fa fa-check"></i><b>48</b> Visualization of geographical maps</a>
+<ul>
+<li class="chapter" data-level="48.0.1" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#what-is-map-visualization"><i class="fa fa-check"></i><b>48.0.1</b> 1. What is map visualization</a></li>
+<li class="chapter" data-level="48.0.2" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#how-to-draw-a-map-in-r"><i class="fa fa-check"></i><b>48.0.2</b> 2. How to draw a map in R</a></li>
+<li class="chapter" data-level="48.0.3" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#tmap"><i class="fa fa-check"></i><b>48.0.3</b> 3. tmap</a></li>
+<li class="chapter" data-level="48.0.4" data-path="visualization-of-geographical-maps.html"><a href="visualization-of-geographical-maps.html#optional-watching-create-your-own-sf-object"><i class="fa fa-check"></i><b>48.0.4</b> 4.Optional watching: create your own sf object</a></li>
+</ul></li>
+<li class="chapter" data-level="49" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html"><i class="fa fa-check"></i><b>49</b> Health datasets for the final project</a>
+<ul>
+<li class="chapter" data-level="49.1" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#big-cities-health-inventory-data"><i class="fa fa-check"></i><b>49.1</b> Big Cities Health Inventory Data</a></li>
+<li class="chapter" data-level="49.2" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#mhealth-dataset"><i class="fa fa-check"></i><b>49.2</b> MHealth Dataset</a></li>
+<li class="chapter" data-level="49.3" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#human-mortality-database-hmd"><i class="fa fa-check"></i><b>49.3</b> Human Mortality Database (HMD)</a></li>
+<li class="chapter" data-level="49.4" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#seer-cancer-incidence"><i class="fa fa-check"></i><b>49.4</b> SEER Cancer Incidence</a></li>
+<li class="chapter" data-level="49.5" data-path="health-datasets-for-the-final-project.html"><a href="health-datasets-for-the-final-project.html#unicef-data-warehouse"><i class="fa fa-check"></i><b>49.5</b> UNICEF Data Warehouse</a></li>
+</ul></li>
+<li class="chapter" data-level="50" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><i class="fa fa-check"></i><b>50</b> Laying out multiple plots for Baseplot and ggplot</a>
+<ul>
+<li class="chapter" data-level="50.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#overview-6"><i class="fa fa-check"></i><b>50.1</b> Overview</a></li>
+<li class="chapter" data-level="50.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#most-easy-and-normal-form-par"><i class="fa fa-check"></i><b>50.2</b> Most easy and normal form <code>par()</code></a></li>
+<li class="chapter" data-level="50.3" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#complex-plot-layouts-with-layout"><i class="fa fa-check"></i><b>50.3</b> Complex plot layouts with <code>layout()</code></a></li>
+<li class="chapter" data-level="50.4" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#layout-for-ggplot"><i class="fa fa-check"></i><b>50.4</b> Layout for ggplot</a>
+<ul>
+<li class="chapter" data-level="50.4.1" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#grid.arrange-in-gridextra"><i class="fa fa-check"></i><b>50.4.1</b> <code>grid.arrange()</code> in <code>gridExtra</code></a></li>
+<li class="chapter" data-level="50.4.2" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#method-in-grid"><i class="fa fa-check"></i><b>50.4.2</b> method in <code>grid</code></a></li>
+</ul></li>
+<li class="chapter" data-level="50.5" data-path="laying-out-multiple-plots-for-baseplot-and-ggplot.html"><a href="laying-out-multiple-plots-for-baseplot-and-ggplot.html#reference-2"><i class="fa fa-check"></i><b>50.5</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="51" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><i class="fa fa-check"></i><b>51</b> A basic Introduction to Markov Chain Monte Carlo Method in R</a>
+<ul>
+<li class="chapter" data-level="51.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#introduction-6"><i class="fa fa-check"></i><b>51.1</b> 1. Introduction</a></li>
+<li class="chapter" data-level="51.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#markov-chain-simulation-method"><i class="fa fa-check"></i><b>51.2</b> 2. Markov Chain Simulation Method</a></li>
+<li class="chapter" data-level="51.3" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#acceptance-rejection-sampling"><i class="fa fa-check"></i><b>51.3</b> 3. Acceptance-Rejection Sampling</a></li>
+<li class="chapter" data-level="51.4" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-markov-chain"><i class="fa fa-check"></i><b>51.4</b> 4. Sampling from Markov Chain</a></li>
+<li class="chapter" data-level="51.5" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#mcmc-sampling-method"><i class="fa fa-check"></i><b>51.5</b> 5. MCMC Sampling Method</a></li>
+<li class="chapter" data-level="51.6" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#metropolis-hastings-sampling"><i class="fa fa-check"></i><b>51.6</b> 6. Metropolis-Hastings Sampling</a></li>
+<li class="chapter" data-level="51.7" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#implementation-in-r"><i class="fa fa-check"></i><b>51.7</b> 7. Implementation in R</a>
+<ul>
+<li class="chapter" data-level="51.7.1" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-an-exponential-distribution"><i class="fa fa-check"></i><b>51.7.1</b> 1. Sampling from an exponential distribution</a></li>
+<li class="chapter" data-level="51.7.2" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#sampling-from-a-normal-distribution"><i class="fa fa-check"></i><b>51.7.2</b> 2. Sampling from a normal distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="51.8" data-path="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html"><a href="a-basic-introduction-to-markov-chain-monte-carlo-method-in-r.html#refenence"><i class="fa fa-check"></i><b>51.8</b> 8 Refenence</a></li>
+</ul></li>
+<li class="chapter" data-level="52" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html"><i class="fa fa-check"></i><b>52</b> automate eda with dataexplorer</a>
+<ul>
+<li class="chapter" data-level="52.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overview-7"><i class="fa fa-check"></i><b>52.1</b> Overview</a></li>
+<li class="chapter" data-level="52.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dataexplorer"><i class="fa fa-check"></i><b>52.2</b> DataExplorer</a></li>
+<li class="chapter" data-level="52.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#installation"><i class="fa fa-check"></i><b>52.3</b> Installation</a></li>
+<li class="chapter" data-level="52.4" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#exploratory-data-analysis-eda"><i class="fa fa-check"></i><b>52.4</b> Exploratory data analysis (EDA)</a>
+<ul>
+<li class="chapter" data-level="52.4.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#overall-information"><i class="fa fa-check"></i><b>52.4.1</b> Overall Information</a></li>
+<li class="chapter" data-level="52.4.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#distribution"><i class="fa fa-check"></i><b>52.4.2</b> Distribution</a></li>
+<li class="chapter" data-level="52.4.3" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#correlation-analysis"><i class="fa fa-check"></i><b>52.4.3</b> Correlation Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="52.5" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#feature-engineering"><i class="fa fa-check"></i><b>52.5</b> Feature Engineering</a>
+<ul>
+<li class="chapter" data-level="52.5.1" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#missing-value"><i class="fa fa-check"></i><b>52.5.1</b> Missing value</a></li>
+<li class="chapter" data-level="52.5.2" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#dummy-variable"><i class="fa fa-check"></i><b>52.5.2</b> Dummy variable</a></li>
+</ul></li>
+<li class="chapter" data-level="52.6" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#data-report"><i class="fa fa-check"></i><b>52.6</b> Data Report</a></li>
+<li class="chapter" data-level="52.7" data-path="automate-eda-with-dataexplorer.html"><a href="automate-eda-with-dataexplorer.html#external-resources"><i class="fa fa-check"></i><b>52.7</b> External Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="53" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html"><i class="fa fa-check"></i><b>53</b> Speed up in r programming</a>
+<ul>
+<li class="chapter" data-level="53.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#typical-development-cycle-for-computational-statistics"><i class="fa fa-check"></i><b>53.1</b> Typical development cycle for computational statistics</a></li>
+<li class="chapter" data-level="53.2" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#bytecode-compilation"><i class="fa fa-check"></i><b>53.2</b> Bytecode compilation</a>
+<ul>
+<li class="chapter" data-level="53.2.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#example-summing-a-vector"><i class="fa fa-check"></i><b>53.2.1</b> Example: summing a vector</a></li>
+</ul></li>
+<li class="chapter" data-level="53.3" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#rcpp"><i class="fa fa-check"></i><b>53.3</b> Rcpp</a>
+<ul>
+<li class="chapter" data-level="53.3.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#use-cppfunction"><i class="fa fa-check"></i><b>53.3.1</b> Use <code>cppFunction</code></a></li>
+</ul></li>
+<li class="chapter" data-level="53.4" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#parallel-computing"><i class="fa fa-check"></i><b>53.4</b> Parallel computing</a>
+<ul>
+<li class="chapter" data-level="53.4.1" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#simulation-example"><i class="fa fa-check"></i><b>53.4.1</b> Simulation example</a></li>
+</ul></li>
+<li class="chapter" data-level="53.5" data-path="speed-up-in-r-programming.html"><a href="speed-up-in-r-programming.html#package-development"><i class="fa fa-check"></i><b>53.5</b> Package development</a></li>
+</ul></li>
+<li class="chapter" data-level="54" data-path="data-visualization-in-python-using-different-plotting-packages.html"><a href="data-visualization-in-python-using-different-plotting-packages.html"><i class="fa fa-check"></i><b>54</b> Data Visualization in Python using different plotting packages</a></li>
+<li class="chapter" data-level="55" data-path="final-project-teammate-finder.html"><a href="final-project-teammate-finder.html"><i class="fa fa-check"></i><b>55</b> Final project teammate finder</a></li>
+<li class="chapter" data-level="56" data-path="among-us-player-statistics.html"><a href="among-us-player-statistics.html"><i class="fa fa-check"></i><b>56</b> Among Us Player Statistics</a></li>
+<li class="chapter" data-level="57" data-path="ipywidget-example-walkthrough-video.html"><a href="ipywidget-example-walkthrough-video.html"><i class="fa fa-check"></i><b>57</b> Ipywidget example walkthrough video</a></li>
+<li class="chapter" data-level="58" data-path="linkedin-professional-development-session.html"><a href="linkedin-professional-development-session.html"><i class="fa fa-check"></i><b>58</b> LinkedIn professional development session</a></li>
+<li class="part"><span><b>IX Appendices</b></span></li>
+<li class="chapter" data-level="59" data-path="github-initial-setup.html"><a href="github-initial-setup.html"><i class="fa fa-check"></i><b>59</b> Github Initial Setup</a></li>
+<li class="chapter" data-level="60" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html"><i class="fa fa-check"></i><b>60</b> Tutorial for Pull Request Mergers</a>
+<ul>
+<li class="chapter" data-level="60.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-branch"><i class="fa fa-check"></i><b>60.1</b> Check branch</a></li>
+<li class="chapter" data-level="60.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#examine-files-that-were-added-or-modified"><i class="fa fa-check"></i><b>60.2</b> Examine files that were added or modified</a></li>
+<li class="chapter" data-level="60.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-filename"><i class="fa fa-check"></i><b>60.3</b> Check <code>.Rmd</code> filename</a></li>
+<li class="chapter" data-level="60.4" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#check-.rmd-file-contents"><i class="fa fa-check"></i><b>60.4</b> Check <code>.Rmd</code> file contents</a></li>
+<li class="chapter" data-level="60.5" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#request-changes"><i class="fa fa-check"></i><b>60.5</b> Request changes</a></li>
+<li class="chapter" data-level="60.6" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-the-pull-request"><i class="fa fa-check"></i><b>60.6</b> Merge the pull request</a>
+<ul>
+<li class="chapter" data-level="60.6.1" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-filename-to-_bookdown.yml-in-prs-branch"><i class="fa fa-check"></i><b>60.6.1</b> Add chapter filename to <code>_bookdown.yml</code> in PR’s <code>branch</code></a></li>
+<li class="chapter" data-level="60.6.2" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#add-chapter-names-to-.rmd-for-every-first-article-in-each-chapter-chapter-organization"><i class="fa fa-check"></i><b>60.6.2</b> Add chapter names to <code>.Rmd</code> for every first article in each chapter (Chapter Organization)</a></li>
+<li class="chapter" data-level="60.6.3" data-path="tutorial-for-pull-request-mergers.html"><a href="tutorial-for-pull-request-mergers.html#merge-pr-and-leave-a-comment"><i class="fa fa-check"></i><b>60.6.3</b> Merge PR and leave a comment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="61" data-path="chapter-organization.html"><a href="chapter-organization.html"><i class="fa fa-check"></i><b>61</b> Chapter Organization</a>
+<ul>
+<li class="chapter" data-level="61.1" data-path="chapter-organization.html"><a href="chapter-organization.html#process-for-organizing-chapters"><i class="fa fa-check"></i><b>61.1</b> Process for Organizing Chapters</a></li>
+<li class="chapter" data-level="61.2" data-path="chapter-organization.html"><a href="chapter-organization.html#initial-book-parts"><i class="fa fa-check"></i><b>61.2</b> Initial Book Parts</a>
+<ul>
+<li class="chapter" data-level="61.2.1" data-path="chapter-organization.html"><a href="chapter-organization.html#motivation"><i class="fa fa-check"></i><b>61.2.1</b> Motivation</a></li>
+<li class="chapter" data-level="61.2.2" data-path="chapter-organization.html"><a href="chapter-organization.html#additional-categories"><i class="fa fa-check"></i><b>61.2.2</b> Additional Categories</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Fall 2020 EDAV Community Contributions</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualizing-electoral-margins-in-us-presidential-elections-2008-2016" class="section level1" number="22">
+<h1><span class="header-section-number">Chapter 22</span> Visualizing electoral margins in US presidential elections (2008-2016)</h1>
+<p>Jiyeon Chang and Andus Kong</p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;mapproj&quot;)</span></span>
+<span id="cb480-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;maps&quot;)</span></span>
+<span id="cb480-3"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb480-4"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb480-5"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb480-6"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
+<span id="cb480-7"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapproj)</span>
+<span id="cb480-8"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb480-9"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb480-10"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb480-11"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb480-12"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb480-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parcoords)</span></code></pre></div>
+<p>Against the backdrop of the upcoming election, the media has given a lot of attention to races that are expected to be particularly competitive. Given the large share of international students in the class, we thought it would be interesting to provide some background as to what the electoral map for the presidential election looks like, and the level of margins observed in past elections.</p>
+<p>The data for the analysis is taken from the MIT Election Lab (<a href="https://electionlab.mit.edu/" class="uri">https://electionlab.mit.edu/</a>). The data on electoral outcome provide information on the winning candidate/party, as well as the votes received. A separate dataset is available for the turnout. For the purpose of this analysis we look at data from 2000 to 2016, with a focus on the past 3 elections.</p>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataset with electoral margins</span></span>
+<span id="cb481-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-2" aria-hidden="true" tabindex="-1"></a>turnout<span class="ot">&lt;-</span>turnout <span class="sc">%&gt;%</span></span>
+<span id="cb481-3"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;year&quot;</span>,<span class="st">&quot;state&quot;</span>,<span class="st">&quot;vep_highest_office&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb481-4"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state<span class="sc">!=</span><span class="st">&quot;United States&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb481-5"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">tolower</span>(state)) <span class="sc">%&gt;%</span></span>
+<span id="cb481-6"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">turnout =</span> vep_highest_office)</span>
+<span id="cb481-7"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb481-8"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-8" aria-hidden="true" tabindex="-1"></a>elect_data<span class="ot">&lt;-</span>elect_pres <span class="sc">%&gt;%</span></span>
+<span id="cb481-9"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;year&quot;</span>,<span class="st">&quot;state&quot;</span>,<span class="st">&quot;state_po&quot;</span>,<span class="st">&quot;candidate&quot;</span>,<span class="st">&quot;party&quot;</span>,<span class="st">&quot;totalvotes&quot;</span>,<span class="st">&quot;candidatevotes&quot;</span>))</span>
+<span id="cb481-10"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb481-11"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-11" aria-hidden="true" tabindex="-1"></a>pres_top2<span class="ot">&lt;-</span> elect_data <span class="sc">%&gt;%</span></span>
+<span id="cb481-12"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state,year) <span class="sc">%&gt;%</span></span>
+<span id="cb481-13"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(candidatevotes),<span class="at">.by_group =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb481-14"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb481-15"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">share =</span> candidatevotes<span class="sc">/</span>totalvotes) <span class="sc">%&gt;%</span></span>
+<span id="cb481-16"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">margin =</span> share<span class="sc">-</span>dplyr<span class="sc">::</span><span class="fu">lead</span>(share))</span>
+<span id="cb481-17"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb481-18"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-18" aria-hidden="true" tabindex="-1"></a>pres_winner<span class="ot">&lt;-</span> pres_top2 <span class="sc">%&gt;%</span></span>
+<span id="cb481-19"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state,year) <span class="sc">%&gt;%</span></span>
+<span id="cb481-20"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb481-21"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">margin_cont =</span> <span class="fu">ifelse</span>(party<span class="sc">==</span><span class="st">&quot;republican&quot;</span>,margin,<span class="sc">-</span>(margin)))</span>
+<span id="cb481-22"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb481-23"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-23" aria-hidden="true" tabindex="-1"></a>pres_winner[pres_winner<span class="sc">$</span>party<span class="sc">==</span><span class="st">&quot;democratic-farmer-labor&quot;</span>,]<span class="sc">$</span>party<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;democrat&quot;</span>,<span class="st">&quot;democrat&quot;</span>,<span class="st">&quot;democrat&quot;</span>)</span>
+<span id="cb481-24"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb481-25"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-25" aria-hidden="true" tabindex="-1"></a>pres_winner<span class="sc">$</span>party<span class="ot">&lt;-</span><span class="fu">as.factor</span>(pres_winner<span class="sc">$</span>party)</span>
+<span id="cb481-26"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-26" aria-hidden="true" tabindex="-1"></a>pres_winner<span class="sc">$</span>state <span class="ot">&lt;-</span> <span class="fu">tolower</span>(pres_winner<span class="sc">$</span>state)</span>
+<span id="cb481-27"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb481-27" aria-hidden="true" tabindex="-1"></a>margins<span class="ot">&lt;-</span><span class="fu">merge</span>(pres_winner, turnout, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;state&quot;</span>,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<p>To plot state-level data on a map in R, we use the <strong>maps</strong> package. This package has a dataset with information on longitude and latitude which can be merged by state id to transform the dataframe into a mappable version. The snippet from a data frame shown below shows how the information on longitude and latitude is encoded; for Alabama, for instance, we see several rows with slight variations in the longitude and latitude, covering the area corresponding to the state.</p>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge the electoral data with data on the latitude and longitude of each US state.</span></span>
+<span id="cb482-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb482-2" aria-hidden="true" tabindex="-1"></a>us_states <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">&quot;state&quot;</span>)</span>
+<span id="cb482-3"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb482-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(us_states)</span></code></pre></div>
+<pre><code>##        long      lat group order  region subregion
+## 1 -87.46201 30.38968     1     1 alabama      &lt;NA&gt;
+## 2 -87.48493 30.37249     1     2 alabama      &lt;NA&gt;
+## 3 -87.52503 30.37249     1     3 alabama      &lt;NA&gt;
+## 4 -87.53076 30.33239     1     4 alabama      &lt;NA&gt;
+## 5 -87.57087 30.32665     1     5 alabama      &lt;NA&gt;
+## 6 -87.58806 30.32665     1     6 alabama      &lt;NA&gt;</code></pre>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(us_states)[<span class="fu">names</span>(us_states) <span class="sc">==</span> <span class="st">&quot;region&quot;</span>] <span class="ot">&lt;-</span><span class="st">&quot;state&quot;</span></span>
+<span id="cb484-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb484-2" aria-hidden="true" tabindex="-1"></a>df.margin <span class="ot">&lt;-</span> <span class="fu">merge</span>(margins, us_states, <span class="at">sort =</span> <span class="cn">FALSE</span>, <span class="at">by =</span> <span class="st">&quot;state&quot;</span>)</span></code></pre></div>
+<p>As a starter, let’s look at how states voted in the 2016 elections.</p>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-1" aria-hidden="true" tabindex="-1"></a>col_party <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb485-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-2" aria-hidden="true" tabindex="-1"></a>p_all <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df.margin[df.margin<span class="sc">$</span>year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2008</span>,<span class="dv">2012</span>,<span class="dv">2016</span>),],</span>
+<span id="cb485-3"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat,</span>
+<span id="cb485-4"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">group =</span> state, <span class="at">fill =</span> party))</span>
+<span id="cb485-5"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-6"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-6" aria-hidden="true" tabindex="-1"></a>p_all_map<span class="ot">&lt;-</span>p_all <span class="sc">+</span> <span class="fu">geom_polygon</span>(<span class="at">color =</span> <span class="st">&quot;gray90&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb485-7"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>(<span class="at">projection =</span> <span class="st">&quot;albers&quot;</span>, <span class="at">lat0 =</span> <span class="dv">39</span>, <span class="at">lat1 =</span> <span class="dv">45</span>) <span class="sc">+</span></span>
+<span id="cb485-8"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>col_party)<span class="sc">+</span></span>
+<span id="cb485-9"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Figure 1. electoral outcome&quot;</span>) <span class="sc">+</span></span>
+<span id="cb485-10"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span></span>
+<span id="cb485-11"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb485-12"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb485-13"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),</span>
+<span id="cb485-14"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># panel.spacing.y=unit(0.1, &quot;cm&quot;),</span></span>
+<span id="cb485-15"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># panel.spacing.x=unit(0.1, &quot;cm&quot;)</span></span>
+<span id="cb485-16"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-16" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb485-17"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year)</span>
+<span id="cb485-18"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb485-18" aria-hidden="true" tabindex="-1"></a>p_all_map</span></code></pre></div>
+<p><img src="visualizing_electoral_margins_files/figure-html/fig1-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>The above map gives us an idea of which party won the state, but not by what margin. To do this, we need to modify the fill parameter from <strong>party</strong> to <strong>margin</strong>.</p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-1" aria-hidden="true" tabindex="-1"></a>p_margin <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df.margin[df.margin<span class="sc">$</span>year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2008</span>,<span class="dv">2012</span>,<span class="dv">2016</span>),],</span>
+<span id="cb486-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat,</span>
+<span id="cb486-3"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">group =</span> state, <span class="at">fill =</span> margin)) <span class="co"># here fill = margin</span></span>
+<span id="cb486-4"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb486-5"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-5" aria-hidden="true" tabindex="-1"></a>margin_map<span class="ot">&lt;-</span>p_margin <span class="sc">+</span> <span class="fu">geom_polygon</span>(<span class="at">color =</span> <span class="st">&quot;gray90&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb486-6"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>(<span class="at">projection =</span> <span class="st">&quot;albers&quot;</span>, <span class="at">lat0 =</span> <span class="dv">39</span>, <span class="at">lat1 =</span> <span class="dv">45</span>) <span class="sc">+</span></span>
+<span id="cb486-7"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Figure 2. overall margin by state&quot;</span>,<span class="at">fill=</span><span class="st">&quot;percent&quot;</span>) <span class="sc">+</span></span>
+<span id="cb486-8"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low=</span><span class="st">&quot;purple&quot;</span>,<span class="at">high=</span><span class="st">&quot;white&quot;</span>)<span class="sc">+</span></span>
+<span id="cb486-9"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>()<span class="sc">+</span></span>
+<span id="cb486-10"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb486-11"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb486-12"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>))<span class="sc">+</span></span>
+<span id="cb486-13"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year)</span>
+<span id="cb486-14"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb486-15"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb486-15" aria-hidden="true" tabindex="-1"></a>margin_map</span></code></pre></div>
+<p><img src="visualizing_electoral_margins_files/figure-html/fig2-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb487-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df.margin<span class="sc">$</span>margin)</span></code></pre></div>
+<pre><code>## [1] 9.005368e-05</code></pre>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df.margin<span class="sc">$</span>margin)</span></code></pre></div>
+<pre><code>## [1] 0.864135</code></pre>
+<p>The map above gives us a better of idea of how competitive the presidential race was in each state. The darker the shade of purple, the smaller was the margin. This made shows the magnitude of the margin but not which party won the state. So next we break down the margin by the winning party. Specifically, the margin is redefined as ranging from -1 to 1, with negative values referring to Democratic lead, and positive values Republican.</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-1" aria-hidden="true" tabindex="-1"></a>margin_bin <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df.margin[df.margin<span class="sc">$</span>year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2008</span>,<span class="dv">2012</span>,<span class="dv">2016</span>),],</span>
+<span id="cb491-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat,</span>
+<span id="cb491-3"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">group =</span> state, <span class="at">fill =</span> margin_cont))</span>
+<span id="cb491-4"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-5"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-5" aria-hidden="true" tabindex="-1"></a>margin_bin_map<span class="ot">&lt;-</span>margin_bin <span class="sc">+</span> <span class="fu">geom_polygon</span>(<span class="at">color =</span> <span class="st">&quot;gray90&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb491-6"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>(<span class="at">projection =</span> <span class="st">&quot;albers&quot;</span>, <span class="at">lat0 =</span> <span class="dv">39</span>, <span class="at">lat1 =</span> <span class="dv">45</span>) <span class="sc">+</span></span>
+<span id="cb491-7"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Figure 3. state level margin by winning party&quot;</span>,<span class="at">fill=</span><span class="st">&quot;percent&quot;</span>) <span class="sc">+</span></span>
+<span id="cb491-8"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">&quot;RdBu&quot;</span>,<span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb491-9"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>()<span class="sc">+</span></span>
+<span id="cb491-10"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb491-11"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb491-12"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>))<span class="sc">+</span></span>
+<span id="cb491-13"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year)</span>
+<span id="cb491-14"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb491-15"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb491-15" aria-hidden="true" tabindex="-1"></a>margin_bin_map</span></code></pre></div>
+<p><img src="visualizing_electoral_margins_files/figure-html/fig3-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>Now, the diverging color scheme blends the strengths of Figures 1 and 2, making it possible not only to see which parties won the election in each state, but also by what margin. Note, however, that even with this distinction, the range of margins remains quite large, with the smallest ranging from less than 1 percentage point, to the largest where the Democrats won by a 86 percentage point margin. (Note that the 86 percentage pt correspondents to D.C. but we don’t observe a dark blue state because it is too small to be visible on the map)</p>
+<p>As a result, we can glean from the color scheme the relative competitiveness of each state, but it’s be tough to distinguish between a margin of say, 10% vs 2%. So in an alternative approach, we define the threshold for “a small margin” to be 2%, and highlight only the states that had margins at this level or below.</p>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-1" aria-hidden="true" tabindex="-1"></a>df.margin<span class="ot">&lt;-</span>df.margin <span class="sc">%&gt;%</span></span>
+<span id="cb492-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">low_margin =</span> <span class="fu">if_else</span>(margin <span class="sc">&lt;</span> <span class="fl">0.02</span>,<span class="st">&quot;Low&quot;</span>, <span class="st">&quot;High&quot;</span>))</span>
+<span id="cb492-3"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb492-4"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb492-5"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-5" aria-hidden="true" tabindex="-1"></a>p_LH <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df.margin[df.margin<span class="sc">$</span>year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2008</span>,<span class="dv">2012</span>,<span class="dv">2016</span>),],</span>
+<span id="cb492-6"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat,</span>
+<span id="cb492-7"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">group =</span> state, <span class="at">fill =</span> low_margin))</span>
+<span id="cb492-8"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb492-9"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-9" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> df.margin <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2008</span>, <span class="dv">2012</span>, <span class="dv">2016</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb492-10"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(low_margin <span class="sc">==</span> <span class="st">&quot;Low&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb492-11"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(state, year, state_po, low_margin) <span class="sc">%&gt;%</span> distinct</span>
+<span id="cb492-12"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb492-13"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-13" aria-hidden="true" tabindex="-1"></a>temp2 <span class="ot">&lt;-</span> df.margin <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2008</span>, <span class="dv">2012</span>, <span class="dv">2016</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb492-14"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(low_margin <span class="sc">==</span> <span class="st">&quot;Low&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb492-15"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>long, <span class="sc">-</span>lat, <span class="sc">-</span>group, <span class="sc">-</span>order, <span class="sc">-</span>subregion) <span class="sc">%&gt;%</span> distinct</span>
+<span id="cb492-16"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb492-17"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-17" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">long =</span> <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;florida&quot;</span>,  <span class="sc">-</span><span class="fl">81.760254</span>,</span>
+<span id="cb492-18"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-18" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;indiana&quot;</span>,<span class="sc">-</span><span class="fl">86.126976</span>,</span>
+<span id="cb492-19"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-19" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;michigan&quot;</span>, <span class="sc">-</span><span class="fl">84.506836</span>,</span>
+<span id="cb492-20"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-20" aria-hidden="true" tabindex="-1"></a>                                               <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;minnesota&quot;</span>, <span class="sc">-</span><span class="fl">94.636230</span>,</span>
+<span id="cb492-21"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-21" aria-hidden="true" tabindex="-1"></a>                                                       <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;missouri&quot;</span>, <span class="sc">-</span><span class="fl">92.603760</span>,</span>
+<span id="cb492-22"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-22" aria-hidden="true" tabindex="-1"></a>                                                               <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;new hampshire&quot;</span>,<span class="sc">-</span><span class="fl">71.500000</span>,</span>
+<span id="cb492-23"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-23" aria-hidden="true" tabindex="-1"></a>                                                                       <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;north carolina&quot;</span>, <span class="sc">-</span><span class="fl">80.793457</span>,</span>
+<span id="cb492-24"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-24" aria-hidden="true" tabindex="-1"></a>                                                                               <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;pennsylvania&quot;</span>, <span class="sc">-</span><span class="fl">77.194527</span>,</span>
+<span id="cb492-25"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-25" aria-hidden="true" tabindex="-1"></a>                                                                                       <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;wisconsin&quot;</span>, <span class="sc">-</span><span class="fl">89.500000</span>, <span class="dv">0</span>))))))))),</span>
+<span id="cb492-26"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">lat =</span> <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;florida&quot;</span>,   <span class="fl">27.994402</span>,</span>
+<span id="cb492-27"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-27" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;indiana&quot;</span>,<span class="fl">40.273502</span> ,</span>
+<span id="cb492-28"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-28" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;michigan&quot;</span>, <span class="fl">44.182205</span>   ,</span>
+<span id="cb492-29"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-29" aria-hidden="true" tabindex="-1"></a>                                               <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;minnesota&quot;</span>, <span class="fl">46.392410</span>,</span>
+<span id="cb492-30"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-30" aria-hidden="true" tabindex="-1"></a>                                                       <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;missouri&quot;</span>, <span class="fl">38.573936</span>,</span>
+<span id="cb492-31"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-31" aria-hidden="true" tabindex="-1"></a>                                                               <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;new hampshire&quot;</span>,<span class="fl">44.000000</span>,</span>
+<span id="cb492-32"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-32" aria-hidden="true" tabindex="-1"></a>                                                                       <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;north carolina&quot;</span>, <span class="fl">35.782169</span>,</span>
+<span id="cb492-33"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-33" aria-hidden="true" tabindex="-1"></a>                                                                               <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;pennsylvania&quot;</span>, <span class="fl">41.203323</span>   ,</span>
+<span id="cb492-34"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-34" aria-hidden="true" tabindex="-1"></a>                                                                                       <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;wisconsin&quot;</span>, <span class="fl">44.500000</span>, <span class="dv">0</span>))))))))))</span>
+<span id="cb492-35"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb492-36"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-36" aria-hidden="true" tabindex="-1"></a>temp3 <span class="ot">&lt;-</span> <span class="fu">merge</span>(temp, temp2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;state&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;state_po&quot;</span>)) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">low_margin =</span> low_margin.x)</span>
+<span id="cb492-37"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb492-38"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb492-39"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-39" aria-hidden="true" tabindex="-1"></a>LH<span class="ot">&lt;-</span>p_LH <span class="sc">+</span> <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">group=</span>group),<span class="at">color =</span> <span class="st">&quot;gray90&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb492-40"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>(<span class="at">projection =</span> <span class="st">&quot;albers&quot;</span>, <span class="at">lat0 =</span> <span class="dv">39</span>, <span class="at">lat1 =</span> <span class="dv">45</span>) <span class="sc">+</span></span>
+<span id="cb492-41"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Figure 4. low margin states (&lt;2%)&quot;</span>,<span class="at">fill=</span><span class="st">&quot;margin&quot;</span>) <span class="sc">+</span></span>
+<span id="cb492-42"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;yellow&quot;</span>))<span class="sc">+</span></span>
+<span id="cb492-43"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>()<span class="sc">+</span></span>
+<span id="cb492-44"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb492-45"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb492-46"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>))<span class="sc">+</span></span>
+<span id="cb492-47"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data=</span> temp3,<span class="fu">aes</span>(long,lat,<span class="at">label=</span>state_po),<span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb492-48"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year)</span>
+<span id="cb492-49"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb492-49" aria-hidden="true" tabindex="-1"></a>LH</span></code></pre></div>
+<p><img src="visualizing_electoral_margins_files/figure-html/fig4-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>Based on this map, we see that different states had competitive races in each election. 2016 stands out for having had more states with a small margin, which are identified as Michigan, Wisconsin, Florida, Pennsylvania, Minnesota and New Hampshire. Many of these states that had close races in 2016 are leaning more Democratic in the 2020 election, but a number of other states, namely, Ohio, Iowa, North Carolina and Arizona, have become competitive in their stead.</p>
+<p>One aspect of the election that is talked about a lot at the moment is the increase in the cumulative turnout ahead of the election day. Understandably, a lot is at stake in this election; but is there a relationship between how close the race is, and the turnout? What does previous years’ data tell us?</p>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-1" aria-hidden="true" tabindex="-1"></a>df_scatter<span class="ot">&lt;-</span>df.margin <span class="sc">%&gt;%</span></span>
+<span id="cb493-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2008</span>,<span class="dv">2012</span>,<span class="dv">2016</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb493-3"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state,year) <span class="sc">%&gt;%</span></span>
+<span id="cb493-4"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state<span class="sc">!=</span><span class="st">&quot;district of columbia&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb493-5"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>))</span>
+<span id="cb493-6"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb493-7"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-7" aria-hidden="true" tabindex="-1"></a>p_scatter<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_scatter, <span class="fu">aes</span>(turnout, margin)) <span class="sc">+</span></span>
+<span id="cb493-8"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb493-9"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year)</span>
+<span id="cb493-10"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb493-10" aria-hidden="true" tabindex="-1"></a>p_scatter</span></code></pre></div>
+<p><img src="visualizing_electoral_margins_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Based on a scatterplot of margin against turnout, it seems that there is a pattern of smaller margin being associated with higher turnout. Note that in the charts displayed below, DC was removed as an outlier as the combination of its high margin and high turnout visually crowded out all other observations into a corner. The pattern is quite clear in 2016 and 2012, but slightly less so in 2008.</p>
+<p>Lastly, we produce a parallel coordinate plot, which makes it possible to play with range of margins in each election cycle and see whether states have had more consistent margins, or have changed over time. Feel free to play around with the parameters!</p>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb494-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">tibble</span>(df.margin) <span class="sc">%&gt;%</span> <span class="fu">select</span>(state, year, margin) <span class="sc">%&gt;%</span> distinct</span>
+<span id="cb494-2"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb494-2" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> temp <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> year, <span class="at">values_from =</span> margin) <span class="sc">%&gt;%</span> </span>
+<span id="cb494-3"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb494-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="st">&quot;state&quot;</span>, <span class="st">&quot;2000&quot;</span>, <span class="st">&quot;2004&quot;</span>, <span class="st">&quot;2008&quot;</span>, <span class="st">&quot;2012&quot;</span>, <span class="st">&quot;2016&quot;</span>)</span>
+<span id="cb494-4"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb494-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb494-5"><a href="visualizing-electoral-margins-in-us-presidential-elections-2008-2016.html#cb494-5" aria-hidden="true" tabindex="-1"></a><span class="fu">parcoords</span>(temp, <span class="at">brushMode =</span> <span class="st">&quot;1d-axes&quot;</span>, <span class="at">reorderable =</span> <span class="cn">TRUE</span>, <span class="at">rownames =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="parcoords html-widget" height="480" id="htmlwidget-54bdb87ce578dd578372" style="width:672px;height:480px; position:relative; overflow-x:auto; overflow-y:hidden; max-width:100%;" width="672"></div>
+<script type="application/json" data-for="htmlwidget-54bdb87ce578dd578372">{"x":{"data":{"names":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49"],"state":["alabama","arizona","arkansas","california","colorado","connecticut","delaware","district of columbia","florida","georgia","idaho","illinois","indiana","iowa","kansas","kentucky","louisiana","maine","maryland","massachusetts","michigan","minnesota","mississippi","missouri","montana","nebraska","nevada","new hampshire","new jersey","new mexico","new york","north carolina","north dakota","ohio","oklahoma","oregon","pennsylvania","rhode island","south carolina","south dakota","tennessee","texas","utah","vermont","virginia","washington","west virginia","wisconsin","wyoming"],"2000":[0.149172524053696,0.0628655314304811,0.0544294143619797,0.11798240022499,0.0835670576236615,0.17466024905363,0.130614388344238,0.762033542353909,9.00536800428342e-05,0.117485699951378,0.395323106366436,0.120116412363447,0.156347786706873,0.00306277355431028,0.208032709827124,0.151283007772782,0.0767573071991374,0.0511416547896112,0.163035277294426,0.269932230270772,0.0513358413855071,0.0240322140825896,0.169214149493454,0.0333854261127204,0.250743334322824,0.289923230213237,0.0354382648590642,0.0126713068965578,0.15834365056008,0.000611421555115621,0.24189453917731,0.128120851186453,0.276032415630551,0.0354604574480891,0.218809475389089,0.00441018286124056,0.0417003838414067,0.290759009757719,0.159588612488457,0.227325472936013,0.0386425846301455,0.213166413765324,0.404854207697917,0.0993754841866344,0.0803811864219312,0.0557956736925176,0.0632255556035573,0.00219656146543129,0.409243610978543],"2004":[0.256162874353236,0.104726011572182,0.0975832863324629,0.0994786155743259,0.046732531003038,0.103664310611622,0.0759401903035796,0.798441028885784,0.0500640620462272,0.165998107136097,0.381260277818629,0.103445333826793,0.206817903713206,0.00667525821085296,0.253808863099829,0.198624408507909,0.145061566378777,0.0899639825474652,0.129932498349578,0.250282583336038,0.034186481712463,0.0347615089448509,0.188532615561701,0.0719574542243363,0.205031147737515,0.332164803787269,0.0259165102635408,0.013672678379506,0.0668459732574022,0.007917451183651,0.18444051273142,0.124340511172928,0.273625224960282,0.0210733909237597,0.311408033295121,0.0415574629977864,0.0250014299109642,0.207519890925895,0.170801137417321,0.214674858003941,0.142737983825671,0.228615623063202,0.45540306344601,0.201361472131767,0.0820603896520484,0.0718086631942259,0.128655767724453,0.00379845625986192,0.397164778295832],"2008":[0.215764787345957,0.0851999694786296,0.198512447348054,0.240577795146698,0.0895271473135443,0.223673663704949,0.249956354325286,0.859245522901754,0.0281798610468869,0.0521433889686446,0.254261038402008,0.25137191977866,0.0103200446083574,0.0953476071856319,0.149602871494783,0.162309073589471,0.186298075084113,0.173217189600677,0.254448251175332,0.256282398134705,0.164735416455068,0.102373616541408,0.13174634554779,0.00133426546173687,0.0226398617450404,0.149335875928669,0.124925608153346,0.0960546858517238,0.155682032926111,0.151284454284606,0.288397244295825,0.00328867780398812,0.0862956026290107,0.0459369169725052,0.31290162245387,0.163478245646284,0.103184755321229,0.278061581377208,0.0897708396127163,0.0841154525819753,0.150684162201813,0.117692390064368,0.281781240484266,0.370064544710595,0.0629896918292034,0.171765872715335,0.13120592724658,0.139041240295943,0.322042808272918],"2012":[0.221867892310703,0.0906476622417532,0.23687945782389,0.231185806209848,0.0536513491256719,0.173398990119394,0.186281379110392,0.836348225105867,0.00876887306723162,0.0782128251064243,0.319074499366831,0.168693940916602,0.101982294761661,0.0581014802361299,0.217167498152971,0.226918137648758,0.172071121051721,0.150436421536568,0.260764584403731,0.230191860048816,0.0949728818309853,0.0769410204657761,0.114964871995918,0.0938025759042376,0.136533980101147,0.217758777611191,0.0668093382913693,0.055758876580231,0.177187900834932,0.101494338813766,0.295193868466431,0.0204209552507539,0.196183716695775,0.029783067798973,0.335446394860331,0.120894554762557,0.0539599166846625,0.274572972924499,0.104730978484999,0.180231711171887,0.204028997261424,0.157836191842955,0.480408672747287,0.355979150656554,0.0387335389982952,0.148687768675636,0.267565382630459,0.0683781582153483,0.405566790718824],"2016":[0.277251466064354,0.0354559462762784,0.269209780344674,0.301092930661184,0.0490558301141636,0.136393867178951,0.114305124663149,0.864135007598176,0.0119862561078569,0.0513134269741019,0.317694185482177,0.17063613624968,0.191651937616592,0.0940954789918113,0.206022110736051,0.298374502182523,0.196391185550548,0.0286853601281009,0.264164395066451,0.267638623058161,0.00223033269129308,0.0151984085748962,0.178262498170515,0.186371170029249,0.205309730934268,0.250485947499902,0.0241712836051662,0.00367595687737138,0.141026977996647,0.0821313284539138,0.23745540294106,0.0365522852797094,0.357288883726333,0.0812957439906617,0.363911845350835,0.109778168183653,0.00724269639183167,0.15508549070978,0.142659128960303,0.297933222190098,0.260057008955645,0.0899942759832342,0.180795479958314,0.259633597219058,0.0532370581949365,0.157059998751891,0.421536467938478,0.00764343195067457,0.457695101782154]},"options":{"rownames":false,"brushMode":"1D-axes","brushPredicate":"AND","reorderable":true,"margin":{"top":50,"bottom":50,"left":100,"right":50},"mode":false,"bundlingStrength":0.5,"smoothness":0},"autoresize":false,"tasks":null},"evals":[],"jsHooks":[]}</script>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="benfords-law-analysis-of-2020-election.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="survival-analysis-examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jtr13/cc20/edit/master/visualizing_electoral_margins.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/jtr13/cc20/blob/master/visualizing_electoral_margins.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
