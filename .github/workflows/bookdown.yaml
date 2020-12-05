@@ -54,7 +54,8 @@ jobs:
             libgdal-dev \
             libproj-dev \
             libmpfr6 \
-            libmpfr-dev
+            libmpfr-dev \
+            libudunits2-dev
       
       - name: Install pak	
         run: |	
