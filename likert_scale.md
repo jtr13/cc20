@@ -212,7 +212,7 @@ ggplot(data = CCAM_summary, aes(Question, prop, fill = fct_rev(Response))) +
           subtitle = '% (Attitude) on "The government should __"')
 ```
 
-<img src="likert_scale_files/figure-html/stacked bar with refuse-1.png" width="768" style="display: block; margin: auto;" />
+<img src="likert_scale_files/figure-html/stacked bar with refuse-1.png" width="672" style="display: block; margin: auto;" />
 
 
 ```r
@@ -238,7 +238,7 @@ ggplot(data = CCAM_rmrf_summary, aes(Question, prop, fill = fct_rev(Response))) 
           subtitle = '% (Attitude) on "The government should __", with "Refused" removed')
 ```
 
-<img src="likert_scale_files/figure-html/stacked bar with refuse removed-1.png" width="768" style="display: block; margin: auto;" />
+<img src="likert_scale_files/figure-html/stacked bar with refuse removed-1.png" width="672" style="display: block; margin: auto;" />
 
 From the above plots, one may observe that, though stacked bar charts are easily created, the major disadvantage is that the comparison of non-polar responses are not straightforward. The comparison of response "Strongly Disagree" and "Strongly Agree" are obvious between questions but not for "Somewhat Disagree" and "Somewhat Agree". Thus, it is usually practical to include percentage labels for each bar to overcome this problem, like what's done in both charts.
 
@@ -265,7 +265,7 @@ ggplot(data = CCAM_summary) +
           subtitle = '% (Attitude) on "The government should __"')
 ```
 
-<img src="likert_scale_files/figure-html/faceted with refused-1.png" width="768" style="display: block; margin: auto;" />
+<img src="likert_scale_files/figure-html/faceted with refused-1.png" width="672" style="display: block; margin: auto;" />
 
 One can also have the "Refused / Neutral" response option removed if including the choice doesn't have too much meaning. In our case, the percentage of "Refused" is relatively little and is the same for each question, so we feel comfortable to remove the "Refused" result for all questions. Below is the graph without the "Refused".
 
@@ -289,7 +289,7 @@ ggplot(data = CCAM_rmrf_summary) +
           subtitle = '% (Attitude) on "The government should __", with "Refused" removed')
 ```
 
-<img src="likert_scale_files/figure-html/facet with refused removed-1.png" width="768" style="display: block; margin: auto;" />
+<img src="likert_scale_files/figure-html/facet with refused removed-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Diverging Stacked Bar Chart
 Last but not least, one may visualize Likert scale by a diverged stacked bar chart, which has its positive and negative options heading on different directions with neutral option at the center. This type of charts make it more straightforward to compare the overall positive and negative opinions on a certain matter.
@@ -310,7 +310,7 @@ likert(Question ~., data = summary_freq, as.percent = "noRightAxis",
        ylab = NULL) 
 ```
 
-<img src="likert_scale_files/figure-html/likert diverged-1.png" width="768" style="display: block; margin: auto;" />
+<img src="likert_scale_files/figure-html/likert diverged-1.png" width="672" style="display: block; margin: auto;" />
 
 Similarly, one can have "Refused" removed if it doesn't have too much meaning to the visualization. 
 
@@ -328,7 +328,7 @@ likert(Question ~., data = summary_freq_rmrf, as.percent = "noRightAxis",
        ylab = NULL) 
 ```
 
-<img src="likert_scale_files/figure-html/likert diverged with refused removed-1.png" width="768" style="display: block; margin: auto;" />
+<img src="likert_scale_files/figure-html/likert diverged with refused removed-1.png" width="672" style="display: block; margin: auto;" />
 
 The `likert` function also allows to order from the most positive by adjusting one of its variables.
 
@@ -340,7 +340,7 @@ likert(Question ~., data = summary_freq_rmrf, as.percent = "noRightAxis",
        ylab = NULL, positive.order = TRUE) 
 ```
 
-<img src="likert_scale_files/figure-html/most positive-1.png" width="768" style="display: block; margin: auto;" />
+<img src="likert_scale_files/figure-html/most positive-1.png" width="672" style="display: block; margin: auto;" />
 
 Again, the diverging stacked bar chart makes it really easy to compare the positive against the negative on each question and compare the positive and negative across different questions. The cons, however, is that it doesn't do a good job in showing the comparison of each individual response option. For instance, it is not straightforward to tell whether more people strongly support the government to regulate CO2 or to require producing at least 20% of electricity from clean energy. 
 
