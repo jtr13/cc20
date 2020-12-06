@@ -19,9 +19,30 @@ jobs:
 
       - name: Setup R
         uses: r-lib/actions/setup-r@v1
+
+      - name: Setup pandoc
+        uses: r-lib/actions/setup-pandoc@master
+
+      - name: Cache bookdown results
+        uses: actions/cache@v2
+        with:
+          path: _bookdown_files
+          key: bookdown-${{ hashFiles('**/*Rmd') }}
+          restore-keys: bookdown-
+
+      - name: Install pak and query dependencies
+        run: |
+          install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
+          saveRDS(pak::local_dev_deps_tree(), ".github/r-depends.rds")
+        shell: Rscript {0}
+
+      - name: Cache R packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ steps.install-r.outputs.installed-r-version }}-2-${{ hashFiles('.github/r-depends.rds') }}
+          restore-keys: ${{ runner.os }}-${{ steps.install-r.outputs.installed-r-version }}-2-
           
-      - uses: r-lib/actions/setup-pandoc@master
-        
       - name: Install system dependencies
         run: |
           sudo apt update
@@ -30,32 +51,11 @@ jobs:
             libproj-dev \
             libmpfr6 \
             libmpfr-dev \
-            libudunits2-dev  
-
-      - name: Query dependencies
-        run: |
-          install.packages('remotes')
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-        shell: Rscript {0}
-
-      - name: Cache R packages
-        uses: actions/cache@v1
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-2-${{ hashFiles('depends.Rds') }}
-          restore-keys: ${{ runner.os }}-r-2-          
-
-      - name: Cache bookdown results
-        uses: actions/cache@v2
-        with:
-          path: _bookdown_files
-          key: bookdown-${{ hashFiles('**/*Rmd') }}
-          restore-keys: bookdown-
+            libudunits2-dev	
       
-      - name: Install dependencies
-        run: |
-          install.packages("remotes")
-          remotes::install_deps()
+      - name: Install dependencies	
+        run: |	
+          pak::local_install_dev_deps()	
         shell: Rscript {0}
 
       - name: Build site
@@ -64,7 +64,7 @@ jobs:
         with:	
           name: _book	
           path: _book/  
-
+# and also add secrets for a GH_PAT and EMAIL to the repository
 # gh-action from Cecilapp/GitHub-Pages-deploy
   checkout-and-deploy:
    runs-on: ubuntu-latest
@@ -72,7 +72,6 @@ jobs:
    steps:
      - name: Checkout
        uses: actions/checkout@master
-       
      - name: Download artifact
        uses: actions/download-artifact@v2
        with:
@@ -80,7 +79,6 @@ jobs:
          name: _book # optional
          # Destination path
          path: _book/ # optional
-         
      - name: Deploy to GitHub Pages
        uses: Cecilapp/GitHub-Pages-deploy@master
        env:
