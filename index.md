@@ -4,7 +4,7 @@ date: "2020-12-06"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 github-repo: jtr13/cc20
-description: "This book will hold all community contributions for STAT GR 5702 Fall 2020 at Columbia University"
+description: "This book contains community contributions for STAT GR 5702 Fall 2020 at Columbia University"
 ---
 
 
