@@ -1,0 +1,653 @@
+# Sarimax explanation
+
+Yishi Wang
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Setup
+```{python}
+from pandas import read_csv
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+from statsmodels.tsa.stattools import acf, pacf 
+from statsmodels.tsa.ar_model import AR
+from statsmodels.tsa.arima_model import ARIMA 
+from datetime import datetime, timedelta
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import warnings
+from sklearn.metrics import r2_score
+from statsmodels.tsa.arima_model import ARMA
+from scipy.stats import norm
+import statsmodels.api as sm
+import requests
+from io import BytesIO
+```
+```{python}
+matplotlib.rc('xtick', labelsize=20) 
+matplotlib.rc('ytick', labelsize=20) 
+plt.rcParams.update({'font.size': 22})
+warnings.filterwarnings('ignore')
+pd.plotting.register_matplotlib_converters()
+```
+## ACF (Autocorrelation fuction)
+
+Time-series data by definition are ordered by time. Therefore, there is extra information in it people could take advantage of. We use ACF to decide which past events have heavier impect on current data. 
+
+Let's look on raw data of air passengers per month:
+```{python}
+data = pd.read_csv('resources/sarimax_explanation/AirPassengers.csv').drop(['Month'],axis=1)#.head(100)
+data_a = data.to_numpy().T[0]
+plt.figure(figsize=(20,10))
+plt.xlabel("Months")
+plt.ylabel("Number of air passengers")
+plt.grid()
+plt.plot(data_a)
+```
+and its ACF plot:
+```{python}
+plt.rc("figure", figsize=(20,10))
+plt.figure(figsize=(20,10))
+plot_acf(data_a, lags=50)
+plt.xlabel("Months")
+plt.grid()
+plt.show()
+```
+What we can see here are bars and a horizontal cone. This cone pictures the confidence level (by default set to 95%). In other words, if the point is outside the cone (on white) we may say that with 95% probability it has a certain impact on values. If the bar is inside the cone (on blue) we may ignore this particular lag as most likely it is not relevant.
+
+the bars, which are vital here, show how much past data point impacts the following ones:
+
+1. The first point (with index 0) has a height 1. In fact the first one is always 1. It make sense as current value always explain fully current value.
+2. The second point is around 0.9 which means that following point (directly next one) is described in 90% by the previous value.
+3. Eleventh bar has a height of 0.75. This means that current data will impact data in 11 month by 75% (data resolution is monthly).
+
+## PACF(Partial autocorrelation function)
+In time series analysis, the partial autocorrelation function (PACF) gives the partial correlation of a stationary time series with its own lagged values, regressed the values of the time series at all shorter lags. It contrasts with the autocorrelation function, which does not control for other lags.
+
+This function plays an important role in data analysis aimed at identifying the extent of the lag in an autoregressive model. The use of this function was introduced as part of the Box–Jenkins approach to time series modelling, whereby plotting the partial autocorrelative functions one could determine the appropriate lags p in an AR (p) model or in an extended ARIMA (p,d,q) model.
+
+## AR(Autoregression) Model
+Autoregression modeling is a modeling technique used for time series data that assumes linear continuation of the series so that previous values in the time series can be used to predict futures values. Different from linear regression model, With the autoregression model, we use previous data points to predict future data point(s) but with multiple lag variables.
+
+An exmaple of AR model:
+$$
+y = a + b_1X_{t-1}+b_2X_{t-2}+b_3X_{t-3}
+$$
+where $a$, $b_1$, $b_2$ and $b_3$ are variables found during the training of the model and $X_{t-1}$, $X_{t-2}$ and $X_{t-3}$ are input variables at previous times within the data set and t is the lag value.
+
+To AR modeling, there are two assumptiopns:
+
+1. The previous time step(s) is useful in predicting the value at the next time step (dependance between values)
+2. The data is stationary. A time series is stationary if is mean (and/or variance) is constant over time. There are other statistical properties to look at as well, but looking at the mean is usually the fastest/easiest.
+
+Here is an exmaple, the exmaple uses retial sales data. 
+```{python}
+sales_data = pd.read_csv('resources/sarimax_explanation/retail_sales.csv')
+sales_data['date']=pd.to_datetime(sales_data['date'])
+sales_data.set_index('date', inplace=True)
+
+plt.figure(figsize=(20,10))
+plt.xlabel("Year")
+plt.ylabel("Sales")
+plt.grid()
+plt.title('Sales VS years')
+plt.plot(sales_data)
+```
+plot its ACF:
+ 
+```{python}
+
+plt.rc("figure", figsize=(20,10))
+pd.plotting.autocorrelation_plot(sales_data['sales'])
+plt.title("ACF")
+plt.show()
+```
+
+From the ACF plot above, we can see there’s some significant correlation between t=1 and t=12 (roughly) with significant decline in correlation after that timeframe.  Since we are looking at monthly sales data, this seems to make sense with correlations falling off at the start of the new fiscal year.
+
+From looking at above charts, we find that it is a non-stationary dataset due to the increasing trend from lower left to upper right.For simplicity, we don't test its trend in this document and use quick/dirty method of differencing to get a more stationary model:
+
+```{python}
+sales_data['stationary']=sales_data['sales'].diff()
+plt.figure(figsize=(20,10))
+plt.xlabel("Year")
+plt.ylabel("Sales difference")
+plt.grid()
+plt.plot(sales_data['stationary'])
+```
+ 
+
+ Since the data becomes stationary, we then apply AR modeling in **statsmodels.libtrary**.
+
+```{python}
+#create train/test datasets
+X = sales_data['stationary'].dropna()
+train_data = X[1:len(X)-12]
+test_data = X[len(X)-12:]
+
+#train the autoregression model
+model = AR(train_data)
+model_fitted = model.fit()
+```
+
+In the above, we are simply creating a testing and training dataset and then creating and fitting our AR() model. Once we've fit the model, we can look at the chosen lag and parameters of the model using some simple print statements:
+```{python}
+print('The lag value chose is: %s' % model_fitted.k_ar)
+```
+
+```{python}
+print('The coefficients of the model are:\n %s' % model_fitted.params)
+```
+If we look back at our autocorrelation plot, we can see that the lag value of 10 is where the line first touches the 95% confidence level, which is usually the way we’d select the lag value when we first run autoregression models if we were selecting things manually, so the selection makes sense.
+
+Then we can make some forecasts:
+```{python}
+plt.rc("figure", figsize=(20,10))
+# make predictions 
+predictions = model_fitted.predict(
+    start=len(train_data), 
+    end=len(train_data) + len(test_data)-1, 
+    dynamic=False)
+
+# create a comparison dataframe
+compare_df = pd.concat(
+    [sales_data['stationary'].tail(12),
+    predictions], axis=1).rename(
+    columns={'stationary': 'actual', 0:'predicted'})
+
+# plot the two values
+plt.grid()
+compare_df.plot()
+
+
+```
+The mean square error of the prediction is:
+```{python}
+r2_score(sales_data['stationary'].tail(12), predictions)
+```
+This gives us a root mean square value of 0.64, which isn’t terrible but there is room for improvement here.
+
+
+## MA(Moving Average)
+
+In statistics, a moving average (rolling average or running average) is a calculation to analyze data points by creating a series of averages of different subsets of the full data set. It is also called a moving mean (MM) or rolling mean and is a type of finite impulse response filter. Variations include: simple, and cumulative, or weighted forms.
+
+Given a series of numbers and a fixed subset size, the first element of the moving average is obtained by taking the average of the initial fixed subset of the number series. Then the subset is modified by "shifting forward"; that is, excluding the first number of the series and including the next value in the subset.
+
+A moving average is commonly used with time series data to smooth out short-term fluctuations and highlight longer-term trends or cycles.
+
+**Here is a example for applying MA:**
+
+Firstly, we generate some data using the equations below:
+$$
+y_t = 50 + 0.4 \epsilon_{t-1} + 0.3\epsilon_{t-2} + \epsilon_{t}
+$$
+$$
+\epsilon_t \sim N(0,1)
+$$
+
+```{python}
+errors = np.random.normal(0, 1, 400)
+```
+
+
+```{python}
+date_index = pd.date_range(start='9/1/2019', end='1/1/2020')
+```
+
+```{python}
+mu = 50
+series = []
+for t in range(1,len(date_index)+1):
+    series.append(mu + 0.4*errors[t-1] + 0.3*errors[t-2] + errors[t])
+```
+
+
+```{python}
+series = pd.Series(series, date_index)
+series = series.asfreq(pd.infer_freq(series.index))
+```
+
+
+```{python}
+plt.figure(figsize=(20,4))
+plt.plot(series)
+plt.axhline(mu, linestyle='--', color='grey')
+```
+```{python}
+def calc_corr(series, lag):
+    return pearsonr(series[:-lag], series[lag:])[0]
+```
+Draw its ACF graph:
+```{python}
+acf_vals = acf(series)
+num_lags = 10
+plt.figure(figsize=(10,4))
+plt.bar(range(num_lags), acf_vals[:num_lags])
+plt.show()
+```
+Its PACF graph:
+```{python}
+pacf_vals = pacf(series)
+num_lags = 25
+plt.figure(figsize=(10,4))
+plt.bar(range(num_lags), pacf_vals[:num_lags])
+plt.show()
+```
+Fit MA Model
+```{python}
+#get training and testing sets
+train_end = datetime(2019,12,30)
+test_end = datetime(2020,1,1)
+
+train_data = series[:train_end]
+test_data = series[train_end + timedelta(days=1):test_end]
+
+#Fit MA model
+model = ARIMA(train_data, order=(0,0,2))
+model_fit = model.fit()
+print(model_fit.summary())
+```
+
+According to the summary, we've got the predicted model:
+$$
+\hat y_t = 50 +0.37\epsilon_{t-1} + 0.25_
+{t-2}
+$$
+Use mode lto predict the data and calculate its error:
+```{python}
+#get prediction start and end dates
+pred_start_date = test_data.index[0]
+pred_end_date = test_data.index[-1]
+
+#get the predictions and residuals
+predictions = model_fit.predict(start=pred_start_date, end=pred_end_date)
+
+residuals = test_data - predictions
+
+#plot the prediction
+plt.figure(figsize=(20,4))
+
+plt.plot(series[-14:])
+plt.plot(predictions)
+
+plt.legend(('Data', 'Predictions'), fontsize=16)
+```
+
+```{python}
+print('Mean Absolute Percent Error:', round(np.mean(abs(residuals/test_data)),4))
+```
+
+
+```{python}
+print('Root Mean Squared Error:', np.sqrt(np.mean(residuals**2)))
+```
+## ARMA(Autoregressive–moving-average) model
+
+In the statistical analysis of time series, autoregressive–moving-average (ARMA) models provide a parsimonious description of a (weakly) stationary stochastic process in terms of two polynomials, one for the autoregression (AR) and the second for the moving average (MA). The general ARMA model was described in the 1951 thesis of Peter Whittle, Hypothesis testing in time series analysis, and it was popularized in the 1970 book by George E. P. Box and Gwilym Jenkins.
+
+Given a time series of data Xt , the ARMA model is a tool for understanding and, perhaps, predicting future values in this series. The AR part involves regressing the variable on its own lagged (i.e., past) values. The MA part involves modeling the error term as a linear combination of error terms occurring contemporaneously and at various times in the past. The model is usually referred to as the ARMA(p,q) model where p is the order of the AR part and q is the order of the MA part.
+
+Here is an exmaple using ARMA model to predict the catfish sales data following the similar steps of MA prediction above:
+```{python}
+
+def parser(s):
+  return datetime.strptime(s,'%Y-%m-%d')
+```
+```{python}
+#read data
+catfish_sales = pd.read_csv('resources/sarimax_explanation/catfish.csv', parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
+
+#infer the frequency of the data
+catfish_sales = catfish_sales.asfreq(pd.infer_freq(catfish_sales.index))
+
+start_date = datetime(2000,1,1)
+end_date = datetime(2004,1,1)
+lim_catfish_sales = catfish_sales[start_date:end_date]
+
+#plot the original data
+plt.figure(figsize=(20,4))
+plt.plot(lim_catfish_sales)
+plt.title('Catfish Sales in 1000s of Pounds', fontsize=20)
+plt.ylabel('Sales', fontsize=16)
+for year in range(start_date.year,end_date.year):
+    plt.axvline(pd.to_datetime(str(year)+'-01-01'), color='k', linestyle='--', alpha=0.2)
+plt.axhline(lim_catfish_sales.mean(), color='r', alpha=0.2, linestyle='--')
+```
+ARMA model also requires the data to be stationary while our data here looks a little bit went upward as time went by. Just in case, we use the first difference:
+```{python}
+first_diff = lim_catfish_sales.diff()[1:]
+plt.figure(figsize=(20,4))
+plt.plot(first_diff)
+plt.title('First Difference of Catfish Sales', fontsize=20)
+plt.ylabel('Sales', fontsize=16)
+for year in range(start_date.year,end_date.year):
+    plt.axvline(pd.to_datetime(str(year)+'-01-01'), color='k', linestyle='--', alpha=0.2)
+plt.axhline(first_diff.mean(), color='r', alpha=0.2, linestyle='--')
+```
+**ACF**
+```{python}
+acf_vals = acf(first_diff)
+plt.figure(figsize=(10,4))
+plt.bar(range(num_lags), acf_vals[:num_lags])
+plt.show()
+```
+
+Based on ACF, we should start with a MA(1) process
+
+**PACF**
+
+```{python}
+num_lags = 15
+pacf_vals = pacf(first_diff, nlags=num_lags)
+plt.figure(figsize=(10,4))
+plt.bar(range(num_lags), pacf_vals[:num_lags])
+plt.show()
+```
+Based on PACF, we should start with a AR(4) process. Though lags after 11 seem have strong impacts, it may caused by seasonality, which we will discuss later and ignore for now.
+
+**training**
+```{python}
+#get training and testing sets
+train_end = datetime(2003,7,1)
+test_end = datetime(2004,1,1)
+
+train_data = first_diff[:train_end]
+test_data = first_diff[train_end + timedelta(days=1):test_end]
+
+
+# define model
+model = ARMA(train_data, order=(4,1))
+
+#fit the model
+model_fit = model.fit()
+
+```
+
+
+```{python}
+
+#summary of the model
+print(model_fit.summary())
+#get prediction start and end dates
+pred_start_date = test_data.index[0]
+pred_end_date = test_data.index[-1]
+
+#get the predictions and residuals
+predictions = model_fit.predict(start=pred_start_date, end=pred_end_date)
+residuals = test_data - predictions
+```
+So the ARMA(4,1) model is:
+$$
+\hat y_t = -0.87 y_{t-1} -0.42 y_{t-2} - 0.56y_{t-3} - 0.61y_{t-4} + 0.52\epsilon_{t-1}
+$$
+**prediction results**
+```{python}
+plt.figure(figsize=(20,4))
+plt.plot(residuals)
+plt.title('Residuals from AR Model', fontsize=20)
+plt.ylabel('Error', fontsize=16)
+plt.axhline(0, color='r', linestyle='--', alpha=0.2)
+```
+```{python}
+plt.figure(figsize=(20,4))
+
+plt.plot(test_data)
+plt.plot(predictions)
+
+plt.legend(('Data', 'Predictions'), fontsize=16)
+
+plt.title('First Difference of Catfish Sales', fontsize=20)
+plt.ylabel('Sales', fontsize=16)
+```
+```{python}
+print('Root Mean Squared Error:', np.sqrt(np.mean(residuals**2)))
+```
+## ARIMA(Autoregressive integrated moving average) Model
+ARIMA models are applied in some cases where data show evidence of non-stationarity, where an initial differencing step (corresponding to the "integrated" part of the model) can be applied one or more times to eliminate the non-stationarity.
+
+The I (for "integrated") indicates that the data values have been replaced with the difference between their values and the previous values (and this differencing process may have been performed more than once). 
+
+Here is an example using ARIMA model to fit wholesale price index(WPI) data, which is not stationary:
+
+```{python}
+plt.rc("figure", figsize=(16,8))
+plt.rc("font", size=14)
+```
+
+
+```{python}
+# Dataset
+wpi1 = requests.get('https://www.stata-press.com/data/r12/wpi1.dta').content
+data = pd.read_stata(BytesIO(wpi1))
+data.index = data.t
+# Set the frequency
+data.index.freq="QS-OCT"
+
+# Fit the model
+# Here we set integrated of order 1, so that the difference is assumed to be stationary, and fit a model with one autoregressive lag and one moving average lag, as well as an intercept term.
+mod = sm.tsa.statespace.SARIMAX(data['wpi'], trend='c', order=(1,1,1))
+res = mod.fit(disp=False)
+print(res.summary())
+```
+
+According to the summary, we have:
+$$
+\Delta y_t = 0.0943 + 0.8742 \Delta y_{t-1} - 0.4120\epsilon_{t-1} + \epsilon_t
+$$
+
+## SARIMA model
+This model is an extension of ARIMA model. The new part of this model is that there is allowed to be a seasonal effect. The second difference is that this model uses the log of the data rather than the level.
+
+```{python}
+# Dataset
+data = pd.read_stata(BytesIO(wpi1))
+data.index = data.t
+data.index.freq="QS-OCT"
+
+data['ln_wpi'] = np.log(data['wpi'])
+data['D.ln_wpi'] = data['ln_wpi'].diff()
+```
+
+
+```{python}
+# Graph data
+fig, axes = plt.subplots(1, 2, figsize=(20,4))
+
+# Levels
+axes[0].plot(data.index._mpl_repr(), data['wpi'], '-')
+axes[0].set(title='US Wholesale Price Index')
+
+# Log difference
+axes[1].plot(data.index._mpl_repr(), data['D.ln_wpi'], '-')
+axes[1].hlines(0, data.index[0], data.index[-1], 'r')
+axes[1].set(title='US Wholesale Price Index - difference of logs')
+plt.show()
+```
+```{python}
+# Graph data
+fig, axes = plt.subplots(1, 2, figsize=(20,4))
+
+fig = sm.graphics.tsa.plot_acf(data.iloc[1:]['D.ln_wpi'], lags=40, ax=axes[0])
+fig = sm.graphics.tsa.plot_pacf(data.iloc[1:]['D.ln_wpi'], lags=40, ax=axes[1])
+plt.show()
+```
+
+
+From the first two graphs, we note that the original time series does not appear to be stationary, whereas the first-difference does. This supports either estimating an ARMA model on the first-difference of the data, or estimating an ARIMA model with 1 order of integration (recall that we are taking the latter approach). The last two graphs support the use of an ARMA(1,1,1) model.
+
+What we want is a polynomial that has terms for the 1st and 4th degrees, but leaves out the 2nd and 3rd terms. To do that, we need to provide a tuple for the specification parameter, where the tuple describes the lag polynomial itself. In particular, here we would want to use:
+
+```{python}
+ar = 1          # this is the maximum degree specification
+ma = (1,0,0,1)  # this is the lag polynomial specification
+
+# Fit the model
+mod = sm.tsa.statespace.SARIMAX(data['ln_wpi'], trend='c', order=(ar,1,ma))
+res = mod.fit(disp=False)
+print(res.summary())
+```
+
+Alternatively, we can use $$ARIMA(p,d,q)\times (P,D,Q)_s$$, where the lowercase letters indicate the specification for the non-seasonal component, and the uppercase letters indicate the specification for the seasonal component; s is the periodicity of the seasons (e.g. it is often 4 for quarterly data or 12 for monthly data).
+
+Here we use airline data as an exmaple:
+```{python}
+# Dataset
+air2 = requests.get('https://www.stata-press.com/data/r12/air2.dta').content
+data = pd.read_stata(BytesIO(air2))
+data.index = pd.date_range(start=datetime(data.time[0], 1, 1), periods=len(data), freq='MS')
+data['lnair'] = np.log(data['air'])
+
+# Fit the model
+mod = sm.tsa.statespace.SARIMAX(data['lnair'], order=(2,1,0), seasonal_order=(1,1,0,12), simple_differencing=True)
+res = mod.fit(disp=False)
+print(res.summary())
+
+```
+Notice that here we used an additional argument simple_differencing=True. This controls how the order of integration is handled in ARIMA models. If simple_differencing=True, then the time series provided as endog is literally differenced and an ARMA model is fit to the resulting new time series. This implies that a number of initial periods are lost to the differencing process, however it may be necessary either to compare results to other packages (e.g. Stata’s arima always uses simple differencing) or if the seasonal periodicity is large.
+
+The default is simple_differencing=False, in which case the integration component is implemented as part of the state space formulation, and all of the original data can be used in estimation.
+
+## ARIMAX 
+
+This model demonstrates the use of explanatory variables (the X part of ARMAX). When exogenous regressors are included, the SARIMAX module uses the concept of “regression with SARIMA errors” (see http://robjhyndman.com/hyndsight/arimax/ for details of regression with ARIMA errors versus alternative specifications)
+
+Here is the example using ARIMAX:
+```{python}
+# Dataset
+friedman2 = requests.get('https://www.stata-press.com/data/r12/friedman2.dta').content
+data = pd.read_stata(BytesIO(friedman2))
+data.index = data.time
+data.index.freq = "QS-OCT"
+
+# Variables
+endog = data.loc['1959':'1981', 'consump']
+exog = sm.add_constant(data.loc['1959':'1981', 'm2'])
+
+# Fit the model
+mod = sm.tsa.statespace.SARIMAX(endog, exog, order=(1,0,1))
+res = mod.fit(disp=False)
+print(res.summary())
+
+```
+
+## ARIMA Postestimation
+
+Finally, here we describe some of the post-estimation capabilities of statsmodels’ SARIMAX.
+
+First, using the model from example, we estimate the parameters using data that excludes the last few observations (this is a little artificial as an example, but it allows considering performance of out-of-sample forecasting and facilitates comparison to Stata’s documentation).
+
+```{python}
+# Dataset
+raw = pd.read_stata(BytesIO(friedman2))
+raw.index = raw.time
+raw.index.freq = "QS-OCT"
+data = raw.loc[:'1981']
+
+# Variables
+endog = data.loc['1959':, 'consump']
+exog = sm.add_constant(data.loc['1959':, 'm2'])
+nobs = endog.shape[0]
+
+# Fit the model
+mod = sm.tsa.statespace.SARIMAX(endog.loc[:'1978-01-01'], exog=exog.loc[:'1978-01-01'], order=(1,0,1))
+fit_res = mod.fit(disp=False, maxiter=250)
+print(fit_res.summary())
+```
+Next, we want to get results for the full dataset but using the estimated parameters (on a subset of the data).
+```{python}
+mod = sm.tsa.statespace.SARIMAX(endog, exog=exog, order=(1,0,1))
+res = mod.filter(fit_res.params)
+```
+The predict command is first applied here to get in-sample predictions. We use the full_results=True argument to allow us to calculate confidence intervals (the default output of predict is just the predicted values).
+
+With no other arguments, predict returns the one-step-ahead in-sample predictions for the entire sample.
+
+```{python}
+# In-sample one-step-ahead predictions
+predict = res.get_prediction()
+predict_ci = predict.conf_int()
+```
+
+We can also get dynamic predictions. One-step-ahead prediction uses the true values of the endogenous values at each step to predict the next in-sample value. Dynamic predictions use one-step-ahead prediction up to some point in the dataset (specified by the dynamic argument); after that, the previous predicted endogenous values are used in place of the true endogenous values for each new predicted element.
+
+The dynamic argument is specified to be an offset relative to the start argument. If start is not specified, it is assumed to be 0.
+
+Here we perform dynamic prediction starting in the first quarter of 1978.
+
+```{python}
+# Dynamic predictions
+predict_dy = res.get_prediction(dynamic='1978-01-01')
+predict_dy_ci = predict_dy.conf_int()
+```
+
+We can graph the one-step-ahead and dynamic predictions (and the corresponding confidence intervals) to see their relative performance. Notice that up to the point where dynamic prediction begins (1978:Q1), the two are the same.
+
+```{python}
+# Graph
+fig, ax = plt.subplots(figsize=(20,4))
+npre = 4
+ax.set(title='Personal consumption', xlabel='Date', ylabel='Billions of dollars')
+
+# Plot data points
+data.loc['1977-07-01':, 'consump'].plot(ax=ax, style='o', label='Observed')
+
+# Plot predictions
+predict.predicted_mean.loc['1977-07-01':].plot(ax=ax, style='r--', label='One-step-ahead forecast')
+ci = predict_ci.loc['1977-07-01':]
+ax.fill_between(ci.index, ci.iloc[:,0], ci.iloc[:,1], color='r', alpha=0.1)
+predict_dy.predicted_mean.loc['1977-07-01':].plot(ax=ax, style='g', label='Dynamic forecast (1978)')
+ci = predict_dy_ci.loc['1977-07-01':]
+ax.fill_between(ci.index, ci.iloc[:,0], ci.iloc[:,1], color='g', alpha=0.1)
+
+legend = ax.legend(loc='lower right')
+plt.show()
+```
+
+Finally, graph the prediction error. It is obvious that, as one would suspect, one-step-ahead prediction is considerably better.
+
+```{python}
+# Prediction error
+
+# Graph
+fig, ax = plt.subplots(figsize=(20,4))
+npre = 4
+ax.set(title='Forecast error', xlabel='Date', ylabel='Forecast - Actual')
+
+# In-sample one-step-ahead predictions and 95% confidence intervals
+predict_error = predict.predicted_mean - endog
+predict_error.loc['1977-10-01':].plot(ax=ax, label='One-step-ahead forecast')
+ci = predict_ci.loc['1977-10-01':].copy()
+ci.iloc[:,0] -= endog.loc['1977-10-01':]
+ci.iloc[:,1] -= endog.loc['1977-10-01':]
+ax.fill_between(ci.index, ci.iloc[:,0], ci.iloc[:,1], alpha=0.1)
+
+# Dynamic predictions and 95% confidence intervals
+predict_dy_error = predict_dy.predicted_mean - endog
+predict_dy_error.loc['1977-10-01':].plot(ax=ax, style='r', label='Dynamic forecast (1978)')
+ci = predict_dy_ci.loc['1977-10-01':].copy()
+ci.iloc[:,0] -= endog.loc['1977-10-01':]
+ci.iloc[:,1] -= endog.loc['1977-10-01':]
+ax.fill_between(ci.index, ci.iloc[:,0], ci.iloc[:,1], color='r', alpha=0.1)
+
+legend = ax.legend(loc='lower left');
+legend.get_frame().set_facecolor('w')
+plt.show()
+```
+
+**Reference**
+
+1. [ACF] https://medium.com/@krzysztofdrelczuk/acf-autocorrelation-function-simple-explanation-with-python-example-492484c32711
+2. [PACF] https://en.wikipedia.org/wiki/Partial_autocorrelation_function
+3. [AR] https://pythondata.com/forecasting-time-series-autoregression/
+4. [MA] https://en.wikipedia.org/wiki/Moving_average
+5. [MA] https://github.com/ritvikmath/Time-Series-Analysis/blob/master/MA%20Model.ipynb
+6. [ARMA] https://github.com/ritvikmath/Time-Series-Analysis/blob/master/ARMA%20Model.ipynb
+7. [ARMA] https://en.wikipedia.org/wiki/Autoregressive%E2%80%93moving-average_model
+8. [ARIMA] https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average 
+9. [ARIMAX] https://www.statsmodels.org/dev/examples/notebooks/generated/statespace_sarimax_stata.html#
+
+
