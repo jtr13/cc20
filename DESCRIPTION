@@ -18,6 +18,7 @@ Imports:
     AER,
     alr4,
     base,
+    bookdown,
     candela,
     car,
     carData,
