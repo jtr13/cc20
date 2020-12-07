@@ -73,6 +73,7 @@ rmd_files: [
   'chinese_tutorial_rvest_httr.Rmd',
   'website_sharing_whole_class_mosaic_plot_translation.Rmd',
   'multivariate_grouped_data_plot.Rmd',
+  'geo_visualization.Rmd',
 
   # Part: Other Topics
   'rselenium_tutorial.Rmd',  # contains PART header
