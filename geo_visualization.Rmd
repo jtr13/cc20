@@ -1,4 +1,4 @@
-#Translation of visualization related to geo data
+# Translation of visualization related to geo data
 
 Hanlin Tong and Wendy Qian
 
