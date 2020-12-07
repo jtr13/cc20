@@ -428,6 +428,7 @@ sina图
 可视化已分组的连续变量的分布
 创建带有误差线的均值和中位数图
 将误差线与小提琴图点图线形图和条形图结合起来
+translation-of-visualization-related-to-geo-data
 webscraping-dynamic-content-rselenium-tutorial
 introduction-and-setup
 simple-illustrations-with-websites
