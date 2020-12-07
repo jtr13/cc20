@@ -1,5 +1,7 @@
 #Translation of visualization related to geo data
 
+Hanlin Tong and Wendy Qian
+
 My partner and I wished to contribute to the community by translating the following paper into
 Chinese. This paper was published in 2019 by several scholars from Italy and it was aimed to
 encourage experts and non-experts to explore and to interpret the Spatio-Temporal ground
