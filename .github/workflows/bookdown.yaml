@@ -10,8 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
-      GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
  
     steps:
       - name: Checkout repo
@@ -79,10 +78,11 @@ jobs:
          name: _book # optional
          # Destination path
          path: _book/ # optional
-     - name: Deploy to GitHub Pages
-       uses: Cecilapp/GitHub-Pages-deploy@master
-       env:
-          EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
-          GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
-          BUILD_DIR: _book/                     # "_site/" by default
 
+     - name: Deploy to GitHub Pages
+       uses: Cecilapp/GitHub-Pages-deploy@3.0.0
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       with:
+         email: ${{ secrets.EMAIL }}
+         build_dir: _book       # "_site/" by default
